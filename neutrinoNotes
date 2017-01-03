@@ -48,6 +48,8 @@ p3 - Entire mass see-saw mechanism section, Majorana particles, etc....????? - h
 - Also definite flavors of quarks, weak charged current intezractions, mixed states
 - Weak doublet, weak eigenstate meaning - eigenstate/doublet in weak interaction
 p4 - Mass not associated with particular flavor?
+p5 - What does it mean for the doublets to be SU(2)_L, and left and right handed components? How does this make it massless and conserved by family?
+- Meaning of loop corrections?
 
 Rex:
 - Bosonic difference from fermions (exclusionary principle)?
@@ -77,3 +79,6 @@ Griffiths:
 Artin:
 Ch 2 - Known that d is the GCD versus another divider - Since it must be within the set, 		only if GCD
 	 - Known m must be LCM why?
+	 - How is the generated group found for some subset
+	 - How are cosets equal if homomorphic result is equal
+	 - injective = at most one from the domain, surjective = at least one, bijective = both
