@@ -53,11 +53,11 @@
 
 \begin{document}
 
-\title{}
+\title{Principles of Physics IV: Modern Physics}
 \author{Avery Karlin}
-\date{}
-\newcommand{\textbook}{}
-\newcommand{\teacher}{}
+\date{Spring 2017}
+\newcommand{\textbook}{Modern Physics by Tipler and Llewellyn}
+\newcommand{\teacher}{Dr. Paul Heiney}
 
 \maketitle
 \newpage
@@ -67,5 +67,63 @@
 \underline{Primary Textbook}: \textbook\\
 \underline{Teacher}: \teacher
 \newpage
+
+\section{Course Introduction}
+\begin{outline*}
+\1 Kinematic assumptions originally stated that all items have a well-defined position that can be measured to any precision, and all observers agree on the time and position for a measurement
+\1 Newtonian mechanics were based on the idea of the deist clockwork universe
+	\2 Conservation of momentum follows from Newton's third law, conservation of energy follows from the work energy theorm
+	\2 Conservative forces have potential energy defined such that F = $-\nabla V$ (or U, depending on notation)
+	\2 Newton's Laws combined with the fact that all known major forces act on the center of an object, implies conservation of angular momentum
+\1 Relativistic mechanics has $p = \gamma mv$ and $E^2 = c^2p^2 + m_0^2c^4$, and defined rigid bodies as impossible, often using the center of mass
+\1 Waves are travelling disturbances in a medium, averaged over space to consider bulk properties, carrying energy and momentum
+	\2 Wave equations often relate curvature (second derivative w/ respect to x) to acceleration, $f_{xx} = (1/u^2) f_{tt}$ (u can be replaced with v, acting as an alternate velocity notation)
+	\2 Waves are travelling, such that f(x, t) = g(x - ut)
+	\2 y = exp(x - ct) is travelling, while sin(x)cos(ct) is a sum of two travelling, but not a travelling on its own, such that any g(x - ut) works
+\1 Waves but not particles can diffract, refract, and superposition, while both have velocity, generally localized position, momentum, and energy
+	\2 Superposition creates nodes of no displacement, antinodes of max displacement in a standing wave
+\1 Maxwell's equations show that since changing magnetic fields produce electric fields and vice versa, waves can be created by oscillating or accelerating charges, travelling forever in vacuum
+\end{outline*}
+\section{Chapter 3 - Quantization of Charge, Light, and Energy}
+\begin{outline*}
+\1 In the 1800s, Faraday proved that a specific quantity of electricty could decompose one gram-ionic weight of monovalent ions, equal to a Faraday, or a mole of electrons, such that $Q = N_Ae$, called Faraday's Law of Electrolysis, displaying discrete electric charges
+	\2 Zeeman later discovered that discrete spectral lines emitted by an atom in a magnetic field separate into three spaced lines of different frequencies, caused by the slightly different charge to mass ratios
+		\3 This proved that the particles producing the light were negative, and found the charge to mass ratio of the electrons
+	\2 Thomsons cathode ray experiment later measured the same ratio as Zeeman, proving the existance of the electron, with the same ratio, as being the atomic negative component
+		\3 This combined with Faraday's charge allowed the mass of the electron to be determined
+		\3 He also used a uniform magnetic field creating a circular path to measure the same ratio, found to be the same for all materials, showing it was universal for atoms
+	\2 Millikan attempted to use a cloud of water droplets with a charge, such that Q = Ne, using the mass of the cloud and the radius of the drop to find e, found to be difficult because of the evaporation
+		\3 On the other hand, he found a single drop could be balanced in the air by an electric field, eventually picking up an ion causing a movement in some direction
+		\3 This resulted in the oil drop experiment, giving each charge and preserving it in midair, measuring the force on it, to confirm the electron charge
+\1 Absorbed radiation increases the kinetic energy of oscillating atoms, increasing the temperature, but resulting in increased radiation emission by electrons, reducing kinetic energy, called thermal radiation
+	\2 At thermal equilibrium, the rate of absorption and emission are equal, such that higher freqencies are present at higher temperatures, due to higher energy
+	\2 Ideal blackbodies emit and absorb all incident radiation by $R = P/A = \omega T^4$, where Stefan's constant ($\omega$) is $5.67 * 10^8 W/m^2K^4$
+		\3 Non-blackbodies emit multiplied by some emissivity constant, based on factors such as color, temperature, and composition
+	\2 Spectral distribution of the radiation of a blackbody also only depends on temperature, where the maximum emitted wavelength, $\lambda_{max} T = 2.898 * 10^{-3} m*K$, called Wien's displacement law
+	\2 Blackbodies are approximated by a cavity with a small hole to let radiation in, found that the power radiated out, $R = \frac{1}{4}cu$, where U is the total radiation energy density in the cavity
+		\3 As a result, both are proportional to the wavelength, such that the energy density distribution can be found by the number of modes of oscillation
+		\3 It is found that the number of modes of standing wave oscillation per unit volume, $n = 8\pi\lambda^{-4}$, and the Rayleigh-Jeans equation states that $u = kTn$, such that R can be calculated
+		\3 As a result, while at higher wavelengths, it fits experimentally, at low wavelengths, it appears $R \to \infty$, called the ultraviolet catastrophy, such that total energy density over the spectrum from 0 to $\infty$ would be infinite as well
+	\2 Planck's Law corrects for this, stating that since as $\lambda$ approaches 0, n approaches infinity by classical formulas, u must be a function of wavelength, such that it approaches 0
+		\3 Classically, electrons oscillating produce waves with equal frequency **FINISH***
+		\3 Planck found it agreed with expermental data if u is a multiple of a discrete value, such that $u = nhf$, where h is Planck's constant
+\1 In Hertz's spark gap experiment to generate EM waves and detect them, proving Maxwell's Theories, finding that light hitting a surface produced an electron current
+	\2 Lenard later proved that it was electrons, and observed the current was proportional to the intensity (P = IA), but found that there was no minimum intensity needed as would be classically expected, due to requiring enough energy to
+		\3 Fluxs of photons are the photons per second per unit area, related to intensity 
+		\3 Since the kinetic energy had to be great enough to avoid being pulled back to the metal surface cathode if there was a negative voltage, it required a voltage produced greater than $-V_0$, called the stopping potential
+		\3 Thus, it was found that $KE_{max} = eV_0$, such that $KE_{max}$ was independent of the light intensity as well, rather than increasing the electron kinetic energy
+	\2 Einstein postulated as a result that Planck's quantization was universal, such that E = hf for all light quanta, such that $eV_0 = hf - \phi$, where $\phi$ is the work function, characteristic of the metal, to remove an electron
+		\3 This is equal to the maximum kinetic energy by energy conservation, though some electrons lose energy when leaving the metal further
+		\3 As a result, the threshold wavelength is equal to the work function divided by h
+		\3 This also explains the lack of a time lag for the production of photoelectrons, instead of the calculated time for enough energy if it is spread evenly over the surface, as assumed classically
+\1 Xrays originally were discovered by Roentgen with a cathode ray tube, noticing rays from the collision of electrons and the glass tube could activate flurescent photographic film and pass through opaque materials
+	\2 He later observed no material was opaque, though less rays could pass through with higher densities
+	\2 He stated that their apparent lack of magnetic deflection, refraction, or interference, was due to a very short wavelength, finding they were defracted by a crystal lattice, also proving a regular crystal array
+	\2 He found they were produced by eletrons when deflected then stopped by the atoms of a target... FINISH
+\1 Compton later measured the scattering of xrays by free electrons, proving further both the photon and special relativity
+	\2 He observed that the scattered xrays were more easily absorbed, considering that the collision allowed an electron to absorb some of the photon energy, such that the wavelength became longer
+	\2 As a result, he derived the Compton equation mechanically, stating $\Delta \lambda = \frac{h}{mc}(1 - cos(\theta))$, where $\frac{h}{mc}$ is called the Compton wavelength of the electron
+		\3 This was observed for xrays due to the percent change in wavelength only being noticable for very short original wavelengths
+\end{outline*}
 
 \end{document}

@@ -1,3 +1,73 @@
+\documentclass[11 pt, twoside]{article}
+\usepackage{textcomp}
+\usepackage[margin=1in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{color}
+\usepackage{indentfirst} %Comment out for no first paragraph indent
+\usepackage[parfill]{parskip}
+\usepackage{setspace}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{outlines}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\cfoot{\hyperlink{content}{\thepage}}
+\lhead{}
+\chead{}
+\rfoot{}
+\lfoot{}
+\rhead{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+
+\usepackage{hyperref}
+\hypersetup {
+	colorlinks,
+	citecolor=black,
+	filecolor=black,
+	linkcolor=black,
+	urlcolor=black
+}
+
+\newcommand{\sepitem}{0pt} %Added room between items on the list, not including a list and its sublist
+\newcommand{\seppar}{1pt} %Between items and lists overall
+
+\setenumerate[1]{itemsep=\sepitem, parsep=\seppar}
+\setenumerate[2]{itemsep=\sepitem, parsep=\seppar}
+\setenumerate[3]{itemsep=\sepitem, parsep=\seppar}
+\setenumerate[4]{itemsep=\sepitem, parsep=\seppar}
+
+\newenvironment{outline*}
+{
+	\begin{outline}[enumerate]
+	}
+	{\end{outline}
+}
+
+\newcommand{\foot}[1]{\hyperlink{#1}{$_#1$}}
+
+\begin{document}
+
+\title{Neutrino Research Notes}
+\author{Avery Karlin}
+\date{Spring 2017}
+%\newcommand{\textbook}{Modern Physics by Tipler and Llewellyn}
+\newcommand{\teacher}{Dr. Chris Mauger}
+
+\maketitle
+\newpage
+\hypertarget{content}{\tableofcontents}
+\vspace{11pt}
+\noindent
+%\underline{Primary Textbook}: \textbook\\
+\underline{Teacher}: \teacher
+\newpage
+
 Neutrino source above muon production threshold - Background
 Hadronic system - Background = baryon/meson produced
 Why can't the electrons be captured from electron neutrinos
@@ -25,8 +95,8 @@ Purity meaning and purpose?
 5. Meaning of calibrating the experiment
 
 Article 1:
-p4 - singlet vs triplet states for a p\mu atom?
-p4 - Where did the remaining 18% (or 10% because light is because of lack of emission) go?
+p4 - singlet vs triplet states for a $p\mu$ atom?
+p4 - Where did the remaining 18\% (or 10\% because light is because of lack of emission) go?
 p4 - Is neutron production the emission or the conversion of protons, such that bound states produce one, but not emit
 p5 - virtual pion meaning? Also what is the parenthetical notation
 p5 - How are the proposed reactions similar?
@@ -48,12 +118,12 @@ p3 - Entire mass see-saw mechanism section, Majorana particles, etc....????? - h
 - Also definite flavors of quarks, weak charged current intezractions, mixed states
 - Weak doublet, weak eigenstate meaning - eigenstate/doublet in weak interaction
 p4 - Mass not associated with particular flavor?
-p5 - What does it mean for the doublets to be SU(2)_L, and left and right handed components? How does this make it massless and conserved by family?
+p5 - What does it mean for the doublets to be $SU(2)_L$, and left and right handed components? How does this make it massless and conserved by family?
 - Meaning of loop corrections?
 
 Rex:
 - Bosonic difference from fermions (exclusionary principle)?
-- Do leptons and hadrons interact -> automatically weak?, can hadrons interacts with weak?
+- Do leptons and hadrons interact $->$ automatically weak?, can hadrons interacts with weak?
 - Neutrinos only produce their cooresponding particles in interactions, Conservation of Lepton Number for Each Family (+- 1 per) - how with oscillation?, Conservation of Baryon Number, Conservataion of Strangeness, Topness, Bottomness, Charm (not weak)
 - Why do particles have minimum kinetic energy? Does that just mean minimum possible maximum KE? (Smallest top of the range) - Hows does uncertainty give it?
 - Wavelength perpendicular to energy? Why must it be continuous probability wavefunction?
@@ -77,18 +147,35 @@ Griffiths:
 - How is SO(3) a rotation and how is it equal to SU(2)?
 - How can every group be represented by a group of matrices (by homomorphic map)?
 - Why can we only measure some values of spin by Heisenberg, and must it be restricted
+- What is the decomposition of states/what does each states equation denote specifically?
+- Derivation of matrix for spin calculation and subsequent calculations?
+
+- Meaning of a left-handed doublet of the particles? Right-handed singlet? Why does the lack of right-handed neutrinos make them massless and conservation of lepton generation?
+- Invisible width of Z boson and relationship to neutrino active flavors?
+- Meaning of an adjoint field? Spinors?
+- How are the Lagrangians axiomatic?
 
 Artin:
-Ch 2 - Known that d is the GCD versus another divider - Since it must be within the set, 		only if GCD
+Ch 2 - Known that d is the GCD versus another divider - Since it must be within the set, only if GCD
 	 - Known m must be LCM why?
 	 - How is the generated group found for some subset
 	 - How are cosets equal if homomorphic result is equal
 	 - injective = at most one from the domain, surjective = at least one, bijective = both
 Ch 1 - How is proving the multiplicative property for determinants assuming it valid?
-	 - Proof of uniqueness of the determinant, det(A) = det(A^t), det(A^-1) = 1/det(A)?
+	 - Proof of uniqueness of the determinant, $det(A) = det(A^t), det(A^-1) = 1/det(A)$?
 Ch 5 - Confused on the entire 2D rotation proof? What has determinate 1, all rotation?
 	 - Orthoganal matrices are all rotation, or just SO? 
 	 - Determinate -1 combines a reflection about the axis
 	 - Trace independent of basis? Is trace of a matrix and its conjugate equal?
 	 - Continuity used to figure definitive discrete value
 	 - Proof of Euler's theorem? How can we know M' (matrix with respect to the orthoganal basis) is orthoganal and determinant 1?
+Ch 8 - How does a change of basis change a vector space coordinate system? Orthoganal change of basis preserves dot product?
+	 - $PP^t$ always symmetric?
+	 - Does a positive definite Hermitian matrix imply a positive definite Hermitian form?
+	 - Orthonormal basis = basis of orthogonal unit vectors
+Ch 6 - Uncertain how reflection and rotation == reflection and such forth?
+	 - Entire section of translation vectors?
+Ch 10 - Properties of the trace in general?
+	  - Why are the rows and columns of the character of the representations orthogonal?
+
+\end{document}

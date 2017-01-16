@@ -53,7 +53,7 @@
 
 \begin{document}
 
-\title{}
+\title{Computer Programming I}
 \author{Avery Karlin}
 \date{}
 \newcommand{\textbook}{}
@@ -68,4 +68,47 @@
 \underline{Teacher}: \teacher
 \newpage
 
+\section{Introduction to OCaml}
+\subsection{Program Design}
+\begin{outline*}
+\1 Programming can be viewed as the division into four steps, understanding the program, formalizing the interface, writing test cases, and implementing behavior
+\2 The first involves finding any relevent concepts and how they relate to each other within the program, while the second determines input and output, and their respective formats
+\2 The third determines the correct answer to standard cases, edge cases, and erroneous cases (in which the user is at fault) for how the program should behave, writing test cases in the program
+\2 The fourth step is the programming, often taking recursive decompositions of the problem, dividing it by concept, the relationships between, and the interface to allow easier debugging
+\end{outline*}
+\subsection{Basic OCaml Programming}
+\begin{outline*}
+\1 OCaml supports integer (int), boolean (bool), and string (string) primitive types, able to be defined into expressions combining the types and operations on them, working by order of operations
+\2 Basic operations on integers include +, -, *, /, mod, string_of_int (converting integer to string), on strings (surrounded by double-quotes) include ^ (concatenation), on booleans include not, &&, ||, and general comparisons include =, <> (inequality), <, <=, >, >=
+\1 Models of computation are ways of thinking about how a program executes, allowing prediction of its behavior, such as object or value oriented programming
+\2 Value-oriented is the idea that running expressions reduces it to a value, rather than an action, such as input/output, as the basis of OCaml
+\2 This is designated by the notation $<exp> => <val>$, called the evalutation of the expression by calculation as an abstract model of the computer calculation
+\3 The internal steps are written out by $\|-> <intermediary exp>$ by order of operations
+\1 If-then-else constructs, written ``if <exp> then <exp> else <exp>'', evaluating one of the last two based on the initial expression
+\2 Since the constructs are expressions by themselves, the else is required since the construct expression needs a value if the expression is false
+\1 OCaml programmings are made of declarations and commands, the former defining constants, functions, and expressions purely value oriented, the latter testing and generating output, non-value oriented
+\2 The let declaration is written as ``let <id> = <exp>'', binding the identifier to the value, unable to be modified otherwise in the program
+\3 It is often annotated by ``let <id> : <type> = <exp>'' for ease of reading, though this is not required
+\3 Let declarations then automatically substitute each subsequent <id> with the value of the expression
+\3 Redeclaring a variable is called shadowing, such that the each identifier is substituted by the nearest enclosing declaration, though this is not recommended, producing ambiguity
+\4 Shadowing rather than redefining is apparent within the limited scope of some shadows, such that it reverts back to the original
+\2 Let-in constructs are local declarations, written ``let <id> : <type> = <exp> in <exp>'' only using the decaration within the in expression
+\3 This is able to be nested, such that each applies in the next which eventually all apply within a single expression
+\2 Parameterized expressions/functions, declared by ``let <id> (<id1>:<type1>) (<id2>:<type2>) : <type> = <exp>'', called by ``<id> <val1> <val2>''
+\3 This runs by substituting the function expression for the function call and the variable id into the function
+\1 OCaml is strongly typed, such that each type is different with strict rules about combination or conversion, called well-typed if it has at least one type, able to be determined by the operations acting on it or the data
+\2 The compiler automatically typechecks for ill-typed expressions which cannot be evaluated due to type contradictions
+\3 Comparison operators return an error with two values of different types
+\3 The compiler will also alert a missing argument or an extra argument to some function
+\2 Functions use explicit type definition to improve clarity, abbreviating in the description the input types and the output type by ``<id> : <in1Type> -> <in2Type> -> ... -> <outType>''
+\1 OCaml has the ``failwith <errorString>'', ending the program and printing the error message if the expression is evaluated
+\1 Commands in OCaml are used for I/O, not calculating a value, but rather having some external effect, only able to be used in the top-level of a program, precluded by ``;;'' to distinguish commands
+\2 ``print_string <String>'' is used to print a string in output, ending the string by `\\n' for a newline, able to use an expression to evaluate to a string
+\3 Similarly, ``print_endline'' prints the string with an automatic newline, ``print_int'' for an integer
+\2 The ``run\_test'' command is stored in the Assert library, called by the ``open Assert'' command at the start, used by ``run_test <descriptionString> <boolVal>''
+\end{outline*}
+\section{Homework Notes}
+CIS Homework 1:
+- No multi command conditionals?
+- In needed for complex functions?
 \end{document}
