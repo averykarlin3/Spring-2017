@@ -105,8 +105,12 @@
 		\3 It is found that the number of modes of standing wave oscillation per unit volume, $n = 8\pi\lambda^{-4}$, and the Rayleigh-Jeans equation states that $u = kTn$, such that R can be calculated
 		\3 As a result, while at higher wavelengths, it fits experimentally, at low wavelengths, it appears $R \to \infty$, called the ultraviolet catastrophy, such that total energy density over the spectrum from 0 to $\infty$ would be infinite as well
 	\2 Planck's Law corrects for this, stating that since as $\lambda$ approaches 0, n approaches infinity by classical formulas, u must be a function of wavelength, such that it approaches 0
-		\3 Classically, electrons oscillating produce waves with equal frequency **FINISH***
-		\3 Planck found it agreed with expermental data if u is a multiple of a discrete value, such that $u = nhf$, where h is Planck's constant
+		\3 Classically, electrons oscillating produce waves with equal frequency, where the average energy is found by the energy distribution function, $n(E) = Ae^{-E/kT}$ based on the Maxwell-Boltzmann distribution function, such that average energy, $\bar{E} = \int^\infty_0 Ef(E)dE = kT$
+			\4 In this equation, n is the fraction of oscillators with energy E
+		\3 Planck found it agreed with expermental data if oscillator energy is a multiple of a discrete value, such that $E = nhf$, where h is Planck's constant
+			\4 The sum can be taken similarly  such that $\bar{E} = \frac{hf}{e^{hf/kT} - 1}$
+			\4 It follows that $u = \frac{8\pi hc\lambda^{-5}}{e^{hc/\lambda kT} - 1}$, called Planck's Law, found to be a generalization of all known laws
+	\2 Blackbody radiation has been used as proof of the Big Bang Theory, due to the universe predicted to act as a perfect black body in terms of energy distribution
 \1 In Hertz's spark gap experiment to generate EM waves and detect them, proving Maxwell's Theories, finding that light hitting a surface produced an electron current
 	\2 Lenard later proved that it was electrons, and observed the current was proportional to the intensity (P = IA), but found that there was no minimum intensity needed as would be classically expected, due to requiring enough energy to
 		\3 Fluxs of photons are the photons per second per unit area, related to intensity 
@@ -119,7 +123,16 @@
 \1 Xrays originally were discovered by Roentgen with a cathode ray tube, noticing rays from the collision of electrons and the glass tube could activate flurescent photographic film and pass through opaque materials
 	\2 He later observed no material was opaque, though less rays could pass through with higher densities
 	\2 He stated that their apparent lack of magnetic deflection, refraction, or interference, was due to a very short wavelength, finding they were defracted by a crystal lattice, also proving a regular crystal array
-	\2 He found they were produced by eletrons when deflected then stopped by the atoms of a target... FINISH
+	\2 He found they were produced by eletrons when deflected then stopped by the atoms of a target
+	\2 He then thought to use Bragg places, or face-centered cubic molecular structures of NaCl crystals, analyzing the scattered waves from each atom to view xray diffraction
+		\3 The waves are in phase regardless of wavelength if the scattering angle is equal to the incident angle for two waves hitting atoms in a plane
+		\3 This condition is called the Bragg condition, true if $2dsin(\theta) = m\lambda$, where d is the distance between atoms
+		\3 The amount of ionization from xrays can then be measured to get the intensity of each wavelength, after it has been corrected by the Bragg condition to get the correct angle
+	\2 This produces a spectra for the xrays produced, based on the anode of the material, able to be used to determine the atomic spacing
+		\3 This produces both the characteristic spectrum of sharp lines and the continuous spectrum, the former which is specific to the material
+			\4 Maxwell had previously predicted the continuous spectrum was due to the electron bombardment/deacceleration in the strong electric field, though the cause of the characteristic was unknown
+		\3 There is also a cutoff wavelength, independent of the material, based on the energy of the bombarding electrons, by $\lambda = \frac{1.24 * 10^3 nm}{V}$, called the Duane-Hunt Rule
+			\4 This is explained as the opposite of the photoelectric effect, such that all the kinetic energy is converted ($\lambda = \frac{hc}{eV}$)
 \1 Compton later measured the scattering of xrays by free electrons, proving further both the photon and special relativity
 	\2 He observed that the scattered xrays were more easily absorbed, considering that the collision allowed an electron to absorb some of the photon energy, such that the wavelength became longer
 	\2 As a result, he derived the Compton equation mechanically, stating $\Delta \lambda = \frac{h}{mc}(1 - cos(\theta))$, where $\frac{h}{mc}$ is called the Compton wavelength of the electron
