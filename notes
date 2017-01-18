@@ -1,0 +1,12 @@
+- As a result, $e(x, t) = c(x)\rho(x)u(x, t)$, where $\rho(x)$ is the mass density of the tube, giving the relationship between thermal density and temperature, able to be substituted into the equation
+- This provides the relationship between temperature and flux, but does not give a conversion between, found to be $\phi = -K_0 \frac{\partial u}{\partial x}$, called Fourier's Law of Heat Conduction
+- This is found by the facts that heat goes from hotter to lower, does not flow if temperature is equal, higher differences cause more flow, and the flow will based on materials
+- $K_0$ is the ability of a material to conduct heat, called the thermal conductivity, such that for heterogeneous materials, it is a function of x, and varies with temperature, though is generally constant in some range
+- Thus, for constant c, $\rho, K_0$, the heat equation is found to be $\frac{\partial u}{\partial t} = k\frac{\partial^2 u}{\partial x^2}$, where $k = \frac{K_0}{c\rho}$, called thermal diffusivity
+- If the heat energy is originally isolated into one location, it describes the spreading of it, or the diffusion, such that it is also called the diffusion equation
+- Similarly, for chemical diffusion, u(x, t) is the density/concentration of the chemical, gaining Fick's Law of Diffusion, analogous to Fourier's Law
+- For PDEs, the number of initial conditions equal to higher derivative of the spacial or temporal factor must be given, for 1D heat equation, generally the initial boundary conditions
+- For a prescribed fluid bath reservoir temperature at one end, the condition is such that $u(0, t) = u_B(t)$
+- The flux can also be prescribed, such as if the boundary is insulated $\frac{\partial u}{\partial x}(0, t) = 0$, such that flux is also 0 at that boundary
+- Newton's Law of Cooling is used if the rod is in contact with a mooving fluid, such that heat will continuously move to/from the air, found to be proportional to the temperature difference between the external temperature and the rod at that location
+- 
