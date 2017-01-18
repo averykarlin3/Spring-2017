@@ -72,11 +72,29 @@
 Needed - Partial Derivatives
    - Ordinary Differential Equations
    - Green Theorem, Divergence, Etc
-   - Complex Numbers - bar(z + w) = bar(z) + bar(w), bar(zw) = bar(z) * bar(w)
+   - Complex Numbers - $\bar{z + w} = \bar{z} + \bar{w}, \bar{zw} = \bar{z} * \bar{w}$
    					 - z*bar(z) = |z|^2 = a^2 + b^2
    					 - z^(-1) = bar(z)/(|z|^2), z != 0
    					 - C is a field (closure under +, *, assocative for both, distributive, identity for both, inverses except 0 for both)
    					 - |zw| = |z||w|, s.t. product of unit vectors is a unit vector
+- Conservation Laws and Flows, for some body bound by by $\partial R$, flows have a flux
+	- $M_r = \int \int \int_R = \rho(\vec{v})dV, E_R(t) = \int \int \int_R  e(\vec{v}, t) dV, Q_R(t) = \int \int \int_R Q(\vec{v}, t)dV$
+
+- For f(x(t), y(t, s)), $\frac{\partial f}{\partial t} = \frac{\partial f}{\partial x}\frac{dx}{dt} + \frac{\partial f}{\partial y}\frac{\partial y}{\partial t}$
+	- $\int^b_a \frac{\partial f}{\partial x}dx = f(b, y) - f(a, y) + c(y)$ for f(x, y)
 }
+
+\section{Chapter 1 - Heat Equation}
+\begin{outline*}
+\1 The analysis of a physical problem requires three stages, formulation, solution, and interpretation
+\1 For some one dimensional rod of constant cross-section and length L, the thermal energy density is defined by $e(x, t)$, assumed to be constant across a cross-section, such that for some cross-section, the heat energy $E = e(x, t)A\delta x$
+	\2 It is assumed that heat energy change with respect to time ($\frac{\partial }{\partial t}(e(x, t)A\delta x)$ is equal to the energy flowing across boundaries combined with the energy generated inside
+	\2 Heat flux is defined as the energy flowing to the right per unit time per unit surface area, $\phi (x, t)$, such that $\phi < 0$ means it is flowing to the left
+	\2 Heat energy generated per unit volume per unit time is denoted as $Q(x, t)$, such that the conservation of heat energy can be written as $\frac{\partial e}{\partial t} = -\frac{\partial \phi}\partial x} + Q$ for some slice
+		\3 Alternatively, it can be written not approximating for a small slice then taking the limit, such that $\frac{d}{dt} \int^b_a edx = \phi(a, t) - \phi(b, t) + \int^b_a Q dx$
+		\3 This is found to also be equal to $\int^b_a \frac{\partial e}{\partial t}dx$ if a, b are constants and e is continuous \textbf{***HOW***}
+		\3 It is also noted that $\phi(a, t) - \phi(b, t) = -\int^b_a \frac{\partial \phi}{\partial x}dx$ if $\phi$ is continuous differentiable, such that $\int^b_a (e_t + \phi_x - Q)dx = 0$, or $e_t = -\phi_x + Q$, equal to the differential form above assuming continuity, such that the integral form is more general
+	\2 Temperature is defined as $u(x, t)$ with c(u) as the specific heat, or the heat energy per unit mass to raise the temperature one unit for some material, approximately constant over small temperature intervals
+\end{outline*}
 
 \end{document}

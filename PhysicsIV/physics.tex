@@ -82,7 +82,14 @@
 	\2 y = exp(x - ct) is travelling, while sin(x)cos(ct) is a sum of two travelling, but not a travelling on its own, such that any g(x - ut) works
 \1 Waves but not particles can diffract, refract, and superposition, while both have velocity, generally localized position, momentum, and energy
 	\2 Superposition creates nodes of no displacement, antinodes of max displacement in a standing wave
+	\2 Energy is proportional to the square of the amplitude
 \1 Maxwell's equations show that since changing magnetic fields produce electric fields and vice versa, waves can be created by oscillating or accelerating charges, travelling forever in vacuum
+\1 Statistical mechanics are used to solve systems with too many obects to calculate, instead using statistics to predict average properties
+	\2 For some complicated system with total conserved energy and many ways to distribute the energy, the probability of any entity having a particular energy is independent of others, such that it depends only on others, but limits the possibilities of remaining energies
+		\3 Thus, $P(E_1)P(E_2) = f(E_1 + E_2)$, since the probability of the joint energy depends only on the sum, found to be true if $P(E) = Ab^{\pm cE} = Ae^{-\beta E}$, where $\beta = \frac{1}{k_BT}$, $k_b = 1.38 * 10^{-23} J/K$
+		\3 n(E) is defined as the number of distinct ways an object could have energy E, such that the sum of the energies must be 1, either a sum or an integral if discrete or continuous, such that $P(E) = \frac{e^{-\beta E}}{\sum_j n(E_j) e^{-\beta E_j}}$
+	\2 Thus, the average value is the sum of the value multiplied by the probability for all possible energy values, $\bar{g(E)} = \frac{\sum_j n(E_j)g(E_j)e^{-\beta E_j}}{\sum_j n(E_j)e^{-\beta E_j}}$
+	\2 The Boltzmann Distribution assumes n(E) = 1 for all E, and the energy distribution is continuous, such that $P(E) = \frac{e^{-\beta E}}{k_BT}, \bar{E} = k_BT$
 \end{outline*}
 \section{Chapter 3 - Quantization of Charge, Light, and Energy}
 \begin{outline*}
@@ -107,6 +114,9 @@
 	\2 Planck's Law corrects for this, stating that since as $\lambda$ approaches 0, n approaches infinity by classical formulas, u must be a function of wavelength, such that it approaches 0
 		\3 Classically, electrons oscillating produce waves with equal frequency, where the average energy is found by the energy distribution function, $n(E) = Ae^{-E/kT}$ based on the Maxwell-Boltzmann distribution function, such that average energy, $\bar{E} = \int^\infty_0 Ef(E)dE = kT$
 			\4 In this equation, n is the fraction of oscillators with energy E
+			\4 This is based on the fact that for some standing wave, in space a, $\lambda = \frac{2a}{n}$ must be true for soem integer n, such that the number of modes, $\Delta n = \int^{f_2}_{f_1} \frac{4a}{c}df$, the additional multiple of 2 to account for two polarizations
+			\4 In higher dimensions, $f = \frac{c}{2a}\sqrt{n_x^2 + n_y^2 + n_z^2}$, such that $N(f)df = 2(\frac{2a}{c})^3(\frac{1}{8}4\pi f^2df)$, when the space is modeled as a sphere of radius a, only in a single octant
+			\4 The higher dimensional mode equation combined with Boltzmann distribution gives the Rayleigh-Jeans formula
 		\3 Planck found it agreed with expermental data if oscillator energy is a multiple of a discrete value, such that $E = nhf$, where h is Planck's constant
 			\4 The sum can be taken similarly  such that $\bar{E} = \frac{hf}{e^{hf/kT} - 1}$
 			\4 It follows that $u = \frac{8\pi hc\lambda^{-5}}{e^{hc/\lambda kT} - 1}$, called Planck's Law, found to be a generalization of all known laws
@@ -139,4 +149,17 @@
 		\3 This was observed for xrays due to the percent change in wavelength only being noticable for very short original wavelengths
 \end{outline*}
 
+\section{Chapter 4 - The Nuclear Atom}
+\begin{outline*}
+\1 Newton's dispersion of white light was the first spectroscope, later shown to have hundreds of numbers of dark lines inside, and bright light spectra formed by flames, forming the study of spectroscopy
+	\2 Continuous spectra are emitted by incandescent solids, showing no specific lines in any spectrscope
+	\2 Band spectra are closely packed groups of lines apparently continuous in low resolution produced by fire, while line spectra are those produced by unbound chemical elements, both characteristic of material
+\1 In 1885, Balmer found that visible and near-UV spectrum of H could be represented by $\lambda_n = 364.6 \frac{n^2}{n^2 - 4} nm$, where n = 3, 4, ..., called the Balmer series
+	\2 The general form for other elements was later found as the Rydberg-Ritz formula, such that $\frac{1}{\lambda_{mn}} = R(\frac{1}{m^2} - \frac{1}{n^2}) \forall n > m$
+		\3 R is the rydberg constant, varying slightly for elements, but negligably, such that $R_H = 1.096776 * 10^7 m^{-1}$ and $R_{\infty} = 1.097373 * 10^7 m^{-1}$
+		\3 Thus, for the Balmer series, m = 2, such that the maximum wavelength is as n approaches infinity
+\1 Thomson's plum pudding model was the most popular atomic model after Balmer and Rydberg-Ritz formulas, trying to find stable configurations with normal modes of vibration of spectral lines
+	\2 On the other hand, the lack of continual emission due to electrostatic radiation and inability to make a model hindered this theory
+\1 Rutherford  
+\end{outline*}
 \end{document}

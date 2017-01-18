@@ -78,8 +78,8 @@
 \end{outline*}
 \subsection{Basic OCaml Programming}
 \begin{outline*}
-\1 OCaml supports integer (int), boolean (bool), and string (string) primitive types, able to be defined into expressions combining the types and operations on them, working by order of operations
-\2 Basic operations on integers include +, -, *, /, mod, string_of_int (converting integer to string), on strings (surrounded by double-quotes) include ^ (concatenation), on booleans include not, &&, ||, and general comparisons include =, <> (inequality), <, <=, >, >=
+\1 OCaml supports integer (int), boolean (bool), and string (string) primitive/atomic types, able to be defined into expressions combining the types and operations on them, working by order of operations
+\2 Basic operations on integers include +, -, *, /, mod, string\_of\_int (converting integer to string), on strings (surrounded by double-quotes) include \^ (concatenation), on booleans include not, \&\&, ||, and general comparisons include =, <> (inequality), <, <=, >, >=
 \1 Models of computation are ways of thinking about how a program executes, allowing prediction of its behavior, such as object or value oriented programming
 \2 Value-oriented is the idea that running expressions reduces it to a value, rather than an action, such as input/output, as the basis of OCaml
 \2 This is designated by the notation $<exp> => <val>$, called the evalutation of the expression by calculation as an abstract model of the computer calculation
@@ -103,9 +103,24 @@
 \2 Functions use explicit type definition to improve clarity, abbreviating in the description the input types and the output type by ``<id> : <in1Type> -> <in2Type> -> ... -> <outType>''
 \1 OCaml has the ``failwith <errorString>'', ending the program and printing the error message if the expression is evaluated
 \1 Commands in OCaml are used for I/O, not calculating a value, but rather having some external effect, only able to be used in the top-level of a program, precluded by ``;;'' to distinguish commands
-\2 ``print_string <String>'' is used to print a string in output, ending the string by `\\n' for a newline, able to use an expression to evaluate to a string
-\3 Similarly, ``print_endline'' prints the string with an automatic newline, ``print_int'' for an integer
-\2 The ``run\_test'' command is stored in the Assert library, called by the ``open Assert'' command at the start, used by ``run_test <descriptionString> <boolVal>''
+\2 ``print\_string <String>'' is used to print a string in output, ending the string by `\\n' for a newline, able to use an expression to evaluate to a string
+\3 Similarly, ``print\_endline'' prints the string with an automatic newline, ``print\_int'' for an integer
+\2 The ``run\_test'' command is stored in the Assert library, called by the ``open Assert'' command at the start, used by ``run\_test <descriptionString> <boolVal>''
+\end{outline*}
+\section{Lists and Recursion}
+\begin{outline*}
+\1 Lists are sequences of at least zero values, either [], the empty list/nil, or ``item1::item2::[]'' as the list of [item1, item2], able to compound to longer lists, where :: is the constructor operator for the list
+\2 Lists of lists are also able to be created, and expressions can be used as items, evaluating to the value added to the list
+\2 Lists are also able to be made by shorthand, ``[item1;item2;]''
+\2 List types are denoted by ``<primitiveType> list'', required to be a homogeneous/single-type list, such that double lists are denoted ``<primitiveType> list list'' and so forth
+\2 OCaml is able to deconstruct expressions by pattern matching, written ``begin match <exp> with | <case> -> <return> ... end''
+\3 Thus, for a list, the two cases to test for are ``[]'' and ``$<$var1$>$::$<$list1$>$'', checking for an empty list, such that if the latter case is found, the <var1> and <list1> identifiers are bound to the cooresponding list parts
+\2 List concatnation is performed by the ``@'' operator
+\1 Lists in OCaml are defined self-referentially, as an inductive data type, stating how to build an atomic instance, and construct a larger value out of it
+\2 As a result, both calculations and creation of lists are done by structural recursion, using an empty list base case, calculating for the head assuming the tail has been calculated already
+\3 This can be determined by writing out each new recursion to analyze how each level of recursion can be used to get the desired result
+\2 Recursive functions in OCaml must be defined by ``let rec'' at the start instead of just ``let''
+\2 OCaml does not ensure that all recursion is structural (taking a smaller portion of the structure towards the base case), providing the possibility for loops or an infinite loop
 \end{outline*}
 \section{Homework Notes}
 CIS Homework 1:
