@@ -50,6 +50,7 @@
 }
 
 \newcommand{\foot}[1]{\hyperlink{#1}{$_#1$}}
+\newcommand\pd[2]{\frac{\partial #1}{\partial #2}}
 
 \begin{document}
 
@@ -90,11 +91,39 @@ Needed - Partial Derivatives
 \1 For some one dimensional rod of constant cross-section and length L, the thermal energy density is defined by $e(x, t)$, assumed to be constant across a cross-section, such that for some cross-section, the heat energy $E = e(x, t)A\delta x$
 	\2 It is assumed that heat energy change with respect to time ($\frac{\partial }{\partial t}(e(x, t)A\delta x)$ is equal to the energy flowing across boundaries combined with the energy generated inside
 	\2 Heat flux is defined as the energy flowing to the right per unit time per unit surface area, $\phi (x, t)$, such that $\phi < 0$ means it is flowing to the left
-	\2 Heat energy generated per unit volume per unit time is denoted as $Q(x, t)$, such that the conservation of heat energy can be written as $\frac{\partial e}{\partial t} = -\frac{\partial \phi}\partial x} + Q$ for some slice
+	\2 Heat energy generated per unit volume per unit time is denoted as $Q(x, t)$, such that the conservation of heat energy can be written as $\frac{\partial e}{\partial t} = -\frac{\partial \phi}{\partial x} + Q$ for some slice
 		\3 Alternatively, it can be written not approximating for a small slice then taking the limit, such that $\frac{d}{dt} \int^b_a edx = \phi(a, t) - \phi(b, t) + \int^b_a Q dx$
 		\3 This is found to also be equal to $\int^b_a \frac{\partial e}{\partial t}dx$ if a, b are constants and e is continuous \textbf{***HOW***}
 		\3 It is also noted that $\phi(a, t) - \phi(b, t) = -\int^b_a \frac{\partial \phi}{\partial x}dx$ if $\phi$ is continuous differentiable, such that $\int^b_a (e_t + \phi_x - Q)dx = 0$, or $e_t = -\phi_x + Q$, equal to the differential form above assuming continuity, such that the integral form is more general
 	\2 Temperature is defined as $u(x, t)$ with c(u) as the specific heat, or the heat energy per unit mass to raise the temperature one unit for some material, approximately constant over small temperature intervals
+		\3 As a result, $e(x, t) = c(x)\rho(x)u(x, t)$, where $\rho(x)$ is the mass density of the tube, giving the relationship between thermal density and temperature, able to be substituted into the equation
+	\2 This provides the relationship between temperature and flux, but does not give a conversion between, found to be $\phi = -K_0 \frac{\partial u}{\partial x}$, called Fourier's Law of Heat Conduction
+		\3 This is found by the facts that heat goes from hotter to lower, does not flow if temperature is equal, higher differences cause more flow, and the flow will based on materials
+		\3 $K_0$ is the ability of a material to conduct heat, called the thermal conductivity, such that for heterogeneous materials, it is a function of x, and varies with temperature, though is generally constant in some range
+		\3 Thus, for constant c, $\rho, K_0$, the heat equation is found to be $\frac{\partial u}{\partial t} = k\frac{\partial^2 u}{\partial x^2}$, where $k = \frac{K_0}{c\rho}$, called thermal diffusivity
+	\2 If the heat energy is originally isolated into one location, it describes the spreading of it, or the diffusion, such that it is also called the diffusion equation
+		\3 Similarly, for chemical diffusion, u(x, t) is the density/concentration of the chemical, gaining Fick's Law of Diffusion, analogous to Fourier's Law
+\1 For PDEs, the number of initial conditions equal to higher derivative of the spacial or temporal factor must be given, for 1D heat equation, generally the initial boundary conditions
+	\2 For a prescribed fluid bath reservoir temperature at one end, the condition is such that $u(0, t) = u_B(t)$
+	\2 The flux can also be prescribed, such as if the boundary is insulated $\frac{\partial u}{\partial x}(0, t) = 0$, such that flux is also 0 at that boundary
+	\2 Newton's Law of Cooling is used if the rod is in contact with a mooving fluid, such that heat will continuously move to/from the air, found to be proportional to the temperature difference between the external temperature and the rod at that location
+		\3 Thus, at the boundary, it is written as $-K_0(0)\frac{\partial u}{\partial x}(0, t) = -H(u(0, t) - u_B(t))$, where H is the heat transfer coefficient
+		\3 The heat transfer coefficient represent the degree of insulation of the boundary, such that 0 is complete insulation, to infinity for uninsulated
+\1 Steady initial conditions are those that do not depend on time, while equilibrium/steady-state solutions are solutions that do not depend on time, such that for the heat equation, $\frac{d^2u}{dx^2} = 0$
+	\2 As a result, for steady boundary temperatures, $u(x) = T_1 + \frac{T_2 - T_1}{L}x$, such that for some initial stateit will eventually reach the steady state solution, while for insultated edges, the steady solution is a constant
+		\3 To get a specific constant, some initial function of temperature at the initial time is given, f(x), such that $u(x) = C_2 = \frac{1}{L} \int^L_0 f(x)dx$, such that it is the average of the initial temperature distribution
+\1 This equation is able to be extended to higher dimensions by the $E = \int \int \int_R c\rho u dV$ and heat flux is defined as a vector, positive for outward rather than right, using the outward normal vector $\vec{n}$
+	\2 Thus, the conservation law can be written by $\frac{d}{dt} \int\int\int_R c\rho udV = - \oiint_{\partial R} \phi \cdot \vec{n}dS + \int\int\int_R QdV$
+		\3 The divergence theorem states that $\int\int\int_R \nabla \cdot \vec{A} dV = \oiint_{\partial R} \vec{A} \cdot \vec{n} dS$
+	\2 As a result, by the same reasoning as for 1D, $c\rho \pd{u}{t} + \nabla \cdot \phi - Q = 0$ and $\phi = -K_0\nabla u$, combined for Fourier's Law of Conduction
+	\2 For Q = 0, $\pd{u}{t} = k\nabla \cdot \nabla u = k\nabla^2 u$, where $\nabla^2 u$ is the Laplacian of u
+	\2 For the boundary conditions, the boundary can have a known constant temperature, or be partially insulated, such that $\nabla u \cdot \vec{n} = 0$ (directional derivative outward at the boundary is 0)
+		\3 Newton's Law of Cooling can also apply, such that $-K_0 \nabla u \cdot \vec{n} = H(u - u_b)$
+	\2 The steady state solution is such that $\nabla^2u = \frac{-Q}{K_0}$, called Poisson's equation, such that if Q = 0, $\nabla^2u = 0$, called Laplace's/the potential equation
+\1 For cylindrical coordinates, the Laplacian is shown to be $\nabla^2 u = \frac{1}{r}\pd{}{r}(r\pd{u}{r}) + \frac{1}{r^2}\pd{^2u}{\theta^2} + \pd{^2u}{z^2}$
+\2 Situations where u is constant for $\theta$ are said to be circularly or axially symmetric
+\2 Spherical coordinates are written $(p, \theta, \phi)$, where $0 \leq \phi \leq \pi$, such that $x = psin(\phi)cos(\theta), y = psin(\phi)sin(\theta), z = pcos(\phi)$
+\3 Thus, $\nabla^2u = \frac{1}{p^2}\pd{}{p}(p^2\pd{u}{p}) + \frac{1}{p^2}{sin\phi}\pd{}{\phi}(sin\phi\pd{u}{\phi}) + \frac{1}{p^2sin^2\phi}\pd{^2u}{\theta^2}$
 \end{outline*}
 
 \end{document}
