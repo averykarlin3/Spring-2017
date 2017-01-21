@@ -122,6 +122,17 @@
 \2 Recursive functions in OCaml must be defined by ``let rec'' at the start instead of just ``let''
 \2 OCaml does not ensure that all recursion is structural (taking a smaller portion of the structure towards the base case), providing the possibility for loops or an infinite loop
 \end{outline*}
+\section{Tuples and Nested Patterns}
+\begin{outline*}
+\1 Tuples store a set number of values (at least 2) of different types, able to use expressions or complex types, denoted generally as ``(<val1>, <val>2, ...> : <type1> * <type2> ...''
+\2 Pattern matching can be used similarly, though generally only needing a single case, due to only one form of construction
+\3 Let constructions can also be used, written ``let (<var1>, <var2> = <var> in <var1/var2>'' to set <var> to either <var1> or <var2> for a two-item tuple
+\3 Nested patterns of lists and tuples can also be combined for more complex pattern matching, testing the patterns in the order listed in the match statement
+\3 If there is no match, it will return a Match_Failure when run, such that it will give a non-exaustive pattern-matching warning during compilation
+\3 In a pattern match, if a variable is not used, it can be replaced by \_ to act as a placeholder/wildcard for an unused value
+\2 Empty tuples are represented by () with type of unit, used as the function paramter for functions without proper inputs, though able to be shorthanded as () in that case instead of (<var>: unit)
+\3 It is also considered the return type for a command function, such that no output is produced
+\end{outline*}
 \section{Homework Notes}
 CIS Homework 1:
 - No multi command conditionals?
