@@ -124,14 +124,34 @@
 \end{outline*}
 \section{Tuples and Nested Patterns}
 \begin{outline*}
-\1 Tuples store a set number of values (at least 2) of different types, able to use expressions or complex types, denoted generally as ``(<val1>, <val>2, ...> : <type1> * <type2> ...''
+\1 Tuples store a set number of values (at least 2) of different types, able to use expressions or complex types, denoted generally as ``(<val1>, <val>2, ...>) : <type1> * <type2> ...''
 \2 Pattern matching can be used similarly, though generally only needing a single case, due to only one form of construction
 \3 Let constructions can also be used, written ``let (<var1>, <var2> = <var> in <var1/var2>'' to set <var> to either <var1> or <var2> for a two-item tuple
 \3 Nested patterns of lists and tuples can also be combined for more complex pattern matching, testing the patterns in the order listed in the match statement
-\3 If there is no match, it will return a Match_Failure when run, such that it will give a non-exaustive pattern-matching warning during compilation
+\3 If there is no match, it will return a Match\_Failure when run, such that it will give a non-exaustive pattern-matching warning during compilation
 \3 In a pattern match, if a variable is not used, it can be replaced by \_ to act as a placeholder/wildcard for an unused value
 \2 Empty tuples are represented by () with type of unit, used as the function paramter for functions without proper inputs, though able to be shorthanded as () in that case instead of (<var>: unit)
 \3 It is also considered the return type for a command function, such that no output is produced
+\end{outline*}
+\section{User-defined Datatypes}
+\begin{outline*}
+\1 User-defined datatypes are needed to represent application specific types, used to avoid issues with primitives such as invalid values, confusion of types, and invalid default operations
+\2 They are defined by ``type <id> = | <val1> | <val2> ...'', where <id> must be all lowercase, while each <val> must start with an uppercase letter, each representing an atomic, discrete value
+	\3 These are constructed purely by the <val>
+\2 Types are also able to be represented as tuples of multiple datatypes, defined by ``type <id> = | <val1> of <type1> | <val2> of <type2 ...''
+	\3 These are constructed by ``<val> (<type\_values>)'', with more complicated match expressions
+	\3 Similarly, type abbreviations can rename existing types, such that ``type <id> = <type>'', acting as a substitute for a general constructor name
+\2 Types can be defined recursively as well, with some base case, with the other discrete values using the type itself
+\end{outline*}
+\section{Binary Trees}
+\begin{outline*}
+\1 Trees are used in CS either naturally or due to allowing ordering large amounts of data for efficient searching, defined recursively as either empty or a node
+	\2 Root nodes are those at the top of the tree, leaf nodes at the bottom, internal nodes as all others, with each node having 0-2 child notes in a binary tree
+	\2 Each node stores some value, and a link to each of its child nodes, but not its parent node, generally ``<leftChild>, <val>, <rightChild>''
+	\2 Trees can be traversed by pre-order (left, right, node), in-order (left, node, right), post-order (left, right, node), able to be used to list items or search
+\1 Trees can allow for easier searching if there are linearly ordered labels, such that binary search tree invarient are such that the right node being greater than, the left less than, Empty as the default, such that search is logarithmic
+	\2 Binary search trees are constructed such that the nodes are inserted or deleted in accordance with the ordering
+	\2 Inserting is similarly done to searching, while deleting requires a simple case for 0 children and 1 child, but for 2 children, the left maximum leaf replaces the deleted node and is removed from the bottom
 \end{outline*}
 \section{Homework Notes}
 CIS Homework 1:

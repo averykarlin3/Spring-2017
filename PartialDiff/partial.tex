@@ -12,6 +12,7 @@
 \usepackage{amssymb}
 \usepackage{enumitem}
 \usepackage{outlines}
+\usepackage{esint}
 
 \usepackage{fancyhdr}
 \pagestyle{fancy}
@@ -74,8 +75,8 @@ Needed - Partial Derivatives
    - Ordinary Differential Equations
    - Green Theorem, Divergence, Etc
    - Complex Numbers - $\bar{z + w} = \bar{z} + \bar{w}, \bar{zw} = \bar{z} * \bar{w}$
-   					 - z*bar(z) = |z|^2 = a^2 + b^2
-   					 - z^(-1) = bar(z)/(|z|^2), z != 0
+   					 - $z*bar(z) = |z|^2 = a^2 + b^2$
+   					 - $z^(-1) = bar(z)/(|z|^2), z != 0$
    					 - C is a field (closure under +, *, assocative for both, distributive, identity for both, inverses except 0 for both)
    					 - |zw| = |z||w|, s.t. product of unit vectors is a unit vector
 - Conservation Laws and Flows, for some body bound by by $\partial R$, flows have a flux
@@ -121,9 +122,42 @@ Needed - Partial Derivatives
 		\3 Newton's Law of Cooling can also apply, such that $-K_0 \nabla u \cdot \vec{n} = H(u - u_b)$
 	\2 The steady state solution is such that $\nabla^2u = \frac{-Q}{K_0}$, called Poisson's equation, such that if Q = 0, $\nabla^2u = 0$, called Laplace's/the potential equation
 \1 For cylindrical coordinates, the Laplacian is shown to be $\nabla^2 u = \frac{1}{r}\pd{}{r}(r\pd{u}{r}) + \frac{1}{r^2}\pd{^2u}{\theta^2} + \pd{^2u}{z^2}$
-\2 Situations where u is constant for $\theta$ are said to be circularly or axially symmetric
-\2 Spherical coordinates are written $(p, \theta, \phi)$, where $0 \leq \phi \leq \pi$, such that $x = psin(\phi)cos(\theta), y = psin(\phi)sin(\theta), z = pcos(\phi)$
-\3 Thus, $\nabla^2u = \frac{1}{p^2}\pd{}{p}(p^2\pd{u}{p}) + \frac{1}{p^2}{sin\phi}\pd{}{\phi}(sin\phi\pd{u}{\phi}) + \frac{1}{p^2sin^2\phi}\pd{^2u}{\theta^2}$
+	\2 Situations where u is constant for $\theta$ are said to be circularly or axially symmetric
+	\2 Spherical coordinates are written $(p, \theta, \phi)$, where $0 \leq \phi \leq \pi$, such that $x = psin(\phi)cos(\theta), y = psin(\phi)sin(\theta), z = pcos(\phi)$
+		\3 Thus, $\nabla^2u = \frac{1}{p^2}\pd{}{p}(p^2\pd{u}{p}) + \frac{1}{p^2}{sin\phi}\pd{}{\phi}(sin\phi\pd{u}{\phi}) + \frac{1}{p^2sin^2\phi}\pd{^2u}{\theta^2}$
+\end{outline*}
+\section{Seperation of Variables}
+\begin{outline*}
+\1 The method of seperation of variables is used when the partial differential equation and boundary conditions are linear and homogeneous
+	\2 Linear operators are those that satisfy the linearity property, $L(c_1u_1 + c_2u_2) = c_1L(u_1) + c_2L(u_2)$
+		\3 The heat operator is a linear operator, $L(u) = \pd{u}{t} - k\pd{^2u}{x^2}$
+		\3 Linear equations are those of the form L(u) = f, where f is a known function and L is a linear operator
+	\2 Homogeneous equations are those of the form L(u) = 0, such that if L is a linear operator, it is a linear homogeneous equation, such that u = 0 is always a solution, called the trivial solution
+	\2 Linear homogeneous equations have the principle of superpoosition, such that if $u_1, u_2$ are solutions, then all linear combinations of them are also solutions
+		\3 Linear homogeneous properties also must be tested for the boundary conditions
+\1 For the 1D homogeneous heat equation with zero temperatures at both ends, and initial condition u(x, 0) = f(x), it acts as a linear homogeneous partial differential with linear homogeneous boundary conditions
+	\2 Separation of variables attempts to find solutions of $u(x, t) = \phi(x)G(t)$ (product form), ignoring the initial conditions, due to generally not satisfying in this form
+		\3 As a result, by the boundary conditions, either u is the trivial solution, or $\phi(0) = 0, \phi(L) = 0$, providing new boundary condition forms
+	\2 This can be converted to the form $\frac{1}{kG}\frac{dG}{dt} = \frac{1}{\phi}\frac{d^2\phi}{dx^2}$, such that for each variable to be independent, rather than a function of the other, it is set equal to the separation constant, $-\lambda$, forming 2 ODEs
+		\3 Thus, $G(t) = ce^{-\lambda kt}$, such that physically, $-\lambda \geq 0$, due to otherwise the temperature increasing exponentially
+\1 The spacial ODE for the 1D heat equation with 0 temperature boundaries is a boundary value problem, rather than an IVP, not automatically providing a unique solution, allowing nontrivial solutions to be found
+	\2 The values such that there is a nontrivial solution are eigenvalues, where the nontrivial $\phi(x)$ is called the eigenfunction of the value
+	\2 It is assumed that $\lambda$ is real, where the solutions are of the form $\phi = e^{rx}, r^2 = -\lambda$
+		\3 If $\lambda > 0$, $r = \pm i\sqrt{\lambda}$, such that the solutons oscillate by each of the respective components as separate solutions, such that $\phi = c_1 cos(\sqrt{\lambda} x) + c_2 sin(\sqrt{\lambda} x)$, though any linearly independent solution can be used
+			\4 Thus, by the boundary conditions, $c_1 = 0$, such that $\phi(x) = c_2 sin(\frac{n\pi x}{L})$, where n is any positive integer, giving eigenvalues/eigenfunctions, denoted $\phi_n(x)$ for each respective n
+		\3 If $\lambda = 0$, $\phi = c_1 + c_2x$, such that $c_1 = c_2 = 0$ by the boundary conditions, such that it is the trivial solution, such that $\lambda = 0$ is not an eigenvalue for the heat equation
+		\3 If $\lambda < 0$, $\phi = c_1 e^{\sqrt{-\lambda}x} + c_2 e^{-\sqrt{-\lambda}x}$, this can be written in terms of the hyperbolic functions for simplicity
+			\4 These are written as $cosh(x) = \frac{e^x + e^{-x}}{2}$ and $sinh(x) = \frac{e^x - e^{-x}}{2}$, where $cosh'(x) = sinh(x)$ and $sinh'(x) = cosh(x)$
+			\4 Thus, $\phi = c'_1 cosh(\sqrt{s}x) + c'_2 sinh(\sqrt{s}x)$
+			\4 The boundary conditions produce only the trivial solution for this form of the equation, such that there are no negative eigenvalues
+	\2 As a result, $u(x, t) = Bsin(\frac{n\pi x}{L})e^{-k(\frac{n\pi}{L})^2t}$, such that as $t \to \infty, u(x, t) = 0$
+		\3 This solution can be used to satisfy an IVP assuming the initial condition is of the correct format, $u(x, 0) = Bsin(\frac{n\pi x}{L}$ for some n
+		\3 Similarly, for initial conditions which are the sum of this form, the solution can be found as the sum of the respective solutions for each initial condition
+	\2 Since the linear combination of solutions is a solution, the sum of each solution for n is a solution, with possibly different aplitudes for each
+		\3 Thus, $u(x, t) = \sum_{n = 1}^M B_n sin(\frac{n \pi x}{L}e^{-k(\frac{n\pi}{L})^2t}$ with initial condition, $u(x, 0) = \sum_{n = 1}^M B_n sin(\frac{n \pi x}{L}$
+		\3 This is useful, due to the infinite sum of sine curves of this form being a type of Fourier series, such that any function f(x) can be approximated as it as the series approaches infinity
 \end{outline*}
 
 \end{document}
+
+$u_n(x, 0) = B_nsin(\frac{n\pi}{L}x)$ if $f(x) = 5sin(\frac{7\pi}{L}x) + 7sin(\frac{13\pi}{L}x)$, then $u = 5sin(\frac{7\pi}{L}x)e^{-k(\frac{7\pi}{L})^2t} + 7sin(\frac{13\pi}{L}x)e^{-k(\frac{13\pi}{L})^2t}$

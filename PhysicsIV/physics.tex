@@ -93,6 +93,10 @@
 \1 Single photon cannot pair produce an electron and a positron, due to the center of mass frame proving lack of conservation of momentum, though a single photon can collide into a mass and pair produce
 \1 Existance of atoms based on the macroscopic shape of crystals, the inability to convert elements to another type, stoichiometry chemistry rules, and periodic table able to predict properties of atoms
 \1 de Broglie later stated that massive particles could have wavelength by the same formuila, $p\lambda = \lambda \sqrt{2mK} = h$, where K is kinetic energy
+\1 For two spheres on a collision course, they will collide if the center-center distance is at most $r_1 + r_2$, such that effective area/cross-section, $\sigma = \pi (r_1 + r_2)^2$
+	\2 Thus, the probability of an electron passing through a box with sides of area A/$L^2$ is $P = \frac{M\sigma}{A} = nL\sigma$, where M is the mass of the box and n is the density of the box
+	\2 For some surface, the number colliding per area, $\Delta N = -PN$ where N is the number incident on the surface per second, and the number through the box of thickness x is thus, $\frac{\Delta N}{\Delta x} = -nN\sigma$
+	\2 Thus, $N(x) = N(0)e^{-n\sigma x} = N(0)e^{-x/l}$ where l is the mean scattering length
 \end{outline*}
 
 \section{Chapter 3 - Quantization of Charge, Light, and Energy}
@@ -144,7 +148,7 @@
 		\3 The amount of ionization from xrays can then be measured to get the intensity of each wavelength, after it has been corrected by the Bragg condition to get the correct angle
 	\2 This produces a spectra for the xrays produced, based on the anode of the material, able to be used to determine the atomic spacing
 		\3 This produces both the characteristic spectrum of sharp lines and the continuous spectrum, the former which is specific to the material
-			\4 Maxwell had previously predicted the continuous spectrum was due to the electron bombardment/deacceleration in the strong electric field, though the cause of the characteristic was unknown
+			\4 Maxwell had previously predicted the continuous spectrum was due to the electron bombardment/deacceleration in the strong electric field (called bremsstrahlung), though the cause of the characteristic was unknown
 		\3 There is also a cutoff wavelength, independent of the material, based on the energy of the bombarding electrons, by $\lambda = \frac{1.24 * 10^3 nm}{V}$, called the Duane-Hunt Rule
 			\4 This is explained as the opposite of the photoelectric effect, such that all the kinetic energy is converted ($\lambda = \frac{hc}{eV}$)
 \1 Compton later measured the scattering of xrays by free electrons, proving further both the photon and special relativity
@@ -182,9 +186,80 @@
 		\3 Thus, for the largest angle ($180^o$), the collision is almost head on, providing an upper bound for the atomic radius
 		\3 For some nucleus, by conservation of energy, $r = \frac{kq_{\alpha}Q}{\frac{1}{2}m_{\alpha}v^2}$, using the point when the number of collisions at some angle changes as the radius based on the initial kinetic energy
 \1 Bohr later specified the charge and mass of electrons, stating they orbited by Coulomb force, but was unstable due to accelerating toward the center, with EM predicting that light of $f = \frac{v}{2\pi r}$, proportional to $\frac{1}{r^{\frac{3}{2}}}$
-	\2 For the electrons, $E = \frac{1}{2}mv^2 - \frac{kZe^2}{r}$, proportional to $-\frac{1}{r}$, such that it will be losing energy, with decreasing radius
+	\2 For the electrons, $E = \frac{1}{2}mv^2 - \frac{kZe^2}{r} = -\frac{kZe^2}{2r_n}$, proportional to $-\frac{1}{r}$, such that it will be losing energy, with decreasing radius
 		\3 As the energy is lost due to the emission of radiation, emitting a continuous spectrum as the radius changes, the atom will decay, rendering it invalid
 	\2 Bohr solved this by stating electrons has certain stationary states they could orbit without emission, and that the radiation emitted was due to the change in state, $hf = E_i - E_f$, called the Bohr frequency condition
-		\3 He also made the correspondence principle, stating that the limit of large orbits and energies, all quantum must align with classical
+		\3 He also made the correspondence principle, stating that the limit of large orbits and energies (or as quantum numbers reach higher), all quantum must align with classical
+	\2 This allowed him to determine that angular momentum is quantied, assuming values of $\frac{nh}{2\pi}$, determining the spectra for any atom with -e charge
+		\3 By the centripetal Coulomb force, $v = (\frac{kZe^2}{mr})^{1/2}$, with $L = mvr = n\frac{h}{2\pi} = n\hbar$, where n is a quantum number, such that $r_n = \frac{n^2 a_0}{Z}$, where $a_0$ is the Bohr electron radius
+		\3 Thus, $E_n = -E_0\frac{Z^2}{n^2}$, where $E_0 = \frac{mk^2e^4}{2\hbar^2} = 13.6 eV$, such that the energy is quantized, with n = 1 as the ground state for the single electron
+			\4 The energy of the ground state is the ionization/binding energy to fully remove the electron from the atom, with the differences between states able to be drawn by an energy level diagram
+		\3 This is able to be converted to the Rydberg-Ritz equation, finding the Rydberg constant (R) as $\frac{E_0}{hc}$
+	\2 The Rydberg constant assumes a stationary nucleus due to infinite mass, such that if it has mass M, the nucleus and the electron have total kinetic energy of $E = \frac{p^2}{2\mu}$ where $\mu = \frac{m}{1 + \frac{m}{M}}$
+		\3 As a result, $\mu$ is the reduced electron mass, substituted for the electron mass to account for regular nuclei, such that $R = R_{\infty}\mu$
+		\3 $\mu$ is taken from classical physics, assuming central forces, acting similarly on electrons as on astronomical bodies
+	\2 The correspondence principle as a result implies that as energy levels are closely enough spaced, quantization should not matter, such that it is true as $n \to \infty$
+		\3 As a result, the frequency of an single electron jump emission is equal to the frequency of the revolution of the electron
+		\3 While it appears that multiple jumps would be greater, this is remedied by allowing elliptical orbits, such that the energy depends on the major axis, rather than the eccentricity
+	\2 Relativistic corrections implied that a highly eccentric orbit would need a larger correction as the electron moves closer, approximated for n = 1 in Hydrogen to $\frac{v}{c} = \frac{ke^2}{\hbar c} = \alpha$, called the fine-structure constant
+		\3 As a result, there are many ellipses for a single energy level, and since the velocity depends on the orbit, the energy radiated is slightly different, approximately ranging $\alpha^2$
+		\3 $\alpha$ is also able to be used to simplify equations acting as a universal constant
+	\2 Large atoms are called Rydberg atoms, as the electron energy approaches the ionization energy, the atomic radius is able to increase, used to study the correspondence principle and electromagnetic fields
+\1 Xray spectra were found by Moseley to change from element to element regularly, due to being caused by inner electron transitions, depending only on the less complex lower orbits and not affected by interatomic binding forces
+	\2 The Mosley plot is based on the fact that energy levels are proportional to $Z^2$, such that characteristic X-ray lines are found by $f^{1/2} = A_n(Z - b)$, where $A_n, b$ are constants for the line
+		\3 The K series has b = 1 while the L series has b = 7.4
+		\3 These occur when the bombarding electron cause the ionization of an inner electron, resulting in another electron falling down into the n = 1/K shell, and so forth
+	\2 Bohr's equation can provide a similar relation, using $n_f = 1$ with Z = Z - 1 to find the frequency, finding $f = cR_{\infty}(Z - b)^2(\frac{1}{n_f^2} - \frac{1}{n^2})$
+		\3 Thus, for the K-series, $A^2_n = cR_{\infty}(1 - \frac{1}{n^2})$
+		\3 The (Z - b) factor is due to the shielding of nuclear charge by other electrons in the lower shells, allowing corrections to the periodic table from weight to Z, solving property discrepencies
+	\2 The Auger effect is an alternative to x-ray emission, ejecting an extra electron from an outer shell, such that each element has a characteristic Auger electron kinetic energy spectrum
+\1 The Franck-Hertz experiment used a cathode ray tube to send electrons to atoms of some material by voltage, after which there is a small voltage in the opposite direction, measuring the current that reaches it
+	\2 It was noted that the current increased as the initial voltage did, until it suddenly dropped, repeating as a pattern
+	\2 This was due to a forced elastic collision with the atom until the energy was high enough to excite an electron, which was found to correspond to light emitted on the spectra
+	\2 This formed the basis of electron energy loss spectroscopy, measuring the locations of inelastic collisions to gain the energy structure of materials
+\end{outline*}
+\section{Chapter 5 - Wavelike Properties of Particles}
+\begin{outline*}
+\1 The De Broglie Hypothesis stated that the cause of the quantization of electrons was an effect of the standing wave condition for the wavelength of the electron, such that $E = \frac{hc}{\lambda} = pc$, such that nonrelativistically for electrically accelerated particles, $\lambda = \frac{hc}{(2mc^2eV_0)^2}$
+	\2 This had not been previously noticed due to the extremely small wavelength of larger mass objects
+	\2 It was determined that low energy electrons would have a low enough wavelength to detect diffraction in a Bragg plane, noticing the maxima and minima in the scattering by the Bragg condition
+		\3 As the energy is varied, the diffraction maximum changes, such that **ANGLE VOLTAGE ADD**
+	\2 The wave properties of neutral atoms and molecules were foun using natural thermal eneremy as motion, only using the top plane of the Bragg's planes due to the lack of energy, measuring the sscattering
+\1 The De Broglie equation for relativistic particles is found by $E^2 + (pc)^2 + E_0^2$, where $E = K + E_0$, such that $\frac{\lambda}{\lambda_c} = \frac{1}{(2(\frac{K}{E_0}) + (\frac{K}{E_0}^2))^{1/2}}$, where the Compton wavelength, $\lambda_c = \frac{h}{mc}$
+\1 Particle waves do not have a material or ether, but rather the wave is the probability of finding the particle, represented by superposition of a group of harmonic waves to form a time-space localized wave packet
+	\2 Wave packets have a group velocity ($v_g = \frac{d\omega}{dk}$), and as more waves with infinitessimally similar values of k are added, it becomes more localized
+		\3 Phase velocities, $v_p = f\lambda = \frac{\omega}{k}$, are the velocities of the individual harmonic waves, such that $v_g = v_p + k\frac{dv_p}{dk}$
+		\3 Mediums in which the phase velocity is the same for all frequencies is nondispersive, such that it is the same as the group velocity, in which the wave shape is constant
+	\2 It is found classically that for wave packets, $\Delta k \Delta x \approx 1$ where $\Delta k$ is the range of k values of the harmonic waves, $\Delta x$ is the approximate length of the wave packet
+		\3 It follows that $\Delta \omega \Delta t \approx 1$ as well, called the response time-bandwidth relation
+		\3 Both are approximate due to depending on how the range is defined as well as the shape of the packets, serving as a magnitude and defining the approximate wave characteristics
+		\3 The derivative of the equation relating k and $\lambda$ gives $\Delta k = \frac{2\pi \Delta \lambda}{\lambda^2}$, such that $\Delta x \Delta \lambda \approx \frac{\lambda^2}{2\pi}$
+		\3 This represents the minimum uncertainty/error of the measurement, though human error in the measurement would increase the actual error
+	\2 The particle wavefunction is denoted $\psi(x, t)$, such that for each harmonic wave, $v_p = \frac{E}{p} = \frac{v}{2}$, where v is the velocity of the particle itself
+		\3 The group velocity, on the other hand, is equal to the velocity of the particle itself, acting as a nondispersive wave packet, found nonrelativistically by $v_g = \frac{d\omega}{dk} = \frac{dE}{dp} = v$
+	\2 Wave behavior of photon particles are seen in low intensity diffraction, where it is the probability of hitting some location, where $E = hf$ per photon and $E_{tot}$ is proportional to $\vec{E}^2$
+		\3 The electric field, $\vec{E}$, is the wavefunction for light, cooresponding to Schrodinger's equation for electrons
+		\3 For matter waves, $P(x)dx = |\psi|^2dx$, where P is the probability at that location, acting as complex wavefunctions
+\1 Since the wavefunction is nonzero for multiple values, there is uncertainty to the exact position of the electron, such that by the classical uncertainty relations, $\Delta x \Delta p \approx \Delta E \Delta t \approx \hbar$, called the Uncertainty Principle
+	\2 For Gaussian distribution functions (total probability of 1), $\sigma_x \sigma_k = \frac{1}{2}$, where $\sigma$ is the standard deviation, such that uncertainty is defined as the standard deviation, such that $\Delta x \Delta p \geq \frac{\hbar}{2}$
+	\2 As a result, particles cannot have 0 average kinetic energy, since for some box of length L, $\Delta x \leq L$, such that $\Delta p \geq \frac{\hbar}{L}$, ignoring the Gaussian $\frac{1}{2}$ term due to generally not being Gaussian and not affecting the order of magnitude
+		\3 As a result, $(\Delta p)^2 = (p - \bar{p})^2_{av} = \bar{p^2} \geq (\frac{\hbar}{L})^2$, since $\bar{p}$ is equal to 0 for a symmetric box
+		\3 Thus, $\bar{E} \geq \frac{\hbar^2}{2mL^2}$, called the zero point energy of the box, since the average energy must be $\geq 0$
+	\2 For an electron with momentum p and distance r from the proton, $E = \frac{p^2}{2m} - \frac{ke^2}{r}$, $\Delta x = r$ such that $(\Delta p)^2 = \bar{p^2} \geq \frac{\hbar^2}{r^2}$, providing a radius for the minimum energy and a minimum electron energy at that radius
+	\2 Since a precise measurement of the energy of a system requires infinite time, such that the mean decay time, or the lifetime ($\tau$), used as the time of measurement
+		\3 As a result, the measurement of the wavelength of spectral lines has a degree of uncertainty due to the uncertain in measurement, with the natural line width being $\Delta E = \frac{\hbar}{\tau}$, denoted $\Gamma_0$
+		\3 By the formula that $E - E_0 = \frac{hc}{\lambda}$, the derivative is taken such that $dE = -hc\frac{d\lambda}{\lambda^2}$, the range of $\lambda$ can be found for $\Delta E$
+\1 It is seen that wave-particle duality is seen in matter and light, such that emission and absorption are particle-based, propogation is wave-based
+	\2 This is also able to be thought of as interactions and observations of matter and light are particle-based, while predictions of observations are described by waves
+		\3 Interactions cause the changing of the wavefunction, changing the propogation after
+	\2 For wavelengths smaller than any objects, particle theory can describe propogation as well as wave theory, giving the same results, due to wavelike behavior being too small to be observed, while for time averages of energy/momentum exchange, wave theory works as well
+\end{outline*}
+\section{Notes}
+\begin{outline*}
+\1 Absorption is a subset of the emission spectra, due to multiple possible paths of emission for higher levels of hydrogen atoms
+\1 $\frac{1}{\lambda} = \frac{m_e \alpha^2 Z^2}{2} (\frac{1}{n^2} - \frac{1}{m^2})$, $\alpha = \frac{e^2}{4\pi \epsilon_0 \hbar c} \approx \frac{1}{137}$
+\1 Fractional change of n vs m = $\frac{n - m}{n}$
+\1 Hydrogen atom is $f = cZ^2R(\frac{1}{n^2} - \frac{1}{m^2}$, such that Moseley's Law applies this to xrays for analyzing wavelength
+\1 Regular as n goes to infinity, L'Hopital used 
 \end{outline*}
 \end{document}
