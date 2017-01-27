@@ -168,6 +168,7 @@
 	\2 The general form for other elements was later found as the Rydberg-Ritz formula, such that $\frac{1}{\lambda_{mn}} = R(\frac{1}{m^2} - \frac{1}{n^2}) \forall n > m$
 		\3 R is the rydberg constant, varying slightly for elements, but negligably, such that $R_H = 1.096776 * 10^7 m^{-1}$ and $R_{\infty} = 1.097373 * 10^7 m^{-1}$
 		\3 Thus, for the Balmer series, m = 2, such that the maximum wavelength is as n approaches infinity
+	\2 The other series from higher energy to lower are Lyman, then Balmer, Paschen, Brackett, Pfund, and then Humphreys
 \1 Thomson's plum pudding model was the most popular atomic model after Balmer and Rydberg-Ritz formulas, trying to find stable configurations with normal modes of vibration of spectral lines
 	\2 On the other hand, the lack of continual emission due to electrostatic radiation and inability to make a model hindered this theory
 \1 Rutherford, while studying radioactivity, finding that alpha particles were doubly ionized helium, checking the spectral lines to prove it, used the particles to study atomic interiors
@@ -254,6 +255,25 @@
 		\3 Interactions cause the changing of the wavefunction, changing the propogation after
 	\2 For wavelengths smaller than any objects, particle theory can describe propogation as well as wave theory, giving the same results, due to wavelike behavior being too small to be observed, while for time averages of energy/momentum exchange, wave theory works as well
 \end{outline*}
+\section{Chapter 6 - The Schrodinger Equation}
+\begin{outline*}
+\1 The Schrodinger Equation is a fundamental law, unable to be derived, and is non-relativistic, replaced by Dirac's Relativistic Wave Equation later
+	\2 This wave equation is similar to that of light, $\frac{\partial^2\vec{E}}{\partial x^2} = \frac{1}{c^2}\frac{\partial^2\vec{E}}{\partial t^2}$, with solution $\vec{E} = \vec{E}_0 cos(kx - \omega t)$ to give the equation, $\omega = kc$, which is equivelent to $E = pc$
+		\3 Similarly for electrons, since $E = \frac{p^2}{2m} + V$ is the energy of the electron where V is the potential energy of the electron, $\hbar \omega = \frac{\hbar^2 k^2}{2m} + V$, such that k and $\omega$ are not linearly related
+		\3 This implies that for a harmonic electron wavefunction, the first time derivative is related to the second spacial derivative, and will involve potential energy
+		\3 The wave equation must also be linear with respect to the wavefunction, due to allowing constructive and destructive interference, such that each term is linear with respect to $\phi$ or some derivative of $\phi$
+	\2 The equation in 1D states that $\frac{-\hbar^2}{2m} \frac{\partial^2\psi(x, t)}{\partial x^2} + V(x, t)\psi(x, t) = i\hbar \frac{\partial \psi(x, t)}{\partial t}$
+		\3 For a free particle, such that $V(x, t) = V_0$ is constant, it is found that individual harmonics are not solutions, but a complex exponential is, such that $\psi = Ae^{i(kx - \omega t)}$ provides the previous equation
+	\2 By the probabilistic interpretation of the wavefunction, $P(x, t)dx = |\psi(x, t)|^2dx = \psi^*(x, t)\psi(x, t)dx$, where $\psi^*(x, t)$ is the conjugate, such that P(x, t) is called the probability density, and $\psi(x, t)$ is called the probability density amplitude/probability amplitude
+		\3 Thus, the normalization condition states that $\int^{\infty}_{-\infty} \psi^* \psi dx = 1$
+	\2 Schrodinger then showed that energy quantization can be explained in terms of standing waves, called the stationary states, or eigenstates, of the particles, in which the potential energy is independent of time
+		\3 For these situations, the solution is seperable, such that $\psi(x, t) = \gamma(x)\phi(t)$, producing ordinary derivatives instead of partial, with each side as a function of a single variable
+		\3 Since they are single variable, they both must be equal to some separation constant, such that $\phi(t) = e^{\frac{-iCt}{\hbar}} = cos(2\pi \frac{Ct}{h}) - isin(2\pi \frac{Ct}{h})$, such that $f = \frac{C}{h}$, or C = E
+			\4 With E in the spacial portion of the equation, it gives the time-independent Schrodinger equation, whose probability density is found to be equal for this situation to the multivariable density
+	\2 Wavefunctions must fit with the type of potential energy function, which is allowed to be discontinuous, solved seperately in each region, but require smooth joining at the point of discontinuity
+		\3 The wavefunction itself must be continuous as well as the first derivative, such that the function is smooth, except possibly at the boundary (since if there is infinite potential energy, the wavefunction must be 0)
+		\3 Both also must be finite and single-valued to have measurable quantities, and must follow the normalizataion condition
+\end{outline*}
 \section{Notes}
 \begin{outline*}
 \1 Absorption is a subset of the emission spectra, due to multiple possible paths of emission for higher levels of hydrogen atoms
@@ -261,5 +281,6 @@
 \1 Fractional change of n vs m = $\frac{n - m}{n}$
 \1 Hydrogen atom is $f = cZ^2R(\frac{1}{n^2} - \frac{1}{m^2}$, such that Moseley's Law applies this to xrays for analyzing wavelength
 \1 Regular as n goes to infinity, L'Hopital used 
+\1 The area of a sphere is $4\pi r^2$
 \end{outline*}
 \end{document}

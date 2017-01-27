@@ -139,7 +139,7 @@
 \2 They are defined by ``type <id> = | <val1> | <val2> ...'', where <id> must be all lowercase, while each <val> must start with an uppercase letter, each representing an atomic, discrete value
 	\3 These are constructed purely by the <val>
 \2 Types are also able to be represented as tuples of multiple datatypes, defined by ``type <id> = | <val1> of <type1> | <val2> of <type2 ...''
-	\3 These are constructed by ``<val> (<type\_values>)'', with more complicated match expressions
+	\3 These are constructed by ``$<val> (<type\_values>)$'', with more complicated match expressions
 	\3 Similarly, type abbreviations can rename existing types, such that ``type <id> = <type>'', acting as a substitute for a general constructor name
 \2 Types can be defined recursively as well, with some base case, with the other discrete values using the type itself
 \end{outline*}
@@ -147,7 +147,7 @@
 \begin{outline*}
 \1 Trees are used in CS either naturally or due to allowing ordering large amounts of data for efficient searching, defined recursively as either empty or a node
 	\2 Root nodes are those at the top of the tree, leaf nodes at the bottom, internal nodes as all others, with each node having 0-2 child notes in a binary tree
-	\2 Each node stores some value, and a link to each of its child nodes, but not its parent node, generally ``<leftChild>, <val>, <rightChild>''
+	\2 Each node stores some value, and a link to each of its child nodes, but not its parent node, generally ``$<leftChild>, <val>, <rightChild>$''
 	\2 Trees can be traversed by pre-order (left, right, node), in-order (left, node, right), post-order (left, right, node), able to be used to list items or search
 \1 Trees can allow for easier searching if there are linearly ordered labels, such that binary search tree invarient are such that the right node being greater than, the left less than, Empty as the default, such that search is logarithmic
 	\2 Binary search trees are constructed such that the nodes are inserted or deleted in accordance with the ordering
@@ -157,4 +157,6 @@
 CIS Homework 1:
 - No multi command conditionals?
 - In needed for complex functions?
+- Can't create an empty user-defined datatype, accessed by begin match similar to regular types (Node (a, b) ->, etc)
+- Need either variable or wildcard
 \end{document}

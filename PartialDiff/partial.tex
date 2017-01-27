@@ -127,6 +127,7 @@ Needed - Partial Derivatives
 		\3 Thus, $\nabla^2u = \frac{1}{p^2}\pd{}{p}(p^2\pd{u}{p}) + \frac{1}{p^2}{sin\phi}\pd{}{\phi}(sin\phi\pd{u}{\phi}) + \frac{1}{p^2sin^2\phi}\pd{^2u}{\theta^2}$
 \end{outline*}
 \section{Seperation of Variables}
+\subsection{Introduction and Heat Equation}
 \begin{outline*}
 \1 The method of seperation of variables is used when the partial differential equation and boundary conditions are linear and homogeneous
 	\2 Linear operators are those that satisfy the linearity property, $L(c_1u_1 + c_2u_2) = c_1L(u_1) + c_2L(u_2)$
@@ -153,9 +154,31 @@ Needed - Partial Derivatives
 	\2 As a result, $u(x, t) = Bsin(\frac{n\pi x}{L})e^{-k(\frac{n\pi}{L})^2t}$, such that as $t \to \infty, u(x, t) = 0$
 		\3 This solution can be used to satisfy an IVP assuming the initial condition is of the correct format, $u(x, 0) = Bsin(\frac{n\pi x}{L}$ for some n
 		\3 Similarly, for initial conditions which are the sum of this form, the solution can be found as the sum of the respective solutions for each initial condition
-	\2 Since the linear combination of solutions is a solution, the sum of each solution for n is a solution, with possibly different aplitudes for each
-		\3 Thus, $u(x, t) = \sum_{n = 1}^M B_n sin(\frac{n \pi x}{L}e^{-k(\frac{n\pi}{L})^2t}$ with initial condition, $u(x, 0) = \sum_{n = 1}^M B_n sin(\frac{n \pi x}{L}$
-		\3 This is useful, due to the infinite sum of sine curves of this form being a type of Fourier series, such that any function f(x) can be approximated as it as the series approaches infinity
+\1 Since the linear combination of solutions is a solution, the sum of each solution for n is a solution, with possibly different aplitudes for each
+	\2 Thus, $u(x, t) = \sum_{n = 1}^M B_n sin(\frac{n \pi x}{L}e^{-k(\frac{n\pi}{L})^2t}$ with initial condition, $u(x, 0) = \sum_{n = 1}^M B_n sin(\frac{n \pi x}{L}$
+	\2 This is useful, due to the infinite sum of sine curves of this form being a type of Fourier series, such that any function f(x) can be approximated as it as the series approaches infinity
+		\3 It is noted that $\int^L_0 sin(\frac{n\pi x}{L})sin(\frac{m\pi x}{L})dx = 0$ if $m \neq n$ and $= \frac{L}{2}$ if m = n
+		\3 Thus, it can be multiplied by an additional term, such that for some initial condition f(x), $f(x) = \sum^{\infty}_{n = 1} B_n sin(\frac{n\pi x}{L}$, $\int^L_0 f(x) sin(\frac{m\pi x}{L})dx = \sum_{n = 1}^{\infty} B_n \int^L_0 sin(\frac{n\pi x}{L}) sin(\frac{m\pi x}{L}) dx$, such that the series reduces to $B_m \int^L_0 sin^2(\frac{m\pi x}{L}dx$
+		\3 Thus, $B_m = \frac{2}{L} \int^L_0 f(x) sin(\frac{m\pi x}{L}dx$, such that the initial condition function can be plugged in for f(x) to give the coefficients for the solution
+	\2 The fact that the integral over some number of complete half-periods of the square of a sinusoidal function is half the interval is needed often in periodic calculations
+\1 Orthogonal functions over some interval are those whose product intergrated over the interval is 0, such that a set of functions where each is orthogonal to each other function in the set is an orthogonal set of functions
+	\2 Thus, the set of functions, f(x) = $sin(\frac{n\pi x}{L})$ is an orthogonal set, shown to fit the orthogonal condition
+\1 Thus, the basic process for separation of variables is to make sure both the equation and boundary conditions are linear, homogeneous, ignore the nonzero initial condiiton, introduce the seperation constant
+	\2 Then, the constants are determined as eigenvalues of a boundary value problem, the other differential equations are solved, the solutions are combined, initial condition is applied, and coefficients are found using the orthogonality of the eigenfuntions
+	\2 It can then be approximated as the earlier terms often as the time increases, moving towards equilibrium solution
+\end{outline*}
+\subsection{Other Examples}
+\begin{outline*}
+\1 For heat conduction in 1D with insulated ends, such that there is no internal generation of heat or outside sources, it is found to have both a zero and positive solution, such that $u(x, t) = A_0 + \sum^{\infty}_{n = 1} A_n cos(\frac{n \pi x}{L})e^{-(\frac{n\pi}{L})^2kt}$
+	\2 This is able to be rewritten $u(x, t) = \sum^{\infty}_{n = 0} A_n cos(\frac{n \pi x}{L})e^{-(\frac{n\pi}{L})^2kt}$
+	\2 Thus, the initial condition is valid for this solution if $f(x) = A_0 + \sum^{\infty}_{n = 1} A_n cos(\frac{n\pi x}{L})$ for $0 \leq x \leq L$
+	\2 The orthogonality relations, $\int^L_0 cos(\frac{n\pi x}{L})cos(\frac{m\pi x}{L})dx = L$ if m = n = 0, = $\frac{L}{2}$ if $n = m \neq 0$, and = 0 if $n \neq m$, such that they are an orthogonal set of functions
+		\3 As a result, $A_0 = \frac{1}{L} \int^L_0 f(x)dx$ and $A_m = \frac{2}{L} \int^L_0 f(x) cos(\frac{m\pi x}{L})dx$, where $m \geq 1$
+	\2 The steady-state solution as a result is the constant soution, due to the remainder decaying over time
+\1 For a circular 1D wire bound at the ends of length 2L, such that both the temperature and the flux are equal at both ends, with no internal heat sources, the boundary conditions are called mixed type due to involving both boundaries and periodic, due to applying over the entire x axis, as the x values repeat
+	\2 It is found to be valid for $\lambda \geq 0$, such that $u(x, t) = a_0 + \sum_{n = 1}^{\infty} a_n cos(\frac{n\pi x}{L})e^{-\frac{-n\pi}{L}^2kt} + \sum_{n = 1}^{\infty} b_n sin(\frac{n\pi x}{L})e^{-\frac{-n\pi}{L}^2kt}$
+	\2 The orthogonality relations state for -L to L, $\int^L_{-L} cos(\frac{n\pi x}{L})cos(\frac{m\pi x}{L}dx = 0 if n \neq m, L if n = m \neq 0, 2L if n = m = 0$, $\int^L_{-L} sin(\frac{n\pi x}{L})sin(\frac{m\pi x}{L})dx = 0 if n \neq m, = L if n = m \neq 0$, and $\int^L_{-L} sin(\frac{n\pi x}{L})cos(\frac{m\pi x}{L})dx = 0$
+		\3 As a result, $a_0 = \frac{1}{2L} \int^L_{-L} f(x)dx, a_m = \frac{1}{L} \int^L_{-L} f(x) cos(\frac{m\pi x}{L})dx$, and $b_m = \frac{1}{L} \int^L_{-L} f(x) sin(\frac{m\pi x}{L})dx$
 \end{outline*}
 
 \end{document}
