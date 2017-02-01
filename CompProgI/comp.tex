@@ -153,10 +153,25 @@
 	\2 Binary search trees are constructed such that the nodes are inserted or deleted in accordance with the ordering
 	\2 Inserting is similarly done to searching, while deleting requires a simple case for 0 children and 1 child, but for 2 children, the left maximum leaf replaces the deleted node and is removed from the bottom
 \end{outline*}
+\section{Generic Functions and Datatypes}
+\begin{outline*}
+\1 Generic functions are those where the type doesn't change the function, given type `<var>, where '<var> is the type variable, instantiated to any type by the function, but unable to be reassigned to a different type
+	\2 This allows the reusing of functions and algorithms, saving time in both coding and debugging, rather than having large numbers of close to identical functions
+	\2 Types can also be made generically, written ``type '<var> <id>'', such that they can be generalized to being made up of any type components, able to be computed by generic pattern matching
+\end{outline*}
+\section{First-class Functions}
+\begin{outline*}
+\1 Since functions are values in value-oriented programming such as OCaml, functions are able to used as parameters for other functions and returned by functions, called the first-order function characteristic
+	\2 As a result, functions can also be partially applied, giving only a portion of the inputs, such that it returns a function with that variable filled
+	\2 Anonymous functions are those without a name, written by the keyword fun, with syntax ``fun $(<var1>:<type1>) (<var2>:<type2>) -> <exp>$'', acting as values
+		\3 These are able to be bound by a let expression, ``let $<funName> : <type1> -> <type2> -> <retType> = <anonFunction>$'', equivelent to a standard function form
+\1 As a result, first order functions are able to be combined with generics to produce higher order functions, which are more generalized functions, taking a function and applying it to some generic object
+	\2 Common examples of this are used to transform a list by some function or to fold a list by some combine function and a base case into a single object
+\end{outline*}
 \section{Homework Notes}
-CIS Homework 1:
 - No multi command conditionals?
 - In needed for complex functions?
 - Can't create an empty user-defined datatype, accessed by begin match similar to regular types (Node (a, b) ->, etc)
 - Need either variable or wildcard
+- When can you use multiple lines in a single begin match command?
 \end{document}

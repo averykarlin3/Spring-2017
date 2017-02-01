@@ -36,39 +36,59 @@ The oil is sprayed into the reservoir using an atomizer, viewed by a microscope 
 \end{figure}
 
 \section{Measurements/Data} \label{Measurements}
-You should present a set of measurements here, perhaps in table form, with some explanation of how you arrived at them, e.g  the results of the motion measurement are presented in table \ref{table}, where the mean of three trials is displayed in each row.  If you have particularly large data sets, move them into an appendix, just present the key/representative data here.
-
 
 \begin{table}[htp]
 \begin{center}
-\begin{tabular}{|c|c|}
- \hline
-Distance (cm) & Time (s) \\ \hline
-1.0 & 20 \\
-3.0 & 35 \\
-4.2 & 50 \\
-5.2 & 61 \\
-6.6 & 72 \\ \hline
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+Metric & Drop 1 & Drop 2 & Drop 3 & Drop 4 \\ \hline
+Rising Time 1 (s) & 1.83 & 3.33 & 5.33 & 1.39 \\
+Rising Time 2 (s) & 1.89 & 3.28 & 5.64 & 1.26 \\
+Rising Time 3 (s) & 1.94 & 3.56 & 5.3 & 1.37 \\
+Falling Time 1 (s) & 13.88 & 9.68 & 12.15 & 11.24 \\
+Falling Time 2 (s) & 15.43 & 9.85 & 12.76 & 13.77 \\
+Falling Time 3 (s) & 19.28 & 8.02 & 13.29 & 12.96 \\ 
+Average Rising Distance (m) & 0.00032 & 0.00032 & 0.00032 & 0.00032 \\
+Average Falling Distance (m) & 0.00032 & 0.00032 & 0.00032 & 0.00032 \\
+\hline
 \end{tabular}
-\caption{Some data}
+\caption{Measured Data}
 \end{center}
 \label{table}
 \end{table}
 
-
 \section{Analysis}
-From the data you've collected, you've probably run a fit, or done some other manipulations. Explain that here, i.e. from the measurements of voltage and current we calculated the power expended using $P = I \times V$.  
-Feel free to show me your skills with Python or Mathematica and attach the graphs you've made here from the data as well. 
 
-\subsection{Subsection}
-If you think you need to, break your sections into smaller subsections. It can help readability and often people reading your report will just gravitated to a single self-contained part of it.
+The average of the rising distances and falling distances combined with the times are used to calculate the average rising and falling velocity for each drop. The radius can be calculated the equation, $r = 9.66 * 10^{-5} \sqrt{v_f}$. Using the equation $q\frac{V}{d} = K\sqrt{v_f}(v_f + v_r)(1 + \frac{8.23 * 10^{-8}}{r})^{-\frac{3}{2}}$ as a correction to Stoke's Law, which states that $q\frac{V}{d} = K\sqrt{v_f}(v_f + v_r)$, the charge of the droplets can be calculated as a result.
+
+\begin{table}[htp]
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+Metric & Drop 1 & Drop 2 & Drop 3 & Drop 4 \\ \hline
+Average Rising Velocity (m/s) & 0.000169611 & 5.90043E-05 & 9.43953E-05 & 0.000238806 \\
+Average Falling Velocity (m/s) & 1.97572E-05 & 3.48457E-05 & 2.51309E-05 & 2.52831E-05 \\
+Radius (m) & 4.29378E-07 & 5.70232E-07 & 4.84263E-07 & 4.85727E-07 \\
+Integer Multiple of e & 2 & 2 & 1 & 3 \\
+Charge (C) & 3.44745E-19 & 3.32058E-19 & 1.77581E-19 & 5.59455E-19 \\
+Calculated Value of e (C) & 1.72373E-19 & 1.66029E-19 & 1.77581E-19 & 1.86485E-19 \\ \hline
+\end{tabular}
+\caption{Calculated Data}
+\end{center}
+\label{table2}
+\end{table}
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[scale=1]{PhysicsLab1.jpg}
+\label{equip}
+\end{center}
+\end{figure}
 
 \section{Conclusions}
-In this section we sum up what we've just done. State the key result, maybe give an idea of the source of any discrepancies, and perhaps suggest (briefly) what could be done to remove it.
 
-\appendix
-\section{Appendix}
-Just put stuff here that doesn't really fit in with the rest of the report, e.g. very large data tables, long calculations, figures.
+Assuming that the accepted charge for an electron is 1.602 × 10-19 C, only the value of e calculated from the results of Drop 2 is within the margin of uncertainty defined by the standard deviation. The experimental values are nevertheless surprisingly close to the accepted value of e (the value for Drop 1 is off by 7.62\%, Drop 2 by 3.62\%, Drop 3 by 10.8\%, and Drop 4 by 16.4\%) given the considerable potential for error in the experiment. The most likely error ought to be the inevitable delay caused by human reaction time in using the stopwatch. The errors introduced by delayed reaction would give less accurate values for the times it took the oil droplets to travel given distances, and consequently lead to errant values for velocity and in turn faulty calculations for charge. Another possible error would be the failure to notice or account for a change in velocity during the timing of a rising droplet of oil. In the electric field, an increase in velocity implies a gain of charge, and a decrease in velocity implies a loss of charge. Failure to account for a sudden change in velocity during the time of measurement implies a failure to account for a change in charge during the time of measurement, which would ultimately lead to a calculated value for charge between 2 multiples of e, which is understood not to be possible. Other possible sources of error include the loss of electromotive force to internal resistance, which would lead to an inaccurate value of V in the equation used to calculate charge; and failure to account for the change in the permittivity of the capacitor when the reservoir is placed inside, which would introduce the need for an adjusted constant in the equation to describe the system accurately.
 
+The calculated standard deviation of the value of e as a result is 7.4903E-21, with an average value e of 1.75617E-19 C, for a percent error of 9.62\%.
 %\end{twocolumn}
 \end{document}  

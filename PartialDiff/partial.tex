@@ -140,7 +140,7 @@ Needed - Partial Derivatives
 	\2 Separation of variables attempts to find solutions of $u(x, t) = \phi(x)G(t)$ (product form), ignoring the initial conditions, due to generally not satisfying in this form
 		\3 As a result, by the boundary conditions, either u is the trivial solution, or $\phi(0) = 0, \phi(L) = 0$, providing new boundary condition forms
 	\2 This can be converted to the form $\frac{1}{kG}\frac{dG}{dt} = \frac{1}{\phi}\frac{d^2\phi}{dx^2}$, such that for each variable to be independent, rather than a function of the other, it is set equal to the separation constant, $-\lambda$, forming 2 ODEs
-		\3 Thus, $G(t) = ce^{-\lambda kt}$, such that physically, $-\lambda \geq 0$, due to otherwise the temperature increasing exponentially
+		\3 Thus, $G(t) = ce^{-\lambda kt}$, such that physically, $\lambda \geq 0$, due to otherwise the temperature increasing exponentially
 \1 The spacial ODE for the 1D heat equation with 0 temperature boundaries is a boundary value problem, rather than an IVP, not automatically providing a unique solution, allowing nontrivial solutions to be found
 	\2 The values such that there is a nontrivial solution are eigenvalues, where the nontrivial $\phi(x)$ is called the eigenfunction of the value
 	\2 It is assumed that $\lambda$ is real, where the solutions are of the form $\phi = e^{rx}, r^2 = -\lambda$
@@ -179,8 +179,37 @@ Needed - Partial Derivatives
 	\2 It is found to be valid for $\lambda \geq 0$, such that $u(x, t) = a_0 + \sum_{n = 1}^{\infty} a_n cos(\frac{n\pi x}{L})e^{-\frac{-n\pi}{L}^2kt} + \sum_{n = 1}^{\infty} b_n sin(\frac{n\pi x}{L})e^{-\frac{-n\pi}{L}^2kt}$
 	\2 The orthogonality relations state for -L to L, $\int^L_{-L} cos(\frac{n\pi x}{L})cos(\frac{m\pi x}{L}dx = 0 if n \neq m, L if n = m \neq 0, 2L if n = m = 0$, $\int^L_{-L} sin(\frac{n\pi x}{L})sin(\frac{m\pi x}{L})dx = 0 if n \neq m, = L if n = m \neq 0$, and $\int^L_{-L} sin(\frac{n\pi x}{L})cos(\frac{m\pi x}{L})dx = 0$
 		\3 As a result, $a_0 = \frac{1}{2L} \int^L_{-L} f(x)dx, a_m = \frac{1}{L} \int^L_{-L} f(x) cos(\frac{m\pi x}{L})dx$, and $b_m = \frac{1}{L} \int^L_{-L} f(x) sin(\frac{m\pi x}{L})dx$
+\1 For some rectangle, such that each edge has a nonhomogeneous boundary condition, with the temperature of the rectangle being based on the Laplacian, it is solved by dividing into four problems, each with a single nonhomogeneous condition and three homogeneous conditions with maximum x of L, maximum y of H
+	\2 For the boundary problem such that $u_1(0, y) = g_1(y)$, using the product solution, $u_1(0, y) = h(x)\phi(y)$, such that $\frac{1}{h}\frac{d^2h}{dx^2} = \frac{-1}{\phi}\frac{d^2\phi}{dy^2} = \lambda$
+	\2 Since the x component is not a BVP due to not having two homogeneous boundary conditions, using y to determine eigenvalues of $\lambda = (\frac{n\pi}{H})^2$, with $\phi(y) = sin(\lambda y)$
+		\3 The eigenvalues are then used to produce an ODE to solve for the x component, giving a hyperbolic linear combination, neither ideal for the h(L) = 0 boundary condition
+			\4 Since the differential equation remains the same for a translation, called invariant on translation, the linear combination is able to be shifted L, such that it is made a function of (x - L) instead of x
+\1 For some circle undere the Laplace equation with a single nonhomogeneous boundary condition on the radius, additional conditions must be determined to allow it to be solved
+	\2 Additional boundaries are found by the fact that the center of the circle must be bounded, such that $|u(0, \theta)| < \infty$, and due to being a circle, there are periodicity conditions such that $u(r, -\pi) = u(r, \pi), \frac{\partial u}{\partial \theta}(r, -\pi) = \frac{\partial u}{\partial \theta}(r, \pi)$
+		\3 These conditions are homogeneous, such that they act as the three homogeneous conditions for separation of variables
+		\3 The periodic boundary conditions are the forms of the periodicity conditions applying purely to the $\theta$ component of the product solution
+			\4 As a result, the eigenvalue problem can be solved to find that $\lambda = n^2$, for $n \geq 0$, with $\phi(\theta) = Asin(n\theta) + Bcos(n\theta)$
+		\3 The radial component is then found to be valid for the equation $r^2\frac{d^2G}{dr^2} + r\frac{dG}{dr} - n^2G = 0$, such that it is a Cauchy-Euler/equidimensional equation, of the form $r^p$, such that $G(r) = Cr^n + Dr^{-n}$ for $n \neq 0$, $G(r) = C + Dln(r)$ for n = 0
+			\4 Since it cannot approach infinity as $r \to 0$, D must be equal to 0, such that it remains finite as n approaches infinity
+		\3 Thus, $u(r, \theta) = \sum^{\infty}_{n = 0} A_nr^ncos(n\theta) + \sum_{n=1}^{\infty} B_nr^nsin(n\theta)$, such that for boundary condition at r = a, $A_0 = \frac{1}{2\pi}\int^{\pi}_{-\pi} f(\theta)d\theta, A_na^n = \frac{1}{\pi}\int^{\pi}_{-\pi} f(\theta)cos(n\theta)d\theta, B_na^n = \frac{1}{\pi}\int^{\pi}_{-\pi} f(\theta)sin(n\theta)d\theta,$
+	\2 As a result, the Laplace Equation is found to have the properties that any point inside a circle is equal to the average of the values of the border, such that the maximum and minimum must lie on the border in the steady state
+		\3 It is also found that as a result of these characteristics, the Laplacian is well-posed (such that a small charge in the boundary condiitons leads to a small change in the solution), and that the solution is unique
+	\2 The solvability condition for Laplace's equation is found that if the heat flux is specified, $0 = \int\int \nabla^2 u dxdy = \oint \nabla u \cdot \vec{n} ds$ by the Divergence Theorem or there is no solution, called the solvability/compatibility condition
+		\3 This is due to going against the steady state assumption, due to a change in time of the thermal energy
 \end{outline*}
-
+\section{Chapter 3 - Fourier Series Theory}
+\begin{outline*}
+\1 The Fourier series is defined for f(x) over the interval $-L \leq x \leq L$ as $a_0 + \sum^{\infty}_{n = 1} a_ncos(\frac{n\pi x}{L}) + \sum^{\infty}_{n = 1} b_nsin(\frac{n\pi x}{L})$, with Fourier coefficients $a_0 = \frac{1}{2L} \int^L_{-L} f(x)dx, a_n = \frac{1}{L}\int^L_{-L} f(x)cos(\frac{n\pi x}{L})dx, b_n = \frac{1}{L}\int^L_{-L} f(x)sin(\frac{n\pi x}{L})dx$
+	\2 Thus, the Fourier series only exists if the coefficients exist for the functions, and cannot be assumed to be precisely equal to f(x), such that it is written for Fourier series g(x) as $f(x) ~ g(x)$
+\1 The Convergence Theorem for Fourier Series states that if f(x) is piecewise smooth on the interval $-L \leq x \leq L$, the series converges to the periodic extension of f(x) where the extension if continuous, and to the average of the two limits at jump discontinuities
+	\2 Piecewise smooth is defined as continuous in the function and its first derivative except with possible jump discontinuities, in which both the left and right limit exist, but are unequal
+	\2 Periodic extension of a function is the function drawn over a 2L period, then made periodic and repeating
+	\2 As a result, Fourier series can be drawn by drawing f(x) over the period, then making the periodic extension, with an x to mark the average of two values at jump discontinuities
+\end{outline*}
 \end{document}
 
+
+
 $u_n(x, 0) = B_nsin(\frac{n\pi}{L}x)$ if $f(x) = 5sin(\frac{7\pi}{L}x) + 7sin(\frac{13\pi}{L}x)$, then $u = 5sin(\frac{7\pi}{L}x)e^{-k(\frac{7\pi}{L})^2t} + 7sin(\frac{13\pi}{L}x)e^{-k(\frac{13\pi}{L})^2t}$
+
+Orthogonality relations can be found by integrating or by complex exponential

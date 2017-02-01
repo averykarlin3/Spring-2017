@@ -190,7 +190,7 @@
 	\2 For the electrons, $E = \frac{1}{2}mv^2 - \frac{kZe^2}{r} = -\frac{kZe^2}{2r_n}$, proportional to $-\frac{1}{r}$, such that it will be losing energy, with decreasing radius
 		\3 As the energy is lost due to the emission of radiation, emitting a continuous spectrum as the radius changes, the atom will decay, rendering it invalid
 	\2 Bohr solved this by stating electrons has certain stationary states they could orbit without emission, and that the radiation emitted was due to the change in state, $hf = E_i - E_f$, called the Bohr frequency condition
-		\3 He also made the correspondence principle, stating that the limit of large orbits and energies (or as quantum numbers reach higher), all quantum must align with classical
+		\3 He also made the correspondence principle, stating that the limit of large orbits and energies (or as quantum numbers reach higher, rather than $\hbar$ reaches 0, as was thought during the ultraviolet catastrophe), all quantum must align with classical
 	\2 This allowed him to determine that angular momentum is quantied, assuming values of $\frac{nh}{2\pi}$, determining the spectra for any atom with -e charge
 		\3 By the centripetal Coulomb force, $v = (\frac{kZe^2}{mr})^{1/2}$, with $L = mvr = n\frac{h}{2\pi} = n\hbar$, where n is a quantum number, such that $r_n = \frac{n^2 a_0}{Z}$, where $a_0$ is the Bohr electron radius
 		\3 Thus, $E_n = -E_0\frac{Z^2}{n^2}$, where $E_0 = \frac{mk^2e^4}{2\hbar^2} = 13.6 eV$, such that the energy is quantized, with n = 1 as the ground state for the single electron
@@ -261,6 +261,8 @@
 	\2 This wave equation is similar to that of light, $\frac{\partial^2\vec{E}}{\partial x^2} = \frac{1}{c^2}\frac{\partial^2\vec{E}}{\partial t^2}$, with solution $\vec{E} = \vec{E}_0 cos(kx - \omega t)$ to give the equation, $\omega = kc$, which is equivelent to $E = pc$
 		\3 Similarly for electrons, since $E = \frac{p^2}{2m} + V$ is the energy of the electron where V is the potential energy of the electron, $\hbar \omega = \frac{\hbar^2 k^2}{2m} + V$, such that k and $\omega$ are not linearly related
 		\3 This implies that for a harmonic electron wavefunction, the first time derivative is related to the second spacial derivative, and will involve potential energy
+		\3 The wave equation must be consistent with the De Broglie relations, classical conservation of energy, squared as the probability of finding the particle at that location, and if potential is constant, energy and momentum is constant
+			\4 As a result, an ideal form for V = 0 would be able to be reduced to $E = \frac{p^2}{2m}$, such that cos/sin fail, but a complex exponential works
 		\3 The wave equation must also be linear with respect to the wavefunction, due to allowing constructive and destructive interference, such that each term is linear with respect to $\phi$ or some derivative of $\phi$
 	\2 The equation in 1D states that $\frac{-\hbar^2}{2m} \frac{\partial^2\psi(x, t)}{\partial x^2} + V(x, t)\psi(x, t) = i\hbar \frac{\partial \psi(x, t)}{\partial t}$
 		\3 For a free particle, such that $V(x, t) = V_0$ is constant, it is found that individual harmonics are not solutions, but a complex exponential is, such that $\psi = Ae^{i(kx - \omega t)}$ provides the previous equation
@@ -269,10 +271,48 @@
 	\2 Schrodinger then showed that energy quantization can be explained in terms of standing waves, called the stationary states, or eigenstates, of the particles, in which the potential energy is independent of time
 		\3 For these situations, the solution is seperable, such that $\psi(x, t) = \gamma(x)\phi(t)$, producing ordinary derivatives instead of partial, with each side as a function of a single variable
 		\3 Since they are single variable, they both must be equal to some separation constant, such that $\phi(t) = e^{\frac{-iCt}{\hbar}} = cos(2\pi \frac{Ct}{h}) - isin(2\pi \frac{Ct}{h})$, such that $f = \frac{C}{h}$, or C = E
-			\4 With E in the spacial portion of the equation, it gives the time-independent Schrodinger equation, whose probability density is found to be equal for this situation to the multivariable density
+			\4 With E in the spacial portion of the equation, it gives the time-independent Schrodinger equation, with the time dependent side replaced by $E\psi(x)$ whose probability density is found to be equal for this situation to the multivariable density
 	\2 Wavefunctions must fit with the type of potential energy function, which is allowed to be discontinuous, solved seperately in each region, but require smooth joining at the point of discontinuity
 		\3 The wavefunction itself must be continuous as well as the first derivative, such that the function is smooth, except possibly at the boundary (since if there is infinite potential energy, the wavefunction must be 0)
 		\3 Both also must be finite and single-valued to have measurable quantities, and must follow the normalizataion condition
+\1 The infinite square well is a frictionless wire with increasing potential from points near the end, until the maximum at the border of the box, able to be made arbitrarily steep and large potentials, such that $V(x) = 0 if 0 < x < L, V(x) = \infty$ otherwise
+	\2 This problem is related to the classical vibrating string problem and is a good approximation to the motion of free electrons in a metal
+	\2 As a result, the boundary conditions state that it must be 0 at both ends of the box, allowing quantization similar to the standing wave condition
+		\3 For a standing wavelength of the particle, $E = n^2\frac{\pi^2\hbar^2}{2mL^2}$, able to be derived from the time-independent Schrodinger equation by providing $\psi(L) = Asin(kx)$, such that $k_n = \frac{n\pi}{L}$, providing quantized energy values/energy eigenvalues
+			\4 n is the quantum number of the system, allowing the specific mode of the system to be determined
+		\3 The normalization condition can then be used to get that $A_n = (\frac{2}{L})^{1/2}$, such that the eigenfunctions are $\psi_n(x) = \sqrt{\frac{2}{L}}sin(\frac{n\pi x}{L})$
+		\3 This provides the probability of finding the particle at each location, depending on the total energy of the particle system
+	\2 Classically, since there is no force except an infinitely large force at the edges, any speed and energy is possible, but by the uncertainty principle the velocity and position can't be found simultaneously, the minimum energy is below the energy uncertainty
+		\3 In addition, as quantum number increases, the peaks approach infinite, similar to classical prediction
+	\2 The complete wavefunction is found as $\psi_n(x, t) = \psi_n(x)e^{-i\omega t} = \psi_n(x)e^{-i(E_n/\hbar)t}$, such that by the identity, $sin(k_n x) = \frac{(e^{ik_nx} - e^{-ik_nx})}{2i}$, multiplied by the time portion to show that the standing wave is equal to two equal and opposite travelling waves
+\1 For a finite square well, such that the bounds of the region have potential $V_0$, where the total energy is assumed to be less than $V_0$, such that within the well, the equation is the same as the infinite well, $\psi''(x) = -k^2\psi(x), k^2 = \frac{2mE}{\hbar^2}$, such that it is a sine/cosine within the well
+	\2 Outside the well, it requires the complete time-independent equation, but is not required to be 0, rather only needing to follow the normalization condition
+	\2 Since the second derivative/curvature and the derivative have the same sign, the function always curves away from the x-axis, rather than towards like a sine/cosine
+		\3 This will appear in the form, $\psi(x) = ce^{-\alpha x} = ce^{-\frac{2m}{\hbar^2}(V_0 - E)x}$
+		\3 As a result, for most energy values of the wavefunction, it goes towards $\pm \infty$ as x approaches $\pm \infty$, such that it is invalid, such that it must move towards 0 as $x \to \pm \infty$, restricting energy states
+		\3 It is found that there is a finite number of possible energies, decreasing in quantity as the voltage decreases, to 1 possible state at very low $V_0$
+	\2 Since it is possible for the particle to be outside the well, kinetic energy appears to be negative, but if the probability is assumed to be negligable at $\Delta x = \alpha^{-1}$, the momentum uncertainty gives a minimum energy equal to the negative kinetic energy to cancel it
+	\2 This applies to all functions with $E > V$ in the box, even if V varies such that it is not simple sinusoidal, with $E < V$ outside the box, restricting energy states
+\1 The expectation value of f(x), $<f(x)> = \int^{\infty}_{-\infty} \psi^*f(x)\psi dx$, is the average value of f(x) expected to be obtained by the measurement of particles with the wavefunction (either the time-independent or time-dependent)
+	\2 Operators are the set of functions replacing f(x), acting on the wavefunction to provide the weighted average, not always functions of x such as when the uncertainty principle prevents it, like momentum
+		\3 The momentum x-component operator is $\frac{\hbar}{i}\frac{\partial}{\partial x}$, squared for the $p^2$ operator
+		\3 The Hamiltonian/total energy operator in classical mechanics is $H = \frac{p^2}{2m} + V$, such that the Hamiltonian operator is found by replacing p by the p operator
+			\4 As a result, the time independent Schrodinger equation can be replaced by $H_{op}\psi = E\psi$
+		\3 The time dependent Hamiltonian operator is $i\hbar \frac{\partial}{\partial t}$, kinetic energy is $-\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2}$, and the z component of angular momentum is $-i\hbar \frac{\partial}{\partial \phi}$
+\1 The simple harmonic oscillator, such that $V(x) = \frac{1}{2}m\omega^2x^2$, acting as the finite well, has a classical probability of $P(x)dx = c\frac{dx}{v}$, with any energy value possible
+	\2 Due to the symmetic potential function, the probability must be symmetric, such that the wave function must be either symmetric or anti-symmetric
+		\3 Parity operations are those flipping the x-axis, such that $x \to -x$, true for the Hamiltonian operator such that $H_op\psi(-x) = E\psi(-x)$
+		\3 If there are multiple separate solutions for one energy state, it is called degenerate, doubly degenerate for two, though since it is found for the Schrodinger equation to be at most by a factor of -1 for odd parity ($\psi(-x) = -\psi(x)$)
+	\2 It is found that $E_n = (n + \frac{1}{2})\hbar\omega$, such that the minimum energy is $E_0 = \frac{1}{2}\hbar\omega$, due to the minimum uncertainty principle energy
+		\3 Thus, it is found that $\psi_n(x) = C_n e^{-m\omega x^2/2\hbar}H_n(x)$, where $H_n(x)$ is the Hermite polynomial of order n, symmetric for even n, antisymmetric for odd n
+	\2 It is also found that $\int^{\infty}_{-\infty} \psi^*_nx\psi_mdx = 0$ unless $n = m \pm 1$, called the selection rule, such that radiation can only change the energy of the oscillator by one at a time
+\1 For an unbound state problem, such that E is greater than V(x) as $x \to \pm \infty$, the second derivative and wavefunction must have opposite signs to avoid moving towards infinity, curving to the x axis, such that any value of E is possible
+	\2 While it is not normalizable over the entire domain, it is bounded within a specific range, such that $\int^b_a |\psi(x)|^2dx = \int^b_a \rho dx = \int^b_a dN = N$, where N is the number of particles in the interval
+	\2 For some step potential, such that for $x < 0, V(x) = 0$ and for $x > 0, V(x) = V_0$, such that by the Schrodinger equation, for $x < 0, \frac{d^2\psi(x)}{dx^2} = -\frac{\sqrt{2mE}}{\hbar}$, and $x > 0, \frac{d^2\psi(x)}{dx^2} = -\frac{\sqrt{2m(E - V_0)}}{\hbar}$
+		\3 For solutions of beams of particles moving to the right multiplied by the time portion, each regions solution is the sum of the travelling waves in each direction
+		\3 There is assumed to be no leftward moving beam from the $x > 0$ side, such that the coefficient of that term is 0, with the functions for each side required to be continuous at x = 0
+		\3 The coefficients of reflection R and transmission T are the relative rates by which particles are refleceted and transmitted, with $R = (\frac{k_1 - k_2}{k_1 + k_2})^2$, $T = \frac{4k_1k_2}{(k_1 + k_2)^2}$, such that $T + R = 1$
+	\2 As a result of Schrodinger's wave nature, unlike the classical idea that none would be reflected due to the change in potential, a portion of the particles are, depending on the change in wavenumbers, but not in the sign of the change
 \end{outline*}
 \section{Notes}
 \begin{outline*}
@@ -282,5 +322,17 @@
 \1 Hydrogen atom is $f = cZ^2R(\frac{1}{n^2} - \frac{1}{m^2}$, such that Moseley's Law applies this to xrays for analyzing wavelength
 \1 Regular as n goes to infinity, L'Hopital used 
 \1 The area of a sphere is $4\pi r^2$
+\1 $\lambda = \frac{h}{\sqrt{2mK}}$
+\1 $L = mvr = I\omega = mr^2 \omega$ (for single particle)
+\1 \textbf{**Pay attention to units**}
+\1 Things maybe to know: Light frequencies of different types, eV vs J conversion, angular momentum mechanics
+\1 Powder scattering is the scattering of light by a collection of crystallites with random orientations, forming circles of peaks in a target formation
+\1 Electrons observed appear to behave with probabilities due to the light preventing the interference pattern, only going through one slit, changing the outcome, or low intensity makes not enough scatter and low momentum/high wavelength don't measure properly
+	\2 Complementary principle, only one type of property, wave or particle, can be measured, but not both can be
+		\3 Since momentum is proportional inversely to wavelength, it is a wave property, such that it or position can be measured, but not both, leading to Heisenberg
+\1 Copenhagen interpretation states that initial conditions can only determine probability, not definite future conditions
+\1 Oscillating functions are often represented in complex exponential notation, keeping only the real portion for the actual equation
+\1 Useful integrals include $\int^{\infty}_{-\infty} e^{-(x/a)^2}dx = a\sqrt{\pi}$, $\int^{\infty}_{0} xe^{-(x/a)^2}dx = \frac{a^2}{2}$, $\int^{\infty}_{-\infty} x^2 e^{-(x/a)^2}dx = \frac{a^3\sqrt{\pi}}{2}$, $\int^{\infty}_{-\infty} e^{ikx-(x/a)^2}dx = a\sqrt{\pi}e^{-(a^2k^2)/4}$
+\1 $R_{\infty} = 1.0973 * 10^7 m^-1$ (Rydberg Constant)
 \end{outline*}
 \end{document}
