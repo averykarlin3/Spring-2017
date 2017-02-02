@@ -205,6 +205,10 @@ Needed - Partial Derivatives
 	\2 Piecewise smooth is defined as continuous in the function and its first derivative except with possible jump discontinuities, in which both the left and right limit exist, but are unequal
 	\2 Periodic extension of a function is the function drawn over a 2L period, then made periodic and repeating
 	\2 As a result, Fourier series can be drawn by drawing f(x) over the period, then making the periodic extension, with an x to mark the average of two values at jump discontinuities
+\1 For some odd function, f(x), it must be an infinite series of sine functions since by symmetry, if taken over some symmetrical about the y-axis, the integral of the cosine coefficients is 0
+	\2 In addition, since it is anti-symmetric, $b_n = \frac{1}{L} \int^L_{-L} f(x)sin(\frac{n\pi x}{L})dx = \frac{2}{L}\int^L_0 f(x)sin(\frac{n\pi x}{L})dx$
+	\2 As a result, if f(x) is given only for a positive region, it can be extended as an odd function, such that the Fourier is for the odd extension, only using it over the required region, called the Fourier sine series of f(x) over $0 \leq x \leq L$
+\1 
 \end{outline*}
 \end{document}
 
