@@ -205,10 +205,28 @@ Needed - Partial Derivatives
 	\2 Piecewise smooth is defined as continuous in the function and its first derivative except with possible jump discontinuities, in which both the left and right limit exist, but are unequal
 	\2 Periodic extension of a function is the function drawn over a 2L period, then made periodic and repeating
 	\2 As a result, Fourier series can be drawn by drawing f(x) over the period, then making the periodic extension, with an x to mark the average of two values at jump discontinuities
+	\2 Thus, for f(x) without jump discontinuities in the extension intersections or the function itself, the Fourier series will precisely equal the function and act as a continuous function
+		\3 Thus, for an odd extension, it requires a boundary value of 0 for it to be continuous, while the boundary of an even extension is always continuous
 \1 For some odd function, f(x), it must be an infinite series of sine functions since by symmetry, if taken over some symmetrical about the y-axis, the integral of the cosine coefficients is 0
 	\2 In addition, since it is anti-symmetric, $b_n = \frac{1}{L} \int^L_{-L} f(x)sin(\frac{n\pi x}{L})dx = \frac{2}{L}\int^L_0 f(x)sin(\frac{n\pi x}{L})dx$
 	\2 As a result, if f(x) is given only for a positive region, it can be extended as an odd function, such that the Fourier is for the odd extension, only using it over the required region, called the Fourier sine series of f(x) over $0 \leq x \leq L$
-\1 
+\1 The Gibbs phenomenon is found for finite Fourier approximations, in which at a jump discontinuity, the function with overshoot in the opposite direction by approximately 9\% of the jump
+\1 For some even function f(x), the sine coefficients are 0, and since it is symmetric, $a_0 = \frac{1}{2L} \int^L_{-L} f(x)dx = \frac{1}{L} \int^L_0 f(x)dx$ and $a_n = \frac{1}{L} \int^L_{-L} f(x)cos(\frac{n\pi x}{L})dx = \frac{2}{L} \int^L_0 f(x)cos(\frac{n\pi x}{L})dx$
+	\2 As a result, this uses the even extension of f(x), similar to the odd extension for sines
+\1 For a general function f(x), as a result, both sets of terms are needed, such that $a_0 = \frac{1}{2L}\int^L_{-L} f(x)dx, a_n = \frac{1}{L} \int^L_{-L} f(x) cos(\frac{n\pi x}{L})dx, b_n = \frac{1}{L} \int^L_{-L} f(x) sin(\frac{n\pi x}{L})dx$, unable to use the symmetry half-period forms
+	\2 It is noted that the coefficients of the sine or cosine series are generally not the same as that of a general Fourier series
+	\2 On the other hand, for some f(x), since f(x) = $\frac{1}{2}(f(x) + f(-x)) + \frac{1}{2}(f(x) - f(-x))$, the former term as the even part of f(x), the latter as the odd part, any function can be written as an odd and even portion
+		\3 Thus, any Fourier series is equal to the sine series of the odd portion and the cosine series of the even portion
+		\3 It is noted that the sine series of the odd portion/cosine of the even portion are distinct from the odd/even extensions of the half periods as a result
+\1 Fourier series are not able to be term by term differentiated due to being an infinite series, unless the Fourier series of f(x) is continuous and f'(x) is piecewise smooth
+	\2 As a result, a Fourier sine series must be of a function f(x) where f(0) = f(L) = 0 for the series to be able to be differentiated, while a cosine series just has the condition on f'(x) being piecewise smooth
+	\2 **Remainder of 3.4**
+\1 **Section 3.5**
+\1 Complex exponentials can be used in the Fourier series instead by the fact that $cos\theta = \frac{e^{i\theta} + +e^{-i\theta}}{2}$ and $sin\theta = \frac{e^{i\theta} - e^{-i\theta}}{2i}$
+	\2 Using the negation of the n-index and $c_0 = a_0, c_n = \frac{a_n + ib_n}{2}$, $f(x) ~ \sum_{n = -\infty}^{\infty} c_n e^{-\frac{in\pi x}{L}}$, called the complex form of the Fourier series of f(x)
+	\2 As a result, for $n \neq 0$, $c_n = \frac{1}{2L} \int^L_{-L} f(x)e^{\frac{in\pi x}{L}}dx$, such that if f(x) is real, $c_{-n} = \bar{c}_n$
+		\3 This formula can also be determined by orthogonality of eigenfunctions, such that complex functions are said to be orthogonal if $\int \bar{f}gdx = 0$, such that $\int^L_{-L} \bar{e^{-\frac{im\pi x}{L}}} e^{-\frac{in\pi x}{L}}dx = 2L$ if n = m, 0 otherwise
+		\3 Since $\bar{e^{-\frac{im\pi x}{L}}} = e^{\frac{im\pi x}{L}}$, this is used to solve for the coefficients
 \end{outline*}
 \end{document}
 
