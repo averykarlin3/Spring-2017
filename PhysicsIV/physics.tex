@@ -126,7 +126,7 @@
 			\4 In higher dimensions, $f = \frac{c}{2a}\sqrt{n_x^2 + n_y^2 + n_z^2}$, such that $N(f)df = 2(\frac{2a}{c})^3(\frac{1}{8}4\pi f^2df)$, when the space is modeled as a sphere of radius a, only in a single octant
 			\4 The higher dimensional mode equation combined with Boltzmann distribution gives the Rayleigh-Jeans formula
 		\3 Planck found it agreed with expermental data if oscillator energy is a multiple of a discrete value, such that $E = nhf$, where h is Planck's constant
-			\4 The sum can be taken similarly  such that $\bar{E} = \frac{hf}{e^{hf/kT} - 1}$
+			\4 The sum can be taken similarly as the sum of the probabilities for some particular frequency, to get the average energy, using geometric sums to simplify, such that $\bar{E} = \frac{hf}{e^{hf/kT} - 1}$
 			\4 It follows that $u = \frac{8\pi hc\lambda^{-5}}{e^{hc/\lambda kT} - 1}$, called Planck's Law, found to be a generalization of all known laws
 	\2 Blackbody radiation has been used as proof of the Big Bang Theory, due to the universe predicted to act as a perfect black body in terms of energy distribution
 \1 In Hertz's spark gap experiment to generate EM waves and detect them, proving Maxwell's Theories, finding that light hitting a surface produced an electron current
@@ -281,6 +281,7 @@
 	\2 As a result, the boundary conditions state that it must be 0 at both ends of the box, allowing quantization similar to the standing wave condition
 		\3 For a standing wavelength of the particle, $E = n^2\frac{\pi^2\hbar^2}{2mL^2}$, able to be derived from the time-independent Schrodinger equation by providing $\psi(L) = Asin(kx)$, such that $k_n = \frac{n\pi}{L}$, providing quantized energy values/energy eigenvalues
 			\4 n is the quantum number of the system, allowing the specific mode of the system to be determined
+			\4 This also displays the minimum/zero-point energy, since n = 0 is only valid if the particle is not in the box
 		\3 The normalization condition can then be used to get that $A_n = (\frac{2}{L})^{1/2}$, such that the eigenfunctions are $\psi_n(x) = \sqrt{\frac{2}{L}}sin(\frac{n\pi x}{L})$
 		\3 This provides the probability of finding the particle at each location, depending on the total energy of the particle system
 	\2 Classically, since there is no force except an infinitely large force at the edges, any speed and energy is possible, but by the uncertainty principle the velocity and position can't be found simultaneously, the minimum energy is below the energy uncertainty
@@ -318,6 +319,14 @@
 	\2 For a barrier in which $V_0 > E$, as a result, the particle has the possibility of reaching all the way through the barrier, such that it is possible for it to tunnel through the higher potential then proceed through
 		\3 It is found that the percent transmitted, $T = 16\frac{E}{V_0}(1 - \frac{E}{V_0})e^{2\frac{\sqrt{2m(V_0 - E)}}{\hbar}L}$, where L is the length of the tunneling region
 \end{outline*}
+\section{Chapter 7 - Atomic Physics}
+\begin{outline*}
+\1 The time-independent Schrodinger Equation is expanded to 3 dimensions, such that $\frac{-\hbar^2}{2m}(\frac{\partial^2 \psi}{\partial x^2} + \frac{\partial^2 \psi}{\partial y^2} + \frac{\partial^2 \psi}{\partial z^2}) + V\psi = E\psi$
+	\2 Since the standing wave bounds in one dimension are independent of the other dimensions, it is broken down to a product function, $\psi(x, y, z) = \psi_x(x)\psi_y(y)\psi_z(z)$
+		\3 Thus, it is found that $E = \frac{\hbar^2}{2m}(k_1^2 + k_2^2 + k_3^2 = \frac{\hbar^2\pi^2}{2m}(\frac{n_1^2}{L_1^2} + \frac{n_2^2}{L_2^2} + \frac{n_3^2}{L_3^2})$, such that it has 3 quantum numbers, each from a different boundary
+	\2 Thus, for a symmetrical cube, three energy state combinations are found for each energy state, such that it is triple-degenerate, split apart otherwise
+	\2 For spherical coordinates, such that it simulates a Hydrogen atom, using a reduced mass, $\mu$, to compensate for a stationary center, the equation is found to be $\frac{-\hbar^2}{2\mu r^2}(\frac{\partial}{\partial r}(r^2 \frac{\partial \psi}{\partial r}) + \frac{1}{sin(\theta)}\frac{\partial}{\partial \theta}(sin(\theta)\frac{\partial \psi}{\partial \theta}) + \frac{1}{sin^2(\theta)}\frac{\partial^2 \psi}{\partial \phi^2}) + V(r)\psi = E\psi$
+\end{outline*}
 \section{Notes}
 \begin{outline*}
 \1 Absorption is a subset of the emission spectra, due to multiple possible paths of emission for higher levels of hydrogen atoms
@@ -342,5 +351,8 @@
 	\2 Eigenfunctions are functions which when acted on by an operator, produce a constant times the function ($Q\psi = \lambda \psi$), such that the expectation value of the operator is always the eigenvalue, able to use it simplify expectation value calculations
 	\2 As a result, the standard deviation ($<A^2> - <A>^2$) of 0, providing a definite value for some value
 	\2 For $e^{ipx}$, the momentum operator forms an eigenfunction, due to the momentum being fixed in the equation or some other reason?
+\1 For two functions, they are orthogongal if the product of the conjugate of either by the other is 0 over the entire domain, combined with the fact that $<1> = 1$ to simplify expressions
+	\2 Orthogonality exercise 2 is true due to why??
+\1 Standard deviation, $\sigma = \sqrt{<x^2> - <x>^2}$
 \end{outline*}
 \end{document}

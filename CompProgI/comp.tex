@@ -136,11 +136,11 @@
 \section{User-defined Datatypes}
 \begin{outline*}
 \1 User-defined datatypes are needed to represent application specific types, used to avoid issues with primitives such as invalid values, confusion of types, and invalid default operations
-\2 They are defined by ``type <id> = | <val1> | <val2> ...'', where <id> must be all lowercase, while each <val> must start with an uppercase letter, each representing an atomic, discrete value
+\2 They are defined by ``type $<id> = | <val1> | <val2>$ ...'', where $<id>$ must be all lowercase, while each $<val>$ must start with an uppercase letter, each representing an atomic, discrete value
 	\3 These are constructed purely by the <val>
-\2 Types are also able to be represented as tuples of multiple datatypes, defined by ``type <id> = | <val1> of <type1> | <val2> of <type2 ...''
+\2 Types are also able to be represented as tuples of multiple datatypes, defined by ``type $<id> = | <val1> of <type1> | <val2> of <type2>$ ...''
 	\3 These are constructed by ``$<val> (<type\_values>)$'', with more complicated match expressions
-	\3 Similarly, type abbreviations can rename existing types, such that ``type <id> = <type>'', acting as a substitute for a general constructor name
+	\3 Similarly, type abbreviations can rename existing types, such that ``type $<id> = <type>$'', acting as a substitute for a general constructor name
 \2 Types can be defined recursively as well, with some base case, with the other discrete values using the type itself
 \end{outline*}
 \section{Binary Trees}
@@ -175,17 +175,20 @@
 		\3 These are accessed either by ``;; open $<Module>$'' or by using dot notation for any identifiers given by the module ($<Module>.<Id>$)
 	\2 Interfaces are created either in an mli file type or a module type signature, the former written by the type name, followed by each function written by ``val $<functName> : <input1> -> <input2> -> <output>$'', where val is used to denote an expected value
 		\3 Module type signatures are written inside an ml file by ``module type $<typeName> = sig <typeInterface>$ end'', with the interface written as in an mli file
-		\3 The implementation can be written as a module of the interface as a nonabstract type, by ``module type $<typeName> : <AbstractTypeName> = struct <typeImplementation>$ end'', called an explicitly named module
+		\3 The implementation can be written as a module of the interface as a nonabstract type, by ``module $<typeName> : <AbstractTypeName> = struct <typeImplementation>$ end'', called an explicitly named module
 			\4 In this case, the ml file in which they are defined must be opened, after which dot notation must be used for each type, rather than either
 	\2 For each implementation, OCaml checks if it fully complies with the interface, implementing all expected functions, though it is able to have additional ones
 \1 Abstract types are useful for not showing the specific usage of implementation, allowing any particular means of implementing, using some implementation type combined with an invarient/rule to preserve the type properties
 	\2 Each choice of representation and invariant has respective advantages and disadvantages in terms of time optimization
 \end{outline*}
 \section{Homework Notes}
-- No multi command conditionals?
-- In needed for complex functions?
-- Can't create an empty user-defined datatype, accessed by begin match similar to regular types (Node (a, b) ->, etc)
-- Need either variable or wildcard
-- When can you use multiple lines in a single begin match command?
-- Type is not properly implemented in interface, though a function for an empty can be, since functions are values in OCaml
+\begin{outline*}
+\1 No multi command conditionals?
+\1 In needed for complex functions?
+\1 Can't create an empty user-defined datatype, accessed by begin match similar to regular types (Node (a, b) ->, etc)
+\1 Need either variable or wildcard
+\1 When can you use multiple lines in a single begin match command?
+\1 Type is not properly implemented in interface, though a function for an empty can be, since functions are values in OCaml
+\1 Equals checks if the structure is identical, in addition to the data for any object
+\end{outline*}
 \end{document}
