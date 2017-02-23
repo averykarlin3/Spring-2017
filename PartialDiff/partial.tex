@@ -220,13 +220,46 @@ Needed - Partial Derivatives
 		\3 It is noted that the sine series of the odd portion/cosine of the even portion are distinct from the odd/even extensions of the half periods as a result
 \1 Fourier series are not able to be term by term differentiated due to being an infinite series, unless the Fourier series of f(x) is continuous and f'(x) is piecewise smooth
 	\2 As a result, a Fourier sine series must be of a function f(x) where f(0) = f(L) = 0 for the series to be able to be differentiated, while a cosine series just has the condition on f'(x) being piecewise smooth
-	\2 **Remainder of 3.4 Needed?**
-\1 **Section 3.5**
+	\2 It is also found that for some function f(x), where f'(x) is piecewise smooth, but the Fourier series is not continuous, the Fourier series of f'(x) is $\frac{1}{L}(f(L) - f(0)) + \sum_{n = 1}^{\infty} (\frac{n\pi}{L}B_n + \frac{2}{L}((-1)^nf(L) - f(0)))cos(\frac{n\pi x}{L}$
+	\2 The method of Eigenfunction expansion solves for the eigenfunctions as a function of x, taking the Fourier series of it, with the coefficients as functions of t, to provide the full function solution
+		\3 This is used in cases where the boundary conditions are nonhomogeneous or there are internal sources ($Q \neq 0$), but in which the Fourier series, and its partials and second partials are continuous
+		\3 It is noted that in this case, the Fourier series can be differentiated with respect to t if the u is continuous and $\frac{\partial u}{\partial t}$ is piecewise smooth
+\1 Fourier series are able to be integrated term by term for some piecewise smooth f(x), even with jump discontinuities, though the integrated function may not be a pure Fourier series
 \1 Complex exponentials can be used in the Fourier series instead by the fact that $cos\theta = \frac{e^{i\theta} + +e^{-i\theta}}{2}$ and $sin\theta = \frac{e^{i\theta} - e^{-i\theta}}{2i}$
 	\2 Using the negation of the n-index and $c_0 = a_0, c_n = \frac{a_n + ib_n}{2}$, $f(x) ~ \sum_{n = -\infty}^{\infty} c_n e^{-\frac{in\pi x}{L}}$, called the complex form of the Fourier series of f(x)
 	\2 As a result, for $n \neq 0$, $c_n = \frac{1}{2L} \int^L_{-L} f(x)e^{\frac{in\pi x}{L}}dx$, such that if f(x) is real, $c_{-n} = \bar{c}_n$
 		\3 This formula can also be determined by orthogonality of eigenfunctions, such that complex functions are said to be orthogonal if $\int \bar{f}gdx = 0$, such that $\int^L_{-L} \bar{e^{-\frac{im\pi x}{L}}} e^{-\frac{in\pi x}{L}}dx = 2L$ if n = m, 0 otherwise
 		\3 Since $\bar{e^{-\frac{im\pi x}{L}}} = e^{\frac{im\pi x}{L}}$, this is used to solve for the coefficients
+\end{outline*}
+\section{Chapter 4 - Wave Equation of Vibrating Strings and Membranes}
+\begin{outline*}
+\1 For some tightly stretched string with constant mass density, if the slope of the vibrating portion is small, the motion of a particle can be thought to be entirely vertical
+	\2 It is assumed to be perfectly flexible, such that there is no resistance, with the gravitational force and the tangential tension force at each point, using $\theta(x, t)$ as the angle from the x-axis of the string at some point
+		\3 For some portion of string $\Delta x$ long, it is described by $\rho(x)\Delta x \frac{\partial^2 u}{\partial t^2} = T(x + \Delta x, t)sin(\theta(x + \Delta x, t)) - T(x, t)sin(\theta(x, t)) + \rho(x)\Delta x Q(x, t)$, where Q is the vertical body force per mass
+		\3 This is differentiated and using the small angle appoximation stating that $\frac{du}{dx} = sin(\theta)$, $\rho(x)\frac{\partial^2 u}{\partial t^2} = \frac{\partial}{\partial x}(T\frac{\partial u}{\partial x}) + \rho(x)Q(x, t)$
+	\2 For a perfectly elastic string, the tension is based on the angle, such that for a small angle, the tension is constant, and for a uniform string, $\rho$ is constant 
+	\2 Assuming the body force is negligable, or assuming it is a sagged equilibrium, but irrelevent to the equation, $\frac{\partial^2 u}{\partial t^2} = c^2\frac{\partial^2 u}{\partial x^2}$, where $c^2 = \frac{T_0}{\rho}$, with c as the velocity
+		\3 This is called the general form of the one-dimensional wave equation
+\1 String waves are able to have variable support boundary conditions, due to one end attached to a dynamical system, such as a spring-mass system, designated by $u(0, t) = y(t)$
+	\2 The function y(t) itself is a ordinary differential equation based on Newton's laws, such that for unstretched length l, the string stretching is $y(t) - l - y_{base}(t)$
+	\2 Thus, it is described by $m\frac{d^2y}{dt^2} = -k(y(t) - y_{base}(t) - l) + T_0\frac{du}{dx}(0, t) + Q(t)$, allowing vertical tension, found by the perfectly elastic string and small-angle approximation
+	\2 For no external forces on the mass, such that g = 0, it can be written in terms of the equlibirum position as $T_0\frac{\partial u}{\partial x}(0, t) = k(u(0, t) - u_E(t))$, appearing as Newton's Law of Cooling
+		\3 Similarly, for x = L, -k is used, such that the signs are equal of the function and first derivative, since $T_0, k > 0$
+	\2 The other end of the variable support string can be a free end, able to move up and down at the specific x position, found to be valid as $k \to 0$
+\1 Strings with fixed ends are solved giving an initial condition for both displacement and velocity, set equal to $-\lambda$, such that $u(x, t) = \sum^{\infty}_{n = 1}(A_nsin(\frac{n\pi x}{L})cos(\frac{n\pi ct}{L}) + B_nsin(\frac{n\pi x}{L})sin({n \pi ct}{L}))$
+	\2 Thus, if $u(x, 0) = f(x), \frac{\partial u}{\partial t}(x, 0) = g(x)$, $A_n = \frac{2}{L}\int^L_0 f(x)sin(\frac{n\pi x}{L})dx$ and $B_n\frac{n\pi c}{L} = \frac{2}{L}\int^L_0 g(x)sin(\frac{n\pi x}{L})dx$
+	\2 The normal modes of vibration are each set of terms of the vertical displacement, made up of a single standing wave, such that there is a node at which it is constantly u = 0 other than the boundaries
+		\3 It is found that for a first harmonic, there are zero nodes, with each subsequent harmonic having an additional node
+		\3 It can be found by trig identities that it is the superposition of two travelling waves of the same form moving in opposite directions, such that it can be written as $u(x, t) = C_1f_1(x - ct) + C_2f_2(x + ct)$, valid for all boundary condition 1D wave equation solutions
+	\2 The intensity of the sound is proportional to the amplitude ($\sqrt{A_n^2 + B_n^2}$), while the circular/angular frequency of each normal mode $(\omega = \frac{f}{2\pi})$ is equal to $\frac{n\pi c}{L}$
+		\3 Each term frequency is called the natural frequency, such that higher frequency is higher pitch, each called the $n^{th}$ harmonic with the first as the fundemental frequency, such that each higher harmonic is a multiple
+\1 The wave equation is extended to higher dimensions as $\pd{^2u}{t^2} = c^2\nabla^2u$, similarly to that of a heat equation, applying to a 2D membrane, derived as the 1D version
+	\2 It also applies to fluid such that for pressure P, $c^2 = \pd{P}{\rho}$, as well as for light, such that $c^2 = \frac{c_{light}^2}{\mu\epsilon}$
+	\2 Plane travelling waves of light satisfy the wave equation of the form $u = Ae^{i(k_1x + k_2y + k_3z - \omega t)}$, where $(k_1, k_2, k_3)$ is the wave vector, in the direction of propogation, with magnitude as the wavenumber and such that $ck = \omega$
+		\3 For two different materials with a plane boundary between at z = 0, with light velocity $c_+, z > 0$ and $c_-, z < 0$, with an incident plane wave with wave vector $k_I$ with angle $\theta_I$ to the normal and amplitude 1, it is reflected and transmitted
+		\3 It is assumed that there is a reflected wave remaining with $z > 0$, the solution above the origin is the sum of the initial and reflected waves, the latter with $k_R$
+			\4 It is also assumed that there is a refracted/transmitted wave with $k_T$ and $\theta_I$ from the normal, as the solution for z < 0
+			\4 **FINISH 4.6 IF NEEDED**
 \end{outline*}
 \end{document}
 

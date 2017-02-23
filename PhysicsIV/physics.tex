@@ -83,6 +83,7 @@
 \1 Waves but not particles can diffract, refract, and superposition, while both have velocity, generally localized position, momentum, and energy
 	\2 Superposition creates nodes of no displacement, antinodes of max displacement in a standing wave
 	\2 Energy is proportional to the square of the amplitude
+	\2 Wave properties include that $v_p = f\lambda = \frac{\omega}{\lambda}$, $\omega = 2\pi f$, and $k = 2 \pi \lambda$
 \1 Maxwell's equations show that since changing magnetic fields produce electric fields and vice versa, waves can be created by oscillating or accelerating charges, travelling forever in vacuum
 \1 Statistical mechanics are used to solve systems with too many obects to calculate, instead using statistics to predict average properties
 	\2 For some complicated system with total conserved energy and many ways to distribute the energy, the probability of any entity having a particular energy is independent of others, such that it depends only on others, but limits the possibilities of remaining energies
@@ -94,9 +95,9 @@
 \1 Existance of atoms based on the macroscopic shape of crystals, the inability to convert elements to another type, stoichiometry chemistry rules, and periodic table able to predict properties of atoms
 \1 de Broglie later stated that massive particles could have wavelength by the same formuila, $p\lambda = \lambda \sqrt{2mK} = h$, where K is kinetic energy
 \1 For two spheres on a collision course, they will collide if the center-center distance is at most $r_1 + r_2$, such that effective area/cross-section, $\sigma = \pi (r_1 + r_2)^2$
-	\2 Thus, the probability of an electron passing through a box with sides of area A/$L^2$ is $P = \frac{M\sigma}{A} = nL\sigma$, where M is the mass of the box and n is the density of the box
+	\2 Thus, the probability of an electron colliding in a box with sides of area A/$L^2$ is $P = \frac{M\sigma}{A} = nL\sigma$, where M is the mass of the box and n is the density of the box in particles/volume
 	\2 For some surface, the number colliding per area, $\Delta N = -PN$ where N is the number incident on the surface per second, and the number through the box of thickness x is thus, $\frac{\Delta N}{\Delta x} = -nN\sigma$
-	\2 Thus, $N(x) = N(0)e^{-n\sigma x} = N(0)e^{-x/l}$ where l is the mean scattering length
+	\2 Thus, the number remaining in the beam, $N(x) = N(0)e^{-n\sigma x} = N(0)e^{-x/l}$ where l is the mean scattering length, or the average distance before a collision
 \end{outline*}
 
 \section{Chapter 3 - Quantization of Charge, Light, and Energy}
@@ -144,7 +145,7 @@
 	\2 He found they were produced by eletrons when deflected then stopped by the atoms of a target
 	\2 He then thought to use Bragg places, or face-centered cubic molecular structures of NaCl crystals, analyzing the scattered waves from each atom to view xray diffraction
 		\3 The waves are in phase regardless of wavelength if the scattering angle is equal to the incident angle for two waves hitting atoms in a plane
-		\3 This condition is called the Bragg condition, true if $2dsin(\theta) = m\lambda$, where d is the distance between atoms and $\theta$ is the angle from the surface, for constructive interference, found in soap bubbles
+		\3 This condition is called the Bragg condition, true if $2dsin(\theta) = m\lambda$, where d is the distance between atoms and $\theta$ is the angle from the surface (half the scattering angle), for constructive interference, found in soap bubbles
 		\3 The amount of ionization from xrays can then be measured to get the intensity of each wavelength, after it has been corrected by the Bragg condition to get the correct angle
 	\2 This produces a spectra for the xrays produced, based on the anode of the material, able to be used to determine the atomic spacing
 		\3 This produces both the characteristic spectrum of sharp lines and the continuous spectrum, the former which is specific to the material
@@ -227,7 +228,7 @@
 		\3 As the energy is varied, the diffraction maximum changes, such that **ANGLE VOLTAGE ADD**
 	\2 The wave properties of neutral atoms and molecules were foun using natural thermal eneremy as motion, only using the top plane of the Bragg's planes due to the lack of energy, measuring the sscattering
 \1 The De Broglie equation for relativistic particles is found by $E^2 + (pc)^2 + E_0^2$, where $E = K + E_0$, such that $\frac{\lambda}{\lambda_c} = \frac{1}{(2(\frac{K}{E_0}) + (\frac{K}{E_0}^2))^{1/2}}$, where the Compton wavelength, $\lambda_c = \frac{h}{mc}$
-	\2 This is by the relations stating that $p\lambda = h$ and $hf = E$
+	\2 This is by the relations stating that $p\lambda = h$ and $hf = E$, where E is the total energy, rather than just kinetic or mass energy
 \1 Particle waves do not have a material or ether, but rather the wave is the probability of finding the particle, represented by superposition of a group of harmonic waves to form a time-space localized wave packet
 	\2 Wave packets have a group velocity ($v_g = \frac{d\omega}{dk}$), and as more waves with infinitessimally similar values of k are added, it becomes more localized
 		\3 Phase velocities, $v_p = f\lambda = \frac{\omega}{k}$, are the velocities of the individual harmonic waves, such that $v_g = v_p + k\frac{dv_p}{dk}$
@@ -326,7 +327,47 @@
 		\3 Thus, it is found that $E = \frac{\hbar^2}{2m}(k_1^2 + k_2^2 + k_3^2 = \frac{\hbar^2\pi^2}{2m}(\frac{n_1^2}{L_1^2} + \frac{n_2^2}{L_2^2} + \frac{n_3^2}{L_3^2})$, such that it has 3 quantum numbers, each from a different boundary
 	\2 Thus, for a symmetrical cube, three energy state combinations are found for each energy state, such that it is triple-degenerate, split apart otherwise
 	\2 For spherical coordinates, such that it simulates a Hydrogen atom, using a reduced mass, $\mu$, to compensate for a stationary center, the equation is found to be $\frac{-\hbar^2}{2\mu r^2}(\frac{\partial}{\partial r}(r^2 \frac{\partial \psi}{\partial r}) + \frac{1}{sin(\theta)}\frac{\partial}{\partial \theta}(sin(\theta)\frac{\partial \psi}{\partial \theta}) + \frac{1}{sin^2(\theta)}\frac{\partial^2 \psi}{\partial \phi^2}) + V(r)\psi = E\psi$
+		\3 Within this equation, $\theta$ is along the z-axis, restricted to $\pi$, while $\phi$ is along the x-axis, restricted to $2\pi$
+\1 For a hydrogen atom, the equation can be separated ($\psi = R(r)f(\theta)g(\phi)$) into the radial equation and the angular equation, $\frac{1}{R}\frac{d}{dr}(r^2\frac{dR}{dr}) + \frac{2\mu r^2}{\hbar^2}(E - V(r)) = -(\frac{1}{fsin(\theta)}\frac{d}{d\theta}(sin(\theta)\frac{df}{d\theta}) + \frac{1}{gsin^2(\theta)}\frac{d^2g}{d\phi^2}$ = l(l + 1), due to being separable
+	\2 The angular equation can then be separated further, with the constant as $-m^2$, such that $g_m(\phi) = e^{im\phi}$, periodic, such that m must be integral
+	\2 Further, $f_lm(\theta) = \frac{(sin(\theta))^{|m|}}{2^ll!}(\frac{d}{dcos(\theta)})^{l + |m|}(cos^2(\theta) - 1)^l$, such that to be finite-valued/periodic, $|m| \leq l$
+		\3 f is called the associated Legendre functions, while for m = 0, they are callec the Legendre polynomials, where the product of f and g is called the spherical harmonics
+	\2 The angular momentum, $L = r x p$, can be found by separating momentum into radial and tangential, such that $L = rp_t$, where $p_r = \mu(\frac{dr}{dt}), p_t = \mu r(\frac{dA}{dt})$
+		\3 Thus, kinetic energy can be shown to be $\frac{p^2}{2\mu} = \frac{p_r^2}{2\mu} + \frac{L^2}{2\mu r^2}$, such that $V_{eff} = \frac{L^2}{2\mu r^2} + V(r)$, such that $E = \frac{p_r^2}{2\mu} + V_{eff}(r)$, acting as an energy conservation formula, able to be used to form the Schrodinger equation
+		\3 As a result, it is derived that $(p_r^2)_{op} = -\hbar^2 \frac{1}{r^2}\frac{\partial}{\partial r}(r^2 \frac{\partial}{\partial r})$, and $(L^2)_{op} = -\hbar^2(\frac{1}{sin(\theta)}\frac{\partial}{\partial \theta}(sin(\theta)\frac{\partial}{\partial \theta}) + \frac{1}{sin^2\theta}\frac{\partial^2}{\partial \phi^2})$
+			\4 This is noted to be similar to the angular side of the separated Schrodinger equation, such that when operating on fg, it is equal to $\hbar^2l(l + 1)fg$, such that $L^2$ is quantized, where l is the angular momentum/orbital quantum number
+			\4 By the same reasoning, it is found that $L_z = m\hbar$, where m is integral equal to or less than $\pm l$, such that L is space quantized, pointing in specific spacial directions, with m as the magnetic quantum number
+		\3 The other dimensional operators can be derived similarly, but cannot be found definitively due to relying on both angles, which the uncertainty principle forbids
+			\4 In addition, the uncertainty principle also forbids knowing more than one component of the angular momentum simultaneously
+	\2 For the potential energy function, $V(r) = -\frac{Zke^2}{r}$, the radial equation is solved to find that it is well-defined only if the energy levels fit the Bohr energy levels, with n as the principle quantum number
+		\3 The radial function as a result is found to be $R_{nl}(r) = A_{nl}e^{-\frac{r}{a_0n}}r^lL_{nl}(\frac{r}{a_0})$, where $L_{nl}(\frac{r}{a_0})$ are the Laguerre polynomials, and $a_0$ is the Bohr radius, $\frac{\hbar^2}{ke^2\mu}$
+	\2 The energy depends only on n due to the inverse square force causing it to only depend on the major axis, not eccentricity, and since higher l provides lower eccentricity, and since m provides the z-component, which has no preferred direction
+		\3 The l states for each n are described by the letters S (l = 0), P, D, F, G, continuing alphabetically, while the n states are called K, L, M, ... shells
+		\3 For some absorbed photon, the selection rules state that m can change by 0, 1, or -1, while l must change by either 1 or -1 to conserve angular momentum, due to photons having intrinsic angular momentum of $\pm \hbar$
+		\3 As a result, there is a series of degenerate states ($0 \leq l \leq n -1, -l \leq m \leq l$) for each possible energy level
+	\2 For the ground state, l and m are 0 and $L_{10} = 1$, such that $\psi_{100} = C_100e^{\frac{-Zr}{a_0}}$, such that since $dV = r^2sin\theta d\phi d\theta dr$, $C_100 = \frac{1}{\sqrt{\pi}}(\frac{Z}{a_0})^{3/2}$
+		\3 Thus, the electron is most likely to be found at the origin, but the radius at which it is most likely to be found is the Bohr electron radius $a_0$, though it can be found at any radius
+		\3 Electrons tend to be thought of as a result as a charged cloud of charge density, equal to the probability multiplied by the charge
+		\3 It is also noted that the angular momentum of the ground state is 0, unlike the Bohr model which assumed the minimum angular momentum was $\hbar$
+	\2 For the excited state n = 2, $\psi_{200} = C_{200}(2 - \frac{Zr}{a_0})e^{\frac{-Zr}{2a_0}}, \psi_{210} = C_{210}\frac{Zr}{a_0}e^{\frac{-Zr}{2a_0}}cos(\theta)$, and $\psi_{20\pm 1} = C_{21 \pm 1}\frac{Zr}{a_0}e^{\frac{-Zr}{2a_0}}sin(\theta)e^{\pm i\phi}$
+		\3 The maximum for l = 1 is the Bohr orbit, $r = 4a_0$, while for l = 0, it is slightly higher, but still close
+		\3 It is found that for some n, the wavefunction is greatest near the origin when l is small, such that it gets more likely to be near the originn
+		\3 It is also noted that for l = 0, the orbital density is spherically symmetric, while otherwise, it depends on the angle
+\1 Electron spin/intrinsic angular momentum is used to explain the fine structure of the spectral lines (such that there are several infinitessimally seperate spectral lines), created analogous to Schrodinger's angular momentum ($|\vec{S}| = \sqrt{s(s + 1)}\hbar$)
+	\2 On the other hand, Pauli suggested that there could only be two magnetic spin numbers, $\pm \frac{1}{2}$, such that s must be restricted to $\frac{1}{2}$
+	\2 Magnetic moment is defined by $\vec{\mu} = g_L\frac{q}{2M}\vec{L} = g_L\sqrt{l(l + 1)}\mu_B$, where $\mu_B$ is the Bohr magneton, equal to $\frac{e\hbar}{2m_e} = 9.27 * 10^{-24} J/T$
+		\3 In addition, $\mu_z = -g_Lm\mu_B$, with $g_L$ as the gyromagnetic ratio/g-factor, taking into account the complex situation, 1 for a single revolving electron
+		\3 This shows that the quantiztation of angular momentum creates the quantization of magnetic moments
+	\2 The potential energy for a megnetic moment is found to be $U = -\vec{\mu} \cdot \vec{B}$, such that for B in the z-axis, $U = -\mu_zB$, causing the slight energy differences for the possible $\mu_z$ values creating the fine structure
+	\2 It is found that the g-factor for an electron is approximately 2, rather than the 1 expected for an electron revolving normally, showing the distinction
+	\2 Thus, the full form of the wave-equation is $\psi = C_1\psi_{100\frac{1}{2}} + C_2\psi_{100\frac{-1}{2}}$, with $C_1^2 = C_2^2 = \frac{1}{2}$ for an atom not in a magnetic field
+\1 While classically, the sum of the revolving and intrinsic angular momentum can be any value based on the vector angles, the quantization limits it, such that $|\vec{J}| = |\vec{L} + \vec{S}| = \sqrt{j(j + 1)}\hbar$
+	\2 j is allowed to be either the sum of l and s (parallel) or the positive difference of them (antiparallel), with the z component given by $J_z = m_j\hbar = (m_l + m_s)\hbar$, where $-j \leq m_j \leq j$ as a result
+		\3 Spectroscopic notation is denoted by $n^{2s + 1}L_j$, where L is the angular momentum state of the electon (S, P, D, F, G, ...)
+		\3 As a result, the fine structure splitting can also be explained by different values of j causing different potential energy, such that antiparallel J has lower energy than parallel
+	\2 Similarly, the sum of the total angular momentum of two atoms has a value of j with a maximum of the sum, the minimum of the positive difference
 \end{outline*}
+
 \section{Notes}
 \begin{outline*}
 \1 Absorption is a subset of the emission spectra, due to multiple possible paths of emission for higher levels of hydrogen atoms
@@ -354,5 +395,7 @@
 \1 For two functions, they are orthogongal if the product of the conjugate of either by the other is 0 over the entire domain, combined with the fact that $<1> = 1$ to simplify expressions
 	\2 Orthogonality exercise 2 is true due to why??
 \1 Standard deviation, $\sigma = \sqrt{<x^2> - <x>^2}$
+\1 Uncertainty principle for standard deviation is divided by 1/2, for half width is 1, otherwise it can be either multiplier
+\1 **Solid angle/differential cross section??**
 \end{outline*}
 \end{document}

@@ -167,6 +167,7 @@
 		\3 These are able to be bound by a let expression, ``let $<funName> : <type1> -> <type2> -> <retType> = <anonFunction>$'', equivelent to a standard function form
 \1 As a result, first order functions are able to be combined with generics to produce higher order functions, which are more generalized functions, taking a function and applying it to some generic object
 	\2 Common examples of this are used to transform a list by some function or to fold a list by some combine function and a base case into a single object
+\1 Partial functions with option types are those which do not always find a value, used for those that require specific inputs to return a proper output, using an option type to return a null option if no value is possible, and a value storage option otherwise
 \end{outline*}
 \section{Modularity and Abstraction}
 \begin{outline*}
@@ -180,6 +181,50 @@
 	\2 For each implementation, OCaml checks if it fully complies with the interface, implementing all expected functions, though it is able to have additional ones
 \1 Abstract types are useful for not showing the specific usage of implementation, allowing any particular means of implementing, using some implementation type combined with an invarient/rule to preserve the type properties
 	\2 Each choice of representation and invariant has respective advantages and disadvantages in terms of time optimization
+\end{outline*}
+\section{Unit and Sequencing Commands}
+\begin{outline*}
+\1 Functions are able to take or return unit variables in cases in which the parameter/return type are irrelevent, used by commands to represent the external effect produced
+	\2 Thus, ``print\_string'' and other similar commands return a unit type
+\1 Commands can be embeded in an expression using a single operator, ``;'', between the command and the next portion of the expression, returning a unit value which is ignored, but which may have side effects within the program
+	\2 As a result, the semicolon is always used as a separator, rather than as a terminator like in many other languages, seperating commands, fields, elements, or running top-level commands
+\end{outline*}
+\section{Mutability and Abstract Stack Machine}
+\begin{outline*}
+\1 Records assign names to specific values, such that they is defined by ``type $<name>$ = \{$<name1>:<type1>; ...\}$'', with records written by ``let $<var>: <name> = \{<name1> = <val1>$; ...\}''
+	\2 Values are accessed by ``$<var>.<nameNumber>$'', able to be changed slightly in a new variable by ``let $<newVar> = \{<var> with <nameNumber1>=<valNumber1>; ...\}$''
+\1 Mutable data are those which are able to be properly changed, rather than shadowed, destroying the original data, called imperative programming rather than pure programming, allowing aspects of the program to share data elements
+	\2 Mutable records are defined by ``type $<name> = \{mutable <name1> : <type1>\}$'', able to be defined outside of a function as a global variable
+	\2 These are changed by ``$<var> <- <newVal>$;'', acting as a command returning a unit
+	\2 Due to mutable values being shared by functions, multiple variables are able to point to the same data structures, called aliasing, destroying the substitution programming simplification method
+	\2 Programs using mutable data are refeerred to as imperative programming, while those that don't are pure programming
+\1 The Abstract Stack Machine is an alternative to the substitution model, accounting for the location of data in the computer memory, assuming the language is type-safe and garbage-collected, such as OCaml or Java
+	\2 It is made up of the workspace to keep track of the expression currently being evalutated, the stack for bindings, primitive values, and partially simplified expressions, and the heap is for data structures
+		\3 Bindings are made up of an identifier and a reference to an address/location of a piece of data, denoted by an arrow
+			\4 References are abstract locations, not having a specific value within the computer, while pointers are the specific reference location value
+		\3 The heap contains cells (labelled data types with possible parameters/references), records (containing a table with the variables on the left, the values double boxed on the right), and anonymous functions
+	\2 The ASM begins with an empty stack and heap, finding the left-most ready expression within the workspace to simplify, adding to the stack and heap as it moves along, removing those expressions from the workspace
+		\3 Each value is added below previous values in the stack, using the most recent value within the stack at a given time to display shadowing
+		\3 The stack functions by popping out all elements from the bottom as it leaves the scope, such that it follows the LIFO procedure
+		\3 The evaluation of the expression is complete when the result is the remaining item in the workspace
+		\3 Function definitions are converted to an anonymous function with a binding, the binding put in the stack, and the anonymous function placed in the heap
+	\2 Functions are simplified by adding the outside layer of the function into the stack with a space inside for the result of the inner layers, changing the inner layer into the new workspace, evaluating, then bringing it back to the workspace and popping off the stack for the inner layer
+		\3 The space inside the outer function layer is denoted by ``(\_\_\_)''
+	\2 Aliases are denoted by references in the stack to the same object in the heap, tested by the reference equality operator ``=='', rather than the structural equality ``=''
+		\3 For primitive values, since they are only in the stack, the reference equality operator returns true if the structural equality operator does
+\1 Options are denoted about the value with an arrow at the top left corner, while a slash through the reference box implies it links to a None option
+\end{outline*}
+\section{Queues/Linked Structures}
+\begin{outline*}
+\1 Linked structures are made out of a data block attached to other data blocks in some sequence with some set of operations able to act on it
+	\2 Queues are structures with the function enqueue to add to the tail, and dequeue to remove from the head, with last in, last out (LILO) usage, with each node made up of a value and a mutable option link to the next value
+	\2 The queue also contains a link to the first and last non-zero elements within the queue
+\1 The Queue Invariant states that either the head and tail must both be None, or for the head as Some n1 and the tail as Some n2, n2 is reachable by following next pointers from n1 and n2.next is None
+	\2 As a result, the same node is not able to be in the queue more than once as an alias, due to violating the invariant by creating a cycle
+\1 Mutable structures can be evaluated by a loop helper function defined within the overall function, either by recursion or by tail call optimization
+	\2 Tail call optimization saves space by modifying recursion into iteration, emptying the workspace of the previous function call fully before calling it again, such that the bindings can be removed from the stack
+		\3 As a result, the final call within the recursive function is the calling of it again, having fully evaluated the previous call, using an accumulation argument to preserve values from previous calls
+	\2 This provides more risk of undetected infinite loops, due to not causing a stack overflow, either by not iterating through the structure or iterating through a cycle
 \end{outline*}
 \section{Homework Notes}
 \begin{outline*}
