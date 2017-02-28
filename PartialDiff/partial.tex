@@ -254,15 +254,38 @@ Needed - Partial Derivatives
 	\2 The intensity of the sound is proportional to the amplitude ($\sqrt{A_n^2 + B_n^2}$), while the circular/angular frequency of each normal mode $(\omega = \frac{f}{2\pi})$ is equal to $\frac{n\pi c}{L}$
 		\3 Each term frequency is called the natural frequency, such that higher frequency is higher pitch, each called the $n^{th}$ harmonic with the first as the fundemental frequency, such that each higher harmonic is a multiple
 \1 The wave equation is extended to higher dimensions as $\pd{^2u}{t^2} = c^2\nabla^2u$, similarly to that of a heat equation, applying to a 2D membrane, derived as the 1D version
-	\2 It also applies to fluid such that for pressure P, $c^2 = \pd{P}{\rho}$, as well as for light, such that $c^2 = \frac{c_{light}^2}{\mu\epsilon}$
-	\2 Plane travelling waves of light satisfy the wave equation of the form $u = Ae^{i(k_1x + k_2y + k_3z - \omega t)}$, where $(k_1, k_2, k_3)$ is the wave vector, in the direction of propogation, with magnitude as the wavenumber and such that $ck = \omega$
-		\3 For two different materials with a plane boundary between at z = 0, with light velocity $c_+, z > 0$ and $c_-, z < 0$, with an incident plane wave with wave vector $k_I$ with angle $\theta_I$ to the normal and amplitude 1, it is reflected and transmitted
-		\3 It is assumed that there is a reflected wave remaining with $z > 0$, the solution above the origin is the sum of the initial and reflected waves, the latter with $k_R$
-			\4 It is also assumed that there is a refracted/transmitted wave with $k_T$ and $\theta_I$ from the normal, as the solution for z < 0
-			\4 **FINISH 4.6 IF NEEDED**
+	% \2 It also applies to fluid such that for pressure P, $c^2 = \pd{P}{\rho}$, as well as for light, such that $c^2 = \frac{c_{light}^2}{\mu\epsilon}$
+	% \2 Plane travelling waves of light satisfy the wave equation of the form $u = Ae^{i(k_1x + k_2y + k_3z - \omega t)}$, where $(k_1, k_2, k_3)$ is the wave vector, in the direction of propogation, with magnitude as the wavenumber and such that $ck = \omega$
+	% 	\3 For two different materials with a plane boundary between at z = 0, with light velocity $c_+, z > 0$ and $c_-, z < 0$, with an incident plane wave with wave vector $k_I$ with angle $\theta_I$ to the normal and amplitude 1, it is reflected and transmitted
+	% 	\3 It is assumed that there is a reflected wave remaining with $z > 0$, the solution above the origin is the sum of the initial and reflected waves, the latter with $k_R$
+	% 		\4 It is also assumed that there is a refracted/transmitted wave with $k_T$ and $\theta_I$ from the normal, as the solution for z < 0
+	% 		\4 **FINISH 4.6 IF NEEDED**
+\end{outline*}
+\section{Chapter 5 - Sturm-Liouville Eigenvalue Problems}
+\begin{outline*}
+\1 Sturm-Liouville differential equation eigenvalue problems are made up of a linear homogeneous differential equation and cooresponding linear homogeneous boundary conditions, of the form $\frac{d}{dx}(p\frac{d\phi}{dx}) + q\phi + \lambda \sigma \phi = 0$
+	\2 Boundary conditions are divided into $\phi = 0$, called the first kind/the Dirichlet condition, $\frac{d\phi}{dx} = 0$, called the second kind/the Neumann condition, $\frac{d\phi}{dx} = \pm h\phi$ (+ for the left end, - for the right end), called the third kind/Robin condition
+		\3 Boundary conditions can also be periodicity conditions, such that $\phi(-L) = \phi(L), \frac{d\phi}{dx}(-L) = \frac{d\phi}{dx}(L)$, or singularity condition, such that $|\phi(0)| < \infty$
+		\3 Regular Sturm-Liouville eigenvalue problems include $p(x) > 0, q(x), \sigma(x) > 0$, and $\phi(x)$, and only have boundary conditions of the first, second, or third kind, and must have p, q, $\sigma$ as real and continuous everywhere including endpoints
+	\2 As a result, the generalized regular boundary conditions are $\beta_1\phi(a) + \beta_2\frac{d\phi}{dx}(a) = 0, \beta_3\phi(b) + \beta_4\frac{d\phi}{dx}(b) = 0$
+\1 The Strum-Liouville theorems state that for a regular Strum-Liouville problem, eigenvalues are real, there exists an infinite number, denoting the smallest as $\lambda_1$, the remainder as $\lambda_n$, without a largest eigenvalue, approaching infinity as $n \to \infty$
+	\2 For each eigenvalue, there is some eigenfunction, $\phi_n(x)$, unique to within a multiplicative constant, with n - 1 zeroes in $a < x < b$, forming a complete Fourier set, such that f(x) $~ \sum^{\infty}_{n = 1}a_n\phi_n(x)$
+		\3 The eigenfunction expansion is also called the generalized Fourier series of f(x) with the coefficients as the generalized Fourier coefficients
+	\2 Eigenfunctions for different eigenvalues are orthogonal relative to the weight function, $\sigma(x)$, such that $\int^b_a \phi_n\phi_m\sigma dx = 0$ if $\lambda_m \neq \lambda_n$
+		\3 As a result, $a_m = \frac{\int^b_a f(x)\phi_m(x)\sigma(x)dx}{\int^b_a \phi_m^2(x)\sigma(x)dx}$
+	\2 Any eigenvalue can be found by its eigenfunction through the Rayleigh coefficient, such that $\lambda = \frac{-p\phi \frac{d\phi}{dx}|^b_a + \int^b_a (p(\frac{d\phi}{dx})^2 - q\phi^2)dx}{\int^b_a \phi^2 \sigma dx}$
+		\3 This can be used to evaluate before learning the eigenfunctions, to give a bound on the eigenvalues, used then to find the specific eigenfunctions
+\1 For heat flow in a nonuniform rod without sources, it is represented by $c(x)\rho(x)\pd{u}{t} = \pd{}{x}(K_0(x)\pd{u}{x})$, given boundary conditions u(0, t) = 0, $\pd{u}{x}(L, t) = 0$, the separable solution is found with the spacial portion as the regular Sturm-Liouvile eigenvalue problem
+	\2 The eigenfunctions are assumed to be known as $\phi_n(x)$ to provide the infinite linear combination, using the orthogonality formula for the coefficients
+	\2 As $t \to \infty, u(x, t) \to a_1\phi_1(x)e^{-\lambda_1t}$ if $a_1 \neq 0$, otherwise using the first nonzero term, such that only the first eigenfunction is needed at large t
+		\3 $a_1 \neq 0$ if $f(x) > 0$, since $\phi_1(x)$ can't have any zeroes except at the endpoints by the theorem and $c(x) \neq 0, \rho(x) \neq 0$, and f(x) is unable to integrate to 0 over the interval in that case
+\1 Using the linear differential operator, $L(y) = \frac{d}{dx}(p(x)\frac{dy}{dx}) + q(x)y$, the Sturm-Liouville differential equation can be written as $L(\phi) + \lambda \sigma(x)\phi = 0$, Lagrange's identity can be derived to find the differential form that $uL(v) - vL(u) = \frac{d}{dx}(p(u\frac{dv}{dx} - v\frac{du}{dx}))$
+	\2 The integral form, also clled Green's formula, can then be found, such that $\int^b_a (uL(v) - vL(u))dx = p(u\frac{dv}{dx} - v\frac{du}{dx})|^b_a$
+	\2 It is found that for any two functions u and v which satisfy the same set of regular Sturm-Liouville homogeneous boundary conditions, then $\int^b_a (uL(v) - vL(u))dx = 0$, making L with the boundary conditions self-adjoint
+		\3 L is found to be self-adjoint as well for the periodic boundary conditions and a singularity condition combined with a regular condition
+
 \end{outline*}
 \end{document}
-
 
 
 $u_n(x, 0) = B_nsin(\frac{n\pi}{L}x)$ if $f(x) = 5sin(\frac{7\pi}{L}x) + 7sin(\frac{13\pi}{L}x)$, then $u = 5sin(\frac{7\pi}{L}x)e^{-k(\frac{7\pi}{L})^2t} + 7sin(\frac{13\pi}{L}x)e^{-k(\frac{13\pi}{L})^2t}$

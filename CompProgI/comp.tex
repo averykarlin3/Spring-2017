@@ -191,7 +191,7 @@
 \end{outline*}
 \section{Mutability and Abstract Stack Machine}
 \begin{outline*}
-\1 Records assign names to specific values, such that they is defined by ``type $<name>$ = \{$<name1>:<type1>; ...\}$'', with records written by ``let $<var>: <name> = \{<name1> = <val1>$; ...\}''
+\1 Records assign names to specific values, such that they is defined by ``type $<name>$ = \{$<name1>:<type1>; ...$<nameN> = <valN>$;\}$'', with records written by ``let $<var>: <name> = \{<name1> = <val1>$; ...$<nameN> = <valN>$\}''
 	\2 Values are accessed by ``$<var>.<nameNumber>$'', able to be changed slightly in a new variable by ``let $<newVar> = \{<var> with <nameNumber1>=<valNumber1>; ...\}$''
 \1 Mutable data are those which are able to be properly changed, rather than shadowed, destroying the original data, called imperative programming rather than pure programming, allowing aspects of the program to share data elements
 	\2 Mutable records are defined by ``type $<name> = \{mutable <name1> : <type1>\}$'', able to be defined outside of a function as a global variable

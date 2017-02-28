@@ -329,7 +329,7 @@
 	\2 For spherical coordinates, such that it simulates a Hydrogen atom, using a reduced mass, $\mu$, to compensate for a stationary center, the equation is found to be $\frac{-\hbar^2}{2\mu r^2}(\frac{\partial}{\partial r}(r^2 \frac{\partial \psi}{\partial r}) + \frac{1}{sin(\theta)}\frac{\partial}{\partial \theta}(sin(\theta)\frac{\partial \psi}{\partial \theta}) + \frac{1}{sin^2(\theta)}\frac{\partial^2 \psi}{\partial \phi^2}) + V(r)\psi = E\psi$
 		\3 Within this equation, $\theta$ is along the z-axis, restricted to $\pi$, while $\phi$ is along the x-axis, restricted to $2\pi$
 \1 For a hydrogen atom, the equation can be separated ($\psi = R(r)f(\theta)g(\phi)$) into the radial equation and the angular equation, $\frac{1}{R}\frac{d}{dr}(r^2\frac{dR}{dr}) + \frac{2\mu r^2}{\hbar^2}(E - V(r)) = -(\frac{1}{fsin(\theta)}\frac{d}{d\theta}(sin(\theta)\frac{df}{d\theta}) + \frac{1}{gsin^2(\theta)}\frac{d^2g}{d\phi^2}$ = l(l + 1), due to being separable
-	\2 The angular equation can then be separated further, with the constant as $-m^2$, such that $g_m(\phi) = e^{im\phi}$, periodic, such that m must be integral
+	\2 The angular equation can then be separated further, with the constant as $-m^2$, such that $g_m(\phi) = e^{im\phi}$, periodic, such that m must be integral, called the azimuthal function
 	\2 Further, $f_lm(\theta) = \frac{(sin(\theta))^{|m|}}{2^ll!}(\frac{d}{dcos(\theta)})^{l + |m|}(cos^2(\theta) - 1)^l$, such that to be finite-valued/periodic, $|m| \leq l$
 		\3 f is called the associated Legendre functions, while for m = 0, they are callec the Legendre polynomials, where the product of f and g is called the spherical harmonics
 	\2 The angular momentum, $L = r x p$, can be found by separating momentum into radial and tangential, such that $L = rp_t$, where $p_r = \mu(\frac{dr}{dt}), p_t = \mu r(\frac{dA}{dt})$
@@ -340,7 +340,8 @@
 		\3 The other dimensional operators can be derived similarly, but cannot be found definitively due to relying on both angles, which the uncertainty principle forbids
 			\4 In addition, the uncertainty principle also forbids knowing more than one component of the angular momentum simultaneously
 	\2 For the potential energy function, $V(r) = -\frac{Zke^2}{r}$, the radial equation is solved to find that it is well-defined only if the energy levels fit the Bohr energy levels, with n as the principle quantum number
-		\3 The radial function as a result is found to be $R_{nl}(r) = A_{nl}e^{-\frac{r}{a_0n}}r^lL_{nl}(\frac{r}{a_0})$, where $L_{nl}(\frac{r}{a_0})$ are the Laguerre polynomials, and $a_0$ is the Bohr radius, $\frac{\hbar^2}{ke^2\mu}$
+		\3 The radial function as a result is found to be $R_{nl}(r) = A_{nl}e^{-\frac{Zr}{a_0n}}r^lL_{nl}(\frac{Zr}{a_0})$, where $L_{nl}(\frac{r}{a_0})$ are the Laguerre polynomials, and $a_0$ is the Bohr radius, $\frac{\hbar^2}{ke^2\mu}$
+		\3 The energy is found as well to be $E = -\frac{1}{2}m_ec^2Z^2\alpha^2\frac{1}{n^2}$, equal to the Bohr energy levels, with $\alpha$ as the fine structure constants
 	\2 The energy depends only on n due to the inverse square force causing it to only depend on the major axis, not eccentricity, and since higher l provides lower eccentricity, and since m provides the z-component, which has no preferred direction
 		\3 The l states for each n are described by the letters S (l = 0), P, D, F, G, continuing alphabetically, while the n states are called K, L, M, ... shells
 		\3 For some absorbed photon, the selection rules state that m can change by 0, 1, or -1, while l must change by either 1 or -1 to conserve angular momentum, due to photons having intrinsic angular momentum of $\pm \hbar$
@@ -349,6 +350,7 @@
 		\3 Thus, the electron is most likely to be found at the origin, but the radius at which it is most likely to be found is the Bohr electron radius $a_0$, though it can be found at any radius
 		\3 Electrons tend to be thought of as a result as a charged cloud of charge density, equal to the probability multiplied by the charge
 		\3 It is also noted that the angular momentum of the ground state is 0, unlike the Bohr model which assumed the minimum angular momentum was $\hbar$
+		\3 The set of n and l quantum numbers is called the electron configuration
 	\2 For the excited state n = 2, $\psi_{200} = C_{200}(2 - \frac{Zr}{a_0})e^{\frac{-Zr}{2a_0}}, \psi_{210} = C_{210}\frac{Zr}{a_0}e^{\frac{-Zr}{2a_0}}cos(\theta)$, and $\psi_{20\pm 1} = C_{21 \pm 1}\frac{Zr}{a_0}e^{\frac{-Zr}{2a_0}}sin(\theta)e^{\pm i\phi}$
 		\3 The maximum for l = 1 is the Bohr orbit, $r = 4a_0$, while for l = 0, it is slightly higher, but still close
 		\3 It is found that for some n, the wavefunction is greatest near the origin when l is small, such that it gets more likely to be near the originn
@@ -365,13 +367,34 @@
 	\2 j is allowed to be either the sum of l and s (parallel) or the positive difference of them (antiparallel), with the z component given by $J_z = m_j\hbar = (m_l + m_s)\hbar$, where $-j \leq m_j \leq j$ as a result
 		\3 Spectroscopic notation is denoted by $n^{2s + 1}L_j$, where L is the angular momentum state of the electon (S, P, D, F, G, ...)
 		\3 As a result, the fine structure splitting can also be explained by different values of j causing different potential energy, such that antiparallel J has lower energy than parallel
+		\3 In addition, within an external magnetic field, the energy is slightly different for each $m_j$, splitting the lines further, called the Zeeman effect
 	\2 Similarly, the sum of the total angular momentum of two atoms has a value of j with a maximum of the sum, the minimum of the positive difference
+	\2 Since the fine-structure depends only on n and j, rather than on l, different l states have the same energy, and since there is only a single l value for n = 1, S, $2^2S_{1/2}$ is metastable, due to the selection rule requiring a change in the l value
+		\3 On the other hand, it was discovered that $2^2S_{1/2}$ had slightly more energy than $2^2P_{1/2}$, allowing the Lamb shift transition with photon emission
+\1 The Schrodinger Equation for multiple particles, assumed to be electrons, written time-independently as $-\frac{\hbar^2}{2m}\frac{\partial^2\psi(x_1, x_2)}{\partial x_1^2} -\frac{\hbar^2}{2m}\frac{\partial^2\psi(x_1, x_2)}{\partial x_2^2} + V\psi(x_1, x_2) = E\psi(x_1, x_2)$
+	\2 Potential must take into account both the independent potential of each and the interacting potential, both assumed to be 0 for the infinite square well
+	\2 The solution is written as a product solution, such that for states m and n respectively, $\psi_{mn}(x_1, x_2) = \psi_m(x_1)\psi_n(x_2)$
+		\3 The probability of finding particle 1 at $dx_1$, particle 2 at $dx_2$ is $|\psi(x_1, x_2)|^2dx_1dx_2 = (|\psi_m(x_1)|^2dx_1)(|\psi_n(x_2)|^2dx_2)$
+		\3 For identical particles as a result, the interchanging of the particles would result in the same overall wave probability ($|\psi(x_1, x_2)|^2 = |\psi(x_2, x_1)|^2$), considered a symmetric wavefunction if they are equal if reversed, antisymmetric if negative
+	\2 Since identical particles are assumed to be indistinguishable within quantum mechanics, the wavefunctions must be the linear combination of both with equal probability, such that $\psi = C(\psi_m(x_1)\psi_n(x_2) \pm \psi_m(x_2)\psi_n(x_1))$, depending if symmetric or not
+	\2 It is found that electrons can only have antisymmetric wavefunctions, such that if all wavenumbers are the same, then the wavefunction at any point is 0, forbidden by Pauli's exclusion principle
+\1 For a Helium atom, potential energy is the sum of the potential with the nucleus and $V_{int} = \frac{ke^2}{|\vec{r_2} + \vec{r_1}|}$, preventing the separation of equations for each electron
+	\2 If ignoring the interaction term, the energy of each of the electrons is individual, with total energy as the sum of the individual electron energy states, the wavefunction as the product of the standard electron wavefunctions
+		\3 First-order perturbation theory is then done to correct for the interactions, calculating the expectation value of the interaction potential, adding it to the ground state energy to get the real energy
+	\2 The first ionization potential is the difference between the ground state energy with two electrons and a single election, rather than the electrostatic potential of a single electron
+\1 For a lithium ion, the energy of the third electron depends on the l state, due to the force not being an inverse square force, but rather depending on the negative K-shell charge, spread over the volume at the radius $\frac{a_0}{Z}$
+	\2 The electron acts as an electron in either the 2S or 2P state of a hydrogen atom, due to the electrons in the K shell shielding the nucleus, such that $Z_{eff} = 1$
+		\3 On the other hand, in the 2S state, it is more likely to be near the center, below the shielding, such that the energy state is lower, true generally, such that for the electron in 2S, $Z_{eff} = 1.3$
+	\2 For beryllium, since the effective force within the Z-shell is greater, the energy is lower than that of the third electron in lithium
+	\2 The electron of boron has higher energy than beryllium, due to the lack of penetration of the 2S subshell, with lower energy for subsequent electrons due to higher nucleus charge, though with neon still having higher energy than helium 
+	\2 Thus, for 3S electrons, the energy is drastically higher due to the shielding of the L shell, proceeding lower as subsequent electrons are added into 3S then 3P
+	\2 
 \end{outline*}
 
 \section{Notes}
 \begin{outline*}
 \1 Absorption is a subset of the emission spectra, due to multiple possible paths of emission for higher levels of hydrogen atoms
-\1 $\frac{1}{\lambda} = \frac{m_e \alpha^2 Z^2}{2} (\frac{1}{n^2} - \frac{1}{m^2})$, $\alpha = \frac{e^2}{4\pi \epsilon_0 \hbar c} \approx \frac{1}{137}$
+\1 $\frac{1}{\lambda} = \frac{m_e \alpha^2 Z^2}{2} (\frac{1}{n^2} - \frac{1}{m^2})$, $\alpha = \frac{e^2}{4\pi \epsilon_0 \hbar c} \approx \frac{1}{137}$, called the fine structure constant
 \1 Fractional change of n vs m = $\frac{n - m}{n}$
 \1 Hydrogen atom is $f = cZ^2R(\frac{1}{n^2} - \frac{1}{m^2}$, such that Moseley's Law applies this to xrays for analyzing wavelength
 \1 Regular as n goes to infinity, L'Hopital used 
@@ -397,5 +420,26 @@
 \1 Standard deviation, $\sigma = \sqrt{<x^2> - <x>^2}$
 \1 Uncertainty principle for standard deviation is divided by 1/2, for half width is 1, otherwise it can be either multiplier
 \1 **Solid angle/differential cross section??**
+
+\1 Quantum mechanics can be written in terms of matrix operations, related to operators, noted to similarly not necessarily be commutable
+	\2 Similarly, for a wavefunction as a linear combination of eigenfunctions, the vector element cooresponds to the vector of the amplitudes of each eigenfunction
+	\2 Thus, the operator can be denoted as some matrix, (often as the diagonal matrix of the eigenvalues), such that eigenfunctions are like eigenvectors (when multiplied by the operator matrix, it provides the vector multiplied by a constant)
+	\2 Expectation values are calculated by the adjoint vector, or the conjugate transpose, denoted as $<f(x)> = v^*f(x)v$
+
+\1 It is found that an eigenfunction cannot be simultaneously found for multiple $\vec{L}$ components, but can be for $L^2, L_z$, similar to being unable to be found for p and x
+	\2 As a result, it is noted that the maximum angular momentum along a single axis is less than the total angular momentum, since otherwise, the angular momentum along all axes would be known
+	\2 $L^2_{op} = -\hbar^2(\frac{\partial^2}{\partial \theta^2} + cot(\theta)\frac{\partial}{\partial \theta} + \frac{1}{sin^2(\theta)}\frac{\partial^2}{\partial \phi^2}$, $L_z = -i\hbar(x\frac{\partial}{\partial y} - y\frac{\partial}{\partial x}) = -i\hbar\frac{\partial}{\partial \phi}$, such that the wavefunction is already an eigenfunction
+
+\1 Hydrogen atoms involve only radius based electrostatic potential, $V = \frac{-Ze^2}{4\pi \epsilon_0 r} = \frac{-kZe^2}{r}$
+	\2 Spherical coordinates are $x = rsin(\theta)cos(\phi), y = rsin(\theta)sin(\phi), z = rcos(\theta), \theta = tan^{-1}(\frac{\sqrt{x^2 + y^2}}{z}), \phi = tan^{-1}(\frac{y}{x})$, assuming $\theta$ is from the z-axis, $\phi$ is from the x-axis
+		\3 In addition, $dV = r^2sin\theta d\phi d\theta dr$ for integrating in spherical coordinates, using radians rather than degrees
+		\3 $\nabla^2 = \frac{\partial^2}{\partial r^2} + \frac{2}{r}\frac{\partial}{\partial r} + \frac{1}{r^2}(\frac{\partial^2}{\partial \theta^2} + cot(\theta)\frac{\partial}{\partial \theta} + \frac{1}{sin^2(\theta)}\frac{\partial^2}{\partial \phi^2})$
+	\2 As a result, the surface area integral is the integral with a set radius, such that there is no radius bound
+\1 The hydrogen atom product solutions for angles and radial must be independently normalized, due to needing to be at some radius and angle
+	\2 Energy less than 0 implies a bound state, such that potential energy is greater than kinetic energy, which are the proper solutions
+	\2 The degeneracy of the state is equal to $n^2$, equal to the number of states with the same energy in a given potential
+
+2/22 - Hydrogen and Schrodinger Done
+2/23 - Hydrogen Done
 \end{outline*}
 \end{document}
