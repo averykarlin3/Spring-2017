@@ -226,6 +226,26 @@
 		\3 As a result, the final call within the recursive function is the calling of it again, having fully evaluated the previous call, using an accumulation argument to preserve values from previous calls
 	\2 This provides more risk of undetected infinite loops, due to not causing a stack overflow, either by not iterating through the structure or iterating through a cycle
 \end{outline*}
+\section{Local State/Objects}
+\begin{outline*}
+\1 Local states are states packaged with several functions that operate on it, shared mutably between the functions, unable to be modified outside of those functions, used to avoid the need for many global states
+	\2 Rather than a global record to keep track of a state, there is a function producing a new record each time it is run, returning a function to increment that counter
+	\2 This is accomplished by the ASM storing the function, along with any local stack bindings needed to evaluate it, to the heap, such that the counter isn't on the stack, but is readded by the function immediately when called, even before arguments are added to the stack
+	\2 The combination of a function and locally stored bindings is called a closure, with the localization of the state being called encapsulation, restricting access to the data to the specifically designated functions
+\1 Objects are created by making a record of several functions, and a creation function that produces a state record modified by the function records
+	\2 This is made easier by the 'a ref (reference) type, used as shorthand for a record with a single mutable field called contents, with the ! operator to provide the contents, and the := operator to redefine the contents
+\end{outline*}
+\section{OCaml GUI Library}
+\begin{outline*}
+\1 GUIs use an event-driven model of reactive programming, reacting to user-caused events, such as mouse or keyboard input
+	\2 OCaml uses the event type, as a record to indicate the status of keys, the mouse button, and the mouse location
+\1 The OCaml graphic library is used by adding the ``graphics.cma'' compiler flag, providing functions such as open\_graph (to open a new window), clear\_graph (to erase the window), resize\_window (to set the window size), size\_x (to return the width), and size\_y (to return the height)
+	\2 It also provides the type color, as a record with items r, g, and b, with various predefined colors
+	\2 It also contains a pen with functions set\_color, move\_to, and (plot x y) to color the pixel with the current pen color, as well as (line\_to x y) (from the current location) and functions for other shapes drawn
+	\2 The graphics library uses double buffering, modifying a hidden second copy of the window, pushing that into the main window and erasing, instead of modifying the main window directly to prevent flickering
+\1 GUI libraries are generally made with built-in buttons and textboxes, as well as systems for positioning relative components of the GUI, to avoid precarious global window coordinate systems
+	 \2 
+\end{outline*}
 \section{Homework Notes}
 \begin{outline*}
 \1 No multi command conditionals?

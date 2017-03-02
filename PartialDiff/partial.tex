@@ -283,7 +283,11 @@ Needed - Partial Derivatives
 	\2 The integral form, also clled Green's formula, can then be found, such that $\int^b_a (uL(v) - vL(u))dx = p(u\frac{dv}{dx} - v\frac{du}{dx})|^b_a$
 	\2 It is found that for any two functions u and v which satisfy the same set of regular Sturm-Liouville homogeneous boundary conditions, then $\int^b_a (uL(v) - vL(u))dx = 0$, making L with the boundary conditions self-adjoint
 		\3 L is found to be self-adjoint as well for the periodic boundary conditions and a singularity condition combined with a regular condition
-
+\1 Since for some eigenfunction, $L(\phi_{m/n}) + \lambda_{m/n}\sigma(x)\phi_{m/n} = 0$, both of wich satisfy the homogeneous boundary conditions, they may be added into Green's formula such that $(\lambda_m - \lambda_n) \int^b_a \phi_n\phi_m\sigma dx = p(x)(\phi_m \frac{d\phi_n}{dx} - \phi_n \frac{d\phi_m}{dx})|^b_a$
+	\2 The boundary conditions can often remove the right hand side, such that assuming that the eigenvalues are separate, the eigenfunctions are weighted orthogonal
+	\2 For some real $\sigma$ with complex L, $\lambda$, and $\phi$, the conjugate must be also be valid, such that $(\lambda - \bar{\lambda}) \int^b_a \phi \bar{\phi}\sigma dx = 0$
+		\3 Since the product of a function and its conjugate is equal to the absolute value of the function squared, it must be greater than 0, and $\sigma > 0$, such that $\phi = \bar{\phi}$, such that all eigenvalues are real
+	\2 
 \end{outline*}
 \end{document}
 
