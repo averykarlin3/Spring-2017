@@ -287,7 +287,9 @@ Needed - Partial Derivatives
 	\2 The boundary conditions can often remove the right hand side, such that assuming that the eigenvalues are separate, the eigenfunctions are weighted orthogonal
 	\2 For some real $\sigma$ with complex L, $\lambda$, and $\phi$, the conjugate must be also be valid, such that $(\lambda - \bar{\lambda}) \int^b_a \phi \bar{\phi}\sigma dx = 0$
 		\3 Since the product of a function and its conjugate is equal to the absolute value of the function squared, it must be greater than 0, and $\sigma > 0$, such that $\phi = \bar{\phi}$, such that all eigenvalues are real
-	\2 
+	\2 The fact that there is a single eigenfunction for each eigenvalue can be found by the fact that $L(\phi) + \lambda\sigma\phi = 0$ can be made with two eigenfunctions, such that $\phi_2 L(\phi_1) - \phi_1 L(\phi_2) = \frac{d}{dx}(p(\phi_2\frac{d\phi_1}{dx} - \phi_1\frac{d\phi_2}{dx})) = 0$
+		\3 Thus, $\phi_2\frac{d\phi_1}{dx} - \phi_1\frac{d\phi_2}{dx}$ is a constant, found to be 0 if one of the boundary conditions is regular or singular, such that each eigenfunction is a multiple of each other
+		\3 For periodic boundary conditions, the constant may not be zero, such that there may be nonunique (more than one linearly independent) eigenfunctions, which may not be orthogonal to each other, unless found by Gram-Schmidt orthogonalization
 \end{outline*}
 \end{document}
 
