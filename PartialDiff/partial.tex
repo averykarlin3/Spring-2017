@@ -291,6 +291,47 @@ Needed - Partial Derivatives
 		\3 Thus, $\phi_2\frac{d\phi_1}{dx} - \phi_1\frac{d\phi_2}{dx}$ is a constant, found to be 0 if one of the boundary conditions is regular or singular, such that each eigenfunction is a multiple of each other
 		\3 For periodic boundary conditions, the constant may not be zero, such that there may be nonunique (more than one linearly independent) eigenfunctions, which may not be orthogonal to each other, unless found by Gram-Schmidt orthogonalization
 \end{outline*}
+\section{Goode-Annin Chapter 9 - Series Solutions and Frobenius Theory}
+\begin{outline*}
+\1 Power series centered at $x_0$ are denoted by $\sum_{n = 0}^{\infty} a_n(x - x_0)^n$, where $a_n$ is a constant, able to be transformed such that $u = x - x_0$ to center at the origin, converging if the series value exists and is finite
+	\2 The set of x in which the series converges is called the interval of convergence, either converging for 0, all real x, or within radius about x = 0 (with the boundaries able to converge or diverge each)
+	\2 The ratio test states that if $lim_{n \to \infty} |\frac{a_{n + 1}}{a_n}| = L$, then the radius of convergence is $R = \frac{1}{L}$
+	\2 Power series are equal to 0 iff each coefficient is 0, and equal to another series iff all coefficients are equal
+	\2 For two series about the same point, in which the smaller radius is R, within the R radius, the sum of the series is equal to the series of the sum of the coefficients for each term, the product of a constant is the product of the constant and the coefficients
+		\3 Further, the product of the two series, $f(x)g(x) = \sum^{\infty}_{n = 0} c_nx^n$, where $c_n = \sum^n_{k = 0} a_{n-k}b_k = \sum^n_{k = 0} b_{n-k}a_k$
+		\3 In addition, series are able to be term-wise differentiated and integrated over the interval of convergence
+	\2 Functions are analytic at some point if they are able to be represented by a power series with a nonzero radius centered at that point
+		\3 The representation is the Taylor series, such that $f(x) = \sum_{n = 0}^{\infty} \frac{f^{(n)}(x_0)}{n!}(x - x_0)^n$, where the series about x = 0 is the Maclaurin series
+		\3 If two functions are analytic at some point, then their product, sum, difference, and quotient are as well (assuming $g(x_0) \neq 0$)
+			\4 For two polynomial functions, the radius of convergence of the quotient is equal to the distance in the complex plane from $x_0$ to the nearest root of q
+\1 For some second-order linear homogeneous differential equation, y'' + p(x)y' + q(x)y = 0, $x = x_0$ is caled an ordinary point of the equation if p and q are analytic at $x_0$, otherwise called a singular point
+	\2 If p and q are analytic at some point with a lower radius of R, the general solution to the series must be as well with the radius at least R
+	\2 Since the equation is homogeneous, the fact that the coefficients must be 0 for the sum to be zero is used to solve for the coefficients of the series recursively
+		\3 This method provides two series, in terms of $a_0$ and $a_1$ respectively, providing the linearly independent solution series
+		\3 As a result, $y(x_0) = a_0, y'(x_0) = a_1$, providing the initial conditions of the equation in terms of the series
+\1 Singular points of the second-order linear differential equation are regular iff $p'(x) = (x - x_0)p(x)$ and $q'(x) = (x - x_0)^2q(x)$ are analytic at $x_0$, otherwise called irregular
+	\2 Thus, the equation can be multiplied by $(x - x_0)^2$, providing $(x - x_0)^2y'' + (x - x_0)p'(x)y' + q'(x)y = 0$, able to use a change of variables to center the point at the origin
+	\2 Since p'(x), q'(x) are analytic at the point, they can be written as infinite polynomials, $p'(x) = p_0 + p_1x + ...$ (and likewise for q'(x))
+		\3 As $|x| << 1$, it approaches a Cauchy-Euler equation, such that the incidial equation, $r(r - 1) + p_0r + q_0 = 0$ applies
+			\4 This is made easier to evaluate by the fact that $p_0 = p'(0)$ and $q_0 = q'(0)$
+		\3 As a result, assuming distinct roots not separated by an integral value, there are two linearly independent solutions of the form $y(x) = x^r\sum_{n = 0}^{\infty} a_nx^n$, where $a_0 \neq 0$, called the Frobenius series, valid for at least the smaller radius of convergence
+	\2 The coefficients are then found by using the recursive technique for each linearly independent solution seperately
+\1 
+\end{outline*}
+\section{Chapter 7 - Higher Dimensional Equations}
+\begin{outline*}
+\1 Separation of the time variable applies, such that for the two-dimensional wave equation, assuming initial conditions are given over the domain for the function and first derivative, and some combination of homogeneous boundary conditions are given for the entire boundary
+	\2 Thus, $u(x, y, t) = h(t)\phi(x, y)$, able to be further seperated later based on the geometry and boundary conditions, such that $\frac{d^2h}{dt^2} = -\lambda c^2h$ and $\pd{\phi}{x} + \pd{\phi}{y} = -\lambda \phi$ for a membrane
+	\2 Similar equations are found for heat conduction, and it is found that higher dimensions add a term to the spacial equation, such that generally, $\nabla^2 \phi = -\lambda \phi$
+\1 For a vibrating rectangular membrane, since $\pd{\phi}{x} + \pd{\phi}{y} = -\lambda \phi$, $\phi$ is further seperated, such that $\phi(x, y) = f(x)g(y)$, adding a new seperation constant, $-\mu$, each as an eigenvalue problem
+	\2 It is found that $\mu$ is in terms of a single integer constant, while $\lambda$ is in terms of that and another integer constant, f and g each in terms of a single constant
+	\2 The solution is found to be $u(x, y, t) = \sum_{m = 1}^{\infty} \sum_{n = 1}^{\infty} A_{nm} sin(\frac{n\pi x}{L}) sin(\frac{m\pi y}{H}) cos(c\sqrt{\lambda_{nm}}t) + \sum_{m = 1}^{\infty} \sum_{n = 1}^{\infty} B_{nm} sin(\frac{n\pi x}{L}) sin(\frac{m\pi y}{H}) sin(c\sqrt{\lambda_{nm}}t)$, called a double Fourier series
+		\3 Each term is called a family of solutions, with each value of m, n, called a mode of vibration, each mode as a standing wave
+		\3 Curves in which the displacement is always zero for a mode are called the nodal curves of the mode, with neighboring cells having opposite signed displacement
+	\2 The coefficients are found by fixing a variable, to solve for the value in terms of that variable, then taking that variable, such that $A_{nm} = \frac{2}{L}\int^L_0 (\frac{2}{H}\int^H_0 \alpha(x, y) sin(\frac{m\pi y}{H})dy) sin(\frac{n\pi x}{L})dx$, where $\alpha = u(x, y, 0)$ with zero boundary conditions on each
+		\3 Similarly, for $\beta = u'(x, y, 0), c\sqrt{\lambda_{nm}}B_{nm} = \frac{4}{LH}\int^L_0 \int_0^H \beta(x, y) sin(\frac{m\pi y}{H}) sin(\frac{n\pi x}{L})dydx$
+\1 
+\end{outline*}
 \end{document}
 
 

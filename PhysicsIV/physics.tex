@@ -291,7 +291,7 @@
 \1 For a finite square well, such that the bounds of the region have potential $V_0$, where the total energy is assumed to be less than $V_0$, such that within the well, the equation is the same as the infinite well, $\psi''(x) = -k^2\psi(x), k^2 = \frac{2mE}{\hbar^2}$, such that it is a sine/cosine within the well
 	\2 Outside the well, it requires the complete time-independent equation, but is not required to be 0, rather only needing to follow the normalization condition
 	\2 Since the second derivative/curvature and the derivative have the same sign, the function always curves away from the x-axis, rather than towards like a sine/cosine
-		\3 This will appear in the form, $\psi(x) = ce^{-\alpha x} = ce^{-\frac{2m}{\hbar^2}(V_0 - E)x}$
+		\3 This will appear in the form, $\psi(x) = ce^{\pm\alpha x} = ce^{\pm\sqrt{\frac{2m}{\hbar^2}(V_0 - E)}x}$
 		\3 As a result, for most energy values of the wavefunction, it goes towards $\pm \infty$ as x approaches $\pm \infty$, such that it is invalid, such that it must move towards 0 as $x \to \pm \infty$, restricting energy states
 		\3 It is found that there is a finite number of possible energies, decreasing in quantity as the voltage decreases, to 1 possible state at very low $V_0$
 	\2 Since it is possible for the particle to be outside the well, kinetic energy appears to be negative, but if the probability is assumed to be negligable at $\Delta x = \alpha^{-1}$, the momentum uncertainty gives a minimum energy equal to the negative kinetic energy to cancel it
@@ -307,18 +307,24 @@
 		\3 Parity operations are those flipping the x-axis, such that $x \to -x$, true for the Hamiltonian operator such that $H_op\psi(-x) = E\psi(-x)$
 		\3 If there are multiple separate solutions for one energy state, it is called degenerate, doubly degenerate for two, though since it is found for the Schrodinger equation to be at most by a factor of -1 for odd parity ($\psi(-x) = -\psi(x)$)
 	\2 It is found that $E_n = (n + \frac{1}{2})\hbar\omega$, such that the minimum energy is $E_0 = \frac{1}{2}\hbar\omega$, due to the minimum uncertainty principle energy
-		\3 Thus, it is found that $\psi_n(x) = C_n e^{-m\omega x^2/2\hbar}H_n(x)$, where $H_n(x)$ is the Hermite polynomial of order n, symmetric for even n, antisymmetric for odd n
+		\3 Thus, it is found that $\psi_n(x) = C_n e^{-m\omega x^2/2\hbar}H_n(x)$, where $H_n(x)$ is the Hermite polynomial of order n, symmetric for even n, antisymmetric for odd n, such that it decays outside the classically allowed region, oscillating within the region
+		\3 The approximate length uncertainty can be thought of as the width under which the exponential term is greater than 1
 	\2 It is also found that $\int^{\infty}_{-\infty} \psi^*_nx\psi_mdx = 0$ unless $n = m \pm 1$, called the selection rule, such that radiation can only change the energy of the oscillator by one at a time
 \1 For an unbound state problem, such that E is greater than V(x) as $x \to \pm \infty$, the second derivative and wavefunction must have opposite signs to avoid moving towards infinity, curving to the x axis, such that any value of E is possible
 	\2 While it is not normalizable over the entire domain, it is bounded within a specific range, such that $\int^b_a |\psi(x)|^2dx = \int^b_a \rho dx = \int^b_a dN = N$, where N is the number of particles in the interval
-	\2 For some step potential, such that for $x < 0, V(x) = 0$ and for $x > 0, V(x) = V_0$, such that by the Schrodinger equation, for $x < 0, \frac{d^2\psi(x)}{dx^2} = -\frac{\sqrt{2mE}}{\hbar}$, and $x > 0, \frac{d^2\psi(x)}{dx^2} = -\frac{\sqrt{2m(E - V_0)}}{\hbar}$
+	\2 For some step potential, such that for $x < 0, V(x) = 0$ and for $x > 0, V(x) = V_0$, such that by the Schrodinger equation, for $x < 0, \frac{d^2\psi(x)}{dx^2} = -\frac{\sqrt{2mE}}{\hbar^2}$, and $x > 0, \frac{d^2\psi(x)}{dx^2} = -\frac{\sqrt{2m(E - V_0)}}{\hbar^2}$
 		\3 For solutions of beams of particles moving to the right multiplied by the time portion, each regions solution is the sum of the travelling waves in each direction
 		\3 There is assumed to be no leftward moving beam from the $x > 0$ side, such that the coefficient of that term is 0, with the functions for each side required to be continuous at x = 0
-		\3 The coefficients of reflection R and transmission T are the relative rates by which particles are refleceted and transmitted, with $R = (\frac{k_1 - k_2}{k_1 + k_2})^2$, $T = \frac{4k_1k_2}{(k_1 + k_2)^2}$, such that $T + R = 1$
+		\3 The coefficients of reflection R and transmission T are the relative rates by which particles are refleceted and transmitted, with $R = (\frac{k_1 - k_2}{k_1 + k_2})^2$, $T = \frac{4k_1^2}{(k_1 + k_2)^2}$, such that $T + R = 1$
 	\2 As a result of Schrodinger's wave nature, unlike the classical idea that none would be reflected due to the change in potential, a portion of the particles are, depending on the change in wavenumbers, but not in the sign of the change
 	\2 For $V_0 > E$, the equation is a real negative exponential in the potential region, such that the particle is able to somewhat permeate, appearing as if it has negative velocity by the uncertainty principles
 	\2 For a barrier in which $V_0 > E$, as a result, the particle has the possibility of reaching all the way through the barrier, such that it is possible for it to tunnel through the higher potential then proceed through
-		\3 It is found that the percent transmitted, $T = 16\frac{E}{V_0}(1 - \frac{E}{V_0})e^{2\frac{\sqrt{2m(V_0 - E)}}{\hbar}L}$, where L is the length of the tunneling region
+		\3 It is found that the percent transmitted, $T = 16\frac{E}{V_0}(1 - \frac{E}{V_0})e^{2\frac{\sqrt{2m(V_0 - E)}}{\hbar^2}L} \approx e^{2\frac{\sqrt{2m(V_0 - E)}}{\hbar^2}L}$, where L is the length of the tunneling region
+		\3 As a result, the probability of a standard barrier is the integral of the probability of transmission for each x value 
+		\3 This is found to be the cause of the likelihood of spontaneous alpha decay, such that the force increases linearly as the particle gets further out of the nucleus, decreasing by $\frac{1}{r^2}$ outside
+		\3 Tunnelling microscopes view metals as an infinite well, moving the servo close to the material, sending a voltage through the air to measure the light emitted from the tunnelling based on the height, to measure the surface layout and height
+			\4 This is done with the current proportional to the transmission probability, keeping the tip-surface distance constant for each scan
+	\2 Flux of particles, $J = \rho v = \frac{p}{m} \rho = \frac{\hbar k}{m} \rho$, such that for initial density of a single particle, $J_I = v, J_{R} = vR$, and $J_T = vT$
 \end{outline*}
 \section{Chapter 7 - Atomic Physics}
 \begin{outline*}
@@ -342,6 +348,10 @@
 	\2 For the potential energy function, $V(r) = -\frac{Zke^2}{r}$, the radial equation is solved to find that it is well-defined only if the energy levels fit the Bohr energy levels, with n as the principle quantum number
 		\3 The radial function as a result is found to be $R_{nl}(r) = A_{nl}e^{-\frac{Zr}{a_0n}}r^lL_{nl}(\frac{Zr}{a_0})$, where $L_{nl}(\frac{r}{a_0})$ are the Laguerre polynomials, and $a_0$ is the Bohr radius, $\frac{\hbar^2}{ke^2\mu}$
 		\3 The energy is found as well to be $E = -\frac{1}{2}m_ec^2Z^2\alpha^2\frac{1}{n^2}$, equal to the Bohr energy levels, with $\alpha$ as the fine structure constants
+		\3 Since the radial equation itself is $\frac{-\hbar^2}{2m_e}(\frac{d^2}{dr^2} + \frac{2}{r}\frac{d}{dr} - \frac{l(l+1)}{r^2})R(r) - \frac{Ze^2}{4\pi \epsilon_0 r}R(r) = ER(r)$, such that the $\frac{l(l + 1)}{r^2}$ doesn't allow the particle to be at r = 0 if $l \neq 0$ (angular momentum is nonzero)
+			\4 This is called the centrifugal barrier, preventing the atom from decaying into the origin
+	\2 As a result, the Schrodinger model predicted the total orbital angular momentum of the energy levels differently from the Bohr model, but agreed with Bohr on the quantization of the z-component of angular momentum
+		\3 Bohr also did not predict degeneracy of energy states, the uncertainty principle, and did not predict the 3D wavefunction
 	\2 The energy depends only on n due to the inverse square force causing it to only depend on the major axis, not eccentricity, and since higher l provides lower eccentricity, and since m provides the z-component, which has no preferred direction
 		\3 The l states for each n are described by the letters S (l = 0), P, D, F, G, continuing alphabetically, while the n states are called K, L, M, ... shells
 		\3 For some absorbed photon, the selection rules state that m can change by 0, 1, or -1, while l must change by either 1 or -1 to conserve angular momentum, due to photons having intrinsic angular momentum of $\pm \hbar$
@@ -357,14 +367,17 @@
 		\3 It is also noted that for l = 0, the orbital density is spherically symmetric, while otherwise, it depends on the angle
 \1 Electron spin/intrinsic angular momentum is used to explain the fine structure of the spectral lines (such that there are several infinitessimally seperate spectral lines), created analogous to Schrodinger's angular momentum ($|\vec{S}| = \sqrt{s(s + 1)}\hbar$)
 	\2 On the other hand, Pauli suggested that there could only be two magnetic spin numbers, $\pm \frac{1}{2}$, such that s must be restricted to $\frac{1}{2}$
-	\2 Magnetic moment is defined by $\vec{\mu} = g_L\frac{q}{2M}\vec{L} = g_L\sqrt{l(l + 1)}\mu_B$, where $\mu_B$ is the Bohr magneton, equal to $\frac{e\hbar}{2m_e} = 9.27 * 10^{-24} J/T$
+	\2 Magnetic moment is defined by $\vec{\mu} = \vec{g_LI}A = \frac{g_Levr}{2} = \frac{-g_Le\vec{L}}{2m_e} = g_L\frac{q}{2M}\vec{L} = g_L\sqrt{l(l + 1)}\mu_B$, where $\mu_B$ is the Bohr magneton, equal to $\frac{e\hbar}{2m_e} = 9.27 * 10^{-24} J/T$
 		\3 In addition, $\mu_z = -g_Lm\mu_B$, with $g_L$ as the gyromagnetic ratio/g-factor, taking into account the complex situation, 1 for a single revolving electron
 		\3 This shows that the quantiztation of angular momentum creates the quantization of magnetic moments
+		\3 The Stern-Gerlach Experiment measured the quantization of the z-component, placing am atomic beam in a magnetic field, checking the collision pattern ($F_z = \frac{\partial B_z}{\partial z}\mu_z$)
 	\2 The potential energy for a megnetic moment is found to be $U = -\vec{\mu} \cdot \vec{B}$, such that for B in the z-axis, $U = -\mu_zB$, causing the slight energy differences for the possible $\mu_z$ values creating the fine structure
-	\2 It is found that the g-factor for an electron is approximately 2, rather than the 1 expected for an electron revolving normally, showing the distinction
+	\2 It is found that the g-factor for an electron is approximately 2, rather than the 1 expected for an electron revolving normally, showing the distinction $(\mu_z = -\mu_B(m_l + 2m_s))$
 	\2 Thus, the full form of the wave-equation is $\psi = C_1\psi_{100\frac{1}{2}} + C_2\psi_{100\frac{-1}{2}}$, with $C_1^2 = C_2^2 = \frac{1}{2}$ for an atom not in a magnetic field
+		\3 As a result, $\psi_{100\frac{1}{2}} = \psi_{100}\chi_{\frac{1}{2}}$, with the quantized spin and spin component as eigenvalues of $\chi$, with the general Hamiltonian as $H = \frac{p_1^2}{2m_1} + \frac{p_2^2}{2m_2} + ... + V(\vec{r_1}, \vec{r_2}, ...) + f(\vec{r_1}, \vec{r_2}, ..., \chi_{1}, \chi{2}, ...)$
+		\3 For noninteracting, time-independent particles, f = 0 and V is the sum of the individual potentials, $V_n(\vec{r_n}, \chi_n)$, such that the total energy is the sum of the individual energiees
 \1 While classically, the sum of the revolving and intrinsic angular momentum can be any value based on the vector angles, the quantization limits it, such that $|\vec{J}| = |\vec{L} + \vec{S}| = \sqrt{j(j + 1)}\hbar$
-	\2 j is allowed to be either the sum of l and s (parallel) or the positive difference of them (antiparallel), with the z component given by $J_z = m_j\hbar = (m_l + m_s)\hbar$, where $-j \leq m_j \leq j$ as a result
+	\2 j is allowed to be either the sum of l and s (parallel) or the positive difference of them (antiparallel), or integral moves between the two, with the z component given by $J_z = m_j\hbar = (m_l + m_s)\hbar$, where $-j \leq m_j \leq j$ as a result
 		\3 Spectroscopic notation is denoted by $n^{2s + 1}L_j$, where L is the angular momentum state of the electon (S, P, D, F, G, ...)
 		\3 As a result, the fine structure splitting can also be explained by different values of j causing different potential energy, such that antiparallel J has lower energy than parallel
 		\3 In addition, within an external magnetic field, the energy is slightly different for each $m_j$, splitting the lines further, called the Zeeman effect
@@ -389,7 +402,50 @@
 	\2 The electron of boron has higher energy than beryllium, due to the lack of penetration of the 2S subshell, with lower energy for subsequent electrons due to higher nucleus charge, though with neon still having higher energy than helium 
 	\2 Thus, for 3S electrons, the energy is drastically higher due to the shielding of the L shell, proceeding lower as subsequent electrons are added into 3S then 3P
 	\2 The shielding by the M shell is strong enough as well, that there is less energy for 4S than for 3D, such that the former is filled first, before filling 3D in the transition elements
-\1 
+\1 Visible light excited transitions typically are only able to take place in the outer electron shells, the excitation energy being approimately that of the electron in hydrogen, due to shielding
+	\2 The different states have spin-orbit energy difference, such that there is slightly more energy in higher angular momentum combinations
+	\2 By the selection rule ($\Delta l = \pm 1, \Delta j = -1, 0, 1$), transitions to and from the S state have double lines due to the energy difference from the doublet P state (two possible initial l values), while other transitions have three possible lines (called a compound double)
+		\3 Two of the lines are far closer than the other, due to the distance between the upper and lower P levels being further apart
+\end{outline*}
+\section{Chapter 8 - Statistical Mechanics}
+\begin{outline*}
+\1 Classical statistical physics contains a large number of identical, but distinguishable particles, able to be tracked, with the energies of each given by the Boltzmann distribution function, $f_B(E) = Ae^{-E/kt}$
+	\2 The function without A is called the Boltzmann factor, while k is the Boltzmann constant, $1.381 * 10^{-21} J/K$, with A as the normalization constant
+	\2 $n(E) = g(E)f_B(E)$ is the number of particles, where g is the statistical weight/degeneracy of the energy state/density of states, with E as a continuous variable
+	\2 Maxwell's Distribution of Molecular Speeds assumes the velocity in each direction is distinct, with $F(v_x, v_y, v_z) = f(v_x)f(v_y)f(v_z)$, where $f(v_x) = Ce^{-\frac{mv_x^2}{2kT}}$, such that $n(v)dv = 4\pi v^2 N f(v)dv$, such that $4\pi v^2$ is the surface area of the sphere of velocities, acting as the degeneracy
+		\3 It is found that the normalization constant for the three dimensional equation is $(\frac{m}{2\pi k T})^{3/2}$
+		\3 As a result, $v_{max}(T) = (\frac{2kT}{m})^{1/2}$ and $<v> = \frac{1}{N}\int^{\infty}_{0} v fnv) dv$
+		\3 Similarly, by the relationship between velocity and kinetic energy, $n(E)dE = \frac{2\pi N}{(\pi k T)^{3/2}}E^{1/2}e^{-E/kT}$, such that $<E> = \frac{3}{2}kT$
+	\2 The Equipartition Theorem states that in equilibrium, each degree of freedom contributes $\frac{1}{2}kT$ to the average energy per molecule, where a degree of freedom is a coordinate/velocity component that is squared in the expression of total energy
+		\3 As a result, $C_V = \frac{1}{2}N_Ak = \frac{1}{2}R$ for each degree of freedom
+		\3 Thus, rotational kinetic by axis, translational by axis, and both kinetic and potential vibrational by axis are degrees of freedom
+			\4 Thus, for a monotomic atom, assuming no vibration, it should be 3R, but it rather found rise as the temperature rises, starting with purely translation, gaining rotation only in the two non-atomic axes, and increasing vibrationally
+			\4 Most diatomic molecules then decay before it is able to reach $\frac{7}{2}R$, but the theorem still doesn't explain the increase with temperature
+		\3 Solid heat capacity of approximately 3R was explained by three axes of vibrational potential and three axes of vibrational kinetic, true at high temperatures, but dropping as temperature drops
+			\4 This is not different for metals, rather than the expected three translational kinetic energy degrees of freedom combined with the six vibrational degrees
+\1 Quantum statistical mechanics attempted to correct classical by the fact that particles were indistinguishable and identical, providing the Bose-Einstein and Fermi-Dirac distribution functions for bosons and fermions respectively
+	\2 Bosons, or particles with an integral spin, do not obey the exclusion principle, distributed by $f(E) = \frac{1}{e^{\alpha}e^{E/kt} - 1}$, where $e^{\alpha}$ is the normalization constant
+		\3 Fermions are those with a half integer spin that obey the exclusion principle, given by $f(E) = \frac{1}{e^{\alpha}e^{E/kt} + 1}$
+	\2 These are similar to the Boltzmann distribution, differing only by the $\pm 1$ in the denominator, approaching the Boltzmann distribution as the energy increases or as $\alpha >> \frac{E}{kT}$
+		\3 Since bosons must have symmetric wavefunctions and fermions, asymmetric, $\psi = \frac{1}{\sqrt{2}}(\psi_n(1)\psi_m(2) \pm \psi_n(2)\psi_m(1))$, the function of both of the same state is $\psi = \frac{\sqrt{2}}\psi_n(1)\psi_n(2)$
+		\3 By the Boltzmann distribution, for distinguishable particles, the function doesn't have the $\sqrt{2}$ factor, due to not being the linear combination
+		\3 Thus, it is found that the presence of a boson in a quantum state improves the probability others would by in the state from the classical probability, while fermions prevent other fermions from being found in the same state
+	\2 The Boltzmann distribution is usable when the particles are distinguishable, such that the distance between them is far greater than the De Broglie Wavelength
+		\3 Since, $\lambda = \frac{h}{2mE_k} = \frac{h}{3mkT}$, since $<E_k> = \frac{3kT}{2}$, and it is found that $<d> = (\frac{V}{N})^{1/3}$, such that this is valid when $\frac{N}{V}\frac{h^3}{(3mkT)^{3/2}} << 1$
+		\3 Within an infinite well, $E_n = E_0(n_x^2 + n_y^2 + n_z^2)$, such that it forms an eighth of a sphere with radius $(\frac{E}{E_0})^{1/2}$, where each quantum number must be an integer, such that $N = \frac{1}{2}(\frac{4\pi R^3}{3})$
+			\4 Thus, $g(E) = \frac{dN}{dE} = \frac{2\pi(2m)^{3/2}V}{h^3}E^{1/2}$, called the density of states, where for an electron/fermion, it is multipled by 2 for each of the spins, otherwise not, after which it can be integrated such that $N = \int^{\infty}_0 g(E)f(E)dE$, assuming a high enough number of states that it can be integrated
+			\4 As a result, for a fermion, $e^{-\alpha} = \frac{Nh^3}{2(2\p im_ekT)^{3/2}V}$, twice that for a boson
+	\2 For liquid helium, there is approximately one particle per quantum state at such low temperatures, such that Boltzmann did not apply, instead treating it as an ideal gas under Bose-Einstein distribution, applying below 2.17 K
+		\3 It was found to increase in density until that point, called the lambda point, apparently as a phase transition, called Helium I above, Helium II below (made of Helium I and superfluid Helium, which had viscosity 0)
+			\4 As a result, the density of Helium II was the sum of Helium I and superfluid helium, remaining constant due to the superfluid increasing as the temperature drops
+			\4 Superfluid helium was considered to be ground state helium atoms, only exerting van der Waals forces, combined with the low density to act as an ideal gas
+		\3 The distribution must have $\alpha \geq 0$, such that the number of particles is non-negative for all temperatures, integrated over all positive real numbers, where the ground state is assumed to be E = 0
+			\4 As temperature drops past the critical temperature, such that $\alpha = 0$, it is impossible to normalize
+			\4 Since g(E) = 0 for E = 0, it ignores ground state particles, irrelevent for fermions due to a maximum of 2 in that state, but causing the lack of normalization
+			\4 As a result, it can be normalized if $N = N_0 + \int_0^{\infty} n(E)dE$, where $N_0 = \frac{g_0}{e^{\alpha}e^{E_0/kT} - 1} = \frac{1}{e^{\alpha} - 1}$
+			\4 Thus, $\frac{N_0}{N} \approx 1 - (\frac{T}{T_c})^{3/2}$, such that as the temperature approaches 0, the condensate approaches the entire material
+		\3 Atoms, especially in their ground states, tend to be bosons, although made up of fermions, though in small spaces, the interparticle interaction creates fermion behavior, making the production of condensates difficult
+			\4 On the other hand, when produced, it begins to exhibit macroscopic quantum wavefunction behavior in terms of appearance and properties
 \end{outline*}
 
 \section{Notes}
@@ -426,10 +482,15 @@
 	\2 Similarly, for a wavefunction as a linear combination of eigenfunctions, the vector element cooresponds to the vector of the amplitudes of each eigenfunction
 	\2 Thus, the operator can be denoted as some matrix, (often as the diagonal matrix of the eigenvalues), such that eigenfunctions are like eigenvectors (when multiplied by the operator matrix, it provides the vector multiplied by a constant)
 	\2 Expectation values are calculated by the adjoint vector, or the conjugate transpose, denoted as $<f(x)> = v^*f(x)v$
+	\2 Spin has matrix values as $\chi_{Z+} = (1, 0)^T, \chi_{Z-} = (0, 1)^T$, with $S_z = \frac{\hbar}{2}((1 0)^T (0 -1)^T), S_x = \frac{\hbar}{2}((0 1)^T (1 0)^T), S_y = \frac{\hbar}{2}((0 i)^T (-i 0)^T)$
+		\3 As a result, for some fixed value of x, either positive or negative eigenvalues, it has equal probability of the positive or negative z value
+		\3 $\chi_{X+} = \frac{1}{\sqrt{2}}(1, 1)^T, \chi_{X-} = \frac{1}{\sqrt{2}}(1, -1)^T$, such that the sum of them provides $\chi_{Z+}$, difference for $\chi_{Z-}$
 
-\1 It is found that an eigenfunction cannot be simultaneously found for multiple $\vec{L}$ components, but can be for $L^2, L_z$, similar to being unable to be found for p and x
+\1 It is found that an eigenfunction cannot be simultaneously found for multiple $\vec{L} (\vec{r} x \vec{p} = mvR = mR^2\omega = I\omega = mR^2\frac{d\theta}{dt})$ components, but can be for $L^2, L_z$, similar to being unable to be found for p and x
 	\2 As a result, it is noted that the maximum angular momentum along a single axis is less than the total angular momentum, since otherwise, the angular momentum along all axes would be known
 	\2 $L^2_{op} = -\hbar^2(\frac{\partial^2}{\partial \theta^2} + cot(\theta)\frac{\partial}{\partial \theta} + \frac{1}{sin^2(\theta)}\frac{\partial^2}{\partial \phi^2}$, $L_z = -i\hbar(x\frac{\partial}{\partial y} - y\frac{\partial}{\partial x}) = -i\hbar\frac{\partial}{\partial \phi}$, such that the wavefunction is already an eigenfunction
+	\2 It is noted that angular momentum can be put in terms of moment of inertia, I, as the sum of the values for each particle, such that for a sphere, $I = \frac{2}{5}MR^2$, with rotational kinetic energy as $K = \frac{1}{2}I\omega^2 = \frac{L^2}{2I}$
+	\2 The force analog of angular momentum, $\vec{\tau} = \vec{r} x \vec{F} = \frac{d\vec{L}}{dt} = I\alpha$, such that it is conserved for an isolated system
 
 \1 Hydrogen atoms involve only radius based electrostatic potential, $V = \frac{-Ze^2}{4\pi \epsilon_0 r} = \frac{-kZe^2}{r}$
 	\2 Spherical coordinates are $x = rsin(\theta)cos(\phi), y = rsin(\theta)sin(\phi), z = rcos(\theta), \theta = tan^{-1}(\frac{\sqrt{x^2 + y^2}}{z}), \phi = tan^{-1}(\frac{y}{x})$, assuming $\theta$ is from the z-axis, $\phi$ is from the x-axis
@@ -440,7 +501,31 @@
 	\2 Energy less than 0 implies a bound state, such that potential energy is greater than kinetic energy, which are the proper solutions
 	\2 The degeneracy of the state is equal to $n^2$, equal to the number of states with the same energy in a given potential
 
-2/22 - Hydrogen and Schrodinger Done
-2/23 - Hydrogen Done
+\1 The beat frequency of the superposition of two waves is the absolute value of the difference of the two frequencies
+	\2 As a result, for some wave $f_0$, modulated by frequencies from 0 to f, where $f_0 >> f$, the result can be decomposed into frequencies from $f_0 - f$ to $f_0 + f$
+	\2 For the range considered the half-width at maximum, it is $\hbar$, while for the standard deviation ($\sqrt{<x^2> - <x>^2}$), it is $\frac{\hbar}{2}$
+		\3 For some distribution function, f(x), $<g(x)> = \int g(x) f(x)dx$
+\1 Zero point energy provides the stability of the atom by preventing it into collapsing into itself, by the uncertainty principle
+\1 Reduced mass is derived by Newton's Third Law, within the reference frame of $X = x_1 - x_2$, with the only force as that acting on both
+\1 Larmor precession, $\omega = \frac{g\mu_B}{\hbar}\vec{B}$, is the respective of $\vec{\mu}$ for $\vec{B}$ rather than $\vec{L}$
+
+\1 The general wavefunction of the infinite well is the linear combination of solutions to the equation with some coefficient to provide the combination, such that it is not simply a single eigenfunction, though the energy measured be an eigenvalue
+	\2 $A_n = \int u_n^*(x)\psi(x)dx$, where $u_n(x)$ is the nth eigenfunction of the equation
+	\2 The probability of measuring any particular energy is $|A_n|^2$, such that $<H> = E_{avg} = \int \psi^* H \psi dx = \sum_n |A_n|^2E_n$
+
+\1 The gyromagnetic ratio of a proton is 5.56, though the spin of the proton has almost no difference in energy due to the larger mass
+	\2 Nuclei can only have angular momentum l = 0, such that only the spin of the nucleons play a role
+
+\1 Symmetries are related to conservation laws, such that in constant potential (momentum conserved), translation of the system creates no change in the outcome, while rotational relates to angular momentum, and time-invariant potential means energy conservation
+	\2 As a result, symmetry of the Hamiltonian creates symmetry in the probability density of the same form, such that the wavefunction is restricted
+	\2 Thus, since the Hamiltonian is invariant under the exchange of two identical particles, the wavefunction is either symmetric or antisymmetric under particle exchange
+		\3 This is found to be the former for \textbf{}osons with integer spin, the latter for fermions with half-integer spins, requiring linear combinations to produce
+		\3 Thus, to produce the antisymmetric wavefunction, it is the linear combination of opposite spins, negatively combined, such that the spin of each is equally likely to be measured, though the opposite will be measured after for the other
+	\2 Thus, there is a triplet of S = 1, spin-symmetric, space-antisymmetric wavefunction forms (each with a distinct joint m-value), and a singlet of S = 0, spin-antisymmetric, space-symmetric wavefunction forms
+		\3 Thus, for a spacially-antisymmetric state, the probability of both particles being at the same location is 0, unlike in a spacially-symmetric, such that the motions are related
+
+1/24 - Exp Basis Not Done
+3/01 - Hydrogen Not Done
+
 \end{outline*}
 \end{document}
