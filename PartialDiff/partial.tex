@@ -253,6 +253,7 @@ Needed - Partial Derivatives
 		\3 It can be found by trig identities that it is the superposition of two travelling waves of the same form moving in opposite directions, such that it can be written as $u(x, t) = C_1f_1(x - ct) + C_2f_2(x + ct)$, valid for all boundary condition 1D wave equation solutions
 	\2 The intensity of the sound is proportional to the amplitude ($\sqrt{A_n^2 + B_n^2}$), while the circular/angular frequency of each normal mode $(\omega = \frac{f}{2\pi})$ is equal to $\frac{n\pi c}{L}$
 		\3 Each term frequency is called the natural frequency, such that higher frequency is higher pitch, each called the $n^{th}$ harmonic with the first as the fundemental frequency, such that each higher harmonic is a multiple
+		\3 Within mathematics, the frequency generally refers to the circular/angular frequency, rather than the linear frequency
 \1 The wave equation is extended to higher dimensions as $\pd{^2u}{t^2} = c^2\nabla^2u$, similarly to that of a heat equation, applying to a 2D membrane, derived as the 1D version
 	% \2 It also applies to fluid such that for pressure P, $c^2 = \pd{P}{\rho}$, as well as for light, such that $c^2 = \frac{c_{light}^2}{\mu\epsilon}$
 	% \2 Plane travelling waves of light satisfy the wave equation of the form $u = Ae^{i(k_1x + k_2y + k_3z - \omega t)}$, where $(k_1, k_2, k_3)$ is the wave vector, in the direction of propogation, with magnitude as the wavenumber and such that $ck = \omega$
@@ -330,7 +331,41 @@ Needed - Partial Derivatives
 		\3 Curves in which the displacement is always zero for a mode are called the nodal curves of the mode, with neighboring cells having opposite signed displacement
 	\2 The coefficients are found by fixing a variable, to solve for the value in terms of that variable, then taking that variable, such that $A_{nm} = \frac{2}{L}\int^L_0 (\frac{2}{H}\int^H_0 \alpha(x, y) sin(\frac{m\pi y}{H})dy) sin(\frac{n\pi x}{L})dx$, where $\alpha = u(x, y, 0)$ with zero boundary conditions on each
 		\3 Similarly, for $\beta = u'(x, y, 0), c\sqrt{\lambda_{nm}}B_{nm} = \frac{4}{LH}\int^L_0 \int_0^H \beta(x, y) sin(\frac{m\pi y}{H}) sin(\frac{n\pi x}{L})dydx$
-\1 
+\1 While the general Sturm-Liouville problem form is $\nabla \cdot (p\nabla \phi) + q\phi + \lambda \sigma \phi = 0$, in many cases, it follows the Helmholtz equation, $\nabla^2 \phi + \lambda \phi = 0$, with boundary condition $a\phi + b\nabla \phi \cdot \vec{n} = 0$, where $\vec{n}$ is the unit outward normal
+	\2 This is only able to be solved explicitly for simple geometries, with properties analogous to the 1D Sturm-Liouville properties, such as real and infinite eigenvalues, with a smallest, but not a largest
+		\3 Unlike 1D, it may have multiple eigenfunctions for each eigenvalue, the eigenfunctions forming a complete set over the entire set of eigenvalues
+			\4 This can be due to multiple eigenvalues evaluating to the same value by symmetry, such that the eigenfunctions for each combination of constants are equal
+			\4 Mean squared error can be measured of the series of some length, such that $E = \int\int_R (f - \sum_{\lambda} a_{\lambda}\phi_{\lambda})^2 dxdy$, moving to 0 as infinite terms are added, such that it converges in the mean to f
+		\3 Eigenfunctions cooresponding to different eigenvalues are orthogonal relative to the weight, assumed to be 1 for Helmholtz equations when integrated over the entire region
+			\4 This is also assumed to be true for different eigenfunctions of the same eigenvalue, with each eigenfunction linearly independent of the other
+		\3 Eigenvalues are related to their eigenfunction by the Rayleigh quotient, $\lambda = \frac{-\oint \phi \nabla \phi \cdot \vec{n} ds + \int\int_R |\nabla \phi|^2 dx dy}{\int \int_R \phi^2 dx dy}$
+\1 For a vibrating circular membrane, such that the function is $u(r, \theta, t)$, for some zero displacement boundary and initial conditions on the function and first derivative, it can be seperated to provide the standard eigenvalue problems
+	\2 By the eigenvalue problem, $\nabla^2\phii + \lambda \phi = 0$, the spherical Laplacian can be further seperated by an additional separation constant, $\mu$
+	\2 While there is only a single boundary condition, additional conditions are provided by the fact that the center must be finite, and the angular component must be periodic
+		\3 By the periodic boundary conditions, it is found that $\mu = m^2, m \geq 0, g(\theta) = Asin(m\theta) + Bcos(m\theta)$
+	\2 The radial equation is found as $r\frac{d}{dr}(r\frac{df}{dr}) + (\lambda r - \frac{m^2}{r})f = 0$, able to be put into irregular Sturm-Liouville form by multiplying by r
+		\3 It is irregular due to irregular boundary conditions, $p, \sigma$ not $>0$ at any location, rather 0 at r = 0, and $q(r) \to \infty$ as $r \to 0$, such that it is not continuous, assuming $m \neq 0$
+		\3 On the other hand, it is assumed that the properties of Sturm-Liouville problems are valid for this, such that the theorem properties are still valid
+			\4 As a result, there are infinite eigenvalues for each m, such that there is an additional value, n > 0, with eigenfunctions $f_{nm}(r)$ with $\lambda_{nm}$
+			\4 In addition, for each value m, the eigenfunctions are orthogonal with weight r
+	\2 The radial equation is able to be expanded and substituted by $z = \sqrt{\lambda}r$ to remove $\lambda$, such that $z^2\frac{d^2f}{dz^2} + z\frac{df}{dz} + (z^2 - m^2)f = 0$, called Bessel's differential equation of order m
+		\3 Since the original radial equation has a singularity at z = 0, it is found near the origin that $z^2f \approx 0$, such that it is a Cauchy-Euler at that point
+		\3 Thus, f at around z = 0 if $m \neq 0$ is $f = Az^m + Bz^{-m}$, if m = 0 is $f = C + Dln(z)$, such that there is one singular solution, one nonsingular, found that $A = \frac{1}{2^mm!}, D = \frac{2}{\pi}, B = \frac{-2^m(m - 1)!}{\pi}$
+			\4 The nonsingular solution is called a Bessel function of the first kind of order m, while the second is of the second kind, denoted $J_m(z)$ and $Y_m(z)$ respectively
+		\3 By the singularity condition, it must be the sum purely of the first kind components, such that $\sqrt{\lambda}a$ is a root of $J_m$, with infinite roots with respect to n, written $z_{mn}$, such that J is orthogonal with weight r for different n values over the radius of the function (zero boundary)
+			\4 Since the set is complete, any function can be written as the sum of the eigenfunctions, J, called the Fourier-Bessel series
+	\2 Each two dimensional eigenfunction, $\phi_{\lambda} = J_m(\sqrt{\lambda_{mn}}r)trg(m\theta)$, where trg is either sin or cos, found to be orthogonal with weight 1, since $dA = rdrd\theta$, such that the 1D r weight is a polar geometric factor
+	\2 For a circularly symmetric membrane, $u(r, t)$ and $\pd{^2u}{\theta^2} = 0$, thus seperated only in two variables, with the radial portion as $\frac{d}{dr}(r\frac{d\phi}{dr}) + \lambda r \phi = 0$ with the singularity condition and a boundary condition of $\phi(a) = 0$, acting as a Sturm-Liouville with weight r
+		\3 Since $\lambda > 0$, $z = \sqrt{\lambda}r$ can convert it into the Bessel differential equation of order 0, such that the solution is the sum of a Bessel series ($\phi = AJ_0(\sqrt{\lambda_n}r) + BY_0(\sqrt{\lambda_n}r)$)
+\1 Bessel's differential equation can be written as $\frac{d^2f}{dz^2} = -(1 - \frac{m^2}{z^2})f - \frac{1}{z}\frac{df}{dz}$, such that it can be viewed as a spring mass system with z as the time value, equilibrium at f = 0
+	\2 As a result, the zero order term is only restoring if z > m, such that as $z \to \infty$, the restoring force gets negligable, as does the frictional force
+		\3 Bessel functions are found to appear as deccaying oscillations, found that as $z \to \infty$, $J_m(z) \approx \sqrt{\frac{2}{\pi z}}cos(z - \frac{\pi}{4} - m\frac{\pi}{2}), Y_m(z) \approx \sqrt{\frac{2}{\pi z}}sin(z - \frac{\pi}{4} - m\frac{\pi}{2})$, called assymptotic formulas
+			\4 This can allow approximate eigenvalues/zeroes of the functions to be found by the formula $\lambda_{mn} = (\frac{z_{mn}}{a})^2$, getting more accurate as n increases
+			\4 Thus, for each eigenfunction, $J_m(z_{mn}\frac{r}{a})$ as $r \to a$, the function will approach its nth zero
+		\3 As a result, the frequency is approximately 1 with period of $2\pi$, with the amplitude of the oscillating decaying slower than a spring due to the frictional force approaching 0
+	\2 Each solution for a particular m, n is called a normal mode of oscillation with characteristic frequency $c\sqrt{\lambda_{mn}}$, and for each m, there are four families of solutions (2 for m = 0)
+		\3 Nodal curves are the curves for some normal mode along the membrane which remain at equilibrium at all times, such that either the J function at some r is 0 or the angular line is 0
+	\2 Since Bessel's differential equation is a regular singular point at z = 0, the method of Frobenius gives $f = z^p \sum$
 \end{outline*}
 \end{document}
 

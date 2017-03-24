@@ -302,7 +302,7 @@
 		\3 The Hamiltonian/total energy operator in classical mechanics is $H = \frac{p^2}{2m} + V$, such that the Hamiltonian operator is found by replacing p by the p operator
 			\4 As a result, the time independent Schrodinger equation can be replaced by $H_{op}\psi = E\psi$
 		\3 The time dependent Hamiltonian operator is $i\hbar \frac{\partial}{\partial t}$, kinetic energy is $-\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2}$, and the z component of angular momentum is $-i\hbar \frac{\partial}{\partial \phi}$
-\1 The simple harmonic oscillator, such that $V(x) = \frac{1}{2}m\omega^2x^2$, acting as the finite well, has a classical probability of $P(x)dx = c\frac{dx}{v}$, with any energy value possible
+\1 The simple harmonic oscillator, such that $V(x) = \frac{1}{2}kx^2 = \frac{1}{2}m\omega^2x^2$, where k is the force constant, acting as the finite well, has a classical probability of $P(x)dx = c\frac{dx}{v}$, with any energy value possible
 	\2 Due to the symmetic potential function, the probability must be symmetric, such that the wave function must be either symmetric or anti-symmetric
 		\3 Parity operations are those flipping the x-axis, such that $x \to -x$, true for the Hamiltonian operator such that $H_op\psi(-x) = E\psi(-x)$
 		\3 If there are multiple separate solutions for one energy state, it is called degenerate, doubly degenerate for two, though since it is found for the Schrodinger equation to be at most by a factor of -1 for odd parity ($\psi(-x) = -\psi(x)$)
@@ -312,14 +312,14 @@
 	\2 It is also found that $\int^{\infty}_{-\infty} \psi^*_nx\psi_mdx = 0$ unless $n = m \pm 1$, called the selection rule, such that radiation can only change the energy of the oscillator by one at a time
 \1 For an unbound state problem, such that E is greater than V(x) as $x \to \pm \infty$, the second derivative and wavefunction must have opposite signs to avoid moving towards infinity, curving to the x axis, such that any value of E is possible
 	\2 While it is not normalizable over the entire domain, it is bounded within a specific range, such that $\int^b_a |\psi(x)|^2dx = \int^b_a \rho dx = \int^b_a dN = N$, where N is the number of particles in the interval
-	\2 For some step potential, such that for $x < 0, V(x) = 0$ and for $x > 0, V(x) = V_0$, such that by the Schrodinger equation, for $x < 0, \frac{d^2\psi(x)}{dx^2} = -\frac{\sqrt{2mE}}{\hbar^2}$, and $x > 0, \frac{d^2\psi(x)}{dx^2} = -\frac{\sqrt{2m(E - V_0)}}{\hbar^2}$
+	\2 For some step potential, such that for $x < 0, V(x) = 0$ and for $x > 0, V(x) = V_0$, such that by the Schrodinger equation, for $x < 0, \frac{d^2\psi(x)}{dx^2} = -\frac{\sqrt{2mE}}{\hbar}$, and $x > 0, \frac{d^2\psi(x)}{dx^2} = -\frac{\sqrt{2m(E - V_0)}}{\hbar}$
 		\3 For solutions of beams of particles moving to the right multiplied by the time portion, each regions solution is the sum of the travelling waves in each direction
 		\3 There is assumed to be no leftward moving beam from the $x > 0$ side, such that the coefficient of that term is 0, with the functions for each side required to be continuous at x = 0
 		\3 The coefficients of reflection R and transmission T are the relative rates by which particles are refleceted and transmitted, with $R = (\frac{k_1 - k_2}{k_1 + k_2})^2$, $T = \frac{4k_1^2}{(k_1 + k_2)^2}$, such that $T + R = 1$
 	\2 As a result of Schrodinger's wave nature, unlike the classical idea that none would be reflected due to the change in potential, a portion of the particles are, depending on the change in wavenumbers, but not in the sign of the change
 	\2 For $V_0 > E$, the equation is a real negative exponential in the potential region, such that the particle is able to somewhat permeate, appearing as if it has negative velocity by the uncertainty principles
 	\2 For a barrier in which $V_0 > E$, as a result, the particle has the possibility of reaching all the way through the barrier, such that it is possible for it to tunnel through the higher potential then proceed through
-		\3 It is found that the percent transmitted, $T = 16\frac{E}{V_0}(1 - \frac{E}{V_0})e^{2\frac{\sqrt{2m(V_0 - E)}}{\hbar^2}L} \approx e^{2\frac{\sqrt{2m(V_0 - E)}}{\hbar^2}L}$, where L is the length of the tunneling region
+		\3 It is found that the percent transmitted, $T = 16\frac{E}{V_0}(1 - \frac{E}{V_0})e^{-2\frac{\sqrt{2m(V_0 - E)}}{\hbar}L} \approx e^{-2\frac{\sqrt{2m(V_0 - E)}}{\hbar}L}$, where L is the length of the tunneling region
 		\3 As a result, the probability of a standard barrier is the integral of the probability of transmission for each x value 
 		\3 This is found to be the cause of the likelihood of spontaneous alpha decay, such that the force increases linearly as the particle gets further out of the nucleus, decreasing by $\frac{1}{r^2}$ outside
 		\3 Tunnelling microscopes view metals as an infinite well, moving the servo close to the material, sending a voltage through the air to measure the light emitted from the tunnelling based on the height, to measure the surface layout and height
@@ -523,6 +523,10 @@
 		\3 Thus, to produce the antisymmetric wavefunction, it is the linear combination of opposite spins, negatively combined, such that the spin of each is equally likely to be measured, though the opposite will be measured after for the other
 	\2 Thus, there is a triplet of S = 1, spin-symmetric, space-antisymmetric wavefunction forms (each with a distinct joint m-value), and a singlet of S = 0, spin-antisymmetric, space-symmetric wavefunction forms
 		\3 Thus, for a spacially-antisymmetric state, the probability of both particles being at the same location is 0, unlike in a spacially-symmetric, such that the motions are related
+
+\1 Selection rule states that m must go +1, -1, or 0 in a transition, while l must go +1 or -1
+
+\1 The reflection probability $\frac{B^2}{A^2}$, while the transmission probability is $\frac{k_2 C^2}{k_1 A^2}$, due to being the relative rates
 
 1/24 - Exp Basis Not Done
 3/01 - Hydrogen Not Done

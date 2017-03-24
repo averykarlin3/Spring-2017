@@ -260,6 +260,67 @@
 	\2 Widgets which have states also have controller objects to control the state, routing to the same local state
 		\3 The controller object might also have a list of change listeners, modifying those values based on the new object value
 \end{outline*}
+\section{Introduction to Java}
+\begin{outline*}
+\1 Programming is divided into functional (with immutable data structures and recursion), imperative (with mutable and iterative), and object-oriented/reactive (with abstraction and encapsulation)
+	\2 Java is superior at the last, equal with OCaml at the second, and the worst at the first, while OCaml is the reverse
+	\2 Java objects combine the local state, method definitions, and instantiation into a single construct, called a class, made up of fields (instance variables), constructors, and methods (member functions)
+		\3 The keyword public makes the class globally available, while the keyword private means it can only be accessed by code within the class itself, such that fields are generally private, while classes are public, methods either
+		\3 Methods within Java are declared by ``$<permission> <returnType> <name> (<type1> <param1>, ...) {<Code>}$''
+		\3 New variables of a class are created by ``$<className> <var> = new <initializer>;$''
+	\2 The main function in Java is stored within a class, with the definition ``public static void main(String[] args)''
+		\3 Void is used similarly to unit, to denote the lack of a return value
+\1 Java is a statement language, made up of a series of commands executing, each ended by ;, with conditional statements reducing to a statement
+	\2 Java contains the null value to imply the lack of a reference, automatically assigned to a variable, such that attempts to evaluate return a NullPointerException, instead of the option type
+	\2 Unlike OCaml, all variables are mutable by default, able to be redefined with equals
+	\2 Interfaces in Java, similar to OCaml, are defined by the header ``public interface $<intName>$ \{\}'', containing the headers for each function, without any constructors or fields
+		\3 It is used by adding ``implements $<intName>$'' after the name of the class
+		\3 Since interfaces can render the specified implementation unknown until the program is running, Java uses dydnamic dispatch to provide the function mode based on the dynamic class stored in the interface object
+			\4 On the other hand, static methods can be used for those that are associated with the class, rather than the object, able to be evaluated at compilation, thus only able to reference other static methods and fields of the class
+			\4 Static methods are called by ``$<className>.<methodName>()$'', not requiring producing an object instance to use
+			\4 Static is also able to be used to provide fixed values to a field within a class, given a value outside of the constructor automatically
+\1 Java contains primitive types of int, byte, short, long (integer types), char, float, double (floating point types), and boolean, using overloaded operators such that the same operator can act on multiple types
+	\2 Referential equality is denoted by ==, while structural equality is determined by the .equals() method
+	\2 Logical not in Java is denoted by ``!'', logical and as ``\&\&'', logical or as ``||'', modulus as ``\%'', and inequality as ``!=''
+\1 Java identifiers are stored in different namespaces for classes, fields, methods, and local variables, such that the same identifier can be used for different types of items, though this can produce confusion and should be avoided
+\1 Java has arrays, or sequentially ordered collections of elements indexed with integer positions, accessed in constant time, denoted by ``$<type>$[]'', with each element found by ``$<name>[i]$'', with the field name.length to provide the size of the array
+	\2 Attempting to access a value out of bounds gives the ArrayIndexOutOfBoundsException, starting from 0 going to name.length - 1
+	\2 Array elements are automatically mutable in Java, such that they can be redefined, initialized for any object or type by ``$<type>$[] $<name>$ = new $<type>$[$<length>$];''
+		\3 They are also able to be declared statically instead of initializing by a list of comma-seperated objects within curly brackets, done at the time of declration
+		\3 Arrays require predetermination of the size, such that the name is a reference to the location on the heap
+	\2 Multidimensional arrays are noted to possibly not be in order, with only the references to each inner array in an order in the outer array, and the inner arrays in order by themselves, denoted as the inner having the row number of items, the other of the column number of arrays
+		\3 It is noted that the inner arrays can be declared independently (or statically), such that they may not be the same length
+\1 The Java Abstract Stack Machine is different from OCaml in that almost all variables are mutable, the heap only contains arrays and objects, rather than other data types, it has the null reference, and methods and constructors are stored outside the three components, called a class table
+	\2 The length of an array is never mutable, while other fields may or may not be (marked with a thick black box), with the array elements just stored in order
+\end{outline*}
+\section{Subtyping, Extension, and Inheritance}
+\begin{outline*}
+\1 Types are used to restrain interaction between parts of code, such that Java is strongly typed, each expression given a type, using objects of a type, built from a class
+	\2 Interfaces are considered to allow subtyping, with each class as a subtype of the interfacts it implements, able to be declared for the supertype, only using functions from the supertype
+	\2 Classes are able to implement multiple interfaces, seperated by a comma, satisfying the method requirements of both
+		\3 In addition, interfaces themselves are allowed to extend or inherit from another interface, and a class can extend or inherit from another, gaining the methods of its supertype
+			\4 Interfaces are able to inherit from another interface by the ``extends'' keyword, gaining any methods from the higher interface, allowing it to be fit in a variable of either the interface, or the extension
+			\4 Inheritance allows classes to gain the fields and methods of its superclass by the ``extends'' keyword, though each may only have a single superclass, though able to have many subclasses, able to be placed in a variable of itself or any level of superclass
+			\4 Private fields in a superclass are unable to be accessed within methods of the subclass, except if the ``protected'' keyword is used instead
+		\3 Since constructors require the class name, they are unable to be inherited, but is allowed to access the superclass's private fields by the function, super($<params>$), acting to call the superclass constructor within the subclass constructor
+			\4 This is noted to be required to be the first line within the constructor
+	\2 The compiler is only able to see the type declared for a variable, such that it isn't allowed to be used as the actual object type, but only as the variable type
+		\3 As a result, the variable type is static, while the class itself is dynamic, such that the type restricts how the class is used and provides the expression with a type
+		\3 Similarly, the dynamic class determines which particular methods are used during runtime, with a single type for each memory block, unlike the static type which may have multiple possibilities for each object
+\1 The highest Java class is called the Object call, automatically extended by every class without a superclass, acting as the root of the class tree
+	\2 The Object class provides the toString method and the equals method automatically to every class
+\end{outline*}
+\section{Dynamic Methods in the ASM}
+\begin{outline*}
+\1 Dynamic dispatch is used to show the normal method calls and constructors, controlled by the dynamic class, rather than the static type
+	\2 The class table is the fourth component, acting as a tree, with extends fields linking to the superclass, and containing the methods and constructors of the class
+		\3 Methods are able to reference the class that called them by the ``this'' keyword, implied in every field access, such that the workplace modifies the code to make it explicit
+		\3 In addition, ``super()'' is made explicit at the start of the constructor by the workspace as well, such that there must be a default constructor unless a parameterized super constructor is used
+	\2 When the constructor is called it allocates the object onto the heap, creating space for all fields and setting the default values (0 for numbers, null for references), having saved the remainder of the workspace on the stack, taking the function from the class table
+		\3 A pointer is then created for the class, called the dynamic type of the object, creating a ``this'' field on the stack, attached to it
+		\3 It is noted that on the heap, the object is given the dynamic class as a point of information
+	\2 Similarly, dynamic method calls create a ``this'' reference, while using dynamic dispatch to find the correct method, searching the class table upward
+\end{outline*}
 \section{Homework Notes}
 \begin{outline*}
 \1 No multi command conditionals?
@@ -271,5 +332,9 @@
 \1 Equals checks if the structure is identical, in addition to the data for any object
 
 \1 Dot library notation can be used rather than including the library directly
+\1 End of a unit function has no ;, and returns nothing
+\1 Commands can be used to throw away a function result
+
+\1 Cannot call other Java constructor for same class within constructor
 \end{outline*}
 \end{document}
