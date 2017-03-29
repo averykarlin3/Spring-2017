@@ -316,10 +316,17 @@
 	\2 The class table is the fourth component, acting as a tree, with extends fields linking to the superclass, and containing the methods and constructors of the class
 		\3 Methods are able to reference the class that called them by the ``this'' keyword, implied in every field access, such that the workplace modifies the code to make it explicit
 		\3 In addition, ``super()'' is made explicit at the start of the constructor by the workspace as well, such that there must be a default constructor unless a parameterized super constructor is used
+		\3 Static values are stored within the class table as well, called purely by the class name rather than a specific object
 	\2 When the constructor is called it allocates the object onto the heap, creating space for all fields and setting the default values (0 for numbers, null for references), having saved the remainder of the workspace on the stack, taking the function from the class table
 		\3 A pointer is then created for the class, called the dynamic type of the object, creating a ``this'' field on the stack, attached to it
+			\4 As a result, the main difference between a static and dynamic method is the lack of a ``this'' pointer to allow access to nonstatic methods and fields
 		\3 It is noted that on the heap, the object is given the dynamic class as a point of information
-	\2 Similarly, dynamic method calls create a ``this'' reference, while using dynamic dispatch to find the correct method, searching the class table upward
+	\2 Similarly, dynamic method calls create a ``this'' reference, while using dynamic dispatch to find the correct method, searching the class table upward with the class table pointers
+\1 It is noted that while methods of a subclass cannot modify the private fields of a superclass, the inherited methods from the superclass are able to
+\end{outline*}
+\section{Generics, Collections, and Iteration}
+\begin{outline*}
+
 \end{outline*}
 \section{Homework Notes}
 \begin{outline*}

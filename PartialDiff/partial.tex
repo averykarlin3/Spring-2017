@@ -313,11 +313,17 @@ Needed - Partial Derivatives
 \1 Singular points of the second-order linear differential equation are regular iff $p'(x) = (x - x_0)p(x)$ and $q'(x) = (x - x_0)^2q(x)$ are analytic at $x_0$, otherwise called irregular
 	\2 Thus, the equation can be multiplied by $(x - x_0)^2$, providing $(x - x_0)^2y'' + (x - x_0)p'(x)y' + q'(x)y = 0$, able to use a change of variables to center the point at the origin
 	\2 Since p'(x), q'(x) are analytic at the point, they can be written as infinite polynomials, $p'(x) = p_0 + p_1x + ...$ (and likewise for q'(x))
-		\3 As $|x| << 1$, it approaches a Cauchy-Euler equation, such that the incidial equation, $r(r - 1) + p_0r + q_0 = 0$ applies
+		\3 As $|x| << 1$, it approaches a Cauchy-Euler equation, such that the indicial equation, $r(r - 1) + p_0r + q_0 = 0$ applies
 			\4 This is made easier to evaluate by the fact that $p_0 = p'(0)$ and $q_0 = q'(0)$
 		\3 As a result, assuming distinct roots not separated by an integral value, there are two linearly independent solutions of the form $y(x) = x^r\sum_{n = 0}^{\infty} a_nx^n$, where $a_0 \neq 0$, called the Frobenius series, valid for at least the smaller radius of convergence
+		\3 Recurrance relations can be solved for many possible series by writing it for some general r, followed by adding in the specific roots
 	\2 The coefficients are then found by using the recursive technique for each linearly independent solution seperately
-\1 
+		\3 As a result of the recursive nature, identical by a multiplicative constant, it is generally simple to set $a_0, b_0 = 1$
+\1 It is found that for roots of the indicial equation, $r_1 \geq r_2$, for some analytic series for the second-order differential equation with convergence radius R, if $r_1 - r_2$ is not an integer, $y_{1/2}(x) = x^{r_{1/2}} \sum_{n = 0}^\infty a_n x^n$, $a_0, b_0 \neq 0$
+	\2 If $r_1 = r_2$, $y_1(x) = x^r \sum_{n = 0}^\infty a_n x^n, a_0 \neq 0$, and $y_2(x) = y_1(x)ln(x) + x^r \sum_{n = 1}^{\infty} b_n x^n$
+	\2 If $r_1 - r_2$ is an integer, $y_1(x) = x^{r_1} \sum_{n = 0}^\infty a_n x^n, a_0 \neq 0$, and $y_2(x) = Ay_1(x)ln(x) + x^{r_2} \sum_{n = 0}^{\infty} b_n x^n, b_0 \neq 0$, where A is a constant by the recurrance relation
+		\3 If there exists a Frobineous series solution for the second root, then A = 0, such that otherwise, ther constant must be nonzero
+	\2 These solutions are valid for positive values of x, replaced by $|x|$ for the entire radius of convergence
 \end{outline*}
 \section{Chapter 7 - Higher Dimensional Equations}
 \begin{outline*}
@@ -350,7 +356,7 @@ Needed - Partial Derivatives
 			\4 In addition, for each value m, the eigenfunctions are orthogonal with weight r
 	\2 The radial equation is able to be expanded and substituted by $z = \sqrt{\lambda}r$ to remove $\lambda$, such that $z^2\frac{d^2f}{dz^2} + z\frac{df}{dz} + (z^2 - m^2)f = 0$, called Bessel's differential equation of order m
 		\3 Since the original radial equation has a singularity at z = 0, it is found near the origin that $z^2f \approx 0$, such that it is a Cauchy-Euler at that point
-		\3 Thus, f at around z = 0 if $m \neq 0$ is $f = Az^m + Bz^{-m}$, if m = 0 is $f = C + Dln(z)$, such that there is one singular solution, one nonsingular, found that $A = \frac{1}{2^mm!}, D = \frac{2}{\pi}, B = \frac{-2^m(m - 1)!}{\pi}$
+		\3 Thus, f at around z = 0 if $m \neq 0$ is $f = Az^m + Bz^{-m}$, if m = 0 is $f = C + Dln(z)$, such that there is one singular solution, one nonsingular, found that $A = \frac{1}{2^mm!}, D = \frac{2}{\pi}, B = \frac{-2^m(m - 1)!}{\pi}, C = 1$
 			\4 The nonsingular solution is called a Bessel function of the first kind of order m, while the second is of the second kind, denoted $J_m(z)$ and $Y_m(z)$ respectively
 		\3 By the singularity condition, it must be the sum purely of the first kind components, such that $\sqrt{\lambda}a$ is a root of $J_m$, with infinite roots with respect to n, written $z_{mn}$, such that J is orthogonal with weight r for different n values over the radius of the function (zero boundary)
 			\4 Since the set is complete, any function can be written as the sum of the eigenfunctions, J, called the Fourier-Bessel series
@@ -358,14 +364,35 @@ Needed - Partial Derivatives
 	\2 For a circularly symmetric membrane, $u(r, t)$ and $\pd{^2u}{\theta^2} = 0$, thus seperated only in two variables, with the radial portion as $\frac{d}{dr}(r\frac{d\phi}{dr}) + \lambda r \phi = 0$ with the singularity condition and a boundary condition of $\phi(a) = 0$, acting as a Sturm-Liouville with weight r
 		\3 Since $\lambda > 0$, $z = \sqrt{\lambda}r$ can convert it into the Bessel differential equation of order 0, such that the solution is the sum of a Bessel series ($\phi = AJ_0(\sqrt{\lambda_n}r) + BY_0(\sqrt{\lambda_n}r)$)
 \1 Bessel's differential equation can be written as $\frac{d^2f}{dz^2} = -(1 - \frac{m^2}{z^2})f - \frac{1}{z}\frac{df}{dz}$, such that it can be viewed as a spring mass system with z as the time value, equilibrium at f = 0
-	\2 As a result, the zero order term is only restoring if z > m, such that as $z \to \infty$, the restoring force gets negligable, as does the frictional force
+	\2 As a result, the zero order term is only restoring if $z > m$, such that as $z \to \infty$, the restoring force gets negligable, as does the frictional force
 		\3 Bessel functions are found to appear as deccaying oscillations, found that as $z \to \infty$, $J_m(z) \approx \sqrt{\frac{2}{\pi z}}cos(z - \frac{\pi}{4} - m\frac{\pi}{2}), Y_m(z) \approx \sqrt{\frac{2}{\pi z}}sin(z - \frac{\pi}{4} - m\frac{\pi}{2})$, called assymptotic formulas
 			\4 This can allow approximate eigenvalues/zeroes of the functions to be found by the formula $\lambda_{mn} = (\frac{z_{mn}}{a})^2$, getting more accurate as n increases
 			\4 Thus, for each eigenfunction, $J_m(z_{mn}\frac{r}{a})$ as $r \to a$, the function will approach its nth zero
 		\3 As a result, the frequency is approximately 1 with period of $2\pi$, with the amplitude of the oscillating decaying slower than a spring due to the frictional force approaching 0
 	\2 Each solution for a particular m, n is called a normal mode of oscillation with characteristic frequency $c\sqrt{\lambda_{mn}}$, and for each m, there are four families of solutions (2 for m = 0)
 		\3 Nodal curves are the curves for some normal mode along the membrane which remain at equilibrium at all times, such that either the J function at some r is 0 or the angular line is 0
-	\2 Since Bessel's differential equation is a regular singular point at z = 0, the method of Frobenius gives $f = z^p \sum$
+	\2 Since Bessel's differential equation is a regular singular point at z = 0, the method of Frobenius gives $f = z^p \sum_{n = 0}^{\infty} a_n z^n$, with indicial equation $p(p - 1) + p - m^2 = 0$, with roots $\pm m$
+		\3 As a result, it is found that $J_m(z) = \sum_{k = 0}^\infty \frac{(-1)^k (z/2)^{2k + m}}{k!(k + m)!}$, $Y_m(z)$ as a more complex expression
+\1 Laplace's equation within a circular cylinder is written as $\frac{1}{r}\pd{}{r}(r\pd{u}{r}) + \frac{1}{r^2}\pd{^2u}{\theta^2} + \pd{^2u}{z^2} = 0$, with three nonhomogeneous boundary conditions for the top, bottom, and side
+	\2 Thus, the equation can be broken up into three Laplacian equations with the other conditions as the prescribed 0 condition
+	\2 It is broken up into the product solution with z, equal to the seperation constant $\lambda$, seperated for r and $\theta$ with seperation constant $\mu$, found to be equal to $m^2 \geq 0$ by the periodic boundary conditions
+		\3 Thus, the equation for f(r) is $r\frac{d}{dr}(r\frac{df}{dr}) + (\lambda r^2 - m^2)f = 0$, with the singularity condition applying
+	\2 For zero temperature on the bottom/top and the side, it solves to a Bessel equation, with the z component as a hyperbolic trig function and the angular component as sin/cos
+	\2 For zero temperature on the bottom and top, the angular component has sin/cos due to the periodicity condition, with the height component acting as a 1D Strum-Liouville, such that $\lambda = -(\frac{n\pi}{H})^2$
+		\3 As a result, the radial component is similar to the Bessel equation, except with a negative eigenvalue, such that it is transformed by $s = i(\frac{n\pi}{H})r$ to the Bessel equation
+		\3 It can also be transformed by $w = \frac{n\pi}{H}r$ to the modified Bessel equation, with the modified Bessel function of order m of the first kind as $I_m(w)$, the second kind as $K_m(w)$
+			\4 Since near the singularity origin point, the modified Bessel equation approaches the Cauchy-Euler Equation with roots $\pm m, K_m(w) = w^{\pm m}$
+			\4 As $w \to \infty$, it moves towards $\frac{d^2f}{dw^2} \approx \frac{-1}{w}\frac{df}{dw} + f \approx f$, such that $K_m(w), I_m(w) \approx \frac{e^{\pm w}}{w^{1/2}}$, as the combination of growing and decaying functions
+			\4 It is found more accurately that $K_m(w)$, the decaying portion of the solution as well as the second kind, is uniquely $\sqrt{\frac{\pi}{2}}\frac{e^{-w}}{w^{1/2}}$ as $w \to \infty$
+			\4 As $w \to 0$, $K_m(w) = ln(w), m = 0$ and $= \frac{1}{2}(m - 1)!(\frac{1}{2}w)^-m, m \neq 0$, while $I_m(w) = \frac{1}{m!}(\frac{w}{2})^m$, while as $w \to \infty$, $I_m(w) = \sqrt{\frac{1}{{2\pi w}}}e^w$
+\1 For a spherical wave problem with an initial condition and first derivative initial condition, first seperated by space and time with $-\lambda$, next seperated by $-m^2$ with eigenfunctions $sin(m\theta), cos(m\theta)$, $m \geq 0$
+	\2 The third seperation constant, $\mu$, produces the equations $\frac{d}{dp}(p^2\frac{df}{dp}) + (\lambda p^2 - \mu)f = 0$ and $\frac{d}{d\phi}(sin(\phi)\frac{dg}{d\phi}) + (\mu sin(\phi) - \frac{m^2}{sin\phi})g = 0$
+	\2 Since the equation for g is singular at both endpoints 0 and $\pi$, though with a singularity condition at both, it is an irregular Sturm-Liouville, doubly infinite such that $\mu_{mn}$ is found
+		\3 The equation for g is simplified by $x = cos(\phi)$ transformation, such that $\frac{d}{dx}((1 - x^2)\frac{dg}{dx}) + (\mu - \frac{m^2}{1 - x^2})g = 0$
+		\3
+	\2 The radial equation has $\mu = n(n + 1)$ with $n \geq m$ plugged in, called the spherical Bessel function, found that if the solution to the Bessel equation of order n is $Z_n(x)$, $p^{-1/2}Z_{n + \frac{1}{2}}(\sqrt{\lambda}p)$ solves the spherical of order n
+		\3 It is found that $x^{-1/2}J_{n + \frac{1}{2}}(x) = x^n(-\frac{1}{x}\frac{d}{dx})^n(\frac{sinx}{x})$
+		\3 It is also noted that the frequency of vibration of equal for all values $m \leq n$
 \end{outline*}
 \end{document}
 

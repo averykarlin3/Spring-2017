@@ -432,7 +432,8 @@
 		\3 Thus, it is found that the presence of a boson in a quantum state improves the probability others would by in the state from the classical probability, while fermions prevent other fermions from being found in the same state
 	\2 The Boltzmann distribution is usable when the particles are distinguishable, such that the distance between them is far greater than the De Broglie Wavelength
 		\3 Since, $\lambda = \frac{h}{2mE_k} = \frac{h}{3mkT}$, since $<E_k> = \frac{3kT}{2}$, and it is found that $<d> = (\frac{V}{N})^{1/3}$, such that this is valid when $\frac{N}{V}\frac{h^3}{(3mkT)^{3/2}} << 1$
-		\3 Within an infinite well, $E_n = E_0(n_x^2 + n_y^2 + n_z^2)$, such that it forms an eighth of a sphere with radius $(\frac{E}{E_0})^{1/2}$, where each quantum number must be an integer, such that $N = \frac{1}{2}(\frac{4\pi R^3}{3})$
+		\3 Within an infinite well, $E_n = E_0(n_x^2 + n_y^2 + n_z^2)$, such that it forms an eighth of a sphere with radius $(\frac{E}{E_0})^{1/2}$, where each quantum number must be an integer, such that $N = \frac{1}{8}(\frac{4\pi R^3}{3})$, or $\frac{N}{2}$ for two possible spin-states
+			\4 The infinite well radius is called the Fermi radius, acting as the maximum energy state an electron exists in within the well
 			\4 Thus, $g(E) = \frac{dN}{dE} = \frac{2\pi(2m)^{3/2}V}{h^3}E^{1/2}$, called the density of states, where for an electron/fermion, it is multipled by 2 for each of the spins, otherwise not, after which it can be integrated such that $N = \int^{\infty}_0 g(E)f(E)dE$, assuming a high enough number of states that it can be integrated
 			\4 As a result, for a fermion, $e^{-\alpha} = \frac{Nh^3}{2(2\p im_ekT)^{3/2}V}$, twice that for a boson
 	\2 For liquid helium, there is approximately one particle per quantum state at such low temperatures, such that Boltzmann did not apply, instead treating it as an ideal gas under Bose-Einstein distribution, applying below 2.17 K
@@ -445,7 +446,48 @@
 			\4 As a result, it can be normalized if $N = N_0 + \int_0^{\infty} n(E)dE$, where $N_0 = \frac{g_0}{e^{\alpha}e^{E_0/kT} - 1} = \frac{1}{e^{\alpha} - 1}$
 			\4 Thus, $\frac{N_0}{N} \approx 1 - (\frac{T}{T_c})^{3/2}$, such that as the temperature approaches 0, the condensate approaches the entire material
 		\3 Atoms, especially in their ground states, tend to be bosons, although made up of fermions, though in small spaces, the interparticle interaction creates fermion behavior, making the production of condensates difficult
-			\4 On the other hand, when produced, it begins to exhibit macroscopic quantum wavefunction behavior in terms of appearance and properties
+			\4 On the other hand, when produced, it begins to exhibit macroscopic quantum wavefunction behavior in terms of appearance and properties, forming coherent matter acting like lasers
+\1 **ADD 8.4**
+\1 The free electron theory was used to explain conduction, but fails due to not having the expected $\frac{3kT}{2}$ added average translational kinetic energy from collision above the degree of freedom 3kT
+	\2 This is explained by the indistinguishability of the electrons, such that they are defined under Fermi-Dirac distribution rather than expected Boltzmann 
+	\2 By the constant Fermi energy, $f_{FD}(E) = \frac{1}{e^{\alpha + \frac{E}{kT}} + 1} = \frac{1}{e^{\frac{E - E_F}{kT}} + 1}$, such that $\alpha = \frac{-E_F}{kT}$
+		\3 As a result, for any temperature, $E = E_F$, $f_{FD} = \frac{1}{2}$, while for 0 K, if $E < E_F$, f(E) = 1, $E > E_F$, f(E) = 0
+		\3 Thus, the Fermi energy is the maximum energy state filled at 0 K, while at higher temperatures, electrons in energy states within approximately kT of the Fermi are somewhat dispersed in the kT above
+			\4 As the temperature gets vastly higher, even those further from kT below the Fermi energy move above, such that $f(0) < 1$
+	\2 **FINISH 8.5**
+\end{outline*}
+\section{Chapter 9 - Molecular Structure and Spectra}
+\begin{outline*}
+\1 Molecular bonds are generally ionic, covalent, dipole-dipole, or metallic, created stabally to lower the total energy of the atom from the total energy of the individual parts seperate, caused by electrostatic forces and Pauli's exclusion principle
+\1 The ionic bond is generally the strongest, with the seperate energy assumed to be 0 eV, while the ionization energy of $K^+$ is 4.34 eV, while Cl has electron affinity (energy released by acquisition of one electron) is 3.62 eV, such that the energy needed to create it (net ionization energy) is 0.72 eV
+	\2 The release of energy is due to the extra electron penetrating the outer shell, such that it is attached to a net positive charge
+	\2 Since the electrostatic potential energy is $\frac{-ke^2}{r}$, such that at some low distance, the potential is high enough to create the ion
+		\3 While the atoms would classically keep moving together, exclusion principle repulsion occurs due to the overlapping of wavefunctions of electrons with the same energy states as they move close enough together
+		\3 Since the electrons overlap, they require moving into a higher energy state to avoid overlapping, such that the total energy increases, even as the electrostatic potential decreases
+			\4 The total energy of the ssytem can be written as $U(r) = \frac{-ke^2}{r} + E_{totalIon} + E_{exclusion} = \frac{-ke^2}{r} + E_{ion} - E_{affinity} + \frac{A}{r^n}$, where A and n are molecular constants
+			\4 This ignores the small, but positive zero-point energy, and the small, but negative van der Waals attraction (due to induced dipole moments)
+	\2 As a result, the minimum energy is the dissociation energy, with the radius at that point as the equilibrium seperation, for ground states of molecules
+		\3 For excited electrons of molecules, the total potential energy of the curve is higher and more spread over the radii
+\1 Covalent bonds are used when the net ionization energy is too high to allow a negative energy at any distance, based on the symmetry of two infinite square wells in the same state, either symmetric or antisymmetric
+	\2 As the wells get close enough together, symmetric wavefunctions have a higher likelihood of being found in between the wells (the bonding orbital), while the anti-symmetric approaches the first excited state in structure and energy
+		\3 For an antisymmetric wavefunction, the electrons are between the atoms enough to allow electrostatic force to hold the molecules together, such that there is no minimum energy (antibonding orbital)
+	\2 The Hamiltonian of the system is $H_{op} = \frac{p_{op}^2}{2m} + ke^2(-\frac{1}{r_1} - \frac{1}{r_2} + \frac{1}{r_0})$, where $r_0$ is the distance between atoms, and $r_1/r_2$ is the distance between electrons
+		\3 Due to the lack of multiple electrons, there is no exclusion-principle repulsion
+		\3 Thus, for the symmetric wavefunction, $E_1 = -13.6 Z^2 = -54.4 eV$ for $H^2_+$, approaching -13.6 eV as the distance approaches infinity, while the anti-symmetric approaches -13.6 eV as the first excited at both 0 and infinity
+		\3 It is found as a result that the binding energy is 2.7 eV
+	\2 For an $H_2$ system, the symmetric total wavefunction is the one with a spacially symmetric portion, antisymmetric spin, both approaching 2 * -13.6 as the distance goes to infinity
+		\3 In this case, due to two molecular states, the energy goes to infinity as r goes to 0, but the symmetric form has a negative minimum
+		\3 Since the molecular orbitals are subject to the Pauli exclusion principle, the electrons are considered bonded by the angular momentum state, called a saturated bond if filled, due to further electrons requiring higher energy states
+		\3 It is found in this case that there is a lower equilibrium separation, with higher binding energy of 4.5 eV, due to increased charge binding
+	\2 The amount of covalent and ionic bonding is determined by the electric dipole moment, $p_{ion} = er_0$, where the percentage of ionic bonding is $\frac{p_{meas}}{p_{ion}}$
+\1 Dipole-dipole/molecular bonding is due to electrostatic forces, pulling molecules and non-bonding atoms together, causing solid and liquid forms, with the electric field of a dipole as $\vec{E} = k(\frac{\vec{p}}{r^3} - \frac{3(\vec{p} \cdot \vec{r})}{r^5}\vec{r})$
+	\2 The dipole, $\vec{p} = qa$, where a is the length between the charges, such that as $r >> a$, $E_d = \frac{k\vec{p}}{r^3}$
+	\2 As a result, another dipole will have potential energy, $U = -\vec{p_{other}} \cdot \vec{E}$, orienting itself along the electric field lines as a result
+		\3 Thus, there is attraction between permanent electric dipoles/polar molecules, called a hydrogen bond when involving hydrogen, acting as sharing a proton, used to hold ice and DNA structure, and produce friction and surface tension
+		\3 In addition, molecules with higher dipoles cam be assumed to have a higher boiling and melting point as a result
+	\2 Nonpolar molecules are able to be polarized by a field of a dipole, such that $\vec{p_{induced}} = \alpha \vec{E_d}$, where $\alpha$ is the polarizability
+		\3 As a result, the resulting potential energy, $U = -\vec{p_{induced}} \cdot \vec{E_d}$, producing an attractive force
+		\3 This is able to exist between two nonpolar molecules, due to the average square dipole moment being nonzero due to constant electron movement, called the van der Walls/London dispersion force
 \end{outline*}
 
 \section{Notes}
@@ -519,7 +561,7 @@
 \1 Symmetries are related to conservation laws, such that in constant potential (momentum conserved), translation of the system creates no change in the outcome, while rotational relates to angular momentum, and time-invariant potential means energy conservation
 	\2 As a result, symmetry of the Hamiltonian creates symmetry in the probability density of the same form, such that the wavefunction is restricted
 	\2 Thus, since the Hamiltonian is invariant under the exchange of two identical particles, the wavefunction is either symmetric or antisymmetric under particle exchange
-		\3 This is found to be the former for \textbf{}osons with integer spin, the latter for fermions with half-integer spins, requiring linear combinations to produce
+		\3 This is found to be the former for bosons with integer spin, the latter for fermions with half-integer spins, requiring linear combinations to produce
 		\3 Thus, to produce the antisymmetric wavefunction, it is the linear combination of opposite spins, negatively combined, such that the spin of each is equally likely to be measured, though the opposite will be measured after for the other
 	\2 Thus, there is a triplet of S = 1, spin-symmetric, space-antisymmetric wavefunction forms (each with a distinct joint m-value), and a singlet of S = 0, spin-antisymmetric, space-symmetric wavefunction forms
 		\3 Thus, for a spacially-antisymmetric state, the probability of both particles being at the same location is 0, unlike in a spacially-symmetric, such that the motions are related
@@ -528,8 +570,18 @@
 
 \1 The reflection probability $\frac{B^2}{A^2}$, while the transmission probability is $\frac{k_2 C^2}{k_1 A^2}$, due to being the relative rates
 
+\1 Since the spin of the electron in fermions keeps electrons away from eachother, it is called the exchange force of the electron
+
+\1 For some infinite square well, by Pauli's exclusion principle, there is able to be two electrons per state, based on the spin of the electron
+	\2 It is found as a result that the total ground energy for $E_{total} = \frac{N^3E_1}{12}$, where there are N particles, such that $n_{max} = \frac{N}{2}$
+	\2 Fermi energy is the energy of the highest filled energy state, such that $E_F = \frac{\hbar^2 \pi^2 n^2}{8m}$, where n is the number of particles per unit length
+
 1/24 - Exp Basis Not Done
 3/01 - Hydrogen Not Done
+3/16 - Many Not Done
+3/21 - Many Not Done
+3/21 - StatMech Not Done
+3/23 - StatMech Not Done
 
 \end{outline*}
 \end{document}
