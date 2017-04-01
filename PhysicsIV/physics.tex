@@ -454,7 +454,9 @@
 		\3 As a result, for any temperature, $E = E_F$, $f_{FD} = \frac{1}{2}$, while for 0 K, if $E < E_F$, f(E) = 1, $E > E_F$, f(E) = 0
 		\3 Thus, the Fermi energy is the maximum energy state filled at 0 K, while at higher temperatures, electrons in energy states within approximately kT of the Fermi are somewhat dispersed in the kT above
 			\4 As the temperature gets vastly higher, even those further from kT below the Fermi energy move above, such that $f(0) < 1$
-	\2 **FINISH 8.5**
+			\4 On the other hand, only the higher energy electrons tend to move to higher states, due to lower ones being unable to gain enough energy to surpass the Fermi energy
+		\3 By the density of states for electrons, $n_{FD}(E) = \frac{\pi}{2}(\frac{8m}{h^2})^{3/2}\frac{VE^{1/2}}{e^{(E - E_F)/kT} + 1}$
+	\2 The quantum degenerate fermion gas state is that of the electrons filling up all states up to the Fermi energy, occuring gradually at lower temperatures
 \end{outline*}
 \section{Chapter 9 - Molecular Structure and Spectra}
 \begin{outline*}
@@ -506,6 +508,22 @@
 		\3 It is noted that the moment of inertia is not constant, but rather as the rotational level increases, the moment of inertia does as well, such that the energy between the levels get closer
 			\4 There is also a peak missing for the l = 0 value where it would hypothetically drop
 			\4 On the other hand, for polyatomic atoms, it is possible for a vibrational energy change without a rotational, called the Q branch
+\1 Scattering is either elastic/Rayleigh (without a frequency change) or inelastic, the former caused by electrons absorbing the energy, then oscillating at the same frequency in phase with the original wave
+	\2 While there is a Compton shift, for a large wavelength, it is insignificant and cannot be measured
+	\2 Inelastic scattering is called Raman scattering, either greater or less depending on if it excited or deexcites the atom from a vibrational/rotational state
+		\3 It is found that each Raman line is seperate by a specific interval, $\Delta f$, characteristic of the scattering molecule, providing the rotational levels of the molecule
+		\3 The selection rule for the rotational quantum number is $\Delta l = 0, \pm 2$, the former of which is Rayleigh
+			\4 This is as a result of rising two, then falling one, or falling two then rising one, or vice versa
+	\2 Absorption/dark-line spectra provides further information about the energy levels, generally only showing the Lyman spectra, due to atoms generally beginning at their ground/low-level states
+		\3 The probability of a light wave of the correct frequency being absorbed by the atom per unit time is $B_{n_in_f}u(f)$, where u is the energy density per unit frequency and B is Einstein's coefficient of absorption
+		\3 Later emission moving back to a lower energy state is calleed fluorescence, where if it moves to the first excited state, it is called resonance absorption, with the meission called the resonance radiation
+			\4 The emissions and the incident have no cooresponding direction or phase, with each particular drop having a specific probability based on the Einstein coefficient of spontaneous emission, independent of energy density
+		\3 Emission can also be stimulated by oscillating EM field of the incident, dependent on energy density, with a seperate coefficient of stimulated emission ($B_{n_in_f}u(f)$)
+			\4 The electric field is made to have the same frequency, such that the stimulated radiation is in the same direction and phase, called coherent
+	\2 By the Boltzmann distribution, $\frac{N_2}{N_1} = e^{-(E_2 - E_1)/kT}$, where $N_1/2$ is the number of atoms in that particular energy level at temperature T
+		\3 Since the number of absorptions is equal to emissions at equilibrium, $N_1B_{12}u(f) = N_2(A_{21} + B_{21}u(f))$
+		\3 Combining Planck's Law for energy density, $u(f) = \frac{8\pi hf^3}{c^3}(\frac{1}{e^{hf/kT} - 1})$, it is found that $B_{12} = B_{21}, A_{21}c^3 = B_{21}8\pi hf^3$, such that spontaneous emission is more likely for higher energies
+			\4 Further, for $hf >> kT$ as a result, stimulated emission can mainly be ignored due to the collision energy being not enough
 \end{outline*}
 
 \section{Notes}
@@ -594,12 +612,22 @@
 	\2 It is found as a result that the total ground energy for $E_{total} = \frac{N^3E_1}{12}$, where there are N particles, such that $n_{max} = \frac{N}{2}$
 	\2 Fermi energy is the energy of the highest filled energy state, such that $E_F = \frac{\hbar^2 \pi^2 n^2}{8m}$, where n is the number of particles per unit length
 
+\1 Hund's Rules determine the fillin up of energy levels, in which the n levels are filled increasing, then l in increasing order
+	\2 Spin is maximized first, with total spin ($m_s$) denoted as S (the First Rule), followed by total angular momentum maximized ($m_l$) denoted as L (the Second Rule)
+	\2 The Third Rule states that for shells less than half filled, J ($m_j$) is minimized, while for greater than, it is maximized
+	\2 The specific orbital state of an atom is denoted $^{2S + 1}L_J$, with L written by S, P, D, F, etc notation
+	\2 Conservation of angular momentum, momentum, and energy are followed by selection rules, such that for energy changed, $\Delta n$ can be any value, $\Delta L = \pm 1, \Delta S = 0, \pm 1, \Delta m_l = 0, \pm 1, \Delta J = 0, \pm 1$
+
+\1 Neutrons and protons themselves as fermions act as particles within a spherical box, forming shells with quantized energy levels, similar to electrons
+
 1/24 - Exp Basis Not Done
 3/01 - Hydrogen Not Done
 3/16 - Many Not Done
-3/21 - Many Not Done
 3/21 - StatMech Not Done
 3/23 - StatMech Not Done
+3/28 - StatMech Not Done
+3/39 - StatMech Not Done
+3/30 - Molecules Not Done
 
 \end{outline*}
 \end{document}

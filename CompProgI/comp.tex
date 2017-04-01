@@ -326,7 +326,24 @@
 \end{outline*}
 \section{Generics, Collections, and Iteration}
 \begin{outline*}
-
+\1 Libraries are useful due to the premade abstraction, such that it is a skill to be able to read the documentation and use the abstraction efficiently, as well as to be able to design functional libraries
+\1 Polymorphism allows functions to take different argument types, contained in Java by subtype polymorphism (using a supertype variable) and generics/parametric polymorphism, the latter ideal for container data types
+	\2 Generics are used adding ``\textit{ObjectName}$<E>$'', after which E is used as the type, declaring the object variable itself by specifying the E type by similar notation
+		\3 This allows specific objects to be returned, rather than generalized static types, allowing easier usage, though it limits the type allowed for each object instance (able to be regeneralized by setting E as Object)
+	\2 Generic types must have the type parameter as invarient, such that if type A is a subtype of type B, if A is the parameter for one object and B for another, the former is not a subtype of the latter
+\1 The Java Collections Framework contains List, Deques, and Sets interfaces, each with a generic, under the Collection$<E>$ interface, as well a finite map interface with $<K, V>$ (key, value) generics
+	\2 It is noted that the contains and remove functions both use Object, rather than E, due to the equals function of a specific class not necessarily returning false for different classes of objects
+	\2 ArrayList<E> and ArrayDeque<E> stem from List<E> and Deque<E> respectively, while LinkedList<E> stems from both, as the three main sequence implementations
+		\3 ArrayList and LinkedList allow accessing by position, the former in an array, such that it is equally fast to access any item, while in LinkedList, it is faster to add items into the middle
+	\2 Set has HashSet stemming from it, as well as the SortedSet interface, from which TreeSet stems, while Map has HashMap and SortedMap, based off of hashing and binary search trees respectively
+	\2 $Collection<E>$ extends $Iterable<E>$, requiring an iterator method giving an $Iterator<E>$ object, the object checking if there is another item in the list, providing the next item, and eleting an item
+		\3 The iterator allows abstraction of traversing a collection, regardless of the collection implementation
+		\3 This can be made easier for any Iterable by the for-each loop, written ``for(Type TypeVariable : IterableVariable) {...}'', automatically iterating for each item in the iterable
+			\4 It is noted as well that arrays are iterable in Java, such that the for-each and iterator methods are usable
+\end{outline*}
+\section{Overriding and Equality}
+\begin{outline*}
+\1 
 \end{outline*}
 \section{Homework Notes}
 \begin{outline*}
