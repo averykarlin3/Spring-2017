@@ -412,6 +412,18 @@ Needed - Partial Derivatives
 	\2 As a result, for two eigenvalues of A, $(\lambda_2 - \lambda_1) u \cdot v = 0$, such that the eigenvectors are orthogonal if the eigenvalues are distinct
 	\2 For repeating eigenvalues, the Gram-Schmidt eigenvector procedure is used to find orthogonal eigenvectors, such that any vector can be represented as a series of eigenvectors, analogous to the orthogonality of eigenfunctions
 \end{outline*}
+\section{Chapter 8 - Nonhomogeneous Problems}
+\begin{outline*}
+\1 For a 1D heat problem with nonhomogeneous boundary conditions, fixed at some nonzero value at both ends, the equilibrium temperature can be found easily to be a gradient across the wire
+	\2 The solution is found by defining $v(x, t) = u(x, t) - u_E(x)$, with $u_E$ as the equilibrium and u as the solution, solving for v to get u
+		\3 It is easily found that the second spacial derivative and first time derivative are both equal for u and v if there are constant boundary conditions
+		\3 As a result, the boundary conditions for v are homogeneous, able to be solved, with the initial condition as $v(x, 0) = f(x) - u_E(x)$
+	\2 For fixed ends with a steady nonhomogenous term $\pd{u}{t} = k\pd{^2u}{x^2} + Q(x)$, found similarly assuming an equilibrium distribution
+		\3 For a time-dependent nonhomogeneous term, the boundary conditions must also be time-dependent, such that it is a nonhomogeneous equation with nonhomogeneous boundary conditions
+	\2 While not all nomhomogeneous problems can be made homogeneous, nonhomogeneous boundary conditions can always be made homogeneous
+		\3 This is done by choosing any reference temperature distribution, r(x, t), which satisfies the nonhomogeneous boundary conditions, used as the equilibrium distribution
+		\3 Thus, for time-dependent nonhomogeneous steady term, $\bar{Q}(x, t) = Q(x, t) - \pd{r}{t} + k\pd{^2r}{x^2}$, such that the equation remains nonhomogeneous with homogeneous boundary conditions
+\end{outline*}
 \end{document}
 
 

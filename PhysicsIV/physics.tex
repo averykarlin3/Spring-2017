@@ -524,8 +524,47 @@
 		\3 Since the number of absorptions is equal to emissions at equilibrium, $N_1B_{12}u(f) = N_2(A_{21} + B_{21}u(f))$
 		\3 Combining Planck's Law for energy density, $u(f) = \frac{8\pi hf^3}{c^3}(\frac{1}{e^{hf/kT} - 1})$, it is found that $B_{12} = B_{21}, A_{21}c^3 = B_{21}8\pi hf^3$, such that spontaneous emission is more likely for higher energies
 			\4 Further, for $hf >> kT$ as a result, stimulated emission can mainly be ignored due to the collision energy being not enough
+\1 **ADD Section 9.6**
 \end{outline*}
-
+\section{Chapter 10 - Solid-State Physics}
+\begin{outline*}
+\1 The three main phases of matter, solids, liquids, and gases are distinct in terms of the molecular interaction, such that in liquids, short range bonds are continuously formed and broen by kinetic energy
+	\2 In solids, the molecules arrange themselves in an array to maximize the number of bonds, though if cooled quickly, is amorphous, appearing as a solid version of the liquid structure
+		\3 As a result, proper long-range crystal order has a definite melting point, while amorphous solids just soften over a range
+		\3 Some solids only exist in either amorphous or crystalline forms, the most common form being polycrystalline (many unit crystrals randomly oriented)
+	\2 Single crystals have symmetry and regularity, made up of repeating unit cell, the cell depending on the type of bonding, relative atomic size of the molecular atoms, pressure, temperature, and metallic bonding
+		\3 Simple-cubics are a set of interconnected cuibic structures, while body-centered cubics are a subset with the same atom at each vertex and center
+		\3 Hexagonal close-packed crystal structures are stacks of hexagonally laid-out atoms
+	\2 Ionic solids are face-centered cubic, with an ion at the center of each face, not paired into ionic molecules, with the attractive potential of each ion as $U_{att} = -\alpha \frac{ke^2}{r}$, where r is the seperation distance
+		\3 $\alpha$ is the Madelung constant, based on the geometry of the crystal, equal to the number of ions at each distance ($\alpha = \frac{n_1r}{r_1} + ...$), converging only for a cube
+		\3 Since the ions repel each other at too close of a distance due to exclusion-principle repulsion by $U_{rep} = \frac{A}{r^n}$, with equilibrium seperation where $F = -\frac{dU}{dr} = 0$
+			\4 It is found that $A = \frac{\alpha ke^2 r_0^{n - 1}}{n}$, with $r_0$ as the equilbrium distance, such that $U(r_0) = -\alpha\frac{ke^2}{r_0}(1 - \frac{1}{n})$, giving the dissociation/lattice energy
+		\3 The cohesive energy is the potential energy per atomic pair, such that it is the dissociation energy, combined with the energy to ionzie the atoms, equal to the energy needed to remove the ions from the crystal/melting point
+			\4 As a result, while the cohesive energy per atom may be high, per molecule, it may be low causing the crystal to fall apart
+	\2 Covalent solids are made of series of covalent bonds, such that the dissociation energy is simply the energy of the individual bonds
+		\3 The molar volume of a solid is equal to $nN_Ar_0^3$, where n is the number of different ions per molecule
+		\3 The angles and number of covalent bonds per atom determine the possible layouts of the molecule
+	\2 Metallic solids are those made of a metallic bond, in which the electrons are generally free to move, allowing high thermal and electric conductivity, shared between all atoms
+		\3 For closely held atoms, the wavefunction of the electrons are summed, creating a repeating wavefunction, with the peaks narrowed, such that the positional uncertainty is smaller
+		\3 Thus, metallic bonds rely on the increse in kinetic energy from the uncertainty principle being overruled by the decrease in potential from the electrons being closer to the atom
+			\4 As a result, it is most likely when the valence electron number is small (making a smaller increse in kinetic energy), and with a larger narrowing in the peak for larger potential difference
+\1 The Classical Model of Electrical Conduction predicts thermal and electrical conduction and Ohm's law, though it fails to predict the change in conductivity with temperature and the lack of an increase in heat capacity by $\frac{3}{2}R$
+	\2 Without an external electric field, $<v> = \sqrt{\frac{8kT}{\pi m_e}}$, with an additional drift velocity in an applied electric field of $I = neAv_d$, where A is the cross-sectional area and n is the density of atoms
+		\3 This can be rewritten in terms of the current density by $j = \frac{I}{A}$
+		\3 Ohm's Law states that $I = \frac{V}{R}$, where $R = \frac{\rho L}{A}$ with $\rho$ is the resistivity, equal to $\frac{1}{\sigma}$, where $\sigma$ is conductivity
+	\2 The mean free path, $\lambda = <v>\tau$, where $\tau$ is the relaxation time, or the average time between collisions, such that the mean free path is the average distance travelled without a collision
+\1 The electron gas would be expected to have a kinetic energy of $\frac{3}{2}kT$, but by the zero-point energy
+	\2 Since within a 1D square well, $E_F = \frac{h^2N^2}{32mL^2}$, with average energy as the sum of the energies divided by the number of particles, N, found that $<E> = \frac{1}{3}E_F$, greater than room temperature energy
+		\3 By $n(E)dE = g(E)f_{FD}(E)dE = 2\frac{dn}{dE}f_{FD}(E)dE$, where since $E = n^2E_1$, $g(E) = E_1^{-1/2}E^{-1/2}$, since $f_{FD}(E) = 1$ at 0 K for $E < E_F$, 0 for $E > E_F$, $n(E) = E_1^{-1/2}E^{-1/2}$
+	\2 Within 3D, $\frac{N}{V} = \frac{1}{V}\int^{\infty}_0 n_{FD}(E)dE = \frac{\pi}{2}(\frac{8m}{h^2})^{3/2}\int^{\infty}_0 \frac{E^{1/2}dE}{e^{(E - E_f)/kT} + 1}$, simplified at T = 0 K, such that $E_F = \frac{h^2}{2m}(\frac{3N}{8\pi V})^{2/3}$
+		\3 As a result, as there are more atoms within a region, it requires more states filled, such that the Fermi energy is higher
+		\3 Further, it is found that $n(E) = \frac{\pi}{2}(\frac{8m}{h^2})^{3/2}VE^{1/2} = \frac{3N}{2}E_F^{-3/2}E^{1/2}$, with average energy $<E> = \frac{1}{N}\int^{E_F}_0 En(E)dE = \frac{3}{5}E_F$ at 0 K
+			\4 At higher temperatures, since the kinetic energy is approximately kT, only those within kT of the Fermi temperature can gain energy, hardly different for thousands of degrees
+			\4 Thus, at non-zero temperatures, there is no cutoff Fermi energy, instead defined by $f_{FD}(E) = \frac{1}{2}$ for higher temperatures
+	\2 Fermi temperature, $T_F$ is defined by $E_F = kT_F$, such that it is the temperature beyond which the Fermi-Dirac distribution approaches the Boltzmann
+\1 The Quantum Theory of Conduction uses the Fermi distribution rather than Boltzmann, and accounts for the effects of the wave properties on electron scattering by the ions
+	\2 
+\end{outline*}
 \section{Notes}
 \begin{outline*}
 \1 Absorption is a subset of the emission spectra, due to multiple possible paths of emission for higher levels of hydrogen atoms
