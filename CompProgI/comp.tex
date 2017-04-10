@@ -343,7 +343,60 @@
 \end{outline*}
 \section{Overriding and Equality}
 \begin{outline*}
-\1 
+\1 Method overriding is the idea of a subclass redefining a superclass method, utilized by dynamic dispatch methods
+	\2 It is noted that dynamic dispatch controls every single method invocation, such that even if it is called within a superclass method, dynamic dispatch still begins again from the dynamic class
+	\2 As a result, each superclass must account for the implementations of the subclass, such that the behavior of any overriden methods still aligns with the superclass functions
+		\3 Thus, it is generally used only if both classes are from the same author, or the parent class is made for overriding
+		\3 Composition and delegation can often be used as a substitute for method overriding
+	\2 The ``final'' keyword can prevent overriding of a method by a subclass
+\1 The equals method generally has to be overriden by subclasses, or it can return that objects are structurally equal at incorrect times
+	\2 It has to be overriden when the class represents immutable values, such that there is a distinct set of states, such as coordinates or strings
+	\2 The method creates an equivalence relation on non-null objects, such that it is reflexive (returns true when on itself), symmetric, transitive, consistant, and ``x.equals(null)'' must return false
+		\3 The symmetric property can cause issues when an object of the superclass and subclass are compared, fixed by ensuring they are of the same dynamic class
+	\2 It is noted that by default, it is overloaded, rather than overridden, such that the superclass method is still present
+		\3 It can be overrided by the ``@Override'' tag before the method
+		\3 The ``$<var>$ instanceof $<Class>$'' command returns a boolean determining if dynamic typecasting to a more specific variable is allowed
+		\3 The dynamic class of an object can also be accessed by the getClass() function, which returns an Class$<dynamicClass>$, such that it is referentially equal for objects of the same classs
+	\2 Equals methods also often check for referential equality to provide a shortcut on the method if they are referencial
+	\2 The ``super.$<fun>()$'' keyword can also be used to call the superclass function, even if it has been overridden
+\end{outline*}
+\section{Exceptions}
+\begin{outline*}
+\1 Exceptions are necessary for incorrect inputs, optional interface methods when they are not found in a particular implementation, incomplete softwarre, or overflows
+	\2 Failures can be dealt with by returning an error value, an option call, or an exception (ending the program and decribing the error)
+	\2 Exceptions in Java are objects in a subclass of the Exception class, thrown by the ``throw'' keyword when there is an error, ending the program
+		\3 Exceptions can also be caught by a ``try {...} catch($<ExceptionType>$ e) {...}'', such that instead of ending the program, the program can respond to the exception
+			\4 Multiple catch blocks are allowed to check for each type of exception, skipping the remainder
+			\4 It is generally bad to have too generalized catches, because that can hide unexpected exceptions
+			\4 Try-catch blocks can also have a ``finally {...}'' block at the end, always running after the try and catch blocks, regardless of if anything was caught or not
+		\3 Constructors are unable to return null, such that the only way to show an error is to produce an exception
+		\3 Exceptions are dealt with in the stack machine by putting the catch handler on the stack when the try portion is called, such that when the exception is found, the stack is popped until catch is found, ending the program if emptied
+\1 Exceptions are a subclass of the Throwable object, while Error objects are subclasses of the Throwable as well, the latter unable to be caught, purely for fatal errors
+	\2 Exception objects are divided into subclasses of IOException and RuntimeException
+		\3 IOExceptions must be declared in the header of both the method itself and the interface method by ``throws $<ExceptionType>$'', while RuntimeExceptions do not need to be
+		\3 Methods that call methods that may throw an IOException also must declare the exception throwing in the header
+		\3 If the method catches the exception, it does not need to declare the exception
+	\2 RuntimeException classes include NullPointerException, IndexOutOfBoundsException, and IllegalArgumentException, not necessary to declare due to the commonality
+	\2 User-created exception classes are necessary to declare if they are not a subset of the RuntimeException class
+\1 Declared exceptions are more difficult to adapt to new code, but are more noticable to the coder due to being explicit, generally only used for very general libraries
+	\2 Catch blocks are also supposed to be present as close to the throwing of the error as possible
+	\2 It is also often good to catch more generalized exceptions and rethrow more specific, user-defined exceptions as a replacement
+\end{outline*}
+\section{IO in Java}
+\begin{outline*}
+\1 Java abstracts IO by steams, acting as a sequence of values in order, possibly without a specific end, either as an input or output stream, feeding values individually
+	\2 The InputStream abstract class has a read() method to return the next byte of data, throwing an IOException if it cannot be read, returning a -1 at the end of the stream
+	\2 The OutputStream abstract class has a write(int i) method to write a byte of data, throwing an IOException if it cannot be written
+	\2 Both abstract methods are limited to values from 0 - 255, or bytes, and are abstract such that subclasses must implement the methods
+\1 FileInputStream and FileOutputStream extend the abstract classes to allow reading and writing binary data, using the function close() to end the file stream, constructed with the filename as the parameter
+	\2 Similarly, BufferedInputStream and BufferedOutputStream is a wrapper, constructed with the file stream as a parameter, allowing input and output of groups of characters at once to save time
+\1 The PrintStream class extends OutputStream, used to print different functions, such that the static field ``System.out'' contains an instance of the class, using the overloaded println method to print various values
+	\2 It also contains the ``print(String)'' function to print a string into the stream without flushing or ending the line, and the flush() function to flush the buffer
+	\2 The buffer is automatically implemented by the PrintStream for the output, and flushed at newlines or when full
+\1 The Reader and Writer abstract classes are used for streams of characters (16 bits), similar to the byte Input/OutputStream classes, returning -1 when the stream is finished, constructed similarly
+	\2 There are also cooresponding FileReader/FileWriter and BufferedReader/BufferedWriter wrappers for these classes as well
+	\2 Since Strings are immutable, each character would have to be appended to the String, unless the length was previously known, such that it would be slow
+		\3 The StringWriter class produces a resizable array, doubling the array when filled, able to be written quicker, and then converted by toString()
 \end{outline*}
 \section{Homework Notes}
 \begin{outline*}
@@ -360,5 +413,9 @@
 \1 Commands can be used to throw away a function result
 
 \1 Cannot call other Java constructor for same class within constructor
+
+\1 Arrays are stored within the heap in OCaml
+	\2 The Some option is denoted with a bubble at the end of the arrow
+	\2 Some/None must be typechecked for, and are noted to not be referentially the same if declared in seperate places, even with the same internal
 \end{outline*}
 \end{document}

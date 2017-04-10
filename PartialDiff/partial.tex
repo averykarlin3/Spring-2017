@@ -423,6 +423,24 @@ Needed - Partial Derivatives
 	\2 While not all nomhomogeneous problems can be made homogeneous, nonhomogeneous boundary conditions can always be made homogeneous
 		\3 This is done by choosing any reference temperature distribution, r(x, t), which satisfies the nonhomogeneous boundary conditions, used as the equilibrium distribution
 		\3 Thus, for time-dependent nonhomogeneous steady term, $\bar{Q}(x, t) = Q(x, t) - \pd{r}{t} + k\pd{^2r}{x^2}$, such that the equation remains nonhomogeneous with homogeneous boundary conditions
+\1 For some nonhomogeneous heat equation with zero boundary conditions, it is solved by the method of eigenfunction expansion, taking the eigenfunctions and values of the homogeneous system, by the eigenvalue problem $\frac{d^2\phi}{dx^2} + \lambda\phi = 0$
+	\2 Since the eigenfunctions form a complete set, v can be modelled as the infinite series of the eigenfunctions, $v(x, t) = \sum_{n = 1}^{\infty} a_n(t)\phi_n(x)$
+		\3 This is noted to be distinct from the product function, due to each term being a seperate product
+	\2 It is found that if v(x, t) solves the same homogeneous boundary conditions as the eigenfunctions, and v, and the first spacial derivative are continuous, it can be term by term differentiated
+	\2 Thus by the eigenvalue expansion, $\sum_{n = 1}^{\infty} (\frac{da_n}{dt} + \lambda_n k a_n) \phi_n(x) = \sum_{n = 1}^{\infty} q_n(t) \phi_n(x) = Q(x, t)$, such that it is the Fourier series of Q
+		\3 By the orthogonality of eigenfunctions, $q_n(t) = \frac{\int^L_0 Q(x, t) \phi_n(x)dx}{\int_0^L \phi^2_n(x)dx}$
+		\3 This can be solved for the main Fourier coefficients by multiplying by $e^{\lambda_n kt}$, integrated over 0 to t, such 	that $a_n(t) = a_n(0)e^{-\lambda_n kt} + e^{-\lambda_n kt}\int^t_0 q_n(\tau)e^{\lambda_n k \tau}d\tau$
+			\4 $a_n(0)$ can be found then by the orthogonality of the eigenfunctions for the initial condition
+\1 For the nonhomogeneous heat equation with varying nonhomogeneous boundary conditions, it is written as the sum of the eigenvalues of the homogeneous equation with zero boundary conditions, solved by a different method of eigenvalue expansion
+	\2 Only the time derivative is taken, to get the Fourier series of the right-hand side, such that $\sum_{n = 1}^{\infty} \frac{db_n}{dt}\phi_n(x) = k\pd{^2u}{x^2} + Q(x, t)$, such that $\frac{db_n}{dt}$ can be solved by orthogonality
+	\2 Q(x, t) is written as its Fourier series with respect to the eigenfunctions, such that $q_n(t) = \frac{\int^L_0 Q(x, t) \phi_n(x)dx}{\int_0^L \phi^2_n(x)dx}$
+		\3 Thus, $\frac{db_n}{dt} = q_n(t) + \frac{\int^L_0 k\pd{^2u}{x^2}\phi_n(x)dx}{\int^L_0 \phi_n^2 dx}$
+		\3 This is rewritten by the operator, $L = \pd{^2}{x^2}$, such that the top integral is reduced to $\int^L_0 \phi_n L(u)dx$
+	\2 This can be simplified by Green's formula, with $v = \phi_n(x)$, where Green's formula for L is $\int^L_0 (uL(v) - vL(u))dx = (u\pd{v}{x} - v\pd{u}{x})|^L_0$
+		\3 Since $\phi_n(x) = sin(\frac{n\pi x}{L})$, the right hand side can be simplified to $(\frac{n\pi}{K})(B(t)(-1)^n - A(t))$
+		\3 This can be modified using the orthogonality of $b_n$ with respect to the eigenfunction, $b_n(t) = \frac{2}{L} \int^L_0 u sin(\frac{n\pi x}{L})dx$
+	\2 This produces the first-order equation, solved by the integrating factor $e^{k\lambda_n t}$, $\frac{db_n}{dt} + k\lambda_n b_n = q_n(t) + \frac{k(\frac{n\pi}{L})(A(t) - (-1)^nB(t))}{\int^L_0 \phi_n^2(x)dx}$
+	\2 It is found that this method produces a series that does not converge as quickly as the series produced by the homogeneous method
 \end{outline*}
 \end{document}
 

@@ -91,6 +91,7 @@
 		\3 n(E) is defined as the number of distinct ways an object could have energy E, such that the sum of the energies must be 1, either a sum or an integral if discrete or continuous, such that $P(E) = \frac{e^{-\beta E}}{\sum_j n(E_j) e^{-\beta E_j}}$
 	\2 Thus, the average value is the sum of the value multiplied by the probability for all possible energy values, $\bar{g(E)} = \frac{\sum_j n(E_j)g(E_j)e^{-\beta E_j}}{\sum_j n(E_j)e^{-\beta E_j}}$
 	\2 The Boltzmann Distribution assumes n(E) = 1 for all E, and the energy distribution is continuous, such that $P(E) = \frac{e^{-\beta E}}{k_BT}, \bar{E} = k_BT$
+	\2 Thus, for some kinetic energy with $\vec{v} = v_x + v_y + v_z$, normalized such that the probability is equal to 1 for all possible velocities with $P(v_x, v_y, v_z) = Ae^{-\beta K}$, it is found that $<K> = \frac{3k_B T}{2}$
 \1 Single photon cannot pair produce an electron and a positron, due to the center of mass frame proving lack of conservation of momentum, though a single photon can collide into a mass and pair produce
 \1 Existance of atoms based on the macroscopic shape of crystals, the inability to convert elements to another type, stoichiometry chemistry rules, and periodic table able to predict properties of atoms
 \1 de Broglie later stated that massive particles could have wavelength by the same formuila, $p\lambda = \lambda \sqrt{2mK} = h$, where K is kinetic energy
@@ -411,15 +412,15 @@
 \begin{outline*}
 \1 Classical statistical physics contains a large number of identical, but distinguishable particles, able to be tracked, with the energies of each given by the Boltzmann distribution function, $f_B(E) = Ae^{-E/kt}$
 	\2 The function without A is called the Boltzmann factor, while k is the Boltzmann constant, $1.381 * 10^{-21} J/K$, with A as the normalization constant
-	\2 $n(E) = g(E)f_B(E)$ is the number of particles, where g is the statistical weight/degeneracy of the energy state/density of states, with E as a continuous variable
+	\2 $n(E) = g(E)f_B(E)$ is the probability of a particular state/number of particles, where g is the statistical weight/degeneracy of the energy state/density of states, with E as a continuous variable
 	\2 Maxwell's Distribution of Molecular Speeds assumes the velocity in each direction is distinct, with $F(v_x, v_y, v_z) = f(v_x)f(v_y)f(v_z)$, where $f(v_x) = Ce^{-\frac{mv_x^2}{2kT}}$, such that $n(v)dv = 4\pi v^2 N f(v)dv$, such that $4\pi v^2$ is the surface area of the sphere of velocities, acting as the degeneracy
 		\3 It is found that the normalization constant for the three dimensional equation is $(\frac{m}{2\pi k T})^{3/2}$
-		\3 As a result, $v_{max}(T) = (\frac{2kT}{m})^{1/2}$ and $<v> = \frac{1}{N}\int^{\infty}_{0} v fnv) dv$
-		\3 Similarly, by the relationship between velocity and kinetic energy, $n(E)dE = \frac{2\pi N}{(\pi k T)^{3/2}}E^{1/2}e^{-E/kT}$, such that $<E> = \frac{3}{2}kT$
+		\3 As a result, $v_{max}(T) = \frac{2kT}{m})^{1/2}$, $<v> = \frac{1}{N}\int^{\infty}_{0} v n(v) dv = \sqrt\frac{{8k_BT}{\pi m}}$, and $v_{rms} = \sqrt{\frac{1}{N}\int^{\infty}_0 v^2n(v)dv} = \sqrt{\frac{3k_bT}{m}}$
+		\3 Similarly, by the relationship between velocity and kinetic energy, $n(E)dE = \frac{2\pi N}{(\pi k T)^{3/2}}E^{1/2}e^{-E/kT}$, such that $<E> = \frac{3}{2}kT$, and $c_V = (\frac{\partial u}{\partial T})_V = \frac{3}{2}N_Ak_B = \frac{3}{2}R$
 	\2 The Equipartition Theorem states that in equilibrium, each degree of freedom contributes $\frac{1}{2}kT$ to the average energy per molecule, where a degree of freedom is a coordinate/velocity component that is squared in the expression of total energy
-		\3 As a result, $C_V = \frac{1}{2}N_Ak = \frac{1}{2}R$ for each degree of freedom
+		\3 As a result, $C_V = \frac{1}{2}N_Ak_B = \frac{1}{2}R$ for each degree of freedom
 		\3 Thus, rotational kinetic by axis, translational by axis, and both kinetic and potential vibrational by axis are degrees of freedom
-			\4 Thus, for a monotomic atom, assuming no vibration, it should be 3R, but it rather found rise as the temperature rises, starting with purely translation, gaining rotation only in the two non-atomic axes, and increasing vibrationally
+			\4 Thus, for a monotomic atom, assuming no vibration, it should be 3R, called the Dulong-Petit value, but it rather found rise as the temperature rises, starting with purely translation, gaining rotation only in the two non-atomic axes, and increasing vibrationally
 			\4 Most diatomic molecules then decay before it is able to reach $\frac{7}{2}R$, but the theorem still doesn't explain the increase with temperature
 		\3 Solid heat capacity of approximately 3R was explained by three axes of vibrational potential and three axes of vibrational kinetic, true at high temperatures, but dropping as temperature drops
 			\4 This is not different for metals, rather than the expected three translational kinetic energy degrees of freedom combined with the six vibrational degrees
@@ -447,10 +448,26 @@
 			\4 Thus, $\frac{N_0}{N} \approx 1 - (\frac{T}{T_c})^{3/2}$, such that as the temperature approaches 0, the condensate approaches the entire material
 		\3 Atoms, especially in their ground states, tend to be bosons, although made up of fermions, though in small spaces, the interparticle interaction creates fermion behavior, making the production of condensates difficult
 			\4 On the other hand, when produced, it begins to exhibit macroscopic quantum wavefunction behavior in terms of appearance and properties, forming coherent matter acting like lasers
-\1 **ADD 8.4**
+\1 Planck's Law can be derived as a photon gas of bosons, and since photons are created and destroyed constantly, there cannot be a normalization integral to solve for $\alpha$
+	\2 Thus, $\alpha = 0$ and by the density of states function, $g(E)dE = \frac{8\piVE^2dE}{c^3h^3}$, such that since $u(E)dE = \frac{Eg(E)f(E)dE}{V}$, $u(f)df = \frac{8\pif^3hdf}{c^3(e^{hf/kT} - 1)}$, proving Bose-Einstein distribution
+		\3 As a result, this can be derived both by Boltzmann distribution for distinguishable electromagnetic waves and Bose-Einstein for indistinguishable particles, showing wave-particle duality
+	\2 Einstein found that the low heat capcity of solids at low temperatures/failure of the equipartition theorem was due to quantization of energy states, extending it to matter
+		\3 He assumed that all molecules can oscillate with the same frequency f in each direction, such that each molecule acted as 3 1D oscillators, each with energy values along $E_n = nhf$
+		\3 By the Boltzmann distribution, $<E> = \int^{\infty}_0 En_B(E)dE = \frac{hf}{e^{hf/kT} - 1}$, such that at high temperatures, $<E> = kT$, such that total energy of N particles is $U = 3N<E>$
+			\4 Thus, it is calculated by $C_V = \frac{dU}{dT} = 0$ as $T \to 0$, $= 3R$ as $T \to \infty$
+		\3 The critical temperature at which classical theory works approximately is $T_E = \frac{hf}{k}$ by Einstein theory, at which point changes in E create approximately no change in the Boltzmann distribution
+			\4 As a result, beyond the Einstein temperature, classical theory is valid due to energy acting approximately continuous
+			\4 For hard solids, the binding forces are stronger, such that the oscillation frequency and Einstein temperatures are higher
+	\2 The Einstein theory gave slightly low results of the heat capacity, fied by Debye theory, who assumed that the molecules could vibrate at a range of frequencies up to the maximum Debye frequency, $f_D$
+		\3 This defined a new temperature at which classical theory worked, as the Debye temperature, $T_D = \frac{hf_D}{k}$
+		\3 He also argued that the number of possible frequencies was limited at maximum to the number of degrees of freedom
+	\2 As a result, for quantized vibrational energy as $E = nhf$, with f as the frequency of vibration, the critical temperature of vibration is defined as the Debye/Einstein temperature, $E_v = \frac{hf}{k}$
+		\3 The rotational energy distribution can be defined by quantized rotational energy, such that the energy distribution is proportional to $\frac{e^{-l(l + 1)h^2/8\pi^2 IkT}}$, with $T_R = \frac{E_R}{k} = \frac{h^2}{8\pi^2 Ik}$
+			\4 As a result, it is found for monotomic gases, the moment of inertia is low enough that the rotational temperature is too high to be relevant
 \1 The free electron theory was used to explain conduction, but fails due to not having the expected $\frac{3kT}{2}$ added average translational kinetic energy from collision above the degree of freedom 3kT
 	\2 This is explained by the indistinguishability of the electrons, such that they are defined under Fermi-Dirac distribution rather than expected Boltzmann 
 	\2 By the constant Fermi energy, $f_{FD}(E) = \frac{1}{e^{\alpha + \frac{E}{kT}} + 1} = \frac{1}{e^{\frac{E - E_F}{kT}} + 1}$, such that $\alpha = \frac{-E_F}{kT}$
+		\3 For a 1D infinite well of electrons, g(E) = 2, such that $n(E) = 2f_{FD}(E)$
 		\3 As a result, for any temperature, $E = E_F$, $f_{FD} = \frac{1}{2}$, while for 0 K, if $E < E_F$, f(E) = 1, $E > E_F$, f(E) = 0
 		\3 Thus, the Fermi energy is the maximum energy state filled at 0 K, while at higher temperatures, electrons in energy states within approximately kT of the Fermi are somewhat dispersed in the kT above
 			\4 As the temperature gets vastly higher, even those further from kT below the Fermi energy move above, such that $f(0) < 1$
@@ -461,6 +478,9 @@
 \section{Chapter 9 - Molecular Structure and Spectra}
 \begin{outline*}
 \1 Molecular bonds are generally ionic, covalent, dipole-dipole, or metallic, created stabally to lower the total energy of the atom from the total energy of the individual parts seperate, caused by electrostatic forces and Pauli's exclusion principle
+	\2 The additional atomic energy is made up of electron kinetic energy, nuclear kinetic energy
+	\2 The Born-Oppenheimer Approximation is based on the far higher mass and lower speed of the neucleus, finding a seperation or nucleus arrangement, solving the Schrdoinger equation for the electrons
+		\3 The ground state energy as a function of nuclear seperation is then analyzed for the minimum, calculating excited, rotational, and vibrational states based on the found seperation distance
 \1 The ionic bond is generally the strongest, with the seperate energy assumed to be 0 eV, while the ionization energy of $K^+$ is 4.34 eV, while Cl has electron affinity (energy released by acquisition of one electron) is 3.62 eV, such that the energy needed to create it (net ionization energy) is 0.72 eV
 	\2 The release of energy is due to the extra electron penetrating the outer shell, such that it is attached to a net positive charge
 	\2 Since the electrostatic potential energy is $\frac{-ke^2}{r}$, such that at some low distance, the potential is high enough to create the ion
@@ -556,14 +576,153 @@
 \1 The electron gas would be expected to have a kinetic energy of $\frac{3}{2}kT$, but by the zero-point energy
 	\2 Since within a 1D square well, $E_F = \frac{h^2N^2}{32mL^2}$, with average energy as the sum of the energies divided by the number of particles, N, found that $<E> = \frac{1}{3}E_F$, greater than room temperature energy
 		\3 By $n(E)dE = g(E)f_{FD}(E)dE = 2\frac{dn}{dE}f_{FD}(E)dE$, where since $E = n^2E_1$, $g(E) = E_1^{-1/2}E^{-1/2}$, since $f_{FD}(E) = 1$ at 0 K for $E < E_F$, 0 for $E > E_F$, $n(E) = E_1^{-1/2}E^{-1/2}$
-	\2 Within 3D, $\frac{N}{V} = \frac{1}{V}\int^{\infty}_0 n_{FD}(E)dE = \frac{\pi}{2}(\frac{8m}{h^2})^{3/2}\int^{\infty}_0 \frac{E^{1/2}dE}{e^{(E - E_f)/kT} + 1}$, simplified at T = 0 K, such that $E_F = \frac{h^2}{2m}(\frac{3N}{8\pi V})^{2/3}$
+	\2 Within 3D, $\frac{N}{V} = \frac{1}{V}\int^{\infty}_0 n_{FD}(E)dE = \frac{\pi}{2}(\frac{8m}{h^2})^{3/2}\int^{\infty}_0 \frac{E^{1/2}dE}{e^{(E - E_f)/kT} + 1}$, simplified at T = 0 K, such that $E_F = \frac{h^2}{2m}(\frac{3N}{8\pi V})^{2/3}$, where m is the mass of the electrons
 		\3 As a result, as there are more atoms within a region, it requires more states filled, such that the Fermi energy is higher
 		\3 Further, it is found that $n(E) = \frac{\pi}{2}(\frac{8m}{h^2})^{3/2}VE^{1/2} = \frac{3N}{2}E_F^{-3/2}E^{1/2}$, with average energy $<E> = \frac{1}{N}\int^{E_F}_0 En(E)dE = \frac{3}{5}E_F$ at 0 K
 			\4 At higher temperatures, since the kinetic energy is approximately kT, only those within kT of the Fermi temperature can gain energy, hardly different for thousands of degrees
 			\4 Thus, at non-zero temperatures, there is no cutoff Fermi energy, instead defined by $f_{FD}(E) = \frac{1}{2}$ for higher temperatures
+			\4 As a result, unlike the classical where all particles gain energy as temperature increases, only a small portion gain energy, such that $C_V = \frac{N_Ad<E>}{dT}$ is less than the classical
 	\2 Fermi temperature, $T_F$ is defined by $E_F = kT_F$, such that it is the temperature beyond which the Fermi-Dirac distribution approaches the Boltzmann
 \1 The Quantum Theory of Conduction uses the Fermi distribution rather than Boltzmann, and accounts for the effects of the wave properties on electron scattering by the ions
-	\2 
+	\2 Since the electric field acceelerates all electrons, they all take part in conduction, with the Fermi speed, $u_F = \sqrt{\frac{2E_F}{m_e}}$ as the approximate maximum speed in 1D at 0 K, distributed like the energy distribution
+		\3 Thus, under an electric field, the distribution of electrons is shifted by the drift velocity with $\rho = \frac{m_eu_F}{ne^2\lambda}$, such that it is independent of temperature and uses Fermi speed rather than $<v>$
+	\2 It is made proportional to temperature and of the correct magnitude by adjusting the calculation of $\lambda$, to account for the wave properties of electrons, such that the scattering of an electron by a collision is not a particle collision
+		\3 Instead of Bragg scattering, which would require a smaller wavelength, electrons are only able to be scattered by crystal lattice imperfections
+		\3 Imperfections are either due to impurities or thermal vibrations, with the scattering cross-section unrelated to the ion radius, but rather the array imperfections
+			\4 Assuming point charge ions, the scattering cross section, $\sigma = \pi \bar{r^2}$, uses r as the average vibrational displacement
+			\4 By the equiparition theorem, $\frac{1}{2}K\bar{r^2} = kT$, assuming only vibrational energy is allowed, such that $\lambda = \frac{1}{n\pi\bar{r^2}}$, such that it is proportional to temperature
+		\3 By the Einstein model of the solid, accurate for non-low temperatures, it is assumed all atoms oscillate at the same frequency, such that $T_E = \frac{\hbar\omega}{k}$
+	\2 The resisitivity due to the thermal vibration can be added to that of the lattice impurities, the latter of which is independent of the temperature
+	\2 It is found that the energy of the excited electrons by nonzero temperatures can be modeled such that for electrons, $U = \frac{3}{5}NE_F + \frac{\pi^2}{4} N \frac{kT}{E_F}kT$
+		\3 As a result, the molar heat capacity, $C_V = \frac{\pi^2}{2}R\frac{T}{T_F}$ for electrons, such that at most temperatures, the electron gas related heat capacity is far less than the expected $\frac{3}{2}R$
+\1 The electron Fermi gas and lattice do not explain the varying conductivity of different solids, solved by finding the effect of the lattice on energy levels, able to be done either by the periodic potential or by the joining of levels of individual atoms
+	\2 The Kronig-Penney model defines a periodic potential energy function by the positive ion lattice, such that energy travelling-waves, $\psi(x) = u_k(x)e^{ikx}$ exist for each possible potential
+		\3 By the periodicity, $u_k(x) = u_k(x + nL)$, with the wavenumber
+\end{outline*}
+\section{Chapter 11 - Nuclear Physics}
+\begin{outline*}
+\1 It was found by Moseley that the atomic mass was approimately half the atomic number, while the total charge to the proton charge times the atomic number
+	\2 The discrepency of the atomic number and mass number was solved by the electrons in the nucleus to balance out surplus charge, supported by beta decay, but found the minimum kinetic energy in the nucleus would be far higher than the beta energy
+		\3 In addition, this was contradicted by there not being a strong enough electrostatic force found in the nucleus to counteract the kinetic energy
+		\3 Otherwise, if the electron energy was positive, beta decay would occur more, and there would be no alpha decay barrier
+		\3 Finally, it was found the magnetic moments were at the far lower proton moment, rather than the electron magnitude
+	\2 Since protons and neutrons are fermions, bound by the exclusion principle, such that there is a splitting of atomic spectral lines by hyperfine structure, each with different angular momentum quantum numbers, prohibiting electrons contained
+	\2 Rutherford postulated the neutral neutron particle, discovered by Chadwick, as the second nucleon along with protons
+\1 N is used to note the number of neutrons, Z for the number of protons/atomic number, A for the number of nucleons/atomic mass, with isotopes are atoms with the same Z, isotones with same N, and isobars with the same A
+\1 The nuclear radius can be measured by either Rutherford scattering or mirror nuclides, which are those with the Z and N values switched, such that nuclear forces are equal, while electrostatic are not
+	\2 Since the electrostatic energy of a ball of charge, $U = \frac{3q^2}{20R\pi\epsilon_0}$, beta decay energy can also be measured (from Z to Z - 1) to find the radius
+		\3 It is also found by electron bombardment, measuring the scattering, found that the first minimum is described by $sin(\theta) = \frac{0.16 \lambda}{R}$, where $\lambda$ is the electron wavelength
+		\3 The cross section of a beam of neutrons through an atomic sample can be used, with $\sigma = 2\pi(R + \frac{\lambda}{2\pi})^2$, measuring the radius purely by the nuclear force instead of charge radius
+	\2 It is found that $R = R_0 A^{1/3}$ where $R_0 = 1.2 fm$, accounting for quantum mechanical correction of charge distribution with surface thickness of 2.4 fm
+		\3 Since the volume is proportional to A as a result and the mass is proportional to A, the densities of the nuclei are approximately the same, found to be $10^{17} kg/m^3$
+\1 The nuclear shape is generally spherical, with a few ellipsoidal exceptions in the rare earth elements, causing small variations in energy levels
+	\2 The variation in energy levels coincide with a nonzero electric quadrupole by nonsymmetric distribution, such that $<Q> = Z\int \psi^* (3(z^2)_{av} - (x^2 + y^2 + z^2)_{av})\psi dV$, allowing determining of the shape
+\1 It is found that nuclei are most stable on the line of stability with N = Z, due to the exclusion principle allowing the lowest energy when they are equal, and thus the most likely
+	\2 Nucleons also generally pair with identical ones, such that there tends to be even numbers of each type of nucleon
+	\2 It is found that there are approximately 2.6 isotopes per element, with Z = 20, 28, 50, and 82 as magic numbers with higher isotopes, and similarly for N with higher isotones
+		\3 This is due to the closed shell structure, similar to that of electron shells, hypothetically including 2, 8, and several around 126 (the island of stability)
+		\3 It is found that for the same numbers, adding that numbered neutron to a nucleus has a binding energy less than would be expected based on the mass energy difference as well
+		\3 The neutron shells cannot be calculated like electrons by shielded charge due to being noncentralized, and are more difficult due to lack of knowledge of the nuclear forces
+			\4 It is known that the strong force is saturated, short range, charge independent, and spin dependent, with each nucleon orbiting freely
+			\4 By the exclusion principle, only collisions causing an exchange of states is allowed, causing no effect, such that energy is only allowed to be transferred for high energy nucleons, where they can be excited, causing a Fermi energy
+			\4 There is a strong spin-orbit interaction, called j-j coupling, such that if the angular momentum are parallel, the energy is higher, opposite that of electrons 
+	\2 The mass is found by a mass spectrometer, measuring the charge to mass ratio of a beam within a magnetic field
+\1 The binding energy of the atom, $B = M_Nc^2 + Zm_ec^2 - M_Ac^2$, where $M_N$ is the nucleus mass and $M_A$ is the atomic mass
+	\2 Similarly, the far higher binding energy of the nucleus, $B = Zm_pc^2 + Nm_nc^2 - M_Ac^2$
+	\2 It is found that the binding energy per nucleon raises drastically until Z = 16, at which point it remains constant, such that the nuclear force is saturated
+		\3 This implies a very short radius of the nuclear force, such that nucleons only interact with their near neighbors
+\1 The nuclear angular momenta is defined similarly and combined with the electronic angular momentum, producing a hyperfine atomic energy structure, with selection rule $\Delta F = \pm 1, 0$, with the nuclear magneton using the proton mass, such that it is vastly smaller energy difference than electrons
+	\2 Only if the nuclear spin is less than the electron spin can the total nuclear spin be calculated, found that if Z and N are even, the spin is 0 in ground state, generally coupling, though not as simple in other cases
+		\3 This is due to the lesser spin providing the number of fine structure deviations, such that there are 2I + 1 possible states
+	\2 It is found that the common value of the proton moment is $2.79 \mu_N$, while the value of the neutron moment is $-1.91 \mu_N$, though it depends specifically on the detailed motion
+\1 Radioactivity is found in all unstable nuclides, decaying into others by emitting particle and electromagnetic radiation, found to decrease exponentially with time
+	\2 Since the nucleus is shielded by the electrons from other atoms, there is no depedence on temperature or pressure 
+	\2 By $-dN = \lambda N dt$, $N(t) = N_0e^{-\lambda t}$, where $\lambda$ is the decay constant, with the decay rate as $R = \frac{-dN}{dt} = \lambda N_0e^{-\lambda t} = R_0e^{-\lambda t}$
+		\3 The mean lifetime of a particle is calculated by the fact that the number with lifetimes from t to t + dt is $\lambda N dt$, such that $\tau = \int^{\infty}_0 t f(t)dt = \int^{\infty}_0 \frac{\lambda N t dt}{N_0} = \frac{1}{\lambda}$
+		\3 The half life, $t_{1/2}$ is the time by which the number of radioactive nuclei and the decay rate has decreased by half, equal to 0.693$\tau$
+	\2 Decay is measured in Becquerel (Bq), equal to 1 decay per second, formerly in Curie (Ci), equal to $3.7 * 10^10 Bq$
+	\2 All radioactive decay must follow conservation of mass-energy, charge, momentum, angular momentum, nucleon number, and lepton number, and must produce atoms within the proton and neutron driplines, at which a single nucleon is spontaneously emitted
+		\3 In addition, to be naturally found, the half-life must be comparable to that of the Earth or must be continuously produced by another reactions
+	\2 Alpha decay is the spontaneous emission of a helium nucleus, generally found in heavy nuclei, with a long half-life due to the Couloumb barrier requiring tunneling
+		\3 The transmission coefficient is based on the kinetic energy of the alpha particle determining the distance required to be traversed, due to the $\frac{1}{r}$ proportional potential
+		\3 It is found that $\lambda = \frac{Tv}{2R}$, where R is the radius of the barrier and T is the transmission coefficient, with v as the particle velocity
+			\4 It is also found that similarly $log(t_{1/2}) = 1.61(ZE_{\alpha}^{-1/2} - Z^{2/3}) - 28.9$, where Z is the resultant atomic charge, called the Geiger-Nuttall Rule
+		\3 There are 4 possible families, the A = 4N, 4N + 1, 4N + 2, and 4N + 3, with the second not naturally found due to short decay times
+	\2 Beta decay modes create a change in Z and N, with A remaining constant, unlike alpha which changes all three, made up of beta minus, plus, and electron capture
+		\3 $\beta -$ decay involves the loss of an electron combined with the conversion of a neutron into a proton, such that the decay energy, $Q = c^2(M_i - M_f - m_e + m_e - \mu_e) = c^2(M_i - M_f - \mu_e)$, where $M_f$ is the mass of the neutral version of the final atom, rather than the charged product
+			\4 $\mu_e \approx 0$, where $\mu_e$ is an electron neutrino, produced, allowing a range of possible beta momenta
+		\3 Similarly, $\beta +$ decay has a proton decay into a neutron and positron, such that $Q = c^2(M_i - M_f - 2m_e)$, due to the positron and the lost electron to create a neutral atom, requiring more energy than - decay
+			\4 The only positron emitter naturally found is $^{40}K$, able to decay by both other modes of beta decay
+		\3 Within both types of decay, electrons are produced by the deexcitation of the nuclear bound states, found to have a longer decay time than strong nuclear force, and not suceptible to EM or strong force, such that there must be an additional short-range nuclear weak force
+			\4 As a result, while double beta minus decay is possible theoretically, due to the relatively long ($10^{-21} s$) lifetime, it is unlikely
+		\3 Electron capture has a proton capture an electron to convert to a neutron, releasing a neutrino, such that $Q = c^2(M_i - M_f)$, allowing decay which decreases the nuclear charge without requiring energy to allow two electrons
+			\4 This only occurs for electrons within the K (or rarely the L) shell
+			\4 As a result, this is used when the energy is not high enough to bring to a more stable state by beta plus decay
+	\2 Gamma decay is the release of a photon due to nucleon deexcitation, generally with a $10^{-11} s$ halflife, such that there is a large natural line width, though it is potentially far longer, called isomers/metastable states
+		\3 Large spin changes in the nucleus are forbidden, such that transitions that would require it are metastable states
+		\3 The photon energy is modeled by the change in states, though it requires a portion of the energy to be given to the nucleus for conservation of momentum
+			\4 Since the gamma ray energy is small compared to the mass energy, it is negligable, such that the approximation is valid, and $E_{recoil} = \frac{(hf)^2}{2Mc^2}$, where M is the nuclear mass
+		\3 It is also possible for an electron to be emitted instead, called internal conversion, emitting a K or L shell electron, allowing measurement of the nuclear energy states
+\1 Nuclear/hadronic strong force has been studied by scattering and spectroscopy experiments, found to have equal strength between any two nucleons, acts very short-range, and is saturated
+	\2 By approximating the width of the nuclei as an infinite square well, an estimate can be made for the strength of the nuclear force with the ground state as the potential of the strong force (approximately 50 MeV)
+	\2 Protons with nuclear sized wavelengths are diffracted, providing the potential curves, found to be equal, though the proton-proton curve is shifted upward by electrostatic force
+		\3 It is saturated due to the position within the nuclei not having an effect, due to only being acted on by its nearest neighbors
+		\3 The saturation allows the hard core with constant density of the nuclear force, due to electrostatic repulsion acting on non-neighbors to keep them spaced at a constant distance
+	\2 It was previously postulated that all particles are constantly emitting and absorbing photons, called virtual photons, to produce the EM force
+		\3 Photons can be emitted without the particle changing its energy or momentum, as long as the time of photon existing is less than the uncertainty for the photon energy $\Delta t = \frac{\hbar}{\Delta E}$
+			\4 Thus, longer distance forces have lower energy virtual photons
+			\4 This was due to a change in a field propogating at the speed of light, creating time-dependent waves in the electric field, or waves
+		\3 Yukawa stated that mesons were transmitted between nucleons for nuclear force, creating a meson field, causing a short-range by the large energy uncertainty, due to the non-massless meson
+			\4 As a result, the range $R = c\Delta t = \frac{c\hbar}{\Delta E} = \frac{\hbar}{mc} = \frac{\lambda_c}{2\pi}$, where $\lambda_c$ is the meson Compton wavelength
+			\4 The charge independence was accounted for by allowing the meson to have +e, -e, or 0 charge, such that the charged nucleon exchange would switch the particle's charges
+			\4 He also postulated that if a collision provided enough energy to allow a real particle to be emitted, it could be observed, found as pi mesons/pions, though other mesons exist
+		\3 It has since been found that mesons and nucleons are made up of smaller quarks, exchanging gluons instead
+\1 Particle collisions with a nucleus can either be elastic, inelastic, and absorption combined with an emission of the same or different particle
+	\2 Elastic scattering generally refers to the reflection of the particle at the edge of the nucleus, called Rutherford scattering
+		\3 Direct interaction refers to the particle causing the removal of a nucleon by the energy
+		\3 Compound nuclei are nuclei excited states formed by the collision, possibly including the combination of the particle with the atom, decaying as a statistical process
+	\2 The energy change of a reaction is called the Q value, exothermic if positive, endothermic if negative, such that additional energy must be added
+		\3 The threshold energy is Q in the center-of-mass frame, such that the total momentum is 0, while in other frames, it must be greater to allow conservation
+		\3 For non-relativistic frames, $E_{CM} = K_1 + K_2$, after which when shifted by $v_2$ into the lab frame, $E_{lab} = \frac{m_1 + m_2}{m_2}E_{CM}$
+	\2 The cross-section of a collision depends on the energy and type of the particle within the collision, with $\sigma = \frac{R}{I}$, where I is the intensity of particles (number per unit area and unit time) and R is the reactions per unit time per nucleus
+		\3 Collisions are written by the notation, $A_i (p_i, p_f) A_f$, where the atom is starred to indicate a compound or excited nucleus, and the particle has an apostrophe to indicate an inelastic collision
+		\3 Each possible outcome has a partial cross section, such that the total cross-section is the sum of each partial
+		\3 Cross sections are measured by Barn with area dimensions, equal to $10^{-28} m^2$
+	\2 It was found by Neils Bohr that most low-energy reactions were found to be two-parts, the formation of the compound nucleus and statistical decay, the latter of which is independent of the former
+		\3 This is proven by the time of the decay taking longer ($10^{-16} s$) than the time it would take the particle to cross the nucleus ($10^{-21} s$)
+		\3 For some complex nucleus, the possible reactions to produce it are the entrance channels, and the possible decays are exit channels
+		\3 As a result, the cross-section can be broken up into the cross-section of the complex nucleus multiplied by the probability of a specific decay
+	\2 Excited states of nuclei can be measured by the cross-section as a function of energy, with the lifetime of the states measured by the peak width, called the resonance
+		\3 It can also be measured by the energy of inelastically scattered particles by the energy loss
+		\3 The cross-section measuring finds higher energy levels, while inelastic scattering measures the lower levels
+	\2 Neutron reactions are studied to avoid electromagnetic effects, finding that each scattering, some energy is lost to preserve momentum conservation, until the energy is kT, at which point losing and gaining energy are equally likely
+		\3 Neutrons with energy of kT are called thermal neutrons
+		\3 The cross-sections of thermal neutrons are found to decrease proportional to $\frac{1}{v}$, due to the lower time to leave the substance, with resonance peaks at the energy levels
+\1 Nuclear fusion and fission produce large amounts of energy, due to the high mass per nucleon of the earliest atoms, as well as the higher values of heavy atoms, moving towards atoms with lower mass per nucleon, releasing the additional
+	\2 Fission was discovered in 1938 by Hahn and Strassmann for Uranium-235, finding that when bombarded by thermal neutrons, it would have fission 85\%, gamma radiation 15\%
+		\3 This was due to the neutrons carrying enough energy to reach the critical energy, escaping the Coulumb barrier, similar to alpha particles
+		\3 On the other hand, it was found the thermal neutron bombardment of Uranium-238 was not enough to reach the U-239 critical energy
+			\4 Atoms that are able to fission with standard energy thermal neutrons are called fissile, such as U-235
+		\3 Heavy nuclei, such as those above Z = 90 were found to spontaneously fission, due to the surface tension of the nuclear force increasing proportionally to $R^2$, the electrostatic force by $R^3$
+			\4 Thus, as the size of the nuclei gets higher, it gets more unstable, and has a higher chance of fissioning, though with a lower likelihood than other decay due to the Coulumb barrier
+		\3 Nuclei generally fission into two smaller masses and 1-3 neutrons, each given very high speeds by electrostatic repulsion as the mode of energy release
+			\4 This neutron release was used to create a chain reaction and produce nuclear weapons and energy
+	\2 Fusion is the joining of light nuclei into a medium weight, often releasing a neutron in the process, releasing vastly more energy than fission
+		\3 The Coulomb repulsion causes the kinetic energy to need to be at least 1 MeV, and the probability of scattering is so much higher, it is inefficient
+		\3 Thermal kinetic energy of the particles as a result, must be used, such that approximately $<KE> = \frac{3}{2}kT = 10 keV$ is used, combined with quantum tunnelling through the barrier
+			\4 At the temperatures necessary, the gas is a plasma of ions and negative electrons, making it difficult to contain, present in stars by the gravitational field
+			\4 It is found that the energy produced is proportional to $n^2\tau$, where $\tau$ is the confinement time and n is the density, while the energy needed is proportional to the density
+			\4 Thus, the Lawson Criteria states that $n\tau > 10^{20} s * particles/m^3$
+		\3 This is achieved either by magnetic confinement, placing inside a solenoid/tokamak around the plasma, moving it around to produce its own magnetic field, containing it, or inertial confinement
+			\4 Inertial confinement has a portion of frozen atoms bombared by lasers, compressing it to a high enough temperature, producing $10^6 J$ in $10^{-10} s$, remaining in place for that time purely by inertia
+	\2 The Sun's energy at any given time would radiate away far faster than the lifespan thus far, such that the energy supply is extended by fusion
+		\3 When the sun contracted due to gravity, the temperature raised enough to produce fusion in the proton-proton cycle, proposed by Bethe
+			\4 This is made up of 2H-1 to a positron, H-2, an electron-neutrino, and 0.42 MeV, followed by H-1 and H-2 to He-3, gamma rays, and 5.49 MeV
+			\4 The cycle is ended by 2He-3 to He-4, 2H-1, gamma rays, and 12.86 MeV
+		\3 Due to the low probability of the first reaction in the cycle, called the bottleneck of the cycle, only allowed for the highest energy atoms, the energy is produced slowly over millions of years
+		\3 It has been found that the rate of solar neutrinos is half the expected value theoretically calculated, called the solar-neutrino problem
+			\4 The neutrinos can also be used to measure the quantity of each type of reaction by the energy spectrum, allowing study of the cycle
+		\3 The rate of reaction can also be found by the expected energy release, combined by the radiated power of the sun
 \end{outline*}
 \section{Notes}
 \begin{outline*}
@@ -659,14 +818,25 @@
 
 \1 Neutrons and protons themselves as fermions act as particles within a spherical box, forming shells with quantized energy levels, similar to electrons
 
+\1 Constants include the Bohr radius, planck's constant, the electron mass, the proton/neutron mass, and the electron charge
+
+\1 The idea of quantization and rotational kinetic energy can be combined with classical thermodynamics to give the $C_V$, assuming purely allowed rotational motion, and the probability of each rotational level classically
+	\2 It is found that the classical equidistnce theorem is only valid for higher temperatures if quantization of rotational energy is taken into account
+	\2 In this case, the degeneracy of states is 2l + 1, due to the possible $m_l$ values
+	\2 Similarly, it can be combined with vibrational energy to give the probability of each vibrational level classically
+
+\1 Protons and neutrons are fermions, rather than bosons, such that the hydrogen wavefunction must be antisymmetric, either singlet (S = 0, antisymmetric spins), or triplet (S = 1, symmetric spin)
+	\2 It is found that the spacial component of the wavefuntion is multiplied by $(-1)^l$, such that for even l, it is singlet, called para-hydrogen, otherwise triplet/ortho-hydrogen
+	\2 Since all states are equally likely for some energy, the odds of a triplet state are three times as great as the singlet state, though at low temperatures, this requires a catalyst to produce equilibrium distribution
+
 1/24 - Exp Basis Not Done
 3/01 - Hydrogen Not Done
 3/16 - Many Not Done
-3/21 - StatMech Not Done
-3/23 - StatMech Not Done
 3/28 - StatMech Not Done
-3/39 - StatMech Not Done
+3/29 - StatMech Not Done
 3/30 - Molecules Not Done
+4/04 - Molecules Not Done
+4/04 - Conductivity Not Done
 
 \end{outline*}
 \end{document}
