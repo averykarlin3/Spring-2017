@@ -380,11 +380,12 @@
 \1 While classically, the sum of the revolving and intrinsic angular momentum can be any value based on the vector angles, the quantization limits it, such that $|\vec{J}| = |\vec{L} + \vec{S}| = \sqrt{j(j + 1)}\hbar$
 	\2 j is allowed to be either the sum of l and s (parallel) or the positive difference of them (antiparallel), or integral moves between the two, with the z component given by $J_z = m_j\hbar = (m_l + m_s)\hbar$, where $-j \leq m_j \leq j$ as a result
 		\3 Spectroscopic notation is denoted by $n^{2s + 1}L_j$, where L is the angular momentum state of the electon (S, P, D, F, G, ...)
+			\4 This is extended to atoms with L as the total angular momentum, and with S as the total spin of the orbital
 		\3 As a result, the fine structure splitting can also be explained by different values of j causing different potential energy, such that antiparallel J has lower energy than parallel
 		\3 In addition, within an external magnetic field, the energy is slightly different for each $m_j$, splitting the lines further, called the Zeeman effect
 	\2 Similarly, the sum of the total angular momentum of two atoms has a value of j with a maximum of the sum, the minimum of the positive difference
-	\2 Since the fine-structure depends only on n and j, rather than on l, different l states have the same energy, and since there is only a single l value for n = 1, S, $2^2S_{1/2}$ is metastable, due to the selection rule requiring a change in the l value
-		\3 On the other hand, it was discovered that $2^2S_{1/2}$ had slightly more energy than $2^2P_{1/2}$, allowing the Lamb shift transition with photon emission
+	\2 Since relativistically, the fine-structure depends only on n and j, rather than on l, different l states have the same energy, and since there is only a single l value for n = 1, S, $2^2S_{1/2}$ is metastable, due to the selection rule requiring a change in the l value
+		\3 On the other hand, it was discovered that $2^2S_{1/2}$ had slightly more energy than $2^2P_{1/2}$ due to electron interactions with their own electric fields (virtual electron-positron pairs), allowing the Lamb shift transition with photon emission
 \1 The Schrodinger Equation for multiple particles, assumed to be electrons, written time-independently as $-\frac{\hbar^2}{2m}\frac{\partial^2\psi(x_1, x_2)}{\partial x_1^2} -\frac{\hbar^2}{2m}\frac{\partial^2\psi(x_1, x_2)}{\partial x_2^2} + V\psi(x_1, x_2) = E\psi(x_1, x_2)$
 	\2 Potential must take into account both the independent potential of each and the interacting potential, both assumed to be 0 for the infinite square well
 	\2 The solution is written as a product solution, such that for states m and n respectively, $\psi_{mn}(x_1, x_2) = \psi_m(x_1)\psi_n(x_2)$
@@ -392,21 +393,29 @@
 		\3 For identical particles as a result, the interchanging of the particles would result in the same overall wave probability ($|\psi(x_1, x_2)|^2 = |\psi(x_2, x_1)|^2$), considered a symmetric wavefunction if they are equal if reversed, antisymmetric if negative
 	\2 Since identical particles are assumed to be indistinguishable within quantum mechanics, the wavefunctions must be the linear combination of both with equal probability, such that $\psi = C(\psi_m(x_1)\psi_n(x_2) \pm \psi_m(x_2)\psi_n(x_1))$, depending if symmetric or not
 	\2 It is found that electrons can only have antisymmetric wavefunctions, such that if all wavenumbers are the same, then the wavefunction at any point is 0, forbidden by Pauli's exclusion principle
+\1 Non-hydrogen atoms can have their energy approximated by the Fermi energy model, such that the Fermi sphere is the atom, with the radius and particle density providing eachother and the Fermi energy
+	\2 Thus, $E_F = \frac{\hbar^2}{2m}(3\pi^2n_f)^{2/3}$ for an atom, where $n_f$ is the fermi particle density
 \1 For a Helium atom, potential energy is the sum of the potential with the nucleus and $V_{int} = \frac{ke^2}{|\vec{r_2} + \vec{r_1}|}$, preventing the separation of equations for each electron
 	\2 If ignoring the interaction term, the energy of each of the electrons is individual, with total energy as the sum of the individual electron energy states, the wavefunction as the product of the standard electron wavefunctions
+		\3 This is because the charge of a sphere is concentrated at the center, such that the effective charge is just the sum of the nucleus and other electrons
+			\4 On the other hand, inner shell electrons have virtually no effect from the outer electron shel interactions
 		\3 First-order perturbation theory is then done to correct for the interactions, calculating the expectation value of the interaction potential, adding it to the ground state energy to get the real energy
+			\4 Thus, $V_{int} = \frac{e^2}{4\pi\epsilon_0}\intd^3r \frac{|\phi(\vec{r_2})|^2}{|\vec{r_1} - \vec{r_2}|}$
+			\4 This model further assumes that the Hamiltonian of the respective electrons in a shell are equal, after which a spin modification is done, and the interaction energy is added
+			\4 This creates the correct energy of the electrons, but ignores the coupled motions of the electrons, by Pauli and Coulumb
 	\2 The first ionization potential is the difference between the ground state energy with two electrons and a single election, rather than the electrostatic potential of a single electron
 \1 For a lithium ion, the energy of the third electron depends on the l state, due to the force not being an inverse square force, but rather depending on the negative K-shell charge, spread over the volume at the radius $\frac{a_0}{Z}$
-	\2 The electron acts as an electron in either the 2S or 2P state of a hydrogen atom, due to the electrons in the K shell shielding the nucleus, such that $Z_{eff} = 1$
+	\2 The electron acts as an electron in either the 2S or 2P state of a hydrogen atom, due to the electrons in the K shell shielding the nucleus, such that $Z_{eff} = 1$ and a far higher radius
 		\3 On the other hand, in the 2S state, it is more likely to be near the center, below the shielding, such that the energy state is lower, true generally, such that for the electron in 2S, $Z_{eff} = 1.3$
 	\2 For beryllium, since the effective force within the Z-shell is greater, the energy is lower than that of the third electron in lithium
 	\2 The electron of boron has higher energy than beryllium, due to the lack of penetration of the 2S subshell, with lower energy for subsequent electrons due to higher nucleus charge, though with neon still having higher energy than helium 
 	\2 Thus, for 3S electrons, the energy is drastically higher due to the shielding of the L shell, proceeding lower as subsequent electrons are added into 3S then 3P
 	\2 The shielding by the M shell is strong enough as well, that there is less energy for 4S than for 3D, such that the former is filled first, before filling 3D in the transition elements
+	\2 The higher l values of electrons in multi-electron atoms causes the further splitting of energy levels by l values, due to the effective charge being lower for higher l values (less tightly bound/higher energy)
 \1 Visible light excited transitions typically are only able to take place in the outer electron shells, the excitation energy being approimately that of the electron in hydrogen, due to shielding
 	\2 The different states have spin-orbit energy difference, such that there is slightly more energy in higher angular momentum combinations
 	\2 By the selection rule ($\Delta l = \pm 1, \Delta j = -1, 0, 1$), transitions to and from the S state have double lines due to the energy difference from the doublet P state (two possible initial l values), while other transitions have three possible lines (called a compound double)
-		\3 Two of the lines are far closer than the other, due to the distance between the upper and lower P levels being further apart
+		\3 Two of the lines are far closer than thae other, due to the distance between the upper and lower P levels being further apart
 \end{outline*}
 \section{Chapter 8 - Statistical Mechanics}
 \begin{outline*}
@@ -415,7 +424,7 @@
 	\2 $n(E) = g(E)f_B(E)$ is the probability of a particular state/number of particles, where g is the statistical weight/degeneracy of the energy state/density of states, with E as a continuous variable
 	\2 Maxwell's Distribution of Molecular Speeds assumes the velocity in each direction is distinct, with $F(v_x, v_y, v_z) = f(v_x)f(v_y)f(v_z)$, where $f(v_x) = Ce^{-\frac{mv_x^2}{2kT}}$, such that $n(v)dv = 4\pi v^2 N f(v)dv$, such that $4\pi v^2$ is the surface area of the sphere of velocities, acting as the degeneracy
 		\3 It is found that the normalization constant for the three dimensional equation is $(\frac{m}{2\pi k T})^{3/2}$
-		\3 As a result, $v_{max}(T) = \frac{2kT}{m})^{1/2}$, $<v> = \frac{1}{N}\int^{\infty}_{0} v n(v) dv = \sqrt\frac{{8k_BT}{\pi m}}$, and $v_{rms} = \sqrt{\frac{1}{N}\int^{\infty}_0 v^2n(v)dv} = \sqrt{\frac{3k_bT}{m}}$
+		\3 As a result, $v_{maxProb}(T) = \frac{2kT}{m})^{1/2}$, $<v> = \frac{1}{N}\int^{\infty}_{0} v n(v) dv = \sqrt\frac{{8k_BT}{\pi m}}$, and $v_{rms} = \sqrt{\frac{1}{N}\int^{\infty}_0 v^2n(v)dv} = \sqrt{\frac{3k_bT}{m}}$
 		\3 Similarly, by the relationship between velocity and kinetic energy, $n(E)dE = \frac{2\pi N}{(\pi k T)^{3/2}}E^{1/2}e^{-E/kT}$, such that $<E> = \frac{3}{2}kT$, and $c_V = (\frac{\partial u}{\partial T})_V = \frac{3}{2}N_Ak_B = \frac{3}{2}R$
 	\2 The Equipartition Theorem states that in equilibrium, each degree of freedom contributes $\frac{1}{2}kT$ to the average energy per molecule, where a degree of freedom is a coordinate/velocity component that is squared in the expression of total energy
 		\3 As a result, $C_V = \frac{1}{2}N_Ak_B = \frac{1}{2}R$ for each degree of freedom
@@ -435,6 +444,7 @@
 		\3 Since, $\lambda = \frac{h}{2mE_k} = \frac{h}{3mkT}$, since $<E_k> = \frac{3kT}{2}$, and it is found that $<d> = (\frac{V}{N})^{1/3}$, such that this is valid when $\frac{N}{V}\frac{h^3}{(3mkT)^{3/2}} << 1$
 		\3 Within an infinite well, $E_n = E_0(n_x^2 + n_y^2 + n_z^2)$, such that it forms an eighth of a sphere with radius $(\frac{E}{E_0})^{1/2}$, where each quantum number must be an integer, such that $N = \frac{1}{8}(\frac{4\pi R^3}{3})$, or $\frac{N}{2}$ for two possible spin-states
 			\4 The infinite well radius is called the Fermi radius, acting as the maximum energy state an electron exists in within the well
+			\4 Thus, this can be related to the particle density within the Fermi sphere, such that $E_F = \frac{\hbar^2}{2m}(3\pi^2n_f)^{2/3}$
 			\4 Thus, $g(E) = \frac{dN}{dE} = \frac{2\pi(2m)^{3/2}V}{h^3}E^{1/2}$, called the density of states, where for an electron/fermion, it is multipled by 2 for each of the spins, otherwise not, after which it can be integrated such that $N = \int^{\infty}_0 g(E)f(E)dE$, assuming a high enough number of states that it can be integrated
 			\4 As a result, for a fermion, $e^{-\alpha} = \frac{Nh^3}{2(2\p im_ekT)^{3/2}V}$, twice that for a boson
 	\2 For liquid helium, there is approximately one particle per quantum state at such low temperatures, such that Boltzmann did not apply, instead treating it as an ideal gas under Bose-Einstein distribution, applying below 2.17 K
@@ -454,7 +464,7 @@
 	\2 Einstein found that the low heat capcity of solids at low temperatures/failure of the equipartition theorem was due to quantization of energy states, extending it to matter
 		\3 He assumed that all molecules can oscillate with the same frequency f in each direction, such that each molecule acted as 3 1D oscillators, each with energy values along $E_n = nhf$
 		\3 By the Boltzmann distribution, $<E> = \int^{\infty}_0 En_B(E)dE = \frac{hf}{e^{hf/kT} - 1}$, such that at high temperatures, $<E> = kT$, such that total energy of N particles is $U = 3N<E>$
-			\4 Thus, it is calculated by $C_V = \frac{dU}{dT} = 0$ as $T \to 0$, $= 3R$ as $T \to \infty$
+			\4 Thus, it is calculated by $C_V = \frac{dU}{dT} = 3R(\frac{\hbar\omega}{k_bT})^2\frac{e^{\hbar\omega/k_BT}{(e^{\hbar\omega/k_BT} - 1)^2}} = 0$ as $T \to 0$, $= 3R$ as $T \to \infty$
 		\3 The critical temperature at which classical theory works approximately is $T_E = \frac{hf}{k}$ by Einstein theory, at which point changes in E create approximately no change in the Boltzmann distribution
 			\4 As a result, beyond the Einstein temperature, classical theory is valid due to energy acting approximately continuous
 			\4 For hard solids, the binding forces are stronger, such that the oscillation frequency and Einstein temperatures are higher
@@ -520,7 +530,8 @@
 		\3 In terms of the force constant, k, it is found that $f = \frac{1}{2\pi}\sqrt{\frac{k}{\mu}}$
 		\3 As the v gets higher, the levels become more spaced out, due to the approximation failing to account for increasingly rising potential
 		\3 In addition, the selection rule fails for vibrational during an electronic state transition, with the fundamental frequency of vibration different from distinct electronic energy states
-	\2 Spectroscopy is generally on the vibration-rotation spectrum in the ground electronic state, such that for $\Delta v = +1$, $\Delta l = \pm 1$
+	\2 Spectroscopy is generally on the vibration-rotation spectrum in the ground electronic state, such that for $\Delta v = 0, \pm1$, $\Delta l = \pm 1$
+		\3 This selection rule only applies to those with a permanent dipole moment, such that those without are unable to have transitions that emit radiation without an electronic transition
 		\3 As a result, the change in energy for some absorption is $hf \pm n2E_{0r}$, where n is the final l value for increasing l, or the initial for falling l
 		\3 The different isotopes result in slightly different moments of inertia, forming a double peak structure
 		\3 The frequencies of the different peaks are due to the probability of the different vibrational states, resulting from the thermal energy, such that $n(E_l) = g(E_l)e^{-E_l/kT}$, where $E_l = \frac{1}{2}hf + l(l+1)E_{0r}$ for the ground vibrational state
@@ -528,6 +539,7 @@
 		\3 It is noted that the moment of inertia is not constant, but rather as the rotational level increases, the moment of inertia does as well, such that the energy between the levels get closer
 			\4 There is also a peak missing for the l = 0 value where it would hypothetically drop
 			\4 On the other hand, for polyatomic atoms, it is possible for a vibrational energy change without a rotational, called the Q branch
+		\3 For changes in the electronic spectrum, there is no selection rule for v, though $\Delta l = \pm 1$ still
 \1 Scattering is either elastic/Rayleigh (without a frequency change) or inelastic, the former caused by electrons absorbing the energy, then oscillating at the same frequency in phase with the original wave
 	\2 While there is a Compton shift, for a large wavelength, it is insignificant and cannot be measured
 	\2 Inelastic scattering is called Raman scattering, either greater or less depending on if it excited or deexcites the atom from a vibrational/rotational state
@@ -568,14 +580,21 @@
 		\3 For closely held atoms, the wavefunction of the electrons are summed, creating a repeating wavefunction, with the peaks narrowed, such that the positional uncertainty is smaller
 		\3 Thus, metallic bonds rely on the increse in kinetic energy from the uncertainty principle being overruled by the decrease in potential from the electrons being closer to the atom
 			\4 As a result, it is most likely when the valence electron number is small (making a smaller increse in kinetic energy), and with a larger narrowing in the peak for larger potential difference
-\1 The Classical Model of Electrical Conduction predicts thermal and electrical conduction and Ohm's law, though it fails to predict the change in conductivity with temperature and the lack of an increase in heat capacity by $\frac{3}{2}R$
-	\2 Without an external electric field, $<v> = \sqrt{\frac{8kT}{\pi m_e}}$, with an additional drift velocity in an applied electric field of $I = neAv_d$, where A is the cross-sectional area and n is the density of atoms
+\1 The Classical Drude Model of Electrical Conduction predicts thermal and electrical conduction and Ohm's law, though it fails to predict the change in conductivity with temperature and the lack of an increase in heat capacity by $\frac{3}{2}R$
+	\2 Without an external electric field, $<v> = \sqrt{\frac{8kT}{\pi m_e}}$, is the average speed, though the direction makes the average velocity 0
+		\3 In an applied electric field, this is with an additional average/drift velocity of $I = neAv_d$, where A is the cross-sectional area and n is the density of atoms
 		\3 This can be rewritten in terms of the current density by $j = \frac{I}{A}$
 		\3 Ohm's Law states that $I = \frac{V}{R}$, where $R = \frac{\rho L}{A}$ with $\rho$ is the resistivity, equal to $\frac{1}{\sigma}$, where $\sigma$ is conductivity
+			\4 This can also be written as $\vec{j}\rho = \vec{E} = \frac{\vec{F}}{q}$, since $j = \frac{I}{A}$, where A is the cross sectional area, called the current density
+			\4 $\rho = \frac{n\sigma m <v>}{n_e e^2}$, such that as the mean velocity increases, collisions happen more often, but the drift velocity is lowered, such that resistivity increases
+			\4 Thus, if each atom releases one electron and electrons are assumed as point charges, $n_e = n$ and $\sigma = \pi r^2$, where r is the ionic radius
 	\2 The mean free path, $\lambda = <v>\tau$, where $\tau$ is the relaxation time, or the average time between collisions, such that the mean free path is the average distance travelled without a collision
+		\3 The mean free path is also equal to the mean scattering length, calculated by the scattering cross section
+		\3 After each collision, the drift velocity is 0, such that the average drift velocity, $v_d = \frac{F_e\tau}{m} = \frac{eE\lambda}{<v>m} = \frac{eE}{n\sigma <v> m}$
 \1 The electron gas would be expected to have a kinetic energy of $\frac{3}{2}kT$, but by the zero-point energy
 	\2 Since within a 1D square well, $E_F = \frac{h^2N^2}{32mL^2}$, with average energy as the sum of the energies divided by the number of particles, N, found that $<E> = \frac{1}{3}E_F$, greater than room temperature energy
-		\3 By $n(E)dE = g(E)f_{FD}(E)dE = 2\frac{dn}{dE}f_{FD}(E)dE$, where since $E = n^2E_1$, $g(E) = E_1^{-1/2}E^{-1/2}$, since $f_{FD}(E) = 1$ at 0 K for $E < E_F$, 0 for $E > E_F$, $n(E) = E_1^{-1/2}E^{-1/2}$
+		\3 By $n(E)dE = g(E)f_{FD}(E)dE = 2\frac{dN}{dE}f_{FD}(E)dE$, where since $E = n^2E_1$, $g(E) = E_1^{-1/2}E^{-1/2}$, since $f_{FD}(E) = 1$ at 0 K for $E < E_F$, 0 for $E > E_F$, $n(E) = E_1^{-1/2}E^{-1/2}$
+		\3 This can be viewed as $E_k = \frac{\hbar^2k^2}{2m}$, such that the current causes the electrons to move in the k direction of the current, causing conduction
 	\2 Within 3D, $\frac{N}{V} = \frac{1}{V}\int^{\infty}_0 n_{FD}(E)dE = \frac{\pi}{2}(\frac{8m}{h^2})^{3/2}\int^{\infty}_0 \frac{E^{1/2}dE}{e^{(E - E_f)/kT} + 1}$, simplified at T = 0 K, such that $E_F = \frac{h^2}{2m}(\frac{3N}{8\pi V})^{2/3}$, where m is the mass of the electrons
 		\3 As a result, as there are more atoms within a region, it requires more states filled, such that the Fermi energy is higher
 		\3 Further, it is found that $n(E) = \frac{\pi}{2}(\frac{8m}{h^2})^{3/2}VE^{1/2} = \frac{3N}{2}E_F^{-3/2}E^{1/2}$, with average energy $<E> = \frac{1}{N}\int^{E_F}_0 En(E)dE = \frac{3}{5}E_F$ at 0 K
@@ -583,7 +602,7 @@
 			\4 Thus, at non-zero temperatures, there is no cutoff Fermi energy, instead defined by $f_{FD}(E) = \frac{1}{2}$ for higher temperatures
 			\4 As a result, unlike the classical where all particles gain energy as temperature increases, only a small portion gain energy, such that $C_V = \frac{N_Ad<E>}{dT}$ is less than the classical
 	\2 Fermi temperature, $T_F$ is defined by $E_F = kT_F$, such that it is the temperature beyond which the Fermi-Dirac distribution approaches the Boltzmann
-\1 The Quantum Theory of Conduction uses the Fermi distribution rather than Boltzmann, and accounts for the effects of the wave properties on electron scattering by the ions
+\1 The Quantum Theory of Conduction uses the Fermi distribution rather than Boltzmann for the electron gas of valence electrons, and accounts for the effects of the wave properties on electron scattering by the ions
 	\2 Since the electric field acceelerates all electrons, they all take part in conduction, with the Fermi speed, $u_F = \sqrt{\frac{2E_F}{m_e}}$ as the approximate maximum speed in 1D at 0 K, distributed like the energy distribution
 		\3 Thus, under an electric field, the distribution of electrons is shifted by the drift velocity with $\rho = \frac{m_eu_F}{ne^2\lambda}$, such that it is independent of temperature and uses Fermi speed rather than $<v>$
 	\2 It is made proportional to temperature and of the correct magnitude by adjusting the calculation of $\lambda$, to account for the wave properties of electrons, such that the scattering of an electron by a collision is not a particle collision
@@ -592,12 +611,29 @@
 			\4 Assuming point charge ions, the scattering cross section, $\sigma = \pi \bar{r^2}$, uses r as the average vibrational displacement
 			\4 By the equiparition theorem, $\frac{1}{2}K\bar{r^2} = kT$, assuming only vibrational energy is allowed, such that $\lambda = \frac{1}{n\pi\bar{r^2}}$, such that it is proportional to temperature
 		\3 By the Einstein model of the solid, accurate for non-low temperatures, it is assumed all atoms oscillate at the same frequency, such that $T_E = \frac{\hbar\omega}{k}$
-	\2 The resisitivity due to the thermal vibration can be added to that of the lattice impurities, the latter of which is independent of the temperature
+	\2 The resisitivity due to the thermal vibration can be added to that of the lattice impurities, the latter of which is independent of the temperature, but generally irrelenant at non-low temperatures
+		\3 This uses the density of the impurities, instead of the density of the atoms for the resistivity, usually $10^{-5}$ smaller
 	\2 It is found that the energy of the excited electrons by nonzero temperatures can be modeled such that for electrons, $U = \frac{3}{5}NE_F + \frac{\pi^2}{4} N \frac{kT}{E_F}kT$
 		\3 As a result, the molar heat capacity, $C_V = \frac{\pi^2}{2}R\frac{T}{T_F}$ for electrons, such that at most temperatures, the electron gas related heat capacity is far less than the expected $\frac{3}{2}R$
 \1 The electron Fermi gas and lattice do not explain the varying conductivity of different solids, solved by finding the effect of the lattice on energy levels, able to be done either by the periodic potential or by the joining of levels of individual atoms
 	\2 The Kronig-Penney model defines a periodic potential energy function by the positive ion lattice, such that energy travelling-waves, $\psi(x) = u_k(x)e^{ikx}$ exist for each possible potential
-		\3 By the periodicity, $u_k(x) = u_k(x + nL)$, with the wavenumber
+		\3 By the periodicity, $u_k(x) = u_k(x + nL)$, with the wavenumber $k = \frac{2\pi}{\lambda}$, called the Bloch function
+		\3 This is taken to the solution to the Schrodinger equation with periodic potential function U(x), such that $\psi(x) = Ae^{\alpha x} + Be^{-\alpha x}, \alpha = \frac{\sqrt{2m(U - E)}}{\hbar^2}$
+		\3 The requirement for continuity of the wavefunction and its first derivative creates energy bands in which the energy ($E = \frac{\hbar^2k^2}{2m}$) can exist, seperated by energy gaps
+			\4 The energy gaps are found to exist at $ka = \pm n\pi$ for infinite potential and atomic potential length of 0, where a is the lattice spacing, acting as the points of Bragg reflection, producing a standing wave
+			\4 Standing waves are able to have of the form, $\psi_1 = sin(\frac{\pi x}{a})$ or $\psi_2 = cos(\frac{\pi x}{a})$, the latter which is maximum at each a, the former between each
+			\4 As a result, the second wavefunction has higher energy, such that the difference in energy produces the energy gap
+			\4 The ranges of k values are called Brillouin zones, the first as $|k| < \frac{\pi}{a}$, the second as $\frac{\pi}{a} < |k| < \frac{2\pi}{a}$
+	\2 Conductors are solids with an unfilled valence band, or an overlapping conductor band (as the band directly above the valencec vand), such as metals
+		\3 Semimetals are those with only a small amount of overlap, limiting the number of states available
+		\3 These work to conduct by allowing the electric field to excite the electrons to a higher energy state
+	\2 Similarly, insulators are those with a filled valance band and an energy gap to the conduction band larger than 2 eV, at which thermal temperatures are unlikely to have an effect, such as ionic crystal solids which have a filled shell as a result, requiring exciting the individual ions
+		\3 The dielectric breakdown is the point where the electric field is strong enough to overcome the separation gap
+	\2 Intrinsic semiconductors are those with a smaller gap, such that the probability of thermal energy providing enough energy for a transition increases exponentially
+		\3 For covalent solids, half of the states per atom in each shell are spacially-symmetric, half antisymmetric
+		\3 Thus, as the radius decreases, the spacially-symmetric energy decreases, the antisymmetric increases, and the radius determines the gap beetween the states, such that it is able to be excited to antisymmetric states
+	\2 Further, as atoms move to a higher state, other atoms are able to move to the states they were previously in, causing a move of the empty states in the direction of the field
+	\2 The effective mass of a semiconductor, $\frac{1}{m^*} = \frac{1}{\hbar^2}\frac{d^2E}{dk^2}$, such that they are equal for a free-electron, less than otherwise
 \end{outline*}
 \section{Chapter 11 - Nuclear Physics}
 \begin{outline*}
@@ -609,12 +645,13 @@
 	\2 Since protons and neutrons are fermions, bound by the exclusion principle, such that there is a splitting of atomic spectral lines by hyperfine structure, each with different angular momentum quantum numbers, prohibiting electrons contained
 	\2 Rutherford postulated the neutral neutron particle, discovered by Chadwick, as the second nucleon along with protons
 \1 N is used to note the number of neutrons, Z for the number of protons/atomic number, A for the number of nucleons/atomic mass, with isotopes are atoms with the same Z, isotones with same N, and isobars with the same A
+	\2 Isotopes have similar checmical properties, except Hydrogen, while isobars have different chemical properties, but may have certain similar nuclear properties
 \1 The nuclear radius can be measured by either Rutherford scattering or mirror nuclides, which are those with the Z and N values switched, such that nuclear forces are equal, while electrostatic are not
 	\2 Since the electrostatic energy of a ball of charge, $U = \frac{3q^2}{20R\pi\epsilon_0}$, beta decay energy can also be measured (from Z to Z - 1) to find the radius
 		\3 It is also found by electron bombardment, measuring the scattering, found that the first minimum is described by $sin(\theta) = \frac{0.16 \lambda}{R}$, where $\lambda$ is the electron wavelength
 		\3 The cross section of a beam of neutrons through an atomic sample can be used, with $\sigma = 2\pi(R + \frac{\lambda}{2\pi})^2$, measuring the radius purely by the nuclear force instead of charge radius
-	\2 It is found that $R = R_0 A^{1/3}$ where $R_0 = 1.2 fm$, accounting for quantum mechanical correction of charge distribution with surface thickness of 2.4 fm
-		\3 Since the volume is proportional to A as a result and the mass is proportional to A, the densities of the nuclei are approximately the same, found to be $10^{17} kg/m^3$
+	\2 It is found that $R = R_0 A^{1/3}$ where $R_0 = 1.2 fm$ for Z > 10, accounting for quantum mechanical correction of charge distribution with surface thickness of 2.4 fm
+		\3 Since the volume is proportional to A as a result and the mass is proportional to A, the densities of the nuclei are approximately the same, found to be $0.138 nucleon/fm^3$
 \1 The nuclear shape is generally spherical, with a few ellipsoidal exceptions in the rare earth elements, causing small variations in energy levels
 	\2 The variation in energy levels coincide with a nonzero electric quadrupole by nonsymmetric distribution, such that $<Q> = Z\int \psi^* (3(z^2)_{av} - (x^2 + y^2 + z^2)_{av})\psi dV$, allowing determining of the shape
 \1 It is found that nuclei are most stable on the line of stability with N = Z, due to the exclusion principle allowing the lowest energy when they are equal, and thus the most likely
@@ -623,7 +660,7 @@
 		\3 This is due to the closed shell structure, similar to that of electron shells, hypothetically including 2, 8, and several around 126 (the island of stability)
 		\3 It is found that for the same numbers, adding that numbered neutron to a nucleus has a binding energy less than would be expected based on the mass energy difference as well
 		\3 The neutron shells cannot be calculated like electrons by shielded charge due to being noncentralized, and are more difficult due to lack of knowledge of the nuclear forces
-			\4 It is known that the strong force is saturated, short range, charge independent, and spin dependent, with each nucleon orbiting freely
+			\4 It is known that the strong force is saturated, short range, charge independent, and spin dependent, with each nucleon orbiting freely, with virtually no overlap in position
 			\4 By the exclusion principle, only collisions causing an exchange of states is allowed, causing no effect, such that energy is only allowed to be transferred for high energy nucleons, where they can be excited, causing a Fermi energy
 			\4 There is a strong spin-orbit interaction, called j-j coupling, such that if the angular momentum are parallel, the energy is higher, opposite that of electrons 
 	\2 The mass is found by a mass spectrometer, measuring the charge to mass ratio of a beam within a magnetic field
@@ -655,7 +692,7 @@
 			\4 The only positron emitter naturally found is $^{40}K$, able to decay by both other modes of beta decay
 		\3 Within both types of decay, electrons are produced by the deexcitation of the nuclear bound states, found to have a longer decay time than strong nuclear force, and not suceptible to EM or strong force, such that there must be an additional short-range nuclear weak force
 			\4 As a result, while double beta minus decay is possible theoretically, due to the relatively long ($10^{-21} s$) lifetime, it is unlikely
-		\3 Electron capture has a proton capture an electron to convert to a neutron, releasing a neutrino, such that $Q = c^2(M_i - M_f)$, allowing decay which decreases the nuclear charge without requiring energy to allow two electrons
+		\3 Electron capture/internal conversion has a proton capture an electron to convert to a neutron, releasing a neutrino, such that $Q = c^2(M_i - M_f)$, allowing decay which decreases the nuclear charge without requiring energy to allow two electrons
 			\4 This only occurs for electrons within the K (or rarely the L) shell
 			\4 As a result, this is used when the energy is not high enough to bring to a more stable state by beta plus decay
 	\2 Gamma decay is the release of a photon due to nucleon deexcitation, generally with a $10^{-11} s$ halflife, such that there is a large natural line width, though it is potentially far longer, called isomers/metastable states
@@ -663,7 +700,8 @@
 		\3 The photon energy is modeled by the change in states, though it requires a portion of the energy to be given to the nucleus for conservation of momentum
 			\4 Since the gamma ray energy is small compared to the mass energy, it is negligable, such that the approximation is valid, and $E_{recoil} = \frac{(hf)^2}{2Mc^2}$, where M is the nuclear mass
 		\3 It is also possible for an electron to be emitted instead, called internal conversion, emitting a K or L shell electron, allowing measurement of the nuclear energy states
-\1 Nuclear/hadronic strong force has been studied by scattering and spectroscopy experiments, found to have equal strength between any two nucleons, acts very short-range, and is saturated
+	\2 Neutron emission is also a possible mode of decay, changing the isotope, purely emitting a neutron with no other particles
+\1 Nuclear/hadronic strong force has been studied by scattering and spectroscopy experiments, found to have equal strength between any two nucleons, acts very short-range, depends on velcoities and spins of composites, and is saturated
 	\2 By approximating the width of the nuclei as an infinite square well, an estimate can be made for the strength of the nuclear force with the ground state as the potential of the strong force (approximately 50 MeV)
 	\2 Protons with nuclear sized wavelengths are diffracted, providing the potential curves, found to be equal, though the proton-proton curve is shifted upward by electrostatic force
 		\3 It is saturated due to the position within the nuclei not having an effect, due to only being acted on by its nearest neighbors
@@ -677,6 +715,7 @@
 			\4 The charge independence was accounted for by allowing the meson to have +e, -e, or 0 charge, such that the charged nucleon exchange would switch the particle's charges
 			\4 He also postulated that if a collision provided enough energy to allow a real particle to be emitted, it could be observed, found as pi mesons/pions, though other mesons exist
 		\3 It has since been found that mesons and nucleons are made up of smaller quarks, exchanging gluons instead
+			\4 Attempts to seperate quarks produce enough energy to overcome the attractive force, which increases with distance like a spring,  that eventually a quark-antiquark pair is produced to prevent isolation
 \1 Particle collisions with a nucleus can either be elastic, inelastic, and absorption combined with an emission of the same or different particle
 	\2 Elastic scattering generally refers to the reflection of the particle at the edge of the nucleus, called Rutherford scattering
 		\3 Direct interaction refers to the particle causing the removal of a nucleon by the energy
@@ -707,6 +746,7 @@
 			\4 Thus, as the size of the nuclei gets higher, it gets more unstable, and has a higher chance of fissioning, though with a lower likelihood than other decay due to the Coulumb barrier
 		\3 Nuclei generally fission into two smaller masses and 1-3 neutrons, each given very high speeds by electrostatic repulsion as the mode of energy release
 			\4 This neutron release was used to create a chain reaction and produce nuclear weapons and energy
+		\3 Fission also sometimes produces an alpha or gamma decay as well simultaneously, though this can be considered a seperate decay
 	\2 Fusion is the joining of light nuclei into a medium weight, often releasing a neutron in the process, releasing vastly more energy than fission
 		\3 The Coulomb repulsion causes the kinetic energy to need to be at least 1 MeV, and the probability of scattering is so much higher, it is inefficient
 		\3 Thermal kinetic energy of the particles as a result, must be used, such that approximately $<KE> = \frac{3}{2}kT = 10 keV$ is used, combined with quantum tunnelling through the barrier
@@ -719,10 +759,117 @@
 		\3 When the sun contracted due to gravity, the temperature raised enough to produce fusion in the proton-proton cycle, proposed by Bethe
 			\4 This is made up of 2H-1 to a positron, H-2, an electron-neutrino, and 0.42 MeV, followed by H-1 and H-2 to He-3, gamma rays, and 5.49 MeV
 			\4 The cycle is ended by 2He-3 to He-4, 2H-1, gamma rays, and 12.86 MeV
+			\4 Excess electrons and positrons are removed by annihilation into gamma radiation
 		\3 Due to the low probability of the first reaction in the cycle, called the bottleneck of the cycle, only allowed for the highest energy atoms, the energy is produced slowly over millions of years
 		\3 It has been found that the rate of solar neutrinos is half the expected value theoretically calculated, called the solar-neutrino problem
 			\4 The neutrinos can also be used to measure the quantity of each type of reaction by the energy spectrum, allowing study of the cycle
 		\3 The rate of reaction can also be found by the expected energy release, combined by the radiated power of the sun
+		\3 When the hydrogen is used up, it gains enough weight for the gas and Fermi pressure to be outweighed, causing it to collapse into a supernova explosion, releasing high weight atoms
+\1 Neutron activation analysis is performed for chemical analysis by exposing the sample to a high, slow neutron flux, fusing with a neutron and releasing a gamma ray, producing a radioactive isotope
+	\2 Since $R(t) = \lambda N(t) = R_0 (1 - e^{-\lambda t})$, where $R_0 = N_0\sigma I$, such that $R_0$ is the production rate of the radioactive isotope, $\sigma$ is the cross section, and I is the intensity
+		\3 Thus, $N_0$ is the number of original atoms, such that as time increases, the rate approaches $R_0$, or a constant rate of production .....
+\1 Nuclear magnetic resonance is used to measure the distance between the up and down spin states in an external magnetic field, $\Delta E = 2(\mu_z)_pB$
+	\2 These can be irradiated with photons of the same energy, called the RF (radio frequency) radiation and absorbed to change spins temporarily in resonance
+	\2 The magnetic field of the molecule is the sum of the external/planetary and internal/structural magnetic field
+	\2 This allows medical scans to test for the location in the body of materials, based on a localized magnetic field of varying strengths, and produces almost no heat or biological damage
+\1 Computer-assisted Tomography uses short-life gamma-emitting radioisotopes to image specific organs, providing depth by rotating an x-ray beam and detector ring around the patient
+	\2 This allows the reconstruction of transverse slices of the body, called a tomograph, and when combined with a CT, called single-photon emission computer tomography
+	\2 This was improved by removing the gamma ray aspects, replacing with positrons, due to these annihilating shortly into two photons in opposite directions in opposite directions, called a PET scan, using bismuth germanate (BGO)
+		\3 Positron emitters have a short-enough half life, such that it can only be done when near a cyclotron to produce it
+\1 Radioactive dating is performed
+\1 Accelerator mass spectrometry
+\1 Particle-induced xray emission
+\end{outline*} 
+\section{Chatper 12 - Particle Physics}
+\begin{outline*}
+\1 In 1932, Anderson discovered the positron, with the same spin and mass as an electon, but positive charge, such that the intrinsic magnetic moment is parallel to the spin, rather than antiparallel
+	\2 This was predicted by the relativistic wave equation, stating that since $E^2 = (pc)^2 + (mc^2)^2$, E could be positive or negative
+		\3 Dirac's wave equation required negative-energy states to  be filled, postulating that electrons filled the, only exerting net force by holes in the negative energy, acting as positive chages
+		\3 The positron was interpreted as the positive energy state, confirming this idea, but rendered unnecessary by QED
+	\2 Pauli found that the Schrodinger equation could be broken up into 4 coupled equations, predicting spin and explaining negative energy solutions as antiparticles
+	\2 QED interpreted the negative energy solutions as the positive energy solutions of the positron, with no need for them to be filled with virtual electrons
+		\3 It also required that all fermions, by the Dirac equation, have a similar antiparticle, able to be pair-produced if given enough energy in an interactions, denoted with a bar (though positrons are denoted $e^+$)
+			\4 Particles and anti-particles are also able to annihilate in an interaction, producing several photons to conserve momentum
+		\3 Bosons also must have an anti-particle, described by the Klein-Gordon relativistic wave equation, with the same mass, but opposite charge, baryon number, and strangeness
+	\2 The problem of matter-antimatter asymmetry remains a predominant issue in cosmology and particle physics
+	\2 Feynman diagrams are used to describe particle interactions, as spacetime diagrams of ct vs x, with a backwards time arrow showing antiparticles, forward showing particles
+		\3 All electromagnetic interactions are drawn as the combination of an electron and a positron colliding from the left, moving right as a photon, able to be rotated or combined to form complex interactions
+			\4 These interactions are able to be overlapping, as long as the arrows are in the same direction
+		\3 Particles that start and end within the diagram are virtual particles, such as force mediator particles or virtually created leptons/hadrons particles
+	\2 The standard model, which predicts the strong and electroweak force interactions, combined with indirect and direct observation by conservation laws and detectors, are used to determine particles
+		\3 Leptons are made up of three generations/families/flavors, each with a charged lepton and a lepton neutrino, electron, muon, and tau
+			\4 Each has an antiparticle as well, though it is possible that neutrinos are Majorana neutrinos, such that each is its own antiparticle
+			\4 Each lepton is given a weak isospin, $T_z$, $-\frac{1}{2}$ for the main particles, $\frac{1}{2}$ for neutrinos
+		\3 Quarks are also in three generations, each with two flavors and antiparticles, binding together to form the majority of particles, bound into hadrons by gluon force carriers of the strong force, not found isolated, each with half-spin
+			\4 Three-quark hadrons are called baryons, while quark-antiquark hadrons are called mesons (with B = 0), the latter of which is always unstable, decaying to other hadrons or leptons
+			\4 Each quark also has a color charge, either red, blue, or green, such that each type has three possible properties, with each antiparticle having an anticolor
+			\4 Up-type quarks are those with $\frac{2e}{3}$ charge (up, charm, top from generation 1-3) and $\frac{1}{2}$ weak isospin, while down-type quarks are those with $\frac{-e}{3}$ charge (down, strange, and bottom) and $\frac{-1}{2}$ weak isospin
+\1 The four basic forces, from strongest to weakest, are strong nuclear, electromagnetic, weak nuclear, and then gravitational, unifying the middle two first by Glashow, Salam, and Weinberg in 1979 into electroweak theory
+	\2 The strength of an interaction is the magnitude of the dimensionless coupling constant multiplying the space dependent portion of the potential energy
+		\3 Thus, for electric force, $U'(r) = \frac{U(r)}{\hbar c} = \frac{-e^2}{r\pi\epsilon_0 \hbar c}\frac{1}{r} = -\alpha\frac{1}{r} = \frac{-1}{37}\frac{1}{r}$, creating U' to make it dimensionless
+	\2 The Standard Model, which attempts to unify the strong and electroweak forces, assumes a boson mediator of each force interaction
+	\2 Hadrons interact by the strong interaction, with a range of 1 fm and characteristic interaction time of $10^{-23} s$, with a coupling constant of approximately 1, due to the color charge, mediated by gluons
+		\3 Each gluon has a color and anticolor charge, with 8 gluons rather than the 9 expected, such that the emission can change the color of the quark
+			\4 In addition, as a result, gluons are able to couple to other gluons, such that they produce colorless particles, which are the required form
+		\3 The interaction designates the time the particles must stay within range to have a probability of exchanging gluons and the strong interaction decay time
+		\3 All baryons have been found to eventually decay to a proton, but there are many which are stable to the strong force
+		\3 As a result of being composites, hadrons have exited states, decaying by strong interaction creating large energy width, found in resonances of hadron scattering, such that they are called resonance particles
+		\3 The cross-section of the strong interaction is approximated by the range of the interaction as the radius
+	\2 Electromagnetic force have a characteristic interaction time of $10^{-18} s$, mediated by a photon, with an infinite range, designated in a particle by an electric charge/magnetic moment, mediated by a photon with spin 1
+		\3 Particles can also participate in the electromagnetic force by emitting charged virtual particles, causing them to have a temporary charge
+	\2 Weak nuclear force acts short-range ($10^{-3} fm$) between all particles, with characteristic interaction time of $10^{-13} s$, acting on the weak/flavor charge, with coupling constant of $10^{-5}$
+		\3 The weak force is carried by the $W^{\pm}$ of mass $80 GeV/c^2$ for the charged weak force, and $Z^0$ of mass $91 GeV/c^2$ for the neutral weak force, each with spin 1, as the second and third heaviest particles respectively
+		\3 Charged weak force turns one quark flavor into another, but does not change the flavor of a lepton
+	\2 Gravitational force has infinite range, with a hypothetical graviton mediator with spin 2, produced by the mass property with coupling constant $10^{-38}$
+	\2 The range of the force cooresponds to the mass of the particles exchanged, such that the average distance of an exchange is $d = c\tau = \frac{\hbar}{mc}$ by the uncertainty principle
+		\3 Thus, the probability of an interaction is denoted $P = e^{-r/d}$, where r is the distance between the interacting particles
+		\3 The general form of the force law for nuclear forces is thus thought to be $V = \pm \frac{g^2e^{-\mu cr/\hbar}}{r}$, where g is the strength of the interaction
+\1 The totalitarian principle of particle physics states that anything that can happen does happen, such that reactions that don't happen are forbidden by conservation laws
+	\2 Each conservation law is due to a symmetry that controls the universe, such that momentum is from spacial translations, angular momentum from rotations, energy from temporal translations, and charge from gauge/scale transformations
+		\3 This is called Noether's theorem, not yet validated for quantum conservation laws that have been found
+	\2 Conservation of baryon number gives +1 to baryons, antibaryons have -1, and must be conserved, forcing the stability of the proton
+	\2 Conservation of lepton number is done similarly, but is valid separately for each family of leptons
+		\3 This was proven by the fact that neutrinos cannot have mass due to always being left-handed, anti-neutrinos righthanded, such that spin is antiparallel to momentum, unable to interact with the Higgs boson
+		\3 Thus, by conservation of energy and lepton number, muon and tau neutrinos are assumed to be stable, assumed that all neutrinos were unable to have interactions once produced
+		\3 It has since been found the neutrinos have mass and oscillate between flavors, such that there is not a conservation of lepton by family
+			\4 It also states that since they are not always found left-handed, since they can have their frame of reference changed due to moving at less than c by a relativistic transformation
+			\4 Lack of this conservation would make no distinction between neutrinos and antineutrinos, creating a further problem
+	\2 Internal quantum number conservation other than charge and baryon is not conserved in weak interaction, denoted by upness, downness, stangeness, charmness, bottomness, and topness (U, D, S, C, B', T)
+		\3 Up, charm, and top quarks have 1 respectively, the antiparticles -1, while down, strange, and bottom have -1 respectively, the antiparticles 1
+		\3 These were determined by the unusually long lifetime of heavy baryons, due to no lower mass particles with the same quarks
+		\3 In weak interactions, these internal quantum numbers are limited by the selection rule of $\pm 1, 0$
+	\2 Hadrons have clusters of charge multiplets with similar mass, such that the only different property is the electric charge, such that the mass difference is due to the splitting of mass states of the same particle by charge
+		\3 The isospin, I, is a 3D charge space vector, with the z-component denoted $I_3$, found to be quantized integrally, such that there are 2I + 1 $I_3$ states
+			\4 Thus, it is added together similarly to spin or angular momentum vectors
+		\3 It is defined such that $q = eQ = e(I_3 + \frac{B + S}{2})$, where Q is the charge quantum number
+		\3 Isospin is conserved by the strong interaction, such that $I_{op}$ and $H_{op}$ commute in the strong interaction
+	\2 Hypercharge is used to relate the quantum numbers to simplify conservation, such that $Y = 2(Q - I_3)$, equal to twice the average charge of a multiplet
+		\3 By the previous rules for strangeness and baryon number, it is conserved only in strong interactions, with selection rule $\Delta Y = \pm 1, 0$
+	\2 The parity quantum number, P, is defined for particles such that if the wavefunction changes sign after the parity operator, it is odd/-1, otherwise even/1, such that it is the only multiplicative property, rather than additive
+		\3 It is related to orbital angular momentum, such that $P = (-1)^l$, conserved in strong and electromagnetic interactions
+		\3 Thus, it is not conserved in a weak interaction, such that there are more particles produced of a particular parity, such that the right-handed and left-handed coordinate systems can be differentated against
+			\4 This is seen by the amount of parallel vs antiparallel spin-angular momenta combinations changing by the parity
+	\2 It is found that for any relativistic quantum theory in which speeds are maximum at the speed of light, time reversal, charge conjugation (particle to antiparticle), and parity do not change the wavefunction (TCP invariance)
+		\3 Thus, since parity is changed in a weak interaction, $CP = -1$ in a weak interaction
+		\3 This allows the matter-antimatter symmetry and three generations of quarks within the Standard Model
+	\2 This is coupled with the strongest force principle, stating that the rate/probability of the reaction is determined by the strongest force consistant with conserved quantities
+\1 **STANDARD MODEL**
+\1 Grand unification theories are those which attempt to join the grvitational force with the others, account for the issues with the standard model, and the equal charges of the electron and proton
+	\2 These require the coupling constants of all four interactions to approach the same value at higher energies than can be currently produced, approximately at the fine-structure constant, $\alpha$
+	\2 Supersymmetry assigns each elementary particle a superpartner, with all properties the same except the spin, such that the spin of the fermions are all 0, the spin of the bosons as $\frac{1}{2}$
+		\3 Fermions are given the same name with an ``s'' at the start, while bosons are given the same name with the ``ino'' suffix
+		\3 The masses would also be different, at least that of the W bosons
+		\3 String and superstring theories build off of supersymmetry, stating that particles are quantized 10+ dimensional strings, shorter than the uncertainty to allow quantized gravity
+			\4 Superstring theories result in gauge theories to explain the exchange bosons, but have no experimental basis, and do not yet explain the color charge, isospin, or possible meson sea
+	\2 GUTs state that leptons and quarks are states of a single leptoquark particle, occuring symmetrically in a mutiplet, allowing conversion of one into the other, stating that the proton lifetime is $10^32$ years, preventing measuring
+		\3 This is possibly used to explain matter-antimatter asymmetry, and would result in the lack of conservation of lepton and baryon number at high energies
+	\2 Neutrinos, originally believed to have mass, were proven to have mass experimentally, having been hypothesized to explain the low amount of solar neutrinos, called the solar neutrino problem
+		\3 The mass is thought to be far lower for electron neutrinos than muon and respectively than tau, with mass below 1 eV
+		\3 This could possibly help to explain the missing mass/energy problem in cosmology as well
+		\3 It is also thought that this results in neutrino oscillation, called the MSW effect, where the three flavors each have the superposition of three flavor states
+			\4 Thus, when scattered by solar matter, they change phase differently, and when moving, move at different rates, producing an oscillation of flavor
+	\2 Magnetic monopoles are also hypothesized, originally by Dirac, arguing it causes a quantized magnetic charge, $q_m = n\frac{\hbar c}{2e}$, where n is a positive integer
+		\3 These are predicted to only exist at extremely high masses, such that the energies are beyond what can be produced, with a very low flux due to not destroying the galactic magnetic field
 \end{outline*}
 \section{Notes}
 \begin{outline*}
@@ -816,6 +963,8 @@
 	\2 The specific orbital state of an atom is denoted $^{2S + 1}L_J$, with L written by S, P, D, F, etc notation
 	\2 Conservation of angular momentum, momentum, and energy are followed by selection rules, such that for energy changed, $\Delta n$ can be any value, $\Delta L = \pm 1, \Delta S = 0, \pm 1, \Delta m_l = 0, \pm 1, \Delta J = 0, \pm 1$
 
+\1 Electronic configuration notation is written as $nL^{num}$, where num is the number of electrons in the orbital, L is the letter form of the l quantum number
+
 \1 Neutrons and protons themselves as fermions act as particles within a spherical box, forming shells with quantized energy levels, similar to electrons
 
 \1 Constants include the Bohr radius, planck's constant, the electron mass, the proton/neutron mass, and the electron charge
@@ -829,14 +978,72 @@
 	\2 It is found that the spacial component of the wavefuntion is multiplied by $(-1)^l$, such that for even l, it is singlet, called para-hydrogen, otherwise triplet/ortho-hydrogen
 	\2 Since all states are equally likely for some energy, the odds of a triplet state are three times as great as the singlet state, though at low temperatures, this requires a catalyst to produce equilibrium distribution
 
+\1 1 amu = 1 u = $1.66 * 10^{-27} kg$, $m_p = 1.007276 u, m_n = 1.008665 u, m_e = 5.49 * 10^{-4} u, m_{\mu} = 0$
+	\2 The radius of a proton or a neutron is 1 fm, with the latter having a lifetime of 900 s when free, before decaying into a proton, electron, and electron antineutrino
+	\2 Conservation of lepton number has particles as 1, antiparticles as -1, with a seperate conservation for each family
+
+\1 Nuclei stability is determined by free neutrons decaying into a proton, but neutrons and protons tending to pair up and further pair into alpha particles to minimize energy levels, though as Z increases, N increases slightly faster
+	\2 Binding energy is measured by the mass deficit, such that the decrease in mass is the potential energy holding it together (negative potential)
+	\2 Iron-56 is the more stable element, due to the highest binding-energy per nucleon, such that all greater decay towards, and all below would, though Coulumb barrier can prevent
+
+\1 The lifetime of a nucleus is probabilistic, such that $\frac{\Delta N}{\Delta t} = -\lambda N$, where $\lambda$ is the decay constant
+	\2 As a result, $N = N_0e^{-\lambda t}$, from which the half-life can be derived
+
+\1 The force constant for a vibration is $k = \frac{d^2 V}{dx^2}|_{x = x_0}$, where $x_0$ is the minimum, or the point at which the first derivataive is 0
+	\2 This is due to the Fourier series, $V(x) = \sum \frac{1}{n!}(x - x_0)^n \frac{d^nV}{dx^n}|_{x = x_0}$ being able to remove the first derivative term, approximating k as the quadratic term
+
+\1 The semiempirical mass formula is written as $E = (Zm_p + Nm_n)c^2 - B$, where B is the binding energy, such that $B = a_{vol}A - a_AA^{2/3} - 0.72 MeV * \frac{Z(Z - 1)}{A^{1/3}} - a_S\frac{(N - Z)^2}{A} + \delta$
+	\2 $\delta$ is the alpha pairing term, such that it is equal to $\frac{33 MeV}{A^{3/4}}$ for even-even nuclei, 0 for even-odd, and the negative for odd-odd
+	\2 The first term is the neighbor binding energy term, with $a_{vol} = 14 MeV$, while the second is the surface tension lower binding energy, due to fewer neighbors, with $a_A = 13 MeV$
+	\2 The third term is the Coulomb repulsion of the protons, while the fourth is the binding energy due to equal numbers of protons and neutrons with $a_S = 19 MeV$
+
+\1 Uranium-238 has natural decay taking 4.5 billion years for the first step, with the path designated by $U-238 \to Th-234 \to Pa-234 \to ... \to Pb-206$
+	\2 Within reactors, it is sped up by collisions with a neutron, such that $U-238 \to U-239 \to Np-239 \to Pu-239$, which is able to be fissioned
+	\2 U-235 is also seperated/enriched from mixed Uranium to allow fission to take place, releasing an average of 2.5 additional neutrons
+		\3 This must produce an average of at least 1 reaction if there is a critical mass of uranium to allow a sustaining reaction
+	\2 U-235 releases approximately 200 MeV per atom within a chain reaction
+	\2 Fusion reactors would most likely use Deuterium magnetically-confined plasma, within the International Thermonuclear Experimental Reactor
+	\2 Fusion bombs funtion by fusing Li-6 + n to He-4 + H-3, after which H-3 + H-2 to He-4 + n, the neutrons and heat for compression supplied by a previous fission
+		\3 Styrofoam is used to absorb gamma radiation from the fission, but allow the neutrons to get through
+		\3 More neutrons are released than from a hydrogen bomb, causing radiation poisoning over a larger area
+
+\1 The density of states can be approximated as 2 if it is assumed that the energy levels are continuous rather than discrete, assumed for large energies, also true specifically at the energy levels
+	\2 $n(E)dE = \frac{V}{2\pi^2}(\frac{2m}{\hbar^2})^{3/2}\frac{\sqrt{E}dE}{e^{(E - E_F)/kT} + 1}$, integrated to give the total number of particles (under this assumption or not??)
+
+\1 It is found classically that for N connected oscillators, there are N modes of vibration, such that for N in each direction in 3D, there are 3N modes, each with two degrees of freedom
+	\2 It is also found that if there are N free particles in 3D, there are 3N degrees of freedom for them total
+
+\1 By the equipartition theorem, average translational kinetic energy within 3D is approximated as $\frac{3}{2}kT$, while average vibrational potential and vibrational kinetic are $\frac{kT}{2}$ each
+	\2 Tunnelling allows fusion to take place, even if there is not enough thermal energy in the Sun to produce it naturally, though there are also extremes with high enough energy
+
+\1 Electron gas energy can be approximated quantum dynamically as a constant with the scale of increase term as $N\frac{\pi^2k_BT^2}{4T_F}$
+
+\1 Phonons are the quantized versions of the modes of atoms in a lattice, due to not being able to vibrate independently, acting as bosons
+	\2 These are quantized, such that $E_K = (n + \frac{1}{2})\hbar\omega_K, \omega_K = \sqrt{\frac{4k}{m}}sin(\frac{\pi a}{\lambda})$, where a is the lattice spacing, k is the spring constant
+	\2 $<E_K> = \frac{\hbar\omega_K}{e^{\beta \hbar \omega_K} - 1}$, equal to $U = \sum_{\lambda, p} <E_K> = \sum_p \int <E> D_p(\omega)d\omega$, where p are the polarizations and branches of the dispersion and $D_p(\omega)$ is the number of modes with a specific polarization at that wavelength
+	\2 This is too difficult to calculate analytically, such that there are different models to simplify the calculation
+
+\1 Photons do not have electric charge, but W, Z bosons have weak charge, and quarks have color charge
+\1 Color charge was invented to allow anti-symmetric wavefunctions for the $\Delta^{++}$ particle, due to the spin being identical and parallel for each (j = 3/2, symmetric), flavor identical, and due to being a small particle, l must be 0, such that it is spacially symmetric
+	\2 Color was added to allow each to have a different particle, making it anti-symmetric, such that $\psi = \psi_{spin}\psi_{space}\psi_{flavor}\psi_{color}$
+		\3 Thus, $\psi_{color} = \frac{1}{\sqrt{6}}(RGB + BRG + GBR - RBG - GRB - BGR)$ for hadrons
+		\3 Similarly, mesons are symmetric, as a boson with integer spin, such that $\psi_{color} = \frac{1}{\sqrt{3}}(R\bar{R} + G\bar{G} + B\bar{B})$
+	\2 All unconfined, non-virtual objects must be color neutral, made up of red, blue, and green in equal numbers
+
+\1 Particle accelerators are used to produce high enough energies for production of heavy particles, such as Roentgen's xray tube
+	\2 Cyclotrons have an electric field along an axis, starting the particle in the center, keeping the period equal, accelerating it each time it crosses the axis by flipping the field, keeping it in a constant magnetic field
+		\3 Thus, it is limited by the radius of the cyclotron, with $qvB = \frac{mv^2}{R}$
+	\2 Cyclotrons are limited by relativistic effects creating non-constant periods, since $E = K + mc^2 = \gamma mc^2 = \sqrt{c^2p^2 + m^2c^4}$, where $\gamma = \frac{1}{\sqrt{1 - \frac{v^2}{c^2}}}$
+		\3 Synchotrons correct for this, changing the electric field to both account for the electric field, and keep it in a circle with the same radius, allowing higher energies
+		\3 This has the downside of energy loss due to the circular motion, not present in linear accelerators, but do not have the length issue
+
 1/24 - Exp Basis Not Done
 3/01 - Hydrogen Not Done
-3/16 - Many Not Done
-3/28 - StatMech Not Done
 3/29 - StatMech Not Done
 3/30 - Molecules Not Done
-4/04 - Molecules Not Done
-4/04 - Conductivity Not Done
+4/05 - Conductivity Not Done (Start with p8)
+4/06 - Conductivity Not Done
+4/20 - Particle Not Done
 
 \end{outline*}
 \end{document}

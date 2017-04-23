@@ -441,6 +441,52 @@ Needed - Partial Derivatives
 		\3 This can be modified using the orthogonality of $b_n$ with respect to the eigenfunction, $b_n(t) = \frac{2}{L} \int^L_0 u sin(\frac{n\pi x}{L})dx$
 	\2 This produces the first-order equation, solved by the integrating factor $e^{k\lambda_n t}$, $\frac{db_n}{dt} + k\lambda_n b_n = q_n(t) + \frac{k(\frac{n\pi}{L})(A(t) - (-1)^nB(t))}{\int^L_0 \phi_n^2(x)dx}$
 	\2 It is found that this method produces a series that does not converge as quickly as the series produced by the homogeneous method
+\1 Poisson's equation, $\nabla^2 u = Q$, with a specified temperature function on the boundary, $\alpha(x, y)$, is solved by breaking up into the sum of a function where Q = 0 and a function where $\alpha = 0$
+	\2 The former can be solved as the Laplace equation with nonhomogeneous boundary conditions, while the latter is solved either by eigenfunctions of $\nabla^2 \phi + \lambda \phi = 0$ or $\nabla^2 u = 0$
+	\2 By the one dimension eigenfunctions, $u = \sum_{n = 1}^{\infty} b_n(y) \phi_n(x)$, the series for Q is found as $\sum_{n = 1}^{\infty} (\frac{d^2b_n}{dy^2} - (\frac{n\pi}{L})^2b_n)sin(\frac{n\pi x}{L}) = Q$ by term-by-term differentiation or Green's Theorem
+		\3 The $q_n$ coefficients are found as well by the orthogonality of the eigenfunctions
+		\3 As a result, $b_n$ solves a 1D nonhomogeneous BVP with homogeneous boundary conditions, found that $b_n(y) = sinh(\frac{n\pi(H - y)}{L})\int_0^y q_n(\tau}sinh(\frac{n\pi\tau}{L})d\tau + sinh(\frac{n\pi y}{L})\int_0^y q_n(\tau}sinh(\frac{n\pi(H - \tau)}{L})d\tau$
+	\2 By 2D eigenfunctions, $u = \sum_{m = 1}\sum_{n = 1} b_{mn}sin(\frac{m\pi x}{L})sin(\frac{n\pi y}{H})$, expanded and substituted into the equation to find $Q = \sum\sum -b_{mn}\lambda_{mn}\phi_m(x) \phi_n(y)$
+		\3 The eigenfunctions are those found by $\nabla^2 \phi = -\lambda \phi$, such that $\phi_{mn} = sin(\frac{m\pi x}{L})sin(\frac{n\pi y}{H})$, while $\lambda_{mn} = (\frac{m\pi}{L})^2 + (\frac{n\pi}{H})^2$
+		\3 As a result, $-b_{mn}\lambda_{mn}$ can be found by the orthogonality of Q with the 2D eigenfunctions with weight 1
+	\2 Poisson's equation with nonhomogeneous boundary condition $\alpha(x, y)$ can also be solved directly using the sum of 2D eigenfunctions with constant coefficients
+		\3 Since the eigenfunction and u boundary conditions are not the same in this case, it cannot be term-by-term differentiated
+		\3 $b_i = \frac{\int\int u\phi_i dxdy}{\int\int \phi_i^2 dxdy} = \frac{-1}{\lambda_i}\frac{\int\int u\nabla^2\phi_i dxdy}{\int\int \phi_i^2 dxdy}$
+			\4 This can be simplified by Green's Theorem and the problem specifications, such that $b_i = \frac{-1}{\lambda_i}\frac{\int\int \phi_iQdxdy + \oint \alpha \nabla\phi_i \cdot \vec{n}ds}{\int\int \phi_i^2 dxdy}$
+\end{outline*}
+\section{Chapter 10 - Infinite Domain Problems}
+\begin{outline*}
+\1 For the homogeneous heat equation over an infinite domain, with initial condition f(x), with homogeneous boundary conditions such that $u \to 0$ as $x \to \pm \infty$
+	\2 The solution is taken to be of the form $u = e^{-i\omega x}e^{-k\omega^2 t}$
+	\2 The eigenvalue problem for x is found to have no solutions with the boundary conditions, such that the spacial portion has a different condition, just specified to be bounded at $\pm \infty$
+		\3 Thus, the spacial eigenvalue problem is bounded for $\lambda \geq 0$, as a continuous integrated spectrum, rather than the discrete series
+		\3 As a result, $u(x, t) = \int^{\infty}_0 (A(\omega)cos(\omega x)e^{-k\omega^2 t} + B(\omega)sin(\omega x)e^{-k\omega^2 t})d\omega$
+	\2 By Euler's Formula, this is found to be analogous to $u(x, t) = \int^{\infty}_{-\infty} c(\omega)e^{-i\omega x}e^{-k\omega^2 t}d\omega$
+\1 By the Fourier series stating $\frac{f(x+) + f(x-)}{2} = \sum_{n = -\infty}^{\infty} c_ne^{-in\pi x/L}$, $c_n = \frac{1}{2L}\int^L_{-L}f(x)e^{in\pi x/L}dx$, where $\omega = \frac{n\pi}{L}$ for all n from $-\infty$ to $\infty$
+	\2 Thus, as $L \to \infty$, the wavenumbers become continuous, such that it is equal to respective integrals over the entire domain
+		\3 This is found to be equal to $\frac{f(x+) + f(x-)}{2} = \frac{1}{2\pi}\int^{\infty}_{-\infty} \int^{\infty}_{-\infty} f(\bar{x})e^{i\omega \bar{x}}d\bar{x}e^{-i \omega x}d\omega$, called the Fourier integral representation of f(x)
+		\3 This is noted to be the integral of the Fourier wave for each wavenumber, called the Fourier transform of f(x)
+	\2 This can be used in the reverse as well to determine the function from the Fourier transform, called the inverse Fourier transform of $F(\omega)$, such that the two are called the Fourier transform pair
+		\3 $F(\omega)$ is denoted F(f(x)) at times, such that the inverse Fourier transform is denoted $F^{-1}(F(\omega))$, where $\omega$ is the transform variable
+		\3 Thus, the inverse transform integral is written $F(\omega) = \frac{1}{2\pi}\int^{\infty}_{-\infty} f(x)e^{i\omega x}dx$
+	\2 The Gaussian curve is denoted $G(\omega) = e^{-\beta \omega^2}$, such that the inverse Fourier transform is found to be $g(x) = \sqrt{\frac{\pi}{\beta}}e^{-x^2/4\beta}$, such that it is also a Gaussian
+		\3 Similarly, $g(x) = e^{-\alpha x^2}$, then $G(\omega) = \frac{1}{\sqrt{4\pi \alpha}}e^{-\omega^2/2\alpha}$
+		\3 It is found that for higher coefficient, the Gaussian bell curve is steeper around the origin
+\1 The solution to the heat equation is able to be simplified by writing it as $u(x, t) = \int^{\infty}_{-\infty}\frac{1}{2\pi}(\int^{\infty}_{-\infty}f(\bar{x})e^{i\omega \bar{x}}d\bar{x})e^{-i\omega x}e^{-k\omega^2 t}d\omega$
+	\2 This is then rewritten such that $d\omega$ is the inner integral, able to be simplified in terms of the inverse Fourier transform, $g(x) = \int^{\infty}_{-\infty} e^{-k\omega^2 t}e^{-i\omega x}d\omega$
+		\3 Thus, $u(x, t) = \frac{1}{2\pi}\int^{\infty}_{-\infty}f(\bar{x})g(x - \bar{x})d\bar{x}$
+			\4 This integral can be solved by a similarity variable, used in a change of variables, to produce $\frac{2}{\sqrt{\pi}} \int^z_0 e^{-x^2}dx = erf(z)$ or $\frac{2}{\sqrt{\pi}}\int^{\infty}_z e^{-x^2}dx = 1 - erf(z) = erfc(z)$
+			\4 These are called the error and complementary error functions respectively
+		\3 It is found that $g(x - \bar{x}) = G(x, t;\bar{x}, 0) = \frac{1}{\sqrt{4\pi kt}}e^{-(x - \bar{x})^2/4kt}$, called the influence function, determining how much the initial temperature at $\bar{x}$ impacts the temperature at (x, t)
+			\4 Thus, as the time approaches 0, it becomes more concentrated, approaching the Dirac function at $x - \bar{x}$
+			\4 The Dirac function, $\delta(x)$, has an integral of 1 over the entire domain, with a value of 0 at all points except x = 0
+			\4 As a result, for the initial condition of the Dirac function, $u(x, t) = \frac{1}{\sqrt{4\pi kt}}e^{-x^2/4kt}$, found to be nonzero for all x at any positive t, such that it propogates at infinite speed
+		\3 It is found that while it was derived assuming the singularity condition, the solution is still valid without the condition
+\1 **FINISH 10.4**
+\1 The 1D wave equation over an infinite interval, with initial condition f(x), initial first derivative of 0, is Fourier transformed spacially to provide $\pd{^2U}{t^2} = -c^2\omega^2U$, with initial condition $U = \frac{1}{2\pi}\int^{\infty}_{-\infty}f(x)e^{i\omega x}dx$, the first derivative as 0
+	\2 This is solved to find that $U(\omega, t) = \frac{1}{2\pi}\int^{\infty}_{-\infty}f(x)e^{i\omega x}dx cos(c\omega t)$, reverse transformed to provide u(x, t)
+		\3 By Euler's formula, this can be simplified to $u(x, t) = \frac{1}{2}\int^{\infty}_{-\infty}U(\omega, 0)(e^{-i\omega(x - ct)} + e^{-i\omega(x + ct)})d\omega = \frac{1}{2}(f(x - ct) + f(x + ct))$
+		\3 Thus, the solution is equal to travelling waves half the size of the initial state, moving in each direction
 \end{outline*}
 \end{document}
 

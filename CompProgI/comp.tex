@@ -292,6 +292,8 @@
 		\3 It is noted that the inner arrays can be declared independently (or statically), such that they may not be the same length
 \1 The Java Abstract Stack Machine is different from OCaml in that almost all variables are mutable, the heap only contains arrays and objects, rather than other data types, it has the null reference, and methods and constructors are stored outside the three components, called a class table
 	\2 The length of an array is never mutable, while other fields may or may not be (marked with a thick black box), with the array elements just stored in order
+\1 Java methods are said to encapsulate an object state if there is no possible way to violate the invarients of an object, due to keeping fields private
+	\2 It is noted that unlike OCaml, an interface does not contain the constructor signature for an object of the class, due to only existing in the implementation
 \end{outline*}
 \section{Subtyping, Extension, and Inheritance}
 \begin{outline*}
@@ -397,6 +399,24 @@
 	\2 There are also cooresponding FileReader/FileWriter and BufferedReader/BufferedWriter wrappers for these classes as well
 	\2 Since Strings are immutable, each character would have to be appended to the String, unless the length was previously known, such that it would be slow
 		\3 The StringWriter class produces a resizable array, doubling the array when filled, able to be written quicker, and then converted by toString()
+\end{outline*}
+\section{Swing/Java Graphics Library}
+\begin{outline*}
+\1 Swing is an event-based, object-oriented, Java graphics library, functioning similarly to the OCaml Graphics Library, fundamentally made up of JComponent widgets
+	\2 The main JComponent methods are the ``void paintComponent(Graphics g)'', where Graphics is the graphic context class for the program, and ``Dimension getPreferredSize()'' methods
+		\3 Unlike OCaml, Java Swing only repaints the window when necessary and commanded to do so, instead of calling it in each step/tick
+	\2 The coordinate system is relative to the upper left corner of the JComponent being used
+	\2 Swing applications are begun by the command ``SwingUtilities.invokeLater(new DrawingApplication());''
+\1 JComponents are stored within other JComponents, with the highest level stored within a JFrame, which produces the window itself through the operating system, with the argument as the title of the window
+	\2 The JFrame is run by an object that implements the Runnable interface, required to have a ``public void run()'' method
+	\2 This contains a JFrame, initialized with a string to give the window a title, able to add components to the frame by the add() method
+		\3 The command ``$<frameName>$.setDefaultCloseOperation(JFrame.EXIT\_ON\_CLOSE);'' is used to make the application close when the frame does
+		\3 ``$<frameName>.pack()$'' is used to resize the frame based on the components automatically
+		\3 The ``$<frameName>.setVisible(true);$'' command makes the frame appear on the screen properly, by the OS
+	\2 JPanels are used to store multiple components together, defaulting horizontally, adding the components from left to right
+\1 The ActionListener interface is used with the method ``public void actionPerformed(ActionEvent e)'', able to be added by the ``addActionListener(ActionListener e)'' method of various components
+\1 The Timer class is used to measure the time between updates, creating an action after every given amount of time after started by ``$<timerName>.start()$''
+	\2 It is constructed by ``new Timer($<msBtwUpdate>, <EventListener>$);''
 \end{outline*}
 \section{Homework Notes}
 \begin{outline*}
