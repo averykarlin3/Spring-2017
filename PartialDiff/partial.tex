@@ -482,11 +482,16 @@ Needed - Partial Derivatives
 			\4 The Dirac function, $\delta(x)$, has an integral of 1 over the entire domain, with a value of 0 at all points except x = 0
 			\4 As a result, for the initial condition of the Dirac function, $u(x, t) = \frac{1}{\sqrt{4\pi kt}}e^{-x^2/4kt}$, found to be nonzero for all x at any positive t, such that it propogates at infinite speed
 		\3 It is found that while it was derived assuming the singularity condition, the solution is still valid without the condition
-\1 **FINISH 10.4**
+	\2 Self-similar solutions are those that are valid under spacial scaling $x = Lx'$ and temporal scaling $t = L^2t'$, such that $u(x, t) = f(x/t^{1/2}) = f(\epsilon)$, where $\epsilon$ is the similarity variable
+		\3  
 \1 The 1D wave equation over an infinite interval, with initial condition f(x), initial first derivative of 0, is Fourier transformed spacially to provide $\pd{^2U}{t^2} = -c^2\omega^2U$, with initial condition $U = \frac{1}{2\pi}\int^{\infty}_{-\infty}f(x)e^{i\omega x}dx$, the first derivative as 0
 	\2 This is solved to find that $U(\omega, t) = \frac{1}{2\pi}\int^{\infty}_{-\infty}f(x)e^{i\omega x}dx cos(c\omega t)$, reverse transformed to provide u(x, t)
 		\3 By Euler's formula, this can be simplified to $u(x, t) = \frac{1}{2}\int^{\infty}_{-\infty}U(\omega, 0)(e^{-i\omega(x - ct)} + e^{-i\omega(x + ct)})d\omega = \frac{1}{2}(f(x - ct) + f(x + ct))$
 		\3 Thus, the solution is equal to travelling waves half the size of the initial state, moving in each direction
+\1 For the Laplacian equation in a half-plane, such that it approaches 0 as it goes to infinity in each direction and $u(x, 0) = f(x)$, the Fourier transform can be taken for x, to give an ordinary differential with respect to y
+	\2 Since the Fourier transform approaches 0 as well as $y \to \infty$, and the other boundary condition is given by f(x), the homogeneous equation $\pd{^2U}{y^2} - \omega^2U = 0$ can be solved
+	\2 By the singularity condition on y, $U(\omega, y) = c(\omega)e^{-|\omega|y}$, where $c(\omega)$ is the Fourier transform of the y = 0 boundary condition
+		\3 This is broken up by the convolution theorem, such that $u(x, y) = \int^{\infty}_{-\infty} f(\bar{x})g(x - \bar{x}, y)d\bar$, where $g(x, y) = \int^{\infty}_{-\infty}e^{-|\omega|y}e^{-i\omega x}d\omega = \frac{2y}{x^2 + y^2}$
 \end{outline*}
 \end{document}
 
