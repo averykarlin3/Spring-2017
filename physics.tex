@@ -1,0 +1,121 @@
+\documentclass[11 pt, twoside]{article}
+\usepackage{textcomp}
+\usepackage[margin=1in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{color}
+\usepackage{indentfirst} %Comment out for no first paragraph indent
+\usepackage[parfill]{parskip}
+\usepackage{setspace}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{outlines}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\cfoot{\hyperlink{content}{\thepage}}
+\lhead{}
+\chead{}
+\rfoot{}
+\lfoot{}
+\rhead{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+
+\usepackage{hyperref}
+\hypersetup {
+	colorlinks,
+	citecolor=black,
+	filecolor=black,
+	linkcolor=black,
+	urlcolor=black
+}
+
+\newcommand{\sepitem}{0pt} %Added room between items on the list, not including a list and its sublist
+\newcommand{\seppar}{1pt} %Between items and lists overall
+
+\setenumerate[1]{itemsep=\sepitem, parsep=\seppar}
+\setenumerate[2]{itemsep=\sepitem, parsep=\seppar}
+\setenumerate[3]{itemsep=\sepitem, parsep=\seppar}
+\setenumerate[4]{itemsep=\sepitem, parsep=\seppar}
+
+\newenvironment{outline*}
+{
+	\begin{outline}[enumerate]
+	}
+	{\end{outline}
+}
+
+\newcommand{\foot}[1]{\hyperlink{#1}{$_#1$}}
+
+\begin{document}
+
+\title{Electromagnetics I}
+\author{Avery Karlin}
+\date{Fall 2017}
+\newcommand{\textbook}{Introduction to Electrodynamics by Griffiths}
+\newcommand{\teacher}{Dr. Gene Mele}
+
+\maketitle
+\newpage
+\hypertarget{content}{\tableofcontents}
+\vspace{11pt}
+\noindent
+\underline{Primary Textbook}: \textbook\\
+\underline{Teacher}: \teacher
+\newpage
+
+\section{Course Introduction}
+\begin{outline*}
+\1 Matter in charged state responds to extra forces, based on the charge of both, size and shape of both, proximity to other charge, and size, shape, and proximity of uncharged shapes as well
+	\2 $\vec{F}_{1\to2} = \frac{q_1q_2}{4\pi\epsilon_0}(\frac{1}{d^2})(\frac{\vec{d}}{d})$, where $\frac{\vec{d}}{d} = \hat{e_d}$
+	\2 In reality, there is a retarded time component, $t' = t - \frac{\vec{r}_2(t) - \vec{r}_1(t')}{c}$ and a velocity $\vec{u} = c\hat{e}_{r_2(t) - r_1(t')} - v_1(t') = c\hat{e}_{r'}(t') - \vec{v}_1(t')$, where r' is the difference between the r vectors
+		\3 See Formula From Notes Page for Modified Coulumb's Law
+		\3 By extension, if the velocity and acceleration of the source and the velocity of the target are 0, this simplifies to the conventional form of Coulumb's Law
+		\3 If the source velocity only is non-zero, it becomes proportional to the relativistic $\gamma$, rewritten by $c(t - t') = |\vec{r}_2(t) - \vec{r}_1(t')|$, such that $F = \frac{kq_1q_2\hat{e}_{d}}{d^2}(\frac{1 - \frac{v_1^2}{c^2}}{(\hat{e}_{r_1} \cdot \hat{e}_{r_2})^{3/2}}$
+		\3 Otherwise, this can be rewritten as $F_{1\to2} = q_2\vec{E} + q_2\vec{v}_2 \times \vec{B}$, providing the field formulation of the law
+\end{outline*}
+\section{Chapter 1 - Vector Analysis}
+\begin{outline*}
+\1 Vector addition is commutative and associative, while multiplication by a scalar is distributive over vector addition
+\1 The dot product is defined by $\vec{A} \cdot \vec{B} = ABcos(\theta)$, where $\theta$ is the tail-to-tail angle between the vectors, returning a scalar, and is both commutative and distributive over vector addition
+\1 The cross product is defined by $\vec{A} \times \vec{B} = ABsin(\theta)\hat{n}$, where the direction is defined by the right hand rule, curling from the first to the second
+	\2 As a result, it is distributive over vector addition, but not commutative or associative, but rather the inverse when commuted
+	\2 Geometrically, it evaluates to the area of the parallelogram made up of two vectors joined at the tails
+		\3 Thus, a triple cross product is the volume of the parallelepiped, able to be rewritten by the formula $A \times (B \times C) = B(A \cdot C) - C(A \cdot B)$
+\1 Vector components are used in terms of normalized basis vectors, generally using mutually perpendicular unit vectors, such that the dot product with themselves is 1, with another is 0
+	\2 The cross product in components is able to be written as the determinant of a matrix with the unit vectors as the first row, the components of the first vector as the second, and so forth
+	\2 It is notable that $A \cdot (B \times C) = (A \times B) \cdot C$, equal to the determinant matrix with each row as the components of A, B, and C respectively
+\1 For some position vector, the unit vector is equal to $\frac{\vec{r}}{|\vec{r}|}$, while the infinitesimal displacement vector is $d\vec{l} = dx\hat{x} + dy\hat{y} + dz\hat{z}$
+	\2 The source point is denoted by the $\vec{r}'$ vector, while the field point is denoted by $\vec{r}$, while the separation vector is $\vec{\scriptr} = \vec{r} - \vec{r}'$
+\1 **1.1.5 Skipped - Possibly Not Needed
+\1 The gradient, $\nabla T$ is the vector generalizzed derivative, pointing in the direction of the maximum increase of T, with the magnitude as the slope in that direction
+	\2 The directional derivative ($\frac{dT}{d\vec{l}}$) is thus a unit vector in the direction intended, with the dot product against the gradient ($\nabla T \cdot \hat{e}_{\vec{l}}$)
+	\2 As a result, when the gradient is 0, it is either a maximum, minimum, or saddle point, generally called a stationary point
+	\2 The del operator acts as a vector operator, $\vec{\nabla} = \hat{x}\frac{\partial}{\partial x} + ...$, such that when acting on a scalar function, it is the gradient
+		\3 The divergence is equal to $\vec{\nabla} \cdot \vec{v}$, acting as a measure of how much the vector function spreads out from the point (positive is an outward source, negative inward sink)
+		\3 The curl is equal to the cross product with a vector function, acting as a measure of the vector function swirling around the point, the direction given by the right hand rule
+	\2 The gradient of a function sum or a constant multiplied by a function is equal to the sum of the gradients of the functions or the constant multiplied by the gradient
+		\3 The constant can also be moved outside the product for the dot and cross products
+	\2 Due to the higher number of types of products and quotients, there are more rules for del operators on functions
+		\3 Thus, $\nabla(fg) = f\nabla g + g\nabla f$
+			\4 $\nabla(\vec{A} \cdot \vec{B}) = \vec{A} \times (\nabla \times \vec{B}) + \vec{B} \times (\nabla \times \vec{A}) + (\vec{A} \cdot \nabla)\vec{B} + (B \cdot \nabla)\vec{A}$
+			\4 $\nabla \cdot (f\vec{A}) = f(\nabla \cdot \vec{A}) + \vec{A} \cdot (\nabla f)$
+			\4 $\nabla \times (f\vec{A}) = f(\nabla \times \vec{A}) - \vec{A} \times (\nabla f)$
+			\4 $\nabla \cdot (\vec{A} \times \vec{B}) = \vec{B} \cdot (\nabla \times \vec{A}) - \vec{A} \cdot (\nabla \times \vec{B})$
+			\4 $\nabla \times (\vec{A} \times \vec{B}) = (\vec{B} \cdot \nabla)\vec{A} - (\vec{A} \cdot \nabla)\vec{B} + \vec{A}(\nabla \cdot \vec{B}) - \vec{B}(\nabla \cdot \vec{A})$
+		\3 Further, $\nabla (\frac{f}{g}) = \frac{g\nabla f - f\nabla g}{g^2}$
+			\4 \nabla \cdot (\frac{\vec{A}}{g}) = \frac{g(\nabla \cdot \vec{A}) - \vec{A} \cdot (\nabla g)}{g^2}$
+			\4 \nabla \times (\frac{\vec{A}}{g}) = \frac{g(\nabla \times \vec{A}) + \vec{A} \times (\nabla g)}{g^2}$
+	\2 The different forms are able to be combined for the divergence or curl of gradient, the gradient of divergence, or the divergence or curl of curl
+		\3 The divergence of gradient, or the Laplacian, is equal to the sum of the second partial derivatives, written $\nabla^2 T$
+		\3 The curl of gradient and the divergence of curl are 0, the former based on $T_{xy} = T_{yx}$, able to be thought of intuitively, though not rigorously, as the operator crossed with itself
+			\4 The latter can be non-rigorously proved by the identity $A \cdot (B \times C) = (A \times B) \cdot C$
+		\3 The gradient of divergence is different from the Laplacian, without much physical significance
+		\3 The curl of curl is found to simplify to a formula of the others, such that $\nabla \tiems (\nabla \times \vec{v}) = \nabla(\nabla \cdot \vec{v}) - \nabla^2 \vec{v}$
+\1 
+\end{outline*}
+\end{document}
