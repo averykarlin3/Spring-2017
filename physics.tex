@@ -12,6 +12,7 @@
 \usepackage{amssymb}
 \usepackage{enumitem}
 \usepackage{outlines}
+\usepackage{physymb}
 
 \usepackage{fancyhdr}
 \pagestyle{fancy}
@@ -90,7 +91,7 @@
 	\2 The cross product in components is able to be written as the determinant of a matrix with the unit vectors as the first row, the components of the first vector as the second, and so forth
 	\2 It is notable that $A \cdot (B \times C) = (A \times B) \cdot C$, equal to the determinant matrix with each row as the components of A, B, and C respectively
 \1 For some position vector, the unit vector is equal to $\frac{\vec{r}}{|\vec{r}|}$, while the infinitesimal displacement vector is $d\vec{l} = dx\hat{x} + dy\hat{y} + dz\hat{z}$
-	\2 The source point is denoted by the $\vec{r}'$ vector, while the field point is denoted by $\vec{r}$, while the separation vector is $\vec{\scriptr} = \vec{r} - \vec{r}'$
+	\2 The source point is denoted by the $\vec{r}'$ vector, while the field point is denoted by $\vec{r}$, while the separation vector is $\vec{\pmb{\scriptr}} = \vec{r} - \vec{r}'$
 \1 **1.1.5 Skipped - Possibly Not Needed
 \1 The gradient, $\nabla T$ is the vector generalizzed derivative, pointing in the direction of the maximum increase of T, with the magnitude as the slope in that direction
 	\2 The directional derivative ($\frac{dT}{d\vec{l}}$) is thus a unit vector in the direction intended, with the dot product against the gradient ($\nabla T \cdot \hat{e}_{\vec{l}}$)
@@ -108,14 +109,37 @@
 			\4 $\nabla \cdot (\vec{A} \times \vec{B}) = \vec{B} \cdot (\nabla \times \vec{A}) - \vec{A} \cdot (\nabla \times \vec{B})$
 			\4 $\nabla \times (\vec{A} \times \vec{B}) = (\vec{B} \cdot \nabla)\vec{A} - (\vec{A} \cdot \nabla)\vec{B} + \vec{A}(\nabla \cdot \vec{B}) - \vec{B}(\nabla \cdot \vec{A})$
 		\3 Further, $\nabla (\frac{f}{g}) = \frac{g\nabla f - f\nabla g}{g^2}$
-			\4 \nabla \cdot (\frac{\vec{A}}{g}) = \frac{g(\nabla \cdot \vec{A}) - \vec{A} \cdot (\nabla g)}{g^2}$
-			\4 \nabla \times (\frac{\vec{A}}{g}) = \frac{g(\nabla \times \vec{A}) + \vec{A} \times (\nabla g)}{g^2}$
+			\4 $\nabla \cdot (\frac{\vec{A}}{g}) = \frac{g(\nabla \cdot \vec{A}) - \vec{A} \cdot (\nabla g)}{g^2}$
+			\4 $\nabla \times (\frac{\vec{A}}{g}) = \frac{g(\nabla \times \vec{A}) + \vec{A} \times (\nabla g)}{g^2}$
 	\2 The different forms are able to be combined for the divergence or curl of gradient, the gradient of divergence, or the divergence or curl of curl
 		\3 The divergence of gradient, or the Laplacian, is equal to the sum of the second partial derivatives, written $\nabla^2 T$
 		\3 The curl of gradient and the divergence of curl are 0, the former based on $T_{xy} = T_{yx}$, able to be thought of intuitively, though not rigorously, as the operator crossed with itself
 			\4 The latter can be non-rigorously proved by the identity $A \cdot (B \times C) = (A \times B) \cdot C$
-		\3 The gradient of divergence is different from the Laplacian, without much physical significance
-		\3 The curl of curl is found to simplify to a formula of the others, such that $\nabla \tiems (\nabla \times \vec{v}) = \nabla(\nabla \cdot \vec{v}) - \nabla^2 \vec{v}$
-\1 
+		\34 The gradient of divergence is different from the Laplacian, without much physical significance
+		\3 The curl of curl is found to simplify to a formula of the others, such that $\nabla \times (\nabla \times \vec{v}) = \nabla(\nabla \cdot \vec{v}) - \nabla^2 \vec{v}$
+\1 For some scalar function, the Fundmental Theorem for gradients states that $\int^{\vec{b}}_{\vec{a}} (\nabla T) \cdot d\vec{l} = T(\vec{b} - T(\vec{a})$, such that the line integral of a gradient is path independent and a closed loop integrates to 0
+	\2 Similarly, the Divergence/Green's/Gauss's Theorem states that $\int(\nabla \cdot \vec{v}) dV = \oint_{S} \vec{v} \cdot d\vec{A}$
+	\2 The Stoke's Theorem states that $\int_S (\nabla \times \vec{v}) \cdot d\vec{A} = \oint_P \vec{v} \cdot d\vec{l}$
+		\3 The righthand rule determines the direction of the vectors, using the outward normal for a closed surface
+		\3 The theorem doesn't depend on the surface within the boundary line, due to infinite surfaces within a boundary
+		\3 For some closed surface, since the boundary line chosen is able to be infinitessimal, the integral of the curl is 0
+\1 Spherical coordinates have r, $\theta$ (angle down from the z-axis), and $\phi$ (angle around the x-axis), the former called the polar angle, the latter the azimuthal angle
+	\2 These provide the cartesian coordinates by $x = rsin(\theta)cos(\phi), y = rsin(\theta)sin(\phi), z = rcos(\theta)$
+	\2 This is able to be written in terms of orthogonal normal vectors, $\hat{r} = sin(\theta)cos(\phi)\hat{x} + sin(\theta)sin(\phi)\hat{y} + cos(\theta)\hat{z}, \hat{\theta} = cos(\theta)cos(\phi)\hat{x} + cos(\theta)sin(\phi)\hat{y} - sin(\theta)\hat{z}, \hat{\phi} = -sin(\phi)\hat{x} + cos(\phi)\hat{y}$
+		\3 As a result, these normal vectors change based on the point in question, with $\hat{r}$ pointing outward, relying on the angles
+		\3 Thus, the vector operations cannot be used on them normally and differentiation requires them to act as function as well ($\hat{r}(\theta, \phi)...$)
+		\3 In addition, an increment in $\theta, \phi$ is not a unit of length, such that rather, $dl_{\theta} = rd\theta, dl_{\phi} = rsin(\theta)d\phi$, unlike r, which is incremented normally
+			\4 Similarly, $dV = dl_{\theta}dl_rdl_{\phi} = r^2sin\theta drd\theta d\phi$
+			\4 Integrating over a surface replaces an increment with the unit vector, such that for constant r, $dS = r^2sin(\theta)d\theta d\phi \hat{r}$
+	\2 Using the chain rule, expressions for gradient, divergence, curl, laplacian can be determined, such that $\nabla T = \frac{\partial T}{\partial r}\hat{r} + \frac{1}{r}\frac{\partial T}{\partial \theta}\hat{\theta} + \frac{1}{rsin(\theta}\frac{\partial T}{\partial \phi}\hat{\phi}$
+		\3 $\nabla \cdot \vec{v} = \frac{1}{r^2}\frac{\partial(r^2v_r)}{\partial r} + \frac{1}{rsin(\theta)}\frac{\partial(sin(\theta)v_{\theta})}{\partial \theta} + \frac{1}{rsin(\theta}\frac{\partial v_{\phi}}{\partial \phi}$
+		\3 $\nabla \times \vec{v} = \frac{1}{rsin(\theta)}(\frac{\partial(sin(\theta)v_{\phi)}}{\partial \theta} - \frac{\partial v_{\theta}}{\partial \phi})\hat{r} + \frac{1}{r}(\frac{1}{sin(\theta}\frac{\partial v_r}{\partial \phi} - \frac{\partial(rv_{\phi)}{\partial r})})\hat{\theta} + \frac{1}{r}(\frac{\partial(rv_{\theta})}{\partial r} - \frac{\partial v_r}{\partial \theta})\hat{\phi}$
+		\3 $\nabla^2 T = \frac{1}{r^2}\frac{\partial}{\partial r}(r^2\frac{\partial T}{\partial r}) + \frac{1}{rsin(\theta)}\frac{\partial}{\partial \theta}(sin(\theta)\frac{\partial T}{\partial \theta}) + \frac{1}{r^2sin^2(\theta}\frac{\partial^2 T}{\partial \phi^2}$
+\1 Cylindrical coordinates have $s/r, \phi$, but use the cartesian z rather than $\theta$, such that $x = scos(\phi), y = ssin(\phi), z = z$
+	\2 As a result, $\hat{s} = cos(\phi)\hat{x} + sin(\phi)\hat{y}, \hat{\phi} = -sin(\phi)\hat{x} + cos(\phi)\hat{y}$, and $dl_{\phi} = sd\phi$, such that $dV = sdsd\phi dz$
+	\2 Similarly, by the chain rule, $\nabla T = \frac{\partial T}{\partial s}\hat{s} + \frac{1}{s}\frac{\partial T}{\partial \phi}\hat{\phi} + \frac{\partial T}{\partial z}\hat{z}$
+		\3 $\nabla \cdot \vec{v} = \frac{1}{s}\frac{\partial(sv_s)}{\partial s} + \frac{1}{s}\frac{\partial v_{\phi}}{\partial \phi} + \frac{\partial v_z}{\partial z}$
+		\3 $\nabla \times \vec{v} = (\frac{1}{s}\frac{\partial v_{z}}{\partial \phi} - \frac{\partial v_{\phi}}{\partial z})\hat{s} + (\frac{\partial v_s}{\partial z} - \frac{\partial v_z}{\partial s})\hat{\phi} + \frac{1}{s}(\frac{\partial(sv_{\phi})}{\partial s} - \frac{\partial v_s}{\partial \phi})\hat{z}$
+		\3 $\nabla^2 T = \frac{1}{s}\frac{\partial}{\partial s}(s\frac{\partial T}{\partial s}) + \frac{1}{s^2}\frac{\partial^2 T}{\partial \phi^2} + \frac{\partial^2 T}{\partial z^2}$
 \end{outline*}
 \end{document}

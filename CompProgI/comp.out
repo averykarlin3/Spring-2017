@@ -1,0 +1,24 @@
+\BOOKMARK [1][-]{section.1}{Introduction to OCaml}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{Program Design}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.2}{Basic OCaml Programming}{section.1}% 3
+\BOOKMARK [1][-]{section.2}{Lists and Recursion}{}% 4
+\BOOKMARK [1][-]{section.3}{Tuples and Nested Patterns}{}% 5
+\BOOKMARK [1][-]{section.4}{User-defined Datatypes}{}% 6
+\BOOKMARK [1][-]{section.5}{Binary Trees}{}% 7
+\BOOKMARK [1][-]{section.6}{Generic Functions and Datatypes}{}% 8
+\BOOKMARK [1][-]{section.7}{First-class Functions}{}% 9
+\BOOKMARK [1][-]{section.8}{Modularity and Abstraction}{}% 10
+\BOOKMARK [1][-]{section.9}{Unit and Sequencing Commands}{}% 11
+\BOOKMARK [1][-]{section.10}{Mutability and Abstract Stack Machine}{}% 12
+\BOOKMARK [1][-]{section.11}{Queues/Linked Structures}{}% 13
+\BOOKMARK [1][-]{section.12}{Local State/Objects}{}% 14
+\BOOKMARK [1][-]{section.13}{OCaml GUI Library}{}% 15
+\BOOKMARK [1][-]{section.14}{Introduction to Java}{}% 16
+\BOOKMARK [1][-]{section.15}{Subtyping, Extension, and Inheritance}{}% 17
+\BOOKMARK [1][-]{section.16}{Dynamic Methods in the ASM}{}% 18
+\BOOKMARK [1][-]{section.17}{Generics, Collections, and Iteration}{}% 19
+\BOOKMARK [1][-]{section.18}{Overriding and Equality}{}% 20
+\BOOKMARK [1][-]{section.19}{Exceptions}{}% 21
+\BOOKMARK [1][-]{section.20}{IO in Java}{}% 22
+\BOOKMARK [1][-]{section.21}{Swing/Java Graphics Library}{}% 23
+\BOOKMARK [1][-]{section.22}{Homework Notes}{}% 24

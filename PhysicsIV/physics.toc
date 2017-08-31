@@ -1,0 +1,12 @@
+\contentsline {section}{\numberline {1}Course Introduction}{3}{section.1}
+\contentsline {section}{\numberline {2}Chapter 3 - Quantization of Charge, Light, and Energy}{4}{section.2}
+\contentsline {section}{\numberline {3}Chapter 4 - The Nuclear Atom}{7}{section.3}
+\contentsline {section}{\numberline {4}Chapter 5 - Wavelike Properties of Particles}{10}{section.4}
+\contentsline {section}{\numberline {5}Chapter 6 - The Schrodinger Equation}{12}{section.5}
+\contentsline {section}{\numberline {6}Chapter 7 - Atomic Physics}{16}{section.6}
+\contentsline {section}{\numberline {7}Chapter 8 - Statistical Mechanics}{20}{section.7}
+\contentsline {section}{\numberline {8}Chapter 9 - Molecular Structure and Spectra}{24}{section.8}
+\contentsline {section}{\numberline {9}Chapter 10 - Solid-State Physics}{27}{section.9}
+\contentsline {section}{\numberline {10}Chapter 11 - Nuclear Physics}{31}{section.10}
+\contentsline {section}{\numberline {11}Chatper 12 - Particle Physics}{38}{section.11}
+\contentsline {section}{\numberline {12}Notes}{43}{section.12}
