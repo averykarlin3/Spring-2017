@@ -141,5 +141,22 @@
 		\3 $\nabla \cdot \vec{v} = \frac{1}{s}\frac{\partial(sv_s)}{\partial s} + \frac{1}{s}\frac{\partial v_{\phi}}{\partial \phi} + \frac{\partial v_z}{\partial z}$
 		\3 $\nabla \times \vec{v} = (\frac{1}{s}\frac{\partial v_{z}}{\partial \phi} - \frac{\partial v_{\phi}}{\partial z})\hat{s} + (\frac{\partial v_s}{\partial z} - \frac{\partial v_z}{\partial s})\hat{\phi} + \frac{1}{s}(\frac{\partial(sv_{\phi})}{\partial s} - \frac{\partial v_s}{\partial \phi})\hat{z}$
 		\3 $\nabla^2 T = \frac{1}{s}\frac{\partial}{\partial s}(s\frac{\partial T}{\partial s}) + \frac{1}{s^2}\frac{\partial^2 T}{\partial \phi^2} + \frac{\partial^2 T}{\partial z^2}$
+\1 For the vector function, $\vec{v} = \frac{1}{r^2}\hat{r}$, the divergence is found to be 0, the surface integral is $4\pi$ around the origin, and the volume integral of the divergence is 0	
+	\2 While, this appears to contradict the divergence theorem, explained by the divergence not being 0 at the origin only, called the Dirac delta function
+	\2 The Dirac Delta Function is defined as infinity at x = 0, 0 elsewhere, with an integral over the whole domain of one, technically not a function, called a distribution or generalized function
+		\3 This is used such that $\int^{\infty}_{-\infty} f(x)\delta(x)dx = f(0)$, able to be shifted with $\delta(x - a)$ to get f(a)
+		\3 While Delta functions are not actual functions, they are able to be used in functions involving integral signs
+			\4 For two functions with delta functions, $D_1, D_2$, they are equal if $\int^{\infty}_{-\infty} f(x)D_1(x)dx = \int^{\infty}_{-\infty} f(x)D_2(x)dx$
+		\3 The Delta function is formally defined by the equation $\nabla \cdot (\frac{\hat{r}}{\vec{r} - \vec{r'}} = 4\pi\delta^3(\vec{r} - \vec{r'})$, where it is being differentiated purely in terms of r, with r' constant
+			\4 Since $\nabla \frac{1}{\vec{r} - \vec{r'}} = \frac{-\hat{r}}{\vec{r} - \vec{r'}}$, such that the Delta function can be put as a Laplacian
+	\2 The 3D Delta function, $\delta^3(\vec{r}) = \delta(x)\delta(y)\delta(z)$, such that it is zero purely at the origin, integrating over the volume domain to 1, able to be used such that $\int_{\mathbb{R}^3} f(\vec{r})\delta^3(\vec{r} - \vec{a})dV = f(\vec{a})$
+\1 The Helmholtz Theorem states that a field is uniquely defined by boundary conditions, divergence, and curl
+	\2 Generally in electrodynamics, the boundary condition has the field go to zero as it approaches infinity
+	\2 As a corollary, curl-less/irrotational fields, such that the curl is $\vec{0}$, are able to be written as the negative gradient of a scalar potential function $\vec{F} = -\nabla V$
+		\3 By extension, $\int^b_a \vec{F} \cdot d\vec{l}$ is path independent and for a closed loop, equal to 0, for an irrotational field
+		\3 Each of these conditions imply the other conditions for a vector field
+	\2 As another corollary, divergence-less/solenoidal fields imply and are implied by $\vec{F} = \nabla \times \vec{A}$ (the curl of some vector function), $\int \vec{F} \cdot d\vec{a}$ being independent of surface for any boundary, or for a closed surface, $\oint \vec{F} \cdot d\vec{a} = 0$
+		\3 $\vec{A}$ is the vector potential, non-unique due to any gradient being able to be added since the curl of gradient is 0
+	\2 As a result, any vector field can be defined by $\vec{F} = -\nabla V + \nabla \times \vec{A}$
 \end{outline*}
 \end{document}
