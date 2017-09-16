@@ -1,0 +1,83 @@
+\documentclass[11 pt, twoside]{article}
+\usepackage{textcomp}
+\usepackage[margin=1in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{color}
+\usepackage{indentfirst} %Comment out for no first paragraph indent
+\usepackage[parfill]{parskip}
+\usepackage{setspace}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{outlines}
+\usepackage{physymb}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\cfoot{\hyperlink{content}{\thepage}}
+\lhead{}
+\chead{}
+\rfoot{}
+\lfoot{}
+\rhead{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+
+\usepackage{hyperref}
+\hypersetup {
+	colorlinks,
+	citecolor=black,
+	filecolor=black,
+	linkcolor=black,
+	urlcolor=black
+}
+
+\newcommand{\sepitem}{0pt} %Added room between items on the list, not including a list and its sublist
+\newcommand{\seppar}{1pt} %Between items and lists overall
+
+\setenumerate[1]{itemsep=\sepitem, parsep=\seppar}
+\setenumerate[2]{itemsep=\sepitem, parsep=\seppar}
+\setenumerate[3]{itemsep=\sepitem, parsep=\seppar}
+\setenumerate[4]{itemsep=\sepitem, parsep=\seppar}
+
+\newenvironment{outline*}
+{
+	\begin{outline}[enumerate]
+	}
+	{\end{outline}
+}
+
+\newcommand{\foot}[1]{\hyperlink{#1}{$_#1$}}
+
+\begin{document}
+
+\title{Africa}
+\author{Avery Karlin}
+\date{Fall 2017}
+\newcommand{\textbook}{}
+\newcommand{\teacher}{}
+
+\maketitle
+\newpage
+\hypertarget{content}{\tableofcontents}
+\vspace{11pt}
+\noindent
+\underline{Primary Textbook}: \textbook\\
+\underline{Teacher}: \teacher
+\newpage
+
+\begin{outline*}
+\1 Africa played an active role in the Scramble for Africa, starting to move away from former traditions, accepting the global economy and European influences, even before military conquests
+	\2 On the optimistic side, they were have a cultural and political revolution to acclimate to the Western world, up until the military takeover
+\1 Abolition led to anti-slave squads to enforce it, legitimate trade in raw materials, and return of slaves to their home countries in short term
+	\2 On the coastal cities, it also led to conversion of pro-Western literate elites (creole class), calling for increased European influence, partially due to religion, gratitude over the end of slavery, and attempts to save the continent
+		\3 This created an alternative to direct imperialism, mainly ignored by the European powers
+	\2 In long term, it led to inequality and subordination (both in Western and African nations, continuing in an unofficial or pseudo-legal way, such as Jim Crow), Western view of Africa, modern pan-Africanism, imperialism
+		\3 There was African elite anger as well about the removal of slavery, due to causing the destruction of the slave-based economy
+	\2 It did not take place immediately, but rather just slowed until the 1870s, when all major European powers became industrialized
+	\2 Towns were made in Sierra Leone and Liberia for freed slaves such as Freetown, often given financial aid by European powers, as a pseudo-colony
+\end{outline*}
+\end{document}

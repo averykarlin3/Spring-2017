@@ -78,6 +78,13 @@
 		\3 By extension, if the velocity and acceleration of the source and the velocity of the target are 0, this simplifies to the conventional form of Coulumb's Law
 		\3 If the source velocity only is non-zero, it becomes proportional to the relativistic $\gamma$, rewritten by $c(t - t') = |\vec{r}_2(t) - \vec{r}_1(t')|$, such that $F = \frac{kq_1q_2\hat{e}_{d}}{d^2}(\frac{1 - \frac{v_1^2}{c^2}}{(\hat{e}_{r_1} \cdot \hat{e}_{r_2})^{3/2}}$
 		\3 Otherwise, this can be rewritten as $F_{1\to2} = q_2\vec{E} + q_2\vec{v}_2 \times \vec{B}$, providing the field formulation of the law
+\1 $\hat{e}_r(t, t')$ is the vector pointing from r2 at time t to r1 at time t'
+\1 **8/31 Notes**
+\1 Complex force law is able to be rewritten $\vec{F} = q\vec{E} + q\vec{v} \times \vec{B}$, due to fields being easier by geometric constraints
+	\2 This is done by using the flux through the object, equal to the surface integral of the vector field over the surface ($\Phi = \oint_S \vec{V} \cdot d\vec{a}$)
+		\3 As the surface size approaches 0, the flux approaches the divergence times the volume of the element, showing the Divergence Theorem
+		\3 Similar derivation can be done for the Stokes Theorem
+	\2 This also allows it to be broken up into transverse and longitudinal components, by the Helmholtz Theorem
 \end{outline*}
 \section{Chapter 1 - Vector Analysis}
 \begin{outline*}
@@ -116,7 +123,8 @@
 		\3 The curl of gradient and the divergence of curl are 0, the former based on $T_{xy} = T_{yx}$, able to be thought of intuitively, though not rigorously, as the operator crossed with itself
 			\4 The latter can be non-rigorously proved by the identity $A \cdot (B \times C) = (A \times B) \cdot C$
 		\34 The gradient of divergence is different from the Laplacian, without much physical significance
-		\3 The curl of curl is found to simplify to a formula of the others, such that $\nabla \times (\nabla \times \vec{v}) = \nabla(\nabla \cdot \vec{v}) - \nabla^2 \vec{v}$
+		\3 The curl of curl is found to simplify to a formula of the others, such that $\nabla \times (\nabla \times \vec{v}) = \nabla(\nabla \cdot \vec{v}) - \nabla^2 \vec{v}$, defining a vector Laplacian
+			\4 In Cartesian coordinates, a vector Laplacian reduces to the vector of the Laplacian of each component
 \1 For some scalar function, the Fundmental Theorem for gradients states that $\int^{\vec{b}}_{\vec{a}} (\nabla T) \cdot d\vec{l} = T(\vec{b} - T(\vec{a})$, such that the line integral of a gradient is path independent and a closed loop integrates to 0
 	\2 Similarly, the Divergence/Green's/Gauss's Theorem states that $\int(\nabla \cdot \vec{v}) dV = \oint_{S} \vec{v} \cdot d\vec{A}$
 	\2 The Stoke's Theorem states that $\int_S (\nabla \times \vec{v}) \cdot d\vec{A} = \oint_P \vec{v} \cdot d\vec{l}$
@@ -149,14 +157,46 @@
 			\4 For two functions with delta functions, $D_1, D_2$, they are equal if $\int^{\infty}_{-\infty} f(x)D_1(x)dx = \int^{\infty}_{-\infty} f(x)D_2(x)dx$
 		\3 The Delta function is formally defined by the equation $\nabla \cdot (\frac{\hat{r}}{\vec{r} - \vec{r'}} = 4\pi\delta^3(\vec{r} - \vec{r'})$, where it is being differentiated purely in terms of r, with r' constant
 			\4 Since $\nabla \frac{1}{\vec{r} - \vec{r'}} = \frac{-\hat{r}}{\vec{r} - \vec{r'}}$, such that the Delta function can be put as a Laplacian
+			\4 Further, for the seperation vector, $\int 4\pi\delta^3(\vec{\pmb{\scriptr}})f(\vec{r}')d\vec{r}' = f(\vec{r}$, such that the alternate order is equally valid
 	\2 The 3D Delta function, $\delta^3(\vec{r}) = \delta(x)\delta(y)\delta(z)$, such that it is zero purely at the origin, integrating over the volume domain to 1, able to be used such that $\int_{\mathbb{R}^3} f(\vec{r})\delta^3(\vec{r} - \vec{a})dV = f(\vec{a})$
+		\3 Thus, it can be stated that $\nabla \cdot (\frac{\hat{r}}{r^2}) = 4\pi\delta^3(\vec{r})$, where r is either the position or displacement vector, and $\hat{r}$ is either the unit displacement or radial vector
 \1 The Helmholtz Theorem states that a field is uniquely defined by boundary conditions, divergence, and curl
-	\2 Generally in electrodynamics, the boundary condition has the field go to zero as it approaches infinity
+	\2 Generally in electrodynamics, the boundary condition has the field go to zero as it approaches infinity, such that it is only unique in that case
 	\2 As a corollary, curl-less/irrotational fields, such that the curl is $\vec{0}$, are able to be written as the negative gradient of a scalar potential function $\vec{F} = -\nabla V$
 		\3 By extension, $\int^b_a \vec{F} \cdot d\vec{l}$ is path independent and for a closed loop, equal to 0, for an irrotational field
 		\3 Each of these conditions imply the other conditions for a vector field
 	\2 As another corollary, divergence-less/solenoidal fields imply and are implied by $\vec{F} = \nabla \times \vec{A}$ (the curl of some vector function), $\int \vec{F} \cdot d\vec{a}$ being independent of surface for any boundary, or for a closed surface, $\oint \vec{F} \cdot d\vec{a} = 0$
 		\3 $\vec{A}$ is the vector potential, non-unique due to any gradient being able to be added since the curl of gradient is 0
-	\2 As a result, any vector field can be defined by $\vec{F} = -\nabla V + \nabla \times \vec{A}$
+	\2 As a result, any vector field can be defined by $\vec{F} = -\nabla U + \nabla \times \vec{W}$
+		\3 Further, $V(\vec{r}) = \frac{1}{4\pi} \int \frac{D(\vec{r'})}{\pmb{\scriptr}}d\tau', \vec{W}(\vec{r}) = \frac{1}{4\pi} \int \frac{\vec{C}(\vec{r}')}{\pmb{\scriptr}}d\tau'$, where $\vec{\nabla} \cdot \vec{F} = D, \vec{\nabla} \times \vec{F} = \vec{C}$
+			\4 It is assumed that $\nabla \cdot \vec{C} = 0$ since the divergence of a curl is 0
+	\2 This has the example for an electrostatic field, such that $\nabla \cdot \vec{E} = \frac{\rho}{\epsilon_0}, \nabla \times \vec{E} = \vec{0}, \vec{E}(\vec{r}) = -\nabla V$
+		\3 Similarly for a magnetostatic field, $\nabla \cdot \vec{B} = 0, \nabla \times \vec{B} = \mu_0 \vec{J}, \vec{B}(\vec{r}) = \nabla \times \vec{A}$
+% \1 Coordinate systems are assumed to have orthogonal unit vectors, as functions of position (varying based on location) except in cartesian systems
+% 	\2 Thus, the displacement by $(du, dv, dw)$ can be written as $d\vec{l} = fdu\hat{u} + gdv\hat{v} + hdw\hat{w}$, where f, g, h are multipliers (f = 1, g = r, h = r sin$\theta$ in spherical, f = g = h = 1 in cartesian)
+% 	\2 The gradient can be written as $dt = \frac{\partial t}{\partial u}du = \nabla t \cdot d\vec{l} = \nabla t fdu$, such that $\nabla t = \frac{1}{f}\frac{\partial t}{\partial u}$, providing the fundamental theorem of gradients
+% 	\2 **Remainder of Appendix A**
+\end{outline*}
+\section{Chapter 2 - Electrostatics}
+\begin{outline*}
+\1 The problem of the electric force exerted on a test charge by a set of source charges, given as functions of time, is solved by the principle of superposition
+	\2 This found to depend on both velocities, the source acceleration, and the delayed time of field movement (speed of light)
+	\2 Electrostatics are the subset of electromagnetic problems in which source charges are stationary
+\1 Coulumb's Law is the main law of electrostatics, stating that $\vec{F} = \frac{qQ\hat{e}_{\pmb{\scriptr}}}{4\pi\epsilon_0\pmb{\scriptr}^2}$, where q is the source, Q is the target, $\vec{\pmb{\scriptr}}$ is the separation vector, equal to $\vec{r} - \vec{r}'$, where $\vec{r}$ is the vector to the test, $\vec{r}'$ to the source
+	\2 As a result, the electric field, $\vec{E}(\vec{r})$ is defined such that $\vec{F} = Q\vec{E}$, defined at the field point of the target charge
+	\2 For some continuous charge distribution, $\vec{E}(\vec{r}) = \frac{1}{4\pi\epsilon_0}\int\frac{1}{\pmb{\scriptr}^2}\hat{e}_{\pmb{\scriptr}}dq$, where $dq = \lambda(\vec{r}') dl' = \sigma(\vec{r}') da' = \rho(\vec{r}') d\tau'$
+		\3 It is notable that $\hat{e}_{\pmb{\scriptr}}$ is not a constant, but rather depends on the location in the charge distribution
+\1 Gauss's Law is used to simplify calculation of the electric field, based on the field line representation, with connected arrows showing the field, going to infinity,, where the magnitude is based on the density of the lines
+	\2 This is notably flawed, since it is a 2D density representation of 3D fields
+		\3 Electric field lines are not allowed to cross, moving from positive outward, either to infinity or ending at negative
+	\2 The number of field lines through a surface is called the flux for some sampling rate of field lines (rather than the actual infinite number), defined mathematically by $\Phi_E = \int_S \vec{E} \cdot d\vec{a}$, where $\vec{a}$ is perpendicular to the field
+	\2 Gauss's Law is derived for a point charge and extended to general by superposition, viewing all charge bodies as the sum of point charges, stating that $\oint \vec{E} \cdot d\vec{a} = \frac{Q_{enc}}{\epsilon_0}$
+		\3 The differential form of the law, based on the fact that $Q_{enc} = \int_V \rho d\tau$, where $\rho$ is the charge density, states $\vec{\nabla} \cdot \vec{E} = \frac{\rho}{\epsilon_0}$
+		\3 This is able to be derived both from the divergence of the field and the integral of the field through the surface to get either form
+	\2 Gauss's Law best applies to symmetrical objects, either cylindrical, spherical, or planar, extended to approximately infinity
+		\3 For a uniform sphere or spherical shell, the electric field outside is the same as if it was contained in the center as a point charge
+		\3 For a plane, it is found that $\vec{E} = \frac{\omega \hat{n}}{2\epsilon_0}$, such that it is constant, independent of distance
+		\3 In addition, for objects without symmetry, by the principle of superposition, it can be broken up into symmetrical parts
+	\2 The curl of $\vec{E}$ can be calculated for a point charge, and extended by superposition to the general case, by the Stokes Theorem, such that it is found that $\oint \vec{E} \cdot d\vec{l} = 0$, or $\vec{\nabla} \times \vec{E} = \vec{0}$
 \end{outline*}
 \end{document}

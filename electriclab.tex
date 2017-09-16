@@ -1,0 +1,133 @@
+\documentclass[11 pt, twoside]{article}
+\usepackage{textcomp}
+\usepackage[margin=1in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{color}
+\usepackage{indentfirst} %Comment out for no first paragraph indent
+\usepackage[parfill]{parskip}
+\usepackage{setspace}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{outlines}
+\usepackage{physymb}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\cfoot{\hyperlink{content}{\thepage}}
+\lhead{}
+\chead{}
+\rfoot{}
+\lfoot{}
+\rhead{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+
+\usepackage{hyperref}
+\hypersetup {
+	colorlinks,
+	citecolor=black,
+	filecolor=black,
+	linkcolor=black,
+	urlcolor=black
+}
+
+\newcommand{\sepitem}{0pt} %Added room between items on the list, not including a list and its sublist
+\newcommand{\seppar}{1pt} %Between items and lists overall
+
+\setenumerate[1]{itemsep=\sepitem, parsep=\seppar}
+\setenumerate[2]{itemsep=\sepitem, parsep=\seppar}
+\setenumerate[3]{itemsep=\sepitem, parsep=\seppar}
+\setenumerate[4]{itemsep=\sepitem, parsep=\seppar}
+
+\newenvironment{outline*}
+{
+	\begin{outline}[enumerate]
+	}
+	{\end{outline}
+}
+
+\newcommand{\foot}[1]{\hyperlink{#1}{$_#1$}}
+
+\begin{document}
+
+\title{Electronics Lab}
+\author{Avery Karlin}
+\date{Fall 2017}
+\newcommand{\textbook}{}
+\newcommand{\teacher}{}
+
+\maketitle
+\newpage
+\hypertarget{content}{\tableofcontents}
+\vspace{11pt}
+\noindent
+\underline{Primary Textbook}: \textbook\\
+\underline{Teacher}: \teacher
+\newpage
+
+\section{Homework 1}
+\begin{outline*}
+\1 Kirchoff's Current Law states that the current entering a node is equal to the current leaving a node, while Kirchoff's Voltage Law states that the voltage in a closed loop sums to 0
+	\2 The passive sign convention is that the voltage across a source in the direction of current is positive, across a drain is negative
+	\2 The standard method assigns currents to each branch, applying the laws to each loop and node, while the mesh loop method assigns a current to each loop
+\1 Power of a circuit element is given by $P = VI$, where the power dissipated must be below the power rating, or the component will fail
+\1 Ohm's Law states the V = IR, while R is based on the physical properties of the device specifically $R = \rho \frac{L}{A}$
+	\2 Rheostat (two-terminal variable resistors) have a diagonal line drawn through the resistor, while the potentiometer (three-terminal) has the arrow drawn to it perpendicularly
+	\2 Resistors in series are able to be summed up, while in parallel, the reciprocal of the sum of the reciprocals
+\1 Thevnin's Theorem states that any two terminal network of sources and resistors can be replaced by a voltage source and resistor in series
+	\2 When the terminals are not connected to anything in an open circuit, no current flows, such that the voltage of the resistor is 0, and the terminal voltage is the Thevnin voltage
+	\2 Thevnin resistance is found by making an open circuit between the terminals and using that with the Thevnin voltage
+		\3 It can also be found by replacing current sources with an open circuit, voltage sources with a short circuit, and then using resistance rules to calculate the total resistance
+	\2 Norton's Theorem is a similar theorem which states any of the same type of network can be replaced by a current source in parallel with a resistor
+		\3 The current source gives the same current as the short circuit current, and the Norton resistance is the same as the Thevnin resistance, with the open circuit terminal voltage as the same as the Thevnin voltage
+\1 Resistors in parallel are able to make a current divider, such that $I_1 = (\frac{R_2}{R_1 + R_2})I$, while resistors in series can make a voltage divider, such that $V_2 = (\frac{R_2}{R_1 + R_2})V$
+	\2 Voltage dividers can also be used as current limiters, to lower the voltage enough to lower the current to safe levels
+	\2 Voltage and current dividers are also used in amnmeters and voltmeters respectively to allow a meter for much smaller values to scale to larger values, based on pre-defined resistor settings
+\1 Measuring instruments become part of the circuit when connected, such that they have a defined input resistance which the meter provides, which must be large for voltmeters, tiny for amnmeters, to prevent changing the values
+\1 **ADD ADDITIONAL READING**
+\end{outline*}
+\section{Homework 2}
+\begin{outline*}
+\1 AC quantities are currents and voltages which vary in time, though resistors still act normally
+\1 Capacitors are formed by a pair of conductors, commonly parallel places in which capacitance is given by $C = \frac{\epsilon A}{d}$, where d is the distance between places, A is the plate area, and $\epsilon$ is the dielectric constant of the material between
+	\2 Capacitance is measured in Farads (F, Coulumbs per Volt)
+	\2 Capacitors have a voltage rating as the maximum voltage able to be applied before electrical breakdown of the dielectric material
+	\2 Capacitors are used for electrical storage devices, such that Q = CV, where Q is the charge stored on each plate for an applied voltage V
+		\3 By extension, $I = C\frac{dV}{dt}$, such that the AC voltage is proportional to the current flowing through the capacitor by it
+	\2 Capacitance in series is equal to the reciprocal of the sum of the reciprocals, while in parallel is the sum
+\1 Inductors are the result of Ampere's Law stating that currents make magnetic fields and Faraday's Law stating that time-varying magnetic fields make voltages, such that AC currents make voltages
+	\2 As a result, $V = L\frac{dI}{dt}$, where L is the self-inductance/inductance, negligable for general circuit loops, made non-negligable by coils of wires
+	\2 For a solenoid coil, $L = \frac{\mu N^2 \pi R^2}{L}$, where L is the length of the coil, N is the number of turns, $\mu$ is the magnetic permeability of the material in the coil, and R is the coil radius, measured in Henries (H, V*s/A)
+	\2 Inductors in series are equal to the sum, while in parallel are the reciprocal of the sum of the reciprocals
+\1 RC circuits are a resistor and a capacitor in series, with a switch that can connect them alone or to a battery $V_0$
+	\2 By KVL, $V = IR + \frac{Q}{C}$, where V is either 0 or $V_0$, able to be differentiated with respect to t, and solved to get $I = I_0e^{-\frac{t}{RC}}$
+		\3 As a result, the voltage across the capacitor, $V_C = V - I_0Re^{\frac{-t}{RC}} = V_1e^{\frac{-t}{RC}} + V_2$ for either state, written generally
+	\2 The initial condition for charging is specified such that $V_C = 0, V = V_0$, such that the constants are determined to be $V_C = V_0(1 - e^{\frac{-t}{RC}})$
+	\2 The initial conditions for discharging are given such that $V_C = V_0, V = 0$, such that $V_C = V_0e^{-\frac{t}{RC}}$
+	\2 RC circuits responding to a square AC wave act similarly but have the voltage change from $V_0$ to $-V_0$, such that the discharge approaches $-V_0$ instead
+		\3 For $RC << \frac{T}{2}$, it is able to mostly finish charging and discharging, while it only curves slightly when they are equal, and remains linear, not charging enough to curve when greater
+		\3 While the current equation remains the same, V is different, such that it is solved again for each case
+	\2 For AC, the voltage is a function of time, rather than constant, called time domain analysis, able to be approximated as a sine wave/frequency domain analysis
+		\3 The voltage and current are approximated as $V = V_p sin(\omega t), I = I_P sin(\omega t + \phi)$, where it is found that $I_P = \frac{\omega CV_P}{\sqrt{1 + (\omega RC)^2}}, \phi = tan^{-1}(\frac{1}{\omega RC})$
+		\3 Thus, the voltage on the resistor is $V_r = \frac{\omega RCV_psin(\omega t + \phi)}{\sqrt{1 + (\omega RC)^2}}$, such that it is a positive phase shifter by $\phi$
+			\4 In addition $\frac{V_r}{V} = \frac{\omega RC}{\sqrt{1 + (\omega RC)^2}}$, such that it is a high-pass filter, removing low frequency voltages, leaving high
+			\4 The breakpoint/half-power frequency is defined as when $\omega RC = 1$
+			\4 On the other hand, for low frequencies (small values of $\omega RC$), it is found that $V_{out} \approx RC\frac{dV_{in}}{dt}$, such that it is called a differentiator
+		\3 Similarly, the voltage on the capacitor can be found by the formula $Q = \int Idt$ and $cos(A) = -sin(A - \frac{\pi}{2})$, such that $V_c = \frac{\omega V_psin(\omega t + \phi - \frac{\pi}{2})}{\sqrt{1 + (\omega RC)^2}}$, acting as a negative phase shifter
+			\4 In addition $\frac{V_c}{V} = \frac{1}{\sqrt{1 + (\omega RC)^2}}$, such that it is a low-pass filter
+			\4 It is found that for high $\omega RC$, $V_{out} \approx \frac{1}{RC}\int V_{in}dt$, such that it is an integrator circuit
+\1 Based on the fact that $z = a + bi = |z|(cos\theta + isin\theta) = |z|e^{i\theta}$, where $\theta = tan^{-1} (\frac{b}{a})$, complex analysis can be used to avoid requiring trigonometric identities and simplify calculations
+	\2 It is assumed that $V_{in} = V_pcos(\omega t), I = I_p cos(\omega t + \phi)$, such that it is the real component of the complex values
+	\2 Complex resistance is able to be generalized to capacitors and inductors by impedance, where the real part is resistive impedance/resistance and the imaginary part is reactive impedance/reactance
+		\3 $\hat{Z}_r = R, \hat{Z}_c = \frac{1}{i\omega C}, \hat{Z}_i = i\omega L$, able to be summed in series, and combined in parallel as the reciprocal of the reciprocal sum
+		\3 Ohm's Law can be generalized to impedence by $\hat{V} = \hat{I}\hat{Z}$
+	\2 Thus, total impedence can be used to find the complex current and voltage, taking the real component to get the actual value
+	\2 This can be used to solve an LR circuit, to find that the resistor as the output is a negative phase shifter and low pass filter, while the inductor is a positive phase shifter and high pass filter
+		\3 LRC circuits can be similarly solved, to find that it approaches 0 current for both high and low frequencies, such that it is a resonant system, at its peak at the resonant frequency ($\omega_0 = \frac{1}{\sqrt{LV}}$)	
+			\4 Resonant systems are also called a band pass filter
+\end{outline*}
+\end{document}
