@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6100 64-bit) (preloaded format=pdflatex 2016.11.28)  14 SEP 2017 20:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6100 64-bit) (preloaded format=pdflatex 2016.11.28)  20 SEP 2017 00:23
 entering extended mode
 **"C:/Users/Avery Karlin/Github/Spring-2017/physics.tex"
 ("C:/Users/Avery Karlin/Github/Spring-2017/physics.tex"
@@ -1246,7 +1246,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [5]
-Overfull \hbox (15.07861pt too wide) in paragraph at lines 156--157
+Overfull \hbox (15.07861pt too wide) in paragraph at lines 157--158
 []\OT1/cmr/m/n/10.95 For two func-tions with delta func-tions, $\OML/cmm/m/it/1
 0.95 D[]; D[]$\OT1/cmr/m/n/10.95 , they are equal if $[][] \OML/cmm/m/it/10.95 
 f\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.
@@ -1258,21 +1258,21 @@ t/10.95 dx \OT1/cmr/m/n/10.95 =
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [6]
-[7]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 201.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 201.
+[7] [8] [9]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 230.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 230.
  (physics.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 201.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 201.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 230.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 230.
 Package rerunfilecheck Info: File `physics.out' has not changed.
-(rerunfilecheck)             Checksum: 86215A6DAD37C655A0C86798843FFE6E;180.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 201.
+(rerunfilecheck)             Checksum: D68FE079B107C655E4FAD798EE4CFAC1;221.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 230.
  ) 
 Here is how much of TeX's memory you used:
- 17961 strings out of 493333
- 326235 string characters out of 3139170
- 404041 words of memory out of 3000000
- 21021 multiletter control sequences out of 15000+200000
+ 17991 strings out of 493333
+ 326475 string characters out of 3139170
+ 405039 words of memory out of 3000000
+ 21022 multiletter control sequences out of 15000+200000
  12347 words of font info for 45 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,11n,54p,463b,893s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1294,9 +1294,9 @@ ts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
 /public/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
 msfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/s
 ymbols/msbm10.pfb>
-Output written on physics.pdf (7 pages, 213374 bytes).
+Output written on physics.pdf (9 pages, 225355 bytes).
 PDF statistics:
- 281 PDF objects out of 1000 (max. 8388607)
- 129 named destinations out of 1000 (max. 500000)
- 37 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 328 PDF objects out of 1000 (max. 8388607)
+ 158 named destinations out of 1000 (max. 500000)
+ 45 words of extra memory for PDF output out of 10000 (max. 10000000)
 

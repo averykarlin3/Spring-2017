@@ -120,6 +120,9 @@
 		\3 Similarly, the voltage on the capacitor can be found by the formula $Q = \int Idt$ and $cos(A) = -sin(A - \frac{\pi}{2})$, such that $V_c = \frac{\omega V_psin(\omega t + \phi - \frac{\pi}{2})}{\sqrt{1 + (\omega RC)^2}}$, acting as a negative phase shifter
 			\4 In addition $\frac{V_c}{V} = \frac{1}{\sqrt{1 + (\omega RC)^2}}$, such that it is a low-pass filter
 			\4 It is found that for high $\omega RC$, $V_{out} \approx \frac{1}{RC}\int V_{in}dt$, such that it is an integrator circuit
+\end{outline*}
+\section{Homework 3}
+\begin{outline*}
 \1 Based on the fact that $z = a + bi = |z|(cos\theta + isin\theta) = |z|e^{i\theta}$, where $\theta = tan^{-1} (\frac{b}{a})$, complex analysis can be used to avoid requiring trigonometric identities and simplify calculations
 	\2 It is assumed that $V_{in} = V_pcos(\omega t), I = I_p cos(\omega t + \phi)$, such that it is the real component of the complex values
 	\2 Complex resistance is able to be generalized to capacitors and inductors by impedance, where the real part is resistive impedance/resistance and the imaginary part is reactive impedance/reactance
@@ -129,5 +132,41 @@
 	\2 This can be used to solve an LR circuit, to find that the resistor as the output is a negative phase shifter and low pass filter, while the inductor is a positive phase shifter and high pass filter
 		\3 LRC circuits can be similarly solved, to find that it approaches 0 current for both high and low frequencies, such that it is a resonant system, at its peak at the resonant frequency ($\omega_0 = \frac{1}{\sqrt{LV}}$)	
 			\4 Resonant systems are also called a band pass filter
+			\4 At the resonant frequency, it is notable that the input and output voltages (measured over the resistor) are the same
+	\2 For impedence, Thevnin's theorem holds true, able to generalize it to Thevenin impedance and voltage for circuits with capacitors and inductors
+\1 For an LRC switching problem, the differential equation can be put in terms of Q, as a non-homogeneous differential equation, $L\frac{d^Q}{dt^2} + R\frac{dQ}{dt} + \frac{Q}{C} = V$, with the particular solution as the constant solution, $Q = CV$
+	\2 The homogeneous equation can then be solved by plugging in the complex exponential, $\hat{Q} = Q_pe^{i\omega t}$
+		\3 This is solved to get the solution, $\omega = i\frac{\gamma}{2} \pm \sqrt{\omega_0^2 - \frac{\gamma^2}{4}}$, where $\omega_0^2 = \frac{1}{LC}, \omega = \frac{R}{L}$e^
+	\2 The underdamped case assumes $\omega_0^2 > \frac{\gamma^2}{4}$, such that $\omega = i\frac{\gamma}{2} \pm \omega_1$, $\omega_1 = \sqrt{\omega_0^2 - \frac{\gamma^2}{4}}$
+		\3 Thus, $Q = (Q_1 + Q_2)e^{-\frac{\gamma t}{2}}cos(\omega_1 t) + CV$, able to be used to solve for the voltage by initial conditions
+		\3 Since this oscillates, while the amplitude decays with respect to time, it is called ringing, approaching a constant over time (charged at $V_0$), found to be the case for both charging and discharging
+		\3 This is found that for the voltage of the capacitor, $V_c = V_0(1 - e^{\frac{-\gamma}{2}t}cos(\omega_1 t)$ for charging, $V_c = V_0e^{-\frac{\gamma}{2}t}cos(\omega_1t)$ for discharging
+	\2 The overdamped case assumes $\omega_0^2 < \frac{\gamma^2}{4}$, such that $\omega = j(\frac{\gamma}{2} \pm \beta), \beta = \sqrt{\frac{\gamma^2}{4} - \omega_0^2}$
+		\3 This can be calculated for charging and discharging, similar to the RC response to an AC voltage
+		\3 This is found to provide $V_c = \frac{V_0}{2}(2 - e^{-(\frac{\gamma}{2} + \beta)t} - e^{-(\frac{\gamma}{2} - \beta)t}$ for charging, $V_c = \frac{V_0}{2}(e^{-(\frac{\gamma}{2} + \beta)t} - e^{-(\frac{\gamma}{2} - \beta)t}$ for discharging
+	\2 The critically damped case has $\omega_0^2 = \frac{\gamma^2}{4}$, such that $V_c = (A + Bt)e^{-\frac{\gamma}{2}t} + V$
+	\2 Time constants are defined such that $e^{\frac{-t}{\tau}}$ is a multiplicative factor, causing exponential decay/growth
+\1 The energy stored within an inductor, $U = \frac{1}{2}LI^2$, such that they store energy through current, unable to be instantaneously
+	\2 Inductors are used in LC circuits as reversed high pass and low pass filters, but require much larger devices, and have parallel capacitance and series resistance within, such that they are not used commonly
+	\2 In addition, since inductors can be made by loops of circuits, pseudo-inductors are often made by the archetectual construction of the circuit itself
+\1 High-pass circuits can be thought of as having a high impedence at higher frequencies, due to open circuits having the most reactive voltage, open circuits with the least
+\1 **Add Post Page 2 Supplementary Reading**
+\end{outline*}
+\section{Homework 4}
+\begin{outline*}
+\1 PN junctions are made of silicon primarily in modern day, acting as a semiconductor, with the conductivity vastly increased by doping by elements added in small amounts to the silicon, joining the quadruple covalent bond lattice, with an extra charge
+	\2 Donor elements, such as phosphorus, arsenic, or antimony are placed in the Silicon crystal, with an extra electron in the outer orbital, easily mobile, reducing the resistivity
+	\2 Acceptor atoms, such as boron or aluminum, have one electron less than silicon, with an excess positive charge, increasing the resistivity
+	\2 Donor silicon is called n type while acceptor is called p type, combined to form a potential difference with the p-type as the positive anode, n as the negative cathode
+		\3 As a result, current is only able to flow from p to n, drawn by an arrow with a line perpendicular to the point, showing the direction of current
+\1 Diodes are non-linear, approximated most easily as a voltage activated switch, such that it conducts as an short circuit, otherwise open
+	\2 For a junction diode, it is modeled such that it has a forward bias, such that voltage has to be greater than some positive value to conduct, with a voltage drop of that value for any current
+		\3 Zener diodes have a forward bias voltage to conduct and a greater magnitude reverse bias voltage after which it is able to conduct in reverse
+		\3 The voltage drop is often modelled as 0 for simplicity
+	\2 Diode circuits are solved by assuming it is either open or short, replacing it if short with a voltage drop of the forward bias, calculating the remainder to see if the assumptions are valid
+	\2 In reality, diodes are defined by the equation $I = I_S(e^{\frac{eV}{nkT}} - 1)$, where $I_s$ is the saturation current around $10^{-15} A$, k is the Boltzmann constant, $1.38 * 10^{-23} W*s/K$, and T is the temperature
+		\3 n ranges from 1 to 2, depending on the diode structure, approximately 1 for surface mounted PCB ones, 2 for hand-used diodes
+		\3 $\frac{kT}{e}$ is the thermal voltage, $V_T$, approximated for room temperature as 25 mV, with the -1 term able to be ignored due to the size of $I_D$
+	\2 
 \end{outline*}
 \end{document}

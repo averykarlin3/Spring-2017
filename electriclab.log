@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6100 64-bit) (preloaded format=pdflatex 2016.11.28)  14 SEP 2017 21:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6100 64-bit) (preloaded format=pdflatex 2016.11.28)  22 SEP 2017 01:00
 entering extended mode
 **"C:/Users/Avery Karlin/Github/Spring-2017/electriclab.tex"
 ("C:/Users/Avery Karlin/Github/Spring-2017/electriclab.tex"
@@ -1236,21 +1236,112 @@ ctriclab.toc)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [4]
-[5]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 133.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 133.
+Overfull \hbox (2.64685pt too wide) in paragraph at lines 136--137
+[]\OT1/cmr/m/n/10.95 For im-pe-dence, Thevnin's the-o-rem holds true, able to g
+en-er-al-ize it to Thevenin impedance
+ []
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.139 ...2 = \frac{1}{LC}, \omega = \frac{R}{L}$e^
+                                                  
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing { inserted.
+<to be read again> 
+                   \global 
+l.140 	\2
+          The underdamped case assumes $\omega_0^2 > \frac{\gamma^2}{4}$, su...
+A left brace was mandatory here, so I've put one in.
+You might want to delete and/or insert some corrections
+so that I will find a matching right brace soon.
+(If you're confused by all this, try typing `I}' now.)
+
+
+! LaTeX Error: Command \end{enumerate} invalid in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.140 	\2
+          The underdamped case assumes $\omega_0^2 > \frac{\gamma^2}{4}$, su...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.140 	\2
+          The underdamped case assumes $\omega_0^2 > \frac{\gamma^2}{4}$, su...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.140 	\2
+          The underdamped case assumes $\omega_0^2 > \frac{\gamma^2}{4}$, su...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.140 	\2
+          The underdamped case assumes $\omega_0^2 > \frac{\gamma^2}{4}$, su...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.140 	\2
+          The underdamped case assumes $\omega_0^2 > \frac{\gamma^2}{4}$, su...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+[5] [6]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 163.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 163.
  (electriclab.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 133.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 133.
-Package rerunfilecheck Info: File `electriclab.out' has not changed.
-(rerunfilecheck)             Checksum: FC12C8984F49483FEA90C461F738FE0C;92.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 133.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 163.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 163.
+
+
+Package rerunfilecheck Warning: File `electriclab.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `electriclab.out':
+(rerunfilecheck)             Before: 24C7E664E4C1969C01659D0523367670;138
+(rerunfilecheck)             After:  0C4EAA5F747D4803ACC7A10FBC3821B3;184.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 163.
  ) 
 Here is how much of TeX's memory you used:
- 17892 strings out of 493333
- 325760 string characters out of 3139170
- 393041 words of memory out of 3000000
- 21017 multiletter control sequences out of 15000+200000
+ 17920 strings out of 493333
+ 325963 string characters out of 3139170
+ 394040 words of memory out of 3000000
+ 21018 multiletter control sequences out of 15000+200000
  11045 words of font info for 42 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,11n,54p,456b,895s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1267,9 +1358,9 @@ ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program File
 s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX
  2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX 2.9/font
 s/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on electriclab.pdf (5 pages, 174007 bytes).
+Output written on electriclab.pdf (6 pages, 186988 bytes).
 PDF statistics:
- 171 PDF objects out of 1000 (max. 8388607)
- 65 named destinations out of 1000 (max. 500000)
- 29 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 212 PDF objects out of 1000 (max. 8388607)
+ 92 named destinations out of 1000 (max. 500000)
+ 37 words of extra memory for PDF output out of 10000 (max. 10000000)
 

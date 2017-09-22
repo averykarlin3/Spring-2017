@@ -198,5 +198,46 @@
 		\3 For a plane, it is found that $\vec{E} = \frac{\omega \hat{n}}{2\epsilon_0}$, such that it is constant, independent of distance
 		\3 In addition, for objects without symmetry, by the principle of superposition, it can be broken up into symmetrical parts
 	\2 The curl of $\vec{E}$ can be calculated for a point charge, and extended by superposition to the general case, by the Stokes Theorem, such that it is found that $\oint \vec{E} \cdot d\vec{l} = 0$, or $\vec{\nabla} \times \vec{E} = \vec{0}$
+\1 Since the curl of $\vec{E}$ is 0, such that by the Helmholtz Theorem, it is equal to the gardient of a scalar, and the loop integral around a closed loop is 0 and the the line integral of $\vec{E}$ is path independent by Stokes
+	\2 As a result, since the derivatives of each component of the electric field with respect to each variable are interconnected, the function is able to be contained within a scalar function
+	\2 By it being path independent, an electric potential can be defined, such that $V(\vec{r}) = -\int^{\vec{r'}}_0 \vec{E} \cdot d\vec{l'}$ or $\vec{E} = -\nabla V$
+		\3 Electric potential is distinct from potential energy
+		\3 Equipotential surfaces are those in which the potential is constant over the surface
+			\4 It is notable that for regions of equal potential, there is no field between them, but potential is not required to be 0
+		\3 Since potential is relevant in terms of potential difference between two points, the origin/reference point is unimportant, due to just changing a constant addition to the potential throughout
+			\4 The point of 0 potential is generally assumed to be the point infinitely distant from all electric charges, though this causes issues for infinite charge distributions, in which case other references must be used
+	\2 Electric potential obeys the principle of superposition, similar to force and electric field, measured in Volts or J/C
+	\2 By Gauss's Law, it is found that $\nabla^2 V = \frac{-\rho}{\epsilon_0}$, known as Poisson's equation, where it is the Laplacian equation in regions of no charge
+		\3 For some localized charge distribution, $V(\vec{r}) = \frac{1}{4\pi\epsilon_0} \int \frac{\rho(\vec{r}')}{\pmb{\scriptr}}d\tau'$, assuming a reference point at infinity, avoiding the vectors needed for direct field calculations
+\1 By Gauss's Law, it is seen that there is a discontinutity in the field around a surface, such that $E_{above-perp} - E_{below-perp} = \frac{\sigma}{\epsilon_0}$, due to being undefined at the charge
+	\2 This assumes that upward is the vector direction to calculate the difference in the vector fields
+	\2 Further, by the fact that the curl is 0 of the electric field, the integral of the field around a closed loop is 0, such that the parallel electric field on both sides is equal
+		\3 The sides have no contribution to the loop due to being of infinitessimal length, such that it is purely by the parallel portions of the loop
+	\2 Thus, it is generalized to $\vec{E}_{abv} - \vec{E}_{blw} = \frac{\sigma \hat{n}}{\epsilon_0}$, where $\hat{n}$ is the upward surface normal
+	\2 Since the potential must be continuous across any boundary, as the path length goes towards 0, the potential becomes constant across the boundary
+		\3 On the other hand, since the derivative is the electric field, the normal derivative ($\frac{\partial V}{\partial n} = \nabla V \cdot \hat{n}$) has the same discontinuity as the electric field
+\1 By classical mechanics, $W = \int^b_a \vec{F} \cdot d\vec{l} = -Q\int^b_a \vec{E} \cdot d\vec{l} = Q(V(b) - V(a))$, independent of path, such that electrostatic force is conservative
+	\2 Thus, potential difference is equal to the work per unit charge, or the potential energy per unit charge
+	\2 Since for each charge added, the number of potentials relative to each charge goes up, it can be written as a sum, such that $W = \frac{1}{4\pi\epsilon_0} \sum_{i = 1}^n \sum_{j > i}^n \frac{q_iq_j}{\pmb{\scriptr_{ij}}}$ is the total work to move all charges
+		\3 This can also be written such that each pair is counted twice, but then divided by half, $W = \frac{1}{8\pi\epsilon_0} \sum_{i = 1}^n \sum_{j \neq i}^n \frac{q_iq_j}{\pmb{\scriptr_{ij}}}$
+			\4 It can thus be written as a result in terms of $V(\vec{r})$, as the potential after all charges are in place, $W = \frac{1}{2}\sum_{i = 1}^n q_iV(\vec{r}_i)$
+		\3 By extension, for a continuous charge distribution, $W = \frac{1}{2}\int \rho V d\tau = \frac{\epsilon_0}{2}\int (\nabla \cdot \vec{E})Vd\tau = \frac{\epsilon_0}{2}(\int_V E^2d\tau + \oint_S V\vec{E} \cdot d\vec{a}$
+			\4 Since the region being integrated over can be any size that encompasses all of the charge, since the electric field increases as the volume integral rises, the surface integral decreases
+			\4 As a result, as the domain rises infinitely, $W = \frac{\epsilon_0}{2}\int_{\mathbb{R}^3} E^2 d\tau$
+	\2 While the work integral implies that the energy of a stationary charge distribution can only be positive, while the $\rho$ integral doesn't force that
+		\3 This is possible due to the work integral of the electric field giving the total energy of the charge configuration, while $\rho$ not including the energy from the creation of the point charges
+		\3 With point charges, since the potential created by a point charge is non-infintessimal, unlike a charge distribution, the energy from it would create a problem, and must be ignored
+	\2 Since electrostatic energy is quadratic, it does not follow the principle of superposition, adding extra terms
+	\2 The energy is neither considered to be stored in the charge or field in electrostatics, though it could be though to be in the charge by energy density $\frac{1}{2}\rho V$ or the field by $\frac{\epsilon_0}{2}E^2$
+\end{outline*}
+\section{Extra}
+\begin{outline*}
+\1 The Helmholtz Theorem states that for two fields with the same divergence and curl, the difference of the fields has a divergence and curl of 0
+	\2 For a function with curl 0, it is equal to the gradient of a function, called a gauge function within gauge transformations
+\1 Gauge transformations add an additional component to potentials to create more simplistic equations, adjusting the divergence of the vector potential, generally to 0
+	\2 These added terms must create the same fields, while simplifying the equations, putting each of the added terms in terms of a gauge function, $\lambda(\vec{r}, t)$, generally equal to the function whose gradient makes the curlless field
+	\2 The gauge potentials able to be used are specified by the gauge condition on the potentials themselves, not on the gauge transformation
+\1 Helmholtz Theorem uniqueness depends on the fact that the divergence and curl converge to 0 faster than $\frac{1}{r^2}$ and the field itself converges to 0
+	\2 As a corollary though, in other cases, if the field converges to 0 faster than $\frac{1}{r}$, it can be written as the gradient of a scalar potential plus the curl of a vector potential, though possibly not uniquely
 \end{outline*}
 \end{document}

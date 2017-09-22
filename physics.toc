@@ -1,3 +1,4 @@
 \contentsline {section}{\numberline {1}Course Introduction}{3}{section.1}
 \contentsline {section}{\numberline {2}Chapter 1 - Vector Analysis}{3}{section.2}
 \contentsline {section}{\numberline {3}Chapter 2 - Electrostatics}{7}{section.3}
+\contentsline {section}{\numberline {4}Extra}{8}{section.4}
