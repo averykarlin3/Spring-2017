@@ -229,7 +229,28 @@
 		\3 With point charges, since the potential created by a point charge is non-infintessimal, unlike a charge distribution, the energy from it would create a problem, and must be ignored
 	\2 Since electrostatic energy is quadratic, it does not follow the principle of superposition, adding extra terms
 	\2 The energy is neither considered to be stored in the charge or field in electrostatics, though it could be though to be in the charge by energy density $\frac{1}{2}\rho V$ or the field by $\frac{\epsilon_0}{2}E^2$
-\end{outline*}
+\1 Insulators are materials, such as glass and rubber, where the electron is attached closely to a specific atom, while conductor atoms allow at least one electron to roam freely, while a perfect conductor would have an unlimited supply of free electrons
+	\2 It is found that the electric field is 0 inside a conductor, due to the charges moving to create an induced field that cancels the original field
+		\3 By extension, $\nabla \cdot \vec{E} = \frac{\rho}{\epsilon_0}$, such that the net charge density inside is 0, such that all net charge is on the surface
+		\3 In addition, the interior of the conductor is equipotential
+		\3 Further, $\vec{E}$ is perpendicular to the surface, since the charges are unable to move from the surface, but can move to remove any parallel field
+		\3 As a result, the potential energy of the conductor is at a minimum when the charges are spread across the sphere
+	\2 Charges placed near an uncharged conductor will cause the movement of charge to produced an induced charge on the surface of the conductor, without creating a field inside to cancel out the external charge
+		\3 The same is true for a cavity inside a conductor with some charge placed within the cavity
+			\4 The leftover charge then produces the total charge equal to the cavity charge plus the original conductor charge, uniformly spaced around the outside
+		\3 This is the basis of a Faraday cage, such that the electric field will remain 0 inside, regardless of how much electrical energy is applied to the surface
+	\2 Since the field immediately outside a charged plane is $\vec{E} = \frac{\sigma}{\epsilon_0}\hat{n}$ and $\sigma = -\epsilon_0 \frac{\partial V}{\partial n}$, away from the field
+		\3 As a result, force on each surface charge per unit area, $\vec{f} = \sigma \vec{E}_{avg} = \frac{1}{2}\sigma(\vec{E}_{abv} + \vec{E}_{bel})$
+			\4 Since the force is made up of both the force from itself and other locations, $E_{\pm} = E_o \pm \frac{\sigma \hat{n}}{2\epsilon_0}$, where the discontinuity is the result of the surface charge, by the fact that it is caused by its presence
+			\4 Thus, $E_{avg} = E_o$, such that the average removes the effect of the field from the surface charge itself
+		\3 On the other hand, for a conductor, the average is of $\frac{\sigma}{\epsilon_0}\hat{n}$ right outside, and 0 inside, such that the force per unit area on the surface charge is $\vec{f} = \frac{1}{2\epsilon_0}\sigma^2\hat{n}$
+			\4 As a result, conductors have an electrostatic pressure towards the surface on unit charges, $P = \frac{\epsilon_0}{2}E^2$
+	\2 For two conductors of equal but opposite charge, the potential difference is used, where the electric field between them is linear to unit charge which is linear to total charge in all regions
+		\3 Since $\vec{E}$ as a result is proportional to both total charge and by definition, voltage, capacitance is defined as $CV = Q$, measured in Farads
+		\3 Capacitance of a single conductor assumes an infinite spherical shell, such that the potential is the infinity reference point
+		\3 Charging the capacitor requires moving Q charge from the positive plate to the positive, against the current flow, against the electric field
+			\4 For some charge, $dW = (\frac{q}{C})dq$, where q is the approximate charge at that point, such that $W = \frac{Q^2}{2C} = \frac{CV^2}{2}$2
+\end{outline*}	
 \section{Extra}
 \begin{outline*}
 \1 The Helmholtz Theorem states that for two fields with the same divergence and curl, the difference of the fields has a divergence and curl of 0

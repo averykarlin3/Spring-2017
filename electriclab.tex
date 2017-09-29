@@ -164,9 +164,62 @@
 		\3 Zener diodes have a forward bias voltage to conduct and a greater magnitude reverse bias voltage after which it is able to conduct in reverse
 		\3 The voltage drop is often modelled as 0 for simplicity
 	\2 Diode circuits are solved by assuming it is either open or short, replacing it if short with a voltage drop of the forward bias, calculating the remainder to see if the assumptions are valid
+		\3 The forward bias of 0 V versus the conventional real 0.7 V forward bias is determined by the particular circuit, generally just changing the values slightly
+		\3 If the current is found to be in the wrong direction, the assumption is wrong, and that diode is assumed to be wrong
 	\2 In reality, diodes are defined by the equation $I = I_S(e^{\frac{eV}{nkT}} - 1)$, where $I_s$ is the saturation current around $10^{-15} A$, k is the Boltzmann constant, $1.38 * 10^{-23} W*s/K$, and T is the temperature
 		\3 n ranges from 1 to 2, depending on the diode structure, approximately 1 for surface mounted PCB ones, 2 for hand-used diodes
 		\3 $\frac{kT}{e}$ is the thermal voltage, $V_T$, approximated for room temperature as 25 mV, with the -1 term able to be ignored due to the size of $I_D$
-	\2 
+	\2 Junction diodes can be modelled equivelently by a resistor and a DC voltage source in series, applying Kirchoff's Voltage Law, to get the relationship between diode voltage and current as $I = \frac{-V}{R} + \frac{V_{DC}}{R}$
+		\3 This function is called the load line, such that it must satisfy the diode I-V relationship and the load line, since Kirchoff applies to non-linear as well
+			\4 The intersection of the two functions is called the quiescant/operating point of the diode
+		\3 An AC source added in series after the DC voltage adds an AC component to the current and voltage of the diode
+			\4 Notation has a lowercase letter with an uppercase subscript refer to the total, uppercase for both for the DC component, and lowercase for both as the AC component
+			\4 Unlike for a linear circuit, $i_D = I_D + i_d = f(V_D + v_d) \neq f(V_D) + f(v_d)$, $I_D \neq f(V_D)$, and $i_d \neq f(v_d)$
+			\4 In addition, for an AC circuit, the AC quantities depend on the DC voltage as well as the total quantities
+		\3 By the diode relationship and the small signal approximation, $I_D + i_d = I_De^{\frac{v_d}{nV_T}} = I_D(1 + \frac{v_d}{nV_T})$, or $i_d = \frac{I_D}{nV_T}v_d$, such that it can be modelled as a resistor
+			\4 The superposition principle can then still be used, dividing into DC and AC, with the AC changed for a linear model and determined by the DC operating point
+			\4 The resistance, called the dynamic resistance, $\rho = \frac{nV_T}{I_D}$, where $\frac{1}{\rho} = \frac{di_D}{dv_D}|_{v_D = V_D}$
+			\4 This signifies that as long as the AC signal keeps the diode near the DC operating point, it responds to the AC linearly
+\end{outline*}
+\section{Homework 5}
+\begin{outline*}
+\1 Transformers are devices which transform the amplitude of AC voltage, commonly stepping down a high voltage transmission wire into a safe household level, called a step-down transformer, while the opposite is a step-up
+	\2 Transformers are commonly made of a ring core, with $n_1$ primary windings around one side of the core, and $n_2$ secondary windings, where the current in the primary core and voltage are $I_1, V_1$ and $I_2, V_2$ for the secondary
+		\3 The core is made of a ferrous material, keeping the magnetic field inside, flowing to the secondary part of the core
+		\3 The current flowing through the primary coil causes a time-varying magnetic field inside the material, causing a current in the secondary coil
+	\2 By Faraday's Law, $V_2 = \frac{n_2}{n_1}V_1$, and by conservation of energr, $I_1V_1 = I_2V_2$, such that both the voltage and the current depend on the turns ratio $\frac{n_1}{n_2}$
+	\2 Transformers are denoted by a circuit with half of a coil and a line on the outside, next to the same within another circuit
+	\2 Transformers are also used for impedence matching, based on the fact that the maximum power goes to the load if the load and internal impedence are equal
+		\3 The transformer can be placed between the source and the load, such that it is found that $V_1 = I_1((\frac{n_1}{n_2})^2R_L)$, providing a modified effective resistance
+\1 The diode piecewise function model is found graphically, looking at the intersection of the load line and diode exponential, using either a forward bias of 0.6 or 0.7 V, able to be any voltage without forward bias, but no current
+\1 Diodes are commonly used as voltage droppers, putting a large number in series to drop by that value
+	\2 It can also be a limited, putting a resistor in series with two diodes in parallel in opposite directions, such that whichever way the current is flowing, one of the diodes defines the voltage as the forward bias, used to prevent spikes
+		\3 A variable diode clipper can be made by adding a battery in series to each of the diodes to add some set amount of voltage to the output
+	\2 Diode clamps are used to shift the AC signal by a constant voltage, made up of a capacitor and a diode in series, taking the output voltage of the diode
+		\3 For voltages lower than $-0.6 V$, the capacitor is charged to a voltage $V_{PP} - 0.6$, where $V_{PP}$ is peak to peak voltage, unable to discharge due to the diode only going one way
+		\3 As a result, the output voltage is shifted upward by the voltage of the capacitor if the diode is pointed towards the capacitor, negative if away
+	\2 Diodes can be used to protect inductors, placed in parallel, such that reverse bias is present when the inductor is on
+		\3 When the circuit is turned off, the inductor produces a voltage by $V = L\frac{dI}{dt}$ in the opposite direction, causing an arc flash normally, activating the diode to short the circuit
+	\2 Diodes are also used for logic circuits, connecting it to a switch that activates the circuit if any of the switches is connected to ground	
+		\3 For the other setting, it is connected to a voltage equal to the separate voltage supply in series with a resistor
+		\3 There is also a lightbulb connected to ground in parallel to the diodes, such that current only flows through the diodes if it is connected to ground, such that the lightbulb voltage is 0.6 V if any select no, too low to activate the lightbulb
+\1 Diodes are used also for rectification, making an AC signal unidirectional, used to make a DC signal or an AM radio reciever
+	\2 Half-wave rectifiers are a single diode and load in series, such that current only flows for positive voltage, creating a non-zero average voltage
+	\2 Center-tapped full-wave rectifiers are made up of a center tap in parallel with a diode coming off of both, with a center tap of joined wire from the transformers in the middle, attached to a ground
+		\3 The non-center taps are in parallel, joined in series to the load, which is in turn connected to ground
+		\3 The center tap transformer allows identical secondary coils to be shared by two separate wire sets, providing a phase difference between the output of 180 degrees
+		\3 Half-wave rectifier diodes then provide only the positive voltages, adding it them together, though with only half the original voltage amplitude, dividing the secondary windings
+	\2 Full-wave bridge rectifiers are a transformer, leading to a diamond of diodes, all pointing away from the transformer, with the right-most and left-most corners leading to the load resistor
+		\3 This loses twice the voltage of the forward voltage of the diode, but has the full voltage provided otherwise being given to the resistor, unidirectional without break
+\1 Power supply filters are used to convert rectified AC voltage to a DC voltage, based on the idea that the recified circuit has a DC average component with an AC component
+	\2 As a result, a low-pass filter is used, placing a capacitor in parallel to the output of the rectifier, such that it charges as it is positive
+		\3 Since it is only able to discharge into the load resistor, it does so otherwise, in approximately $R_LC$ length of time (the time constant)
+		\3 If the time constant is far larger than the period of the signal, the capacitor doesn't charge and discharge too drastically, making it more like DC, rising quickly to the peak voltage then slowly falling slightly
+	\2 The quality of a power fsilter is denoted by the ripple factor, r, $\frac{V_{rms,AC}}{V_{DC}}$, found that for a capacitor filter with $R_LC >> T$, to be equal to $\frac{1}{2\sqrt{3}fR_LC}$, where f is the rectified signal frequency
+		\3 It is also measured by the regulation, such that the supplied and output current doesn't impact output voltage
+	\2 It is also measured that for a capacitor filter, $V_{DC} = V_{max} - \frac{V_{max}T}{2R_LC} = V_{max} - \frac{I_{DC}}{2fC}$, where it is assumed that the peak voltage is approximately the DC current multiplied by the resistive load
+	\2 Alternative forms of regulation are an LC regulator, with the load parallel to the capacitor, and an RC $\pi$ regulator, with a capacitor, resistor, and capacitor in a loop, with the load parallel to the second capacitor
+		\3 It is found that the ripple for both depend on a factor of $f^{-2}$, which is preferable for high frequency, and L-section (LC) is an ideal regulator
+\1 **ADD END OF DIODE SECTION**
 \end{outline*}
 \end{document}
