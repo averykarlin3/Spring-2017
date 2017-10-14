@@ -249,8 +249,28 @@
 		\3 Since $\vec{E}$ as a result is proportional to both total charge and by definition, voltage, capacitance is defined as $CV = Q$, measured in Farads
 		\3 Capacitance of a single conductor assumes an infinite spherical shell, such that the potential is the infinity reference point
 		\3 Charging the capacitor requires moving Q charge from the positive plate to the positive, against the current flow, against the electric field
-			\4 For some charge, $dW = (\frac{q}{C})dq$, where q is the approximate charge at that point, such that $W = \frac{Q^2}{2C} = \frac{CV^2}{2}$2
-\end{outline*}	
+			\4 For some charge, $dW = (\frac{q}{C})dq$, where q is the approximate charge at that point, such that $W = \frac{Q^2}{2C} = \frac{CV^2}{2}$
+\end{outline*}
+\section{Chapter 3 - Potentials}
+\begin{outline*}
+\1 Electrostatics have the goal of calculating the electric field, found easily for simple charge distributions, otherwise easier by potential in terms of charge density
+	\2 It is often easier to solve in differential form, in which case it is the Poisson equation, such that if the charge density is 0, it is Laplacian (assuming there is charge at another location)
+\1 In 1D, the Laplacian equation solves to a line, with the boundary conditions determining the constants of the line, where the solutions are called harmonic equations
+	\2 As a result, the potential is the average of the potential on equally spaced bounds around the point ($V(x) = \frac{1}{2}(V(x + a) + V(x - a))$)
+		\3 By extension, the maxima and minima must be at the endpoints in this case
+	\2 In 2D, it is a partial differential equation, such that there is a non-finite number of arbitrary constants, but with the property that each point is the average of the values of the circle around it, with no local maxima and minima, except on the boundary
+		\3 Thus, the surface area of the surface is minimized, similar to the distance in 1D being minimized by a line
+	\2 In 3D, similarly, a point is the average of the values in a sphere around it, with only maxima and minima at the boundaries
+	\2 For one dimension, the problem requires two boundary conditions, either the function and its derivative at the same or opposite end, or the function at both ends
+		\3 The derivative at both ends would be redundant or cause an impossible case **Why**
+		\3 For higher dimensions, it is determined by the first uniqueness theorem, stating that the solution for some volume is uniquely determined if V is given for the boundary surface
+			\4 This is proven by the fact that the boundary must have the exterma, and the difference of two possible potentials for the same boundary have a difference of boundary of 0, such that it must be 0 inside
+			\4 This can be extended to the Poisson equation, such that the charge density and the boundary condition uniquely determine V
+		\3 The second uniqueness theorem states that in a volume surrounded by conductors (or unbounded as a whole) and containing a specified charge density, the electric field is uniquely determined by the total charge on each conductor
+			\4 This is proven by Gauss's Law for the surface of each conductor, combined with Gauss's Law for the outer boundary, such that the difference of two possible fields has a divergence of 0 at the boundary
+			\4 Further, since the potential on the surface of the conductors is equipotential, the voltage is constant, such that $\nabla \cdot (V_d\vec{E}_d) = -(E_3)^2$, and $-\int_V \nabla \cdot (V_d\vec{E}_d)d\tau = \int_V (E_3)^2d\tau = 0$, since $V_d$ is constant and $E_3 = 0$
+		
+\end{outline*}
 \section{Extra}
 \begin{outline*}
 \1 The Helmholtz Theorem states that for two fields with the same divergence and curl, the difference of the fields has a divergence and curl of 0

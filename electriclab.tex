@@ -222,4 +222,53 @@
 		\3 It is found that the ripple for both depend on a factor of $f^{-2}$, which is preferable for high frequency, and L-section (LC) is an ideal regulator
 \1 **ADD END OF DIODE SECTION**
 \end{outline*}
+\section{Homework 6}
+\begin{outline*}
+\1 Signal amplification is needed due to signal weakness (sub-Volt energy) as a result of transducing, or changing the energy format, required to be linear so as to not change the signal information (distorting it)
+	\2 Amplifiers function by $V_o = AV_i$, where A is the amplifier gain, called a linear amplifier in that case, otherwise causing non-linear distortion
+	\2 Voltage amplifiers, often called preamplifiers, operate on small signals, while power amplifiers are used for large current gain with small voltage gain
+		\3 Unlike transformers which can increase voltage, but cannot increase power, amplifiers are able to increase both voltage and power
+		\3 As a result, amplifiers require an additional DC power source, both for power dissipated and outputed, requiring a positive and negative voltage terminal, denoted by an arrow going up and down from the 
+			\4 The power efficiency, $\mu = \frac{P_{out}}{P_{dc}} * 100$
+	\2 Voltage amplifiers have a limit to the maximum and minimum output voltages, above and below which, they will just go to the limit
+\1 Voltage amplifiers generally have an input and output terminal, as well as a common ground terminal, denoted by a triangle, with the point as the output, the ground coming from a slanted side
+\1 Voltage and current gain are able to be expressed in decibles as $20log|A|$, while power is represented in decibles as $20log|A|$
+	\2 Absolute values are used since negative amplitudes refer to a phase difference of 180 degrees, but the gain is still the same value
+\1 Since amplifiers are li3ear, the sine-wave frequency of an AC output is the same as the AC input, though other waveforms do change shape
+	\2 The phase and amplitude are able to change as it moves through a linear circuit
+	\2 The amplifier gain/frequency response is formally done as a vector with magnitude of the gain ratio (magnitude/amplitude response) and angle (phase response) of the phase shift
+		\3 It is found that the amplitude response is constant within 3 dB over the amplifier bandwith, above and below which, there is a lower gain, generally only using the amplifier for the bandwidth frequencies
+\1 Operational amplifiers take in a positive (non-inverting) and negative (inverting) input, and the output is the difference multiplied by the gain, such that if the inputs are the same, the output is 0, called common-mode rejection
+	\2 Ideal op amps have infinite input resistance, 0 output resistance, and infinite gain, such that no current is drawn, and the load has no effect on the output
+		\3 As a result, there is often feedback, such that the output is connected to one of the inputs, called negative or positive feedback, used for oscillators
+		\3 Op amps are solved by assuming the input draws no current and adjusting the output such that the positive and negative inputs are equal
+	\2 Inverting amplifiers have a resistor ($R_1$) from a voltage source to the negative input, the positive connected to ground, with a branch from the negative input to a resistor ($R_2$) to the output
+		\3 As a result, $v_o = \frac{-R_2}{R_1}v_{in}$, while input resistance is $R_1$, such that it is higher than 0, shifting the signal and amplifying it
+		\3 If it is calculated instead such that $v_{out} = A(v_+ - v_-)$ (assuming non-infinite gain), $\frac{v_{out}}{v_{in}} = \frac{-R_2/R_1}{1 + (1 + R_2/R_1)/A}$, such that as A approaches infinity, it approaches the previous ratio
+		\3 By this configuration the gain and input resistance are inversely related, causing an issue, solved by adding an extra resister after $R_2$ branching downward to ground and another before the current reaches $v_{out}$
+			\4 This has the additional resistors increase the gain magnitude, while allowing a high input resistance
+	\2 Non-inverting amplifiers have the resistor connected to ground and the negative input, while $v_{in}$ is connected to the positive input, creating an effectively infinite input resistance, with $v_{out} = (1 + \frac{R_2}{R_1})v_{in}$
+	\2 Voltage buffers have both resistors in the non-inverting amplifier replaced by a wire, such that input resistance is infinite, output is 0
+	\2 **Add Remaining of Extra Reading**
+\end{outline*}
+\section{Homework 7}
+\begin{outline*}
+\1 In reality, small DC currents flow into op-amps, called the bias current ($I_B^{\pm}$), generally less than 500 nA, only causing an issue in certain cases
+	\2 For a non-inverting amplifier with a capacitor at the non-inverting input (AC coupled non-inverting), the capacitor blocks the DC bias current, preventing the op-amp from working
+	\2 For a non-inverting amplifier with the non-inverting input as ground instead of voltage, the bias current must flow through the ground for the + input, and from the output for the - input, such that the output isn't 0 V as expected ($V_{out} = I_B^-R_f$)
+		\3 In addition, since the voltage outputted is higher for a higher resistor going from the output to - input, high feedback resistors increase the effect
+	\2 For a non-inverting amplifier with the non-inverting input as ground, with an input resistor before it
+		\3 It is found for this circuit that $V_{out} = R_f(I_B^- - I_B^+)$, where $R_f$ is the feedback resistor, such that it depends on the input offset current (the maximum mechanical bias current difference), lowering the effect of it
+			\4 This equation is only valid if the added resistor, $R = \frac{R_1R_f}{R_1 + R_f}$, where $R_1$ is the inverting input resistor
+		\3 Thus, a resistor is added to the non-inverting side in various circuits to prevent an effect from the bias current
+\1 There is also a small offset between the voltage of the inputs, called the input offset voltage, acting like a small voltage source in series with the inputs, creating a non-zero output for two grounded inputs
+	\2 Op-amps are thus made with nulling inputs, onto which a potentiometer is connected, adjusting the output to 0, called nulling/external balancing
+\1 The slew rate limit is the maximum rate of change of the output voltage from a change in the input voltage
+	\2 As a result for an AC signal, $\omega A$ maximum rate of change, such that the highest frequency that will prevent distortion is $f_{max} = \frac{SR}{2\pi A}$
+	\2 The maximum frequency when the amplitude is equal to the saturation voltage (maximum output voltage based on the inputted voltage supply) of the op-amp is the full-power bandwidth
+	\2 On the other hand, op-amps with a high slew rate have a tendency to oscillate spontaneously due to being unstable
+\1 The frequency response of the op-amp is independent of the amplitude, such that the open loop (non-feedback) gain drops exponentially, while the closed loop is constant for longer, for the duration of the closed loop bandwidth
+	\2 The constant of the closed loop gain and closed loop bandwidth is the gain bandwidth product/open-loop bandwidth
+		\3 The open-loop bandwidth is also the frequency at which the open-loop gain is 1 
+\end{outline*}
 \end{document}
