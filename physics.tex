@@ -269,7 +269,14 @@
 		\3 The second uniqueness theorem states that in a volume surrounded by conductors (or unbounded as a whole) and containing a specified charge density, the electric field is uniquely determined by the total charge on each conductor
 			\4 This is proven by Gauss's Law for the surface of each conductor, combined with Gauss's Law for the outer boundary, such that the difference of two possible fields has a divergence of 0 at the boundary
 			\4 Further, since the potential on the surface of the conductors is equipotential, the voltage is constant, such that $\nabla \cdot (V_d\vec{E}_d) = -(E_3)^2$, and $-\int_V \nabla \cdot (V_d\vec{E}_d)d\tau = \int_V (E_3)^2d\tau = 0$, since $V_d$ is constant and $E_3 = 0$
-		
+\1 By the uniqueness theorems, for some infinite, grounded conducting plane with a charge d above it at the origin, the conductor forms an induced charge in response, affecting the potential
+	\2 The potential is thus solved by the corollary to the first law in the region above the conductor, due to the charge distribution and boundary conditions being known (0 at the plate and infinity)
+		\3 It is able to be solved by creating a problem with similar conditions, such that there is an opposite charge d below the origin, but no plate, found to follow the same conditions, such that the solution is identical
+	\2 By this solution, the conductor boundary condition equations can be used to get the charge distribution, such that $\sigma = -\epsilon_0\frac{\partial V}{\partial n} = -\epsilon_0\frac{\partial V}{\partial z}$
+		\3 It is found that for the conducting plate, the total induced charge on the plate is equal to -q, greatest at the origin
+	\2 By extension, the electric field and force on the particle must be the same within the region as within the substitute, but since energy relies on all of space, rather than the region, it is distinct
+		\3 The energy is found to be half the substitute in this case, due to the electric field only existing in the side above the conducting plate, or due to the energy to assemble it require moving one charge into the region
+	\2 This is called the method of images, adding a mirrored particle relative to the planar conductor surface, though the charge cannot be added to the region being determined, due to the potential being defined by charge distribution
 \end{outline*}
 \section{Extra}
 \begin{outline*}

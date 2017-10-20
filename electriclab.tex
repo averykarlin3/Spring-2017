@@ -271,4 +271,26 @@
 	\2 The constant of the closed loop gain and closed loop bandwidth is the gain bandwidth product/open-loop bandwidth
 		\3 The open-loop bandwidth is also the frequency at which the open-loop gain is 1 
 \end{outline*}
+\section{Homework 8}
+\begin{outline*}
+\1 When connected in negative feedback, op-amps are linear operations, while in non-linear use, they are comparators, saturated at the positive or negative source value
+	\2 Without feedback, the voltage of an input can't be modified to that of an output, such that the golden rules do not apply
+		\3 If the negative input is greater than the positive input, the output is the positive source or vice versa
+	\2 Op-amps are generally not used non-linearly, due to taking time to recover from an input voltage change by the slew rate, or or may need more output voltage options than the source voltages
+\1 Comparators have the negative input with the voltage applied through a resistor, while the positive is connected to ground, with an open-collector output made up of a bipolar transistor
+	\2 The transistor has the collector connected to the output, an emitter connected to the non-null additional pin, and a base
+	\2 The output is either high or low, chosen based on the relative input voltages, where if the negative input is greater, it is low, or vice versa
+		\3 For the low state, the output is connected to the emitter part of the transistor by an open-wire, while for high, it is an open circuit
+	\2 There is also required to be a pull-up resistor connected to the output and the high voltage source, needing to be in between the zero short and infinite open circuit transistor resistance
+\1 Noise on the comparator input would pose an issue to use, such that positive feedback is used in a Schmidt trigger, denoted overall by a triangle with two joined square s-shapes for the M vs H ferromagnet curve
+	\2 This adds hysteresis, or the dependence of the output of the system on past outputs
+	\2 As a result of the feedback, while the low-to-high threshold remains at 0 V, assuming the positive input is grounded, the high-to-low threshold increases, such that there is a division between
+\1 Schmitt triggers are used to make an oscillator **Finish**
+\end{outline*}
+\section{Homework 9}
+\begin{outline*}
+\1 Bipolar transistors are made up of a p-type material within two n-type, or vice versa, with the middle called the base, the left called the emitter, and the right called the collector, each part connected to the circuit
+	\2 Since the p-type has fewer electrons, it has an expanded valence shell, such that the forbidden energy levels are pushed up above n-type, drawn by a three-level diagram
+		\3 It is connected to the circuit such that the emitter is forward biased, expanding its conducting level, and the collector is reverse biased, shrinking its conducting level closer to the base
+\end{outline*}
 \end{document}
